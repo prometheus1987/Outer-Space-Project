@@ -1,0 +1,21 @@
+@import url(http://fonts.googleapis.com/css?family=Arvo:400,700&effect=anaglyph);
+
+body {
+  background-color: black;
+}
+
+h1 {
+  color: white;
+  font-family: 'Arvo', serif;
+  font-weight: 700;
+}
+
+h2 {
+  color: white;
+  font-family: 'Arvo', serif;
+}
+
+p {
+  color: white;
+  font-family: 'Arvo', serif;
+}
