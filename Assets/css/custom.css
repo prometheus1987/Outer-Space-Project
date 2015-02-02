@@ -1,7 +1,8 @@
 @import url(http://fonts.googleapis.com/css?family=Arvo:400,700&effect=anaglyph);
 
-.c { overflow: hidden; margin: 0; width: 100%; height: 100%; }
+.c { margin: auto; width: 100%; height: 100%; }
 .c { background: black; }
+
 body {
   background-color: black;
 }

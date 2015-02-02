@@ -34,7 +34,7 @@ $( document ).ready(function() {
     
     for(t=-max;t<max;t+=inc){
       plot = $(n, t, 200);
-      ctx.fillStyle = "hsl(" + plot*100 + ", 100%, 70%)";
+      ctx.fillStyle = "hsl(" + plot*510 + ", 100%, 50%)";
       ctx.fillRect((t+max)*xInt, 2*h/3-plot*yInt+Math.random()*20, 1, 1);
     }
 
