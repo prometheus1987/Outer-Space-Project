@@ -33,7 +33,23 @@ $(function(){
                   amplitude: -150,
                   wavelength: 100,
                   segmentLength: 1,
-                  type: 'Sawtooth',
+                  type: 'Fibonacci',
+                },
+                {
+                  timeModifier: 2,
+                  lineWidth: 1,
+                  amplitude: 200,
+                  wavelength: 100,
+                  segmentLength: 1,
+                  type: 'Fibonacci',
+                },
+                {
+                  timeModifier: 2,
+                  lineWidth: 1,
+                  amplitude: -150,
+                  wavelength: 100,
+                  segmentLength: 1,
+                  type: 'Square',
                 }
               ],
               initialize: function (){
