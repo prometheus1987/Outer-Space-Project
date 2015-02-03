@@ -1,24 +1,28 @@
-@import url(http://fonts.googleapis.com/css?family=Arvo:400,700&effect=anaglyph);
+@import url(http://fonts.googleapis.com/css?family=Raleway:100,300);
 
-.c { margin: auto; width: 100%; height: 100%; }
-.c { background: black; }
+/*.c { margin: auto; width: 100%; height: 100%; }
+.c { background: black; }*/
+
+#waves {
+            width: 100%;
+            height: 100%;
+        }
 
 body {
-  background-color: black;
-}
+          background-color: #222;
+          background-image: -moz-linear-gradient(top, #111111 0%, #222222 50%, #111111 100%);
+          background-image: -webkit-linear-gradient(top, #111111 0%, #222222 50%, #111111 100%);
+          background-image: linear-gradient(to bottom, #111111 0%, #222222 50%, #111111 100%);
+          color: rgba(255, 255, 255, 0.5);
+          color: white;
+          height: 100vh;
+          width: 100vw;
+          margin: 0;
+          padding: 0;
+        }
 
-h1 {
+body h1 {
+  font-family: 'Raleway', serif;
+  font-weight: 300;
   color: white;
-  font-family: 'Arvo', serif;
-  font-weight: 700;
-}
-
-h2 {
-  color: white;
-  font-family: 'Arvo', serif;
-}
-
-p {
-  color: white;
-  font-family: 'Arvo', serif;
 }
