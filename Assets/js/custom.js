@@ -45,8 +45,16 @@ $(function(){
                 },
                 {
                   timeModifier: 2,
-                  lineWidth: 1,
+                  lineWidth: 2,
                   amplitude: -150,
+                  wavelength: 100,
+                  segmentLength: 1,
+                  type: 'Square',
+                },
+                {
+                  timeModifier: 2,
+                  lineWidth: 1,
+                  amplitude: 100,
                   wavelength: 100,
                   segmentLength: 1,
                   type: 'Square',
