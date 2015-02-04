@@ -1,3 +1,4 @@
+// Sine Wave //
 $(function(){
             var waves = new SineWaves({
               el: document.getElementById('waves'),
@@ -58,7 +59,7 @@ $(function(){
                   wavelength: 100,
                   segmentLength: 1,
                   type: 'Square',
-                }
+                },
               ],
               initialize: function (){
               },
