@@ -18,7 +18,7 @@ $(function(){
                   amplitude: 150,
                   wavelength: 300,
                   segmentLength: 1,
-                  type: 'Fibonacci',
+                  type: 'Fib',
                 },
                 {
                   timeModifier: 1,
