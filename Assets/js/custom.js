@@ -16,7 +16,7 @@ $(function(){
                   timeModifier: 1,
                   lineWidth: 3,
                   amplitude: 150,
-                  wavelength: 200,
+                  wavelength: 300,
                   segmentLength: 1,
                   type: 'Fibonacci',
                 },
