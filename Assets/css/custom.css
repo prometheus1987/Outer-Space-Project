@@ -19,7 +19,6 @@ h1 {
   text-align: center;
   font-size: 6rem;
   line-height: .8;
-  color: white;
   text-shadow: -10px 5px 30px rgba(0,0,0,.2), -20px 10px 30px rgba(0,0,0,.1), -30px 10px 30px rgba(0,0,0,.1), -3px 2px 5px #4d626f, 3px -2px 5px #6f8ea1;
 }
 h1 span {
