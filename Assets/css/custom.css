@@ -10,7 +10,11 @@ body
   padding:0;
 }
 
-h1{
+#waves {
+  margin-top: -15%;
+}
+
+body h1 {
   background: url(../images/cosmos.jpg) repeat, white;
   font-size: 120px;
   font-weight: 900;
@@ -34,4 +38,5 @@ body p
   font-weight:100;
   color:#FFF;
   text-align: center;
+  margin-top: 5%;
 }
