@@ -32,6 +32,10 @@ body h1 {
   100% {background-position: right bottom;}
 }
 
+h1 span {
+  display: block;
+}
+
 body p
 {
   font-family: 'Raleway', serif;
