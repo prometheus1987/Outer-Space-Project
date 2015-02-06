@@ -14,6 +14,7 @@ body
   margin-top: -15%;
 }
 
+/* Banner */
 body h1 {
   background: url(../images/cosmos.jpg) repeat, white;
   font-size: 120px;
@@ -38,5 +39,4 @@ body p
   font-weight:100;
   color:#FFF;
   text-align: center;
-  margin-top: 5%;
 }
