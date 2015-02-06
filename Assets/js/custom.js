@@ -18,7 +18,7 @@ $(function(){
                   amplitude: 150,
                   wavelength: 300,
                   segmentLength: 1,
-                  type: 'Fib',
+                  type: 'Fibonacci',
                 },
                 {
                   timeModifier: 1,
@@ -53,21 +53,37 @@ $(function(){
                   type: 'Square',
                 },
                 {
-                  timeModifier: 2,
+                  timeModifier: 3,
                   lineWidth: 1,
                   amplitude: 100,
                   wavelength: 100,
                   segmentLength: 1,
                   type: 'Square',
                 },
+                // {
+                //   timeModifier: 1,
+                //   lineWidth: 1,
+                //   amplitude: -200,
+                //   wavelength: 100,
+                //   segmentLength: 1,
+                //   type: 'Triangle',
+                // },
+                // {
+                //   timeModifier: 1,
+                //   lineWidth: 1,
+                //   amplitude: 150,
+                //   wavelength: 100,
+                //   segmentLength: 1,
+                //   type: 'Sawtooth',
+                // },
               ],
               initialize: function (){
               },
               resizeEvent: function() {
                 var gradient = this.ctx.createLinearGradient(0, 0, this.width, 0);
-                gradient.addColorStop(0,"rgba(0, 0, 0, 0)");
-                gradient.addColorStop(0.5,"rgba(255, 255, 255, 0.5)");
-                gradient.addColorStop(1,"rgba(0, 0, 0, 0)");
+                gradient.addColorStop(0,"rgba(000, 255, 000, 0)");
+                gradient.addColorStop(0.5,"rgba(255, 000, 255, 0.5)");
+                gradient.addColorStop(1,"rgba(000, 255, 000, 0)");
                 var index = -1;
                 var length = this.waves.length;
                   while(++index < length){
