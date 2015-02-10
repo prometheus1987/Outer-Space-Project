@@ -1,4 +1,5 @@
-// Sine Wave //
+
+// Creates the Sine Wave //
 $(function(){
             var waves = new SineWaves({
               el: document.getElementById('waves'),
