@@ -31,7 +31,6 @@ body h1 {
   text-align: center;
   text-transform: uppercase;
   margin-top: -10%;
-  /*margin-left: 3%;*/
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
   -webkit-animation: animation 10s infinite linear;
