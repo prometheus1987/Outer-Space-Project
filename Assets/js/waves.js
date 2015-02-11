@@ -1,4 +1,3 @@
-
 // Creates the Sine Wave //
 $(function(){
             var waves = new SineWaves({
@@ -31,7 +30,7 @@ $(function(){
                 },
                 {
                   timeModifier: 2,
-                  lineWidth: 1,
+                  lineWidth: 5,
                   amplitude: -150,
                   wavelength: 100,
                   segmentLength: 1,
