@@ -8,8 +8,8 @@ $(document).ready(function() {
     directionY: 'center',
     curvedLines: true,
     parallax: true,
-    // parallaxMultiplier: 5,
-    proximity: 130
+    parallaxMultiplier: 5,
+    proximity: 200
   });
   $('.intro').css({
     'margin-top': -($('.intro').height() / 2)
