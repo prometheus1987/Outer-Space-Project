@@ -6,7 +6,7 @@ $(document).ready(function() {
     lineWidth: 1,
     directionX: 'center',
     directionY: 'center',
-    curvedLines: true,
+    curvedLines: false,
     parallax: true,
     parallaxMultiplier: 5,
     proximity: 200
