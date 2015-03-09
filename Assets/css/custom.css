@@ -50,6 +50,14 @@ body p
   text-align: center;
 }
 
+body a {
+  font-family: 'Raleway', serif;
+  font-weight:100;
+  color:#FFF;
+}
+
 .footer {
   margin-bottom: 1%;
+  margin-left: 1%;
 }
+
