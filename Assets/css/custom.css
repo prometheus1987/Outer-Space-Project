@@ -6,7 +6,7 @@ body .intro_div {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  height: 50%;
+  height: 45%;
   width: 100%; }
 
 body {
@@ -144,6 +144,11 @@ div:hover p {
 .menu-toggle a {
   text-decoration: none;
   color: #333; }
+
+[id=particles] {
+    width: 100vw;
+    height: 100vh;
+}
 
 /* JAVASCRIPT STYLING */
 /* CSS for Particles Container */
