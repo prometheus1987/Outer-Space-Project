@@ -1,17 +1,13 @@
 @import url(http://fonts.googleapis.com/css?family=Raleway:100,300);
-/*Background*/
+/*Index*/
 body .intro_div {
   background: url(../images/Om.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  display: flex;
   height: 50%;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: center; }
+  width: 100%; }
 
 body {
   background: white;
@@ -57,7 +53,7 @@ body {
   color: #333; }
 
 /* JAVASCRIPT STYLING */
-/* Particles CSS */
+/* CSS for Particles Container */
 #particles {
   width: 100%;
   height: 100%; }
