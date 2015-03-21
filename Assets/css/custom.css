@@ -41,7 +41,7 @@ div p:nth-of-type(3){
 }
 
 div p:nth-of-type(4){
-    animation-delay: 0.2s;
+    animation-delay: 0.3s;
     -webkit-animation-delay: 0.3s;
 }
 
