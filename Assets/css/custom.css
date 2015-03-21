@@ -1,4 +1,5 @@
-@import url(http://fonts.googleapis.com/css?family=Raleway:100,300);
+@import url(http://fonts.googleapis.com/css?family=Raleway:400&effect=3d-float);
+
 /*Index*/
 body .intro_div {
   background: url(../images/Om.jpg) no-repeat center center fixed;
@@ -6,7 +7,7 @@ body .intro_div {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  height: 45%;
+  height: 50%;
   width: 100%; }
 
 body {
@@ -16,8 +17,9 @@ body {
 div p {
     display: inline-block;
     font-family: 'Raleway', sans-serif;
+    text-shadow: 0px 0px 1px;
     font-size: 72px;
-    font-weight: 300;
+    font-weight: 400;
     color: black;
     text-transform: uppercase;
     position: relative;
@@ -142,13 +144,7 @@ div:hover p {
   font-size: 25px; }
 
 .menu-toggle a {
-  text-decoration: none;
   color: #333; }
-
-[id=particles] {
-    width: 100vw;
-    height: 100vh;
-}
 
 /* JAVASCRIPT STYLING */
 /* CSS for Particles Container */
