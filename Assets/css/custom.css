@@ -6,6 +6,21 @@ body {
     background: white;
     font-family: Raleway, sans-serif;}
 
+@keyframes move {
+    0% {
+        background-position: 0 60%, 0 50%;
+    }
+    100% {
+        background-position: 0 60%, 100% 50%;
+    }
+}
+.container {
+    background-size: 125%, 50% 100%;
+    background: #263645 url('/Assets/images/network.svg'),
+    radial-gradient(200px 500px at center, #ff8300 0%, transparent 50%, transparent) 0 60%, 0 100%;
+    animation: move 5s linear infinite;
+}
+
 div p {
     display: inline-block;
     font-family: 'Raleway', sans-serif;
