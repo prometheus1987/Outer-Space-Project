@@ -18,7 +18,7 @@ $(function(){
                   amplitude: 150,
                   wavelength: 300,
                   segmentLength: 1,
-                  type: 'Fibonacci',
+                  type: 'Fibonacci'
                 },
                 {
                   timeModifier: 1,
@@ -26,7 +26,7 @@ $(function(){
                   amplitude: -75,
                   wavelength: 100,
                   segmentLength: 1,
-                  type: 'Fibonacci',
+                  type: 'Fibonacci'
                 },
                 {
                   timeModifier: 2,
@@ -34,7 +34,7 @@ $(function(){
                   amplitude: -150,
                   wavelength: 100,
                   segmentLength: 1,
-                  type: 'Fibonacci',
+                  type: 'Fibonacci'
                 },
                 {
                   timeModifier: 2,
@@ -42,7 +42,7 @@ $(function(){
                   amplitude: 200,
                   wavelength: 100,
                   segmentLength: 1,
-                  type: 'Fibonacci',
+                  type: 'Fibonacci'
                 },
                 {
                   timeModifier: 2,
@@ -50,7 +50,7 @@ $(function(){
                   amplitude: -150,
                   wavelength: 100,
                   segmentLength: 1,
-                  type: 'Square',
+                  type: 'Square'
                 },
                 {
                   timeModifier: 3,
@@ -58,7 +58,7 @@ $(function(){
                   amplitude: -100,
                   wavelength: 200,
                   segmentLength: 1,
-                  type: 'Sine',
+                  type: 'Sine'
                 },
               ],
               initialize: function (){
