@@ -1,11 +1,13 @@
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700);
 
-/*Index*/
-
-body {
-    background: white;
-    font-family: 'Source Sans Pro', sans-serif;}
-
+.container {
+    background-color: #263645;
+    background-image: url('http://timteeling.com/dev/img/network.svg'),
+    radial-gradient(200px 500px at center, #00C0FF 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,0));
+    background-size: 125%, 50% 100%;
+    animation: move 5s linear infinite;
+    height: 245px;
+}
 @keyframes move {
     0% {
         background-position: 0 60%, 0 50%;
@@ -14,23 +16,6 @@ body {
         background-position: 0 60%, 100% 50%;
     }
 }
-
-.container {
-    background-color: #263645;
-    background-image: url('http://timteeling.com/dev/img/network.svg'),
-    radial-gradient(200px 500px at center, #ff8300 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,0));
-    background-size: 125%, 50% 100%;
-    background-position: 0 60%, 0 100%;
-    animation: move 5s linear infinite;
-
-    /* Extra Styles */
-    height: 300px;
-    /*box-shadow: inset 0 0 25px rgba(0,0,0,.5);*/
-    /*border: 2px solid #263645;*/
-    border-right: 0;
-    border-left: 0;
-}
-
 
 div p {
     display: inline-block;
