@@ -6,7 +6,8 @@
     radial-gradient(200px 500px at center, #00C0FF 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,0));
     background-size: 125%, 50% 100%;
     animation: move 5s linear infinite;
-    height: 245px;
+    height: 445px;
+    width: 100% !important;
 }
 @keyframes move {
     0% {
@@ -20,10 +21,9 @@
 div p {
     display: inline-block;
     font-family: 'Source Sans Pro', sans-serif;
-    text-shadow: 0px 0px 1px;
     font-size: 72px;
     font-weight: 300;
-    color: black;
+    color: #00C0FF;
     text-transform: uppercase;
     position: relative;
     margin: 10px 20px;
