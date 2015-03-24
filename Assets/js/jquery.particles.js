@@ -126,7 +126,7 @@
         particles.splice(numParticles);
       }
 
-      // Re-index particles
+      // Re-index.html particles
       for (i = particles.length - 1; i >= 0; i--) {
         particles[i].setStackPos(i);
       };
