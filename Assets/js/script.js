@@ -6,7 +6,7 @@ CosmosApp.config(function($routeProvider) {
     $routeProvider
 
         // route for the home page
-        .when('/home', {
+        .when('/', {
             templateUrl : 'pages/home.html',
             controller  : 'mainController'
         })
@@ -43,9 +43,9 @@ CosmosApp.config(function($routeProvider) {
     });
 
     // create the controller and inject Angular's $scope
-    CosmosApp.controller('mainController', function($scope) {
+CosmosApp.controller('mainController', function($scope) {
     $scope.message = 'Hello World!';
-    });
+});
 
     CosmosApp.controller('aboutController', function($scope) {
         $scope.message = 'Look! I am an about page.';
