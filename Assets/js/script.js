@@ -1,5 +1,5 @@
 // create the module and name it scotchApp
-var CosmosApp = angular.module('CosmosApp', ['ngRoute']);
+var CosmosApp = angular.module('CosmosApp', ['ngRoute', 'ngAnimate']);
 
 // configure our routes
 CosmosApp.config(function($routeProvider) {
