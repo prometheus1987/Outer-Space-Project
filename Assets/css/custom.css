@@ -25,9 +25,9 @@
     background: #263645;
     padding-bottom: 1%;
 }
-p {
+.banner p {
     font-family: 'Source Sans Pro', sans-serif;
-    font-size: 18px;
+    font-size: 48px;
     font-weight: 300;
     color: #00C0FF;
 }
