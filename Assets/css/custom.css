@@ -1,5 +1,18 @@
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700);
 
+body {
+    background: url('http://i.imgur.com/7tTKK2G.jpg');
+}
+body h1 {
+    font-family: 'Source Sans Pro', sans-serif;
+    color: #00C0FF;
+    font-weight: 400;
+}
+body h2 {
+    font-family: 'Source Sans Pro', sans-serif;
+    color: #00C0FF;
+    font-weight: 300;
+}
 
 /* Banner Image */
 .container {
@@ -8,7 +21,7 @@
     radial-gradient(200px 500px at center, #00C0FF 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,0));
     background-size: 125%, 50% 100%;
     animation: move 5s linear infinite;
-    height: 445px;
+    height: 442px;
     width: 100% !important;
 }
 @keyframes move {
@@ -28,7 +41,7 @@
 .banner p {
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 48px;
-    font-weight: 300;
+    font-weight: 700;
     color: #00C0FF;
 }
 div p {
@@ -117,7 +130,7 @@ div:hover p {
 .menu {
     text-align: center;
     font-family: 'Source Sans Pro', sans-serif;
-    font-weight: 700;
+    font-weight: 300;
     font-size: 22px;
     padding: 5px 5px;
     background-color: #00C0FF;

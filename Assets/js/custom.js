@@ -44,11 +44,11 @@ var CosmosApp = angular.module('CosmosApp', ['ngRoute']);
 
         // create the controller and inject Angular's $scope
     CosmosApp.controller('mainController', function($scope) {
-        $scope.message = 'Hello World!';
+        $scope.message = 'You are transmitting... We are receiving you...';
     });
 
     CosmosApp.controller('aboutController', function($scope) {
-        $scope.message = 'Look! I am an about page.';
+        $scope.message = 'A Work in Progress.';
     });
 
     CosmosApp.controller('projectsController', function($scope) {
@@ -64,5 +64,5 @@ var CosmosApp = angular.module('CosmosApp', ['ngRoute']);
     });
 
     CosmosApp.controller('contactController', function($scope) {
-        $scope.message = 'Contact us! JK. This is just a demo.';
+        $scope.message = 'We know where to find you. We will be in touch.';
     });
