@@ -2,7 +2,7 @@
 $(function(){
             var waves = new SineWaves({
               el: document.getElementById('waves'),
-              speed: 2,
+              speed: 1,
               width: function() {
                 return $(window).width();
               },
@@ -14,9 +14,9 @@ $(function(){
               waves: [
                 {
                   timeModifier: 1,
-                  lineWidth: 3,
-                  amplitude: 150,
-                  wavelength: 300,
+                  lineWidth: 4,
+                  amplitude: 120,
+                  wavelength: 500,
                   segmentLength: 1,
                   type: 'Fibonacci'
                 },
@@ -29,7 +29,7 @@ $(function(){
                   type: 'Fibonacci'
                 },
                 {
-                  timeModifier: 2,
+                  timeModifier: 1,
                   lineWidth: 5,
                   amplitude: -150,
                   wavelength: 100,
@@ -53,8 +53,8 @@ $(function(){
                   type: 'Square'
                 },
                 {
-                  timeModifier: 3,
-                  lineWidth: 1,
+                  timeModifier: 2,
+                  lineWidth: 5,
                   amplitude: -100,
                   wavelength: 200,
                   segmentLength: 1,
@@ -66,7 +66,7 @@ $(function(){
               resizeEvent: function() {
                 var gradient = this.ctx.createLinearGradient(0, 0, this.width, 0);
                 gradient.addColorStop(0,"rgba(000, 000, 255, 0)");
-                gradient.addColorStop(0.5,"rgba(255, 000, 255, 0.5)");
+                gradient.addColorStop(0.5,"rgba(0, 192, 255, 1)");
                 gradient.addColorStop(1,"rgba(000, 000, 255, 0)");
                 var index = -1;
                 var length = this.waves.length;

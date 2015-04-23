@@ -1,7 +1,11 @@
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700);
 
 body {
-    background: url('http://i.imgur.com/7tTKK2G.jpg');
+    background: url('http://i.imgur.com/7tTKK2G.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 body h1 {
     font-family: 'Source Sans Pro', sans-serif;
@@ -19,6 +23,7 @@ body h2 {
 .banner {
     background: #263645;
     padding-bottom: 1%;
+    opacity: 0.6;
 }
 .banner p {
     font-family: 'Source Sans Pro', sans-serif;
@@ -30,12 +35,14 @@ div p {
     display: inline-block;
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 72px;
-    font-weight: 300;
+    font-weight: 700;
     color: #00C0FF;
     text-transform: uppercase;
     position: relative;
     margin: 10px 20px;
     padding-top: 22px;
+    padding-left: 10px;
+    padding-right: 10px;
     opacity: 0.0;
     animation: port 3s 1 forwards;
     -webkit-animation: port 3s 1 forwards;
@@ -116,7 +123,26 @@ div:hover p {
     font-size: 22px;
     padding: 5px 5px;
     background-color: #00C0FF;
+    opacity: 0.4;
 }
 .menu a {
     color: #263645;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 400;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#waves {
+    width: 100% !important;
+    position: relative;
+    left: 0%;
+    top: 200%;
+}
+.mothership h1 {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 700;
+    position: relative;
+    left: 0%;
+    bottom: -250px;
 }
