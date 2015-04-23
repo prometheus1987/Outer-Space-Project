@@ -16,9 +16,7 @@ body h2 {
 
 /* Banner Image */
 .container {
-    background-color: #263645;
-    background-image: url('http://timteeling.com/dev/img/network.svg'),
-    radial-gradient(200px 500px at center, #00C0FF 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,0));
+    background-image: url('Assets/images/Om.jpg');
     background-size: 125%, 50% 100%;
     animation: move 5s linear infinite;
     height: 442px;
@@ -138,3 +136,4 @@ div:hover p {
 .menu a {
     color: #263645;
 }
+
