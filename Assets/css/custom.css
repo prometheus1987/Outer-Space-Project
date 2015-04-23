@@ -7,6 +7,7 @@ body h1 {
     font-family: 'Source Sans Pro', sans-serif;
     color: #00C0FF;
     font-weight: 400;
+    text-align: center;
 }
 body h2 {
     font-family: 'Source Sans Pro', sans-serif;
@@ -119,4 +120,3 @@ div:hover p {
 .menu a {
     color: #263645;
 }
-
