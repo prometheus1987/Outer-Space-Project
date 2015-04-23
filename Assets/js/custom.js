@@ -1,5 +1,5 @@
 // create the module and name it scotchApp
-var CosmosApp = angular.module('CosmosApp', ['ngRoute']);
+var CosmosApp = angular.module('CosmosApp', ['ngRoute', 'ngAnimate']);
 
     // configure our routes
     CosmosApp.config(function($routeProvider) {
@@ -44,25 +44,25 @@ var CosmosApp = angular.module('CosmosApp', ['ngRoute']);
 
         // create the controller and inject Angular's $scope
     CosmosApp.controller('mainController', function($scope) {
-        $scope.message = 'You are transmitting... We are receiving you...';
+        $scope.pageClass = 'page-home';
     });
 
     CosmosApp.controller('aboutController', function($scope) {
-        $scope.message = 'A Work in Progress.';
+        $scope.pageClass = 'page-about';
     });
 
     CosmosApp.controller('projectsController', function($scope) {
-        $scope.message = 'Look! I am a projects page.';
+        $scope.pageClass = 'page-projects';
     });
 
     CosmosApp.controller('writingController', function($scope) {
-        $scope.message = 'Look! I am a writing page.';
+        $scope.pageClass = 'page-writing';
     });
 
     CosmosApp.controller('artController', function($scope) {
-        $scope.message = 'Look! I am an art page.';
+        $scope.pageClass = 'page-art';
     });
 
     CosmosApp.controller('contactController', function($scope) {
-        $scope.message = 'We know where to find you. We will be in touch.';
+        $scope.pageClass = 'page-contact';
     });
