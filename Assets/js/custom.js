@@ -62,6 +62,7 @@ var CosmosApp = angular.module('CosmosApp', ['ngRoute', 'ngAnimate']);
 
     CosmosApp.controller('artController', function($scope) {
         $scope.pageClass = 'page-art';
+        $scope.message = 'Original Artwork';
     });
 
     CosmosApp.controller('contactController', function($scope) {

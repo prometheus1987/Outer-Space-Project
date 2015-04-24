@@ -146,3 +146,14 @@ div:hover p {
     left: 0%;
     bottom: -250px;
 }
+
+#art .Om {
+    background: url("../images/Om.jpg") no-repeat center;
+    height: 100%;
+    width: 100%;
+    opacity: 0.4;
+}
+#art h1 {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 300;
+}
