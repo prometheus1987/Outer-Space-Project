@@ -45,6 +45,7 @@ var CosmosApp = angular.module('CosmosApp', ['ngRoute', 'ngAnimate']);
         // create the controller and inject Angular's $scope
     CosmosApp.controller('mainController', function($scope) {
         $scope.pageClass = 'page-home';
+        $scope.message = 'You are transmitting... We are receiving you...';
     });
 
     CosmosApp.controller('aboutController', function($scope) {
