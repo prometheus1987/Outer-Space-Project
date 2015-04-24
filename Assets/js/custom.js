@@ -42,6 +42,7 @@ var CosmosApp = angular.module('CosmosApp', ['ngRoute', 'ngAnimate']);
             });
         });
 
+
         // create the controller and inject Angular's $scope
     CosmosApp.controller('mainController', function($scope) {
         $scope.pageClass = 'page-home';
