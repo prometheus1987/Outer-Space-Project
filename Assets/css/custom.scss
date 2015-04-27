@@ -8,6 +8,12 @@ body {
     background-size: cover;
 }
 
+body h1 {
+    font-family: 'Source Sans Pro', sans-serif;
+    color: #00C0FF;
+    font-weight: 300;
+    text-align: center;
+}
 body h2 {
     font-family: 'Source Sans Pro', sans-serif;
     color: #00C0FF;
@@ -121,6 +127,7 @@ div:hover p {
     padding-right: 10px;
 }
 
+// Home page
 #waves {
     width: 100% !important;
     left: 0%;
@@ -150,16 +157,10 @@ div:hover p {
 }
 
 #art .Om {
-    background: url("../images/Om.jpg") no-repeat center;
+    background: url("../images/Om.jpg") no-repeat center ;
     height: 100%;
     width: 100%;
     opacity: 0.6;
-}
-#art h1 {
-    font-family: 'Source Sans Pro', sans-serif;
-    font-weight: 300;
-    color: #00C0FF;
-    text-align: center;
 }
 
 #art .Father {
@@ -168,3 +169,5 @@ div:hover p {
   width: 100%;
   opacity: 0.6;
 }
+
+
