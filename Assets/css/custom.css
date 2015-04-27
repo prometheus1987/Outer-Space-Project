@@ -14,11 +14,6 @@ body h1 {
     font-weight: 300;
     text-align: center;
 }
-body h2 {
-    font-family: 'Source Sans Pro', sans-serif;
-    color: #00C0FF;
-    font-weight: 300;
-}
 
 /* Banner */
 .banner {
@@ -129,13 +124,8 @@ div:hover p {
 
 
 .mothership h1 {
-    font-family: 'Source Sans Pro', sans-serif;
-    font-weight: 300;
     position: relative;
-    left: 0%;
     bottom: -250px;
-    color: #00C0FF;
-    text-align: center;
 }
 .mothership h3 {
     font-family: 'Source Sans Pro', sans-serif;
@@ -158,11 +148,5 @@ div:hover p {
     opacity: 0.6;
 }
 
-#art .Father {
-  background: url("../images/father.jpg") no-repeat center;
-  height: 100%;
-  width: 100%;
-  opacity: 0.6;
-}
 
 
