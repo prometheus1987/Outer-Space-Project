@@ -21,7 +21,6 @@ body h1 {
     padding-bottom: 1%;
     opacity: 0.6;
 }
-
 div p {
     display: inline-block;
     font-family: 'Source Sans Pro', sans-serif;
@@ -38,52 +37,42 @@ div p {
     animation: port 3s 1 forwards;
     -webkit-animation: port 3s 1 forwards;
 }
-
 div p:nth-of-type(2){
     animation-delay: 0.1s;
     -webkit-animation-delay: 0.1s;
 }
-
 div p:nth-of-type(3){
     animation-delay: 0.2s;
     -webkit-animation-delay: 0.2s;
 }
-
 div p:nth-of-type(4){
     animation-delay: 0.3s;
     -webkit-animation-delay: 0.3s;
 }
-
 div p:nth-of-type(5){
     animation-delay: 0.4s;
     -webkit-animation-delay: 0.4s;
 }
-
 div p:nth-of-type(6){
     animation-delay: 0.5s;
     -webkit-animation-delay: 0.5s;
 }
-
 div p:nth-of-type(7){
     animation-delay: 0.6s;
     -webkit-animation-delay: 0.6s;
 }
-
 div p:nth-of-type(8){
     animation-delay: 0.7s;
     -webkit-animation-delay: 0.7s;
 }
-
 div p:nth-of-type(9){
     animation-delay: 0.8s;
     -webkit-animation-delay: 0.8s;
 }
-
 div:hover p {
     animation: reset 1s 1;
     -webkit-animation: reset 1s 1 ;
 }
-
 @keyframes port {
     0%{
         transform: rotateY(90deg) translateY(25%);
@@ -94,7 +83,6 @@ div:hover p {
         opacity: 1.0;
     }
 }
-
 @-webkit-keyframes port {
     0%{
         -webkit-transform: rotateY(90deg) translateY(25%);
@@ -105,6 +93,7 @@ div:hover p {
         opacity: 1.0;
     }
 }
+/* End Banner */
 
 /* Menu */
 .menu {
@@ -122,11 +111,12 @@ div:hover p {
     padding-right: 10px;
 }
 
-
+/* Landing page div */
 .mothership h1 {
     position: relative;
     bottom: -250px;
 }
+
 .mothership h3 {
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: 300;
@@ -141,6 +131,7 @@ div:hover p {
     text-align: center;
 }
 
+/* Art */
 #art .Om {
     background: url("../images/Om.jpg") no-repeat center ;
     height: 100%;
