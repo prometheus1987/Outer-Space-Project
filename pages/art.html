@@ -2,8 +2,9 @@
     <h1>{{ message }}</h1>
     <br/>
     <div class="container slider">
-        <img ng-repeat="slide in slides" class="slide"
-            ng-hide="!isCurrentSlideIndex($index)" ng-src="{{slide.image}}">
+        <img ng-repeat="slide in slides" class="slide slide-animation nonDraggableImage"
+             ng-swipe-right="nextSlide()" ng-swipe-left="prevSlide()"
+             ng-hide="!isCurrentSlideIndex($index)" ng-src="{{slide.image}}">
         <br/>
         <div style="text-align: center;">
             <a href="" ng-click="nextSlide()"><i class="fa fa-angle-left fa-4x"></i></a>

@@ -1,4 +1,4 @@
-var CosmosApp = angular.module('CosmosApp', ['ngRoute', 'ngAnimate']);
+var CosmosApp = angular.module('CosmosApp', ['ngRoute', 'ngAnimate'])
 
     // configure our routes
     CosmosApp.config(function($routeProvider) {
@@ -40,7 +40,6 @@ var CosmosApp = angular.module('CosmosApp', ['ngRoute', 'ngAnimate']);
                 controller  : 'contactController'
             });
         });
-
 
         // create the controller and inject Angular's $scope
     CosmosApp.controller('mainController', function($scope) {
