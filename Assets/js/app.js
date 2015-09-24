@@ -1,4 +1,3 @@
-// create the module and name it scotchApp
 var CosmosApp = angular.module('CosmosApp', ['ngRoute', 'ngAnimate']);
 
     // configure our routes
@@ -64,6 +63,29 @@ var CosmosApp = angular.module('CosmosApp', ['ngRoute', 'ngAnimate']);
     CosmosApp.controller('artController', function($scope) {
         $scope.pageClass = 'page-art';
         $scope.message = 'Original Artwork';
+        $scope.slides = [
+            {image: './Assets/images/Om.jpg', description: 'Om'},
+            {image: './Assets/images/atalanta.jpg', description: 'Atalanta'},
+            {image: './Assets/images/founders.jpg', description: 'Founders'}
+        ];
+
+        $scope.currentIndex = 0;
+
+        $scope.setCurrentSlideIndex = function (index) {
+            $scope.currentIndex = index;
+        };
+
+        $scope.isCurrentSlideIndex = function (index) {
+            return $scope.currentIndex === index;
+        };
+
+        $scope.prevSlide = function () {
+            $scope.currentIndex = ($scope.currentIndex < $scope.slides.length - 1) ? ++$scope.currentIndex : 0;
+        };
+
+        $scope.nextSlide = function () {
+            $scope.currentIndex = ($scope.currentIndex > 0) ? --$scope.currentIndex : $scope.slides.length - 1;
+        };
     });
 
     CosmosApp.controller('contactController', function($scope) {
