@@ -15,6 +15,7 @@ h1 {
     color: #00C0FF;
     font-weight: 300;
     text-align: center;
+    padding-bottom: 10%;
 }
 
 /* Banner */
@@ -133,6 +134,31 @@ div:hover p {
     text-align: center;
 }
 
+/* Apod */
+#explaination  {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 300;
+  color: #00C0FF;
+  text-align: center;
+}
+#title  {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 300;
+  color: #00C0FF;
+  text-align: center;
+}
+#apod {
+  font-family: 'Source Sans Pro', sans-serif;
+  color: #00C0FF;
+  text-align: center;
+}
+#apod_img_id {
+  width: 40%;
+  height: auto;
+  margin: auto;
+  padding-left: 30%;
+  opacity: 0.7;
+}
 
 
 
