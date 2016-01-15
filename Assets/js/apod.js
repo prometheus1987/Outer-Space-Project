@@ -23,6 +23,6 @@ function handleResult(result){
     }
     $("#reqObject").text(url);
     $("#returnObject").text(JSON.stringify(result, null, 4));
-    $("#apod_explaination").text(result.explanation);
-    $("#apod_title").text(result.title);
+    $("#explaination").text(result.explanation);
+    $("#title").text(result.title);
 }
