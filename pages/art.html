@@ -1,24 +1,24 @@
 <div id="art">
     <h1>{{ message }}</h1>
-    <br/>
+    <div style="text-align: center;">
+        <nav class="nav">
+            <div class="wrapper">
+                <ul class="dots">
+                    <a href="" ng-click="nextSlide()"><i class="fa fa-angle-left fa-4x"></i></a>
+                    <li class="dot" ng-repeat="slide in slides" style="display: inline-block;">
+                        <a href="" ng-class="{'active':isCurrentSlideIndex($index)}"
+                           ng-click="setCurrentSlideIndex($index);">{{slide.description}}</a> |
+                    </li>
+                    <a href="" ng-click="prevSlide()"><i class="fa fa-angle-right fa-4x"></i></a>
+
+                </ul>
+            </div>
+        </nav>
+    </div>
     <div class="container slider">
         <img ng-repeat="slide in slides" class="slide"
              ng-hide="!isCurrentSlideIndex($index)" ng-src="{{slide.image}}">
         <br/>
-        <div style="text-align: center;">
-            <a href="" ng-click="nextSlide()"><i class="fa fa-angle-left fa-4x" style="float: left"></i></a>
-            <a href="" ng-click="prevSlide()"><i class="fa fa-angle-right fa-4x"></i></a>
-            <nav class="nav">
-                <div class="wrapper">
-                    <ul class="dots">
-                        <li class="dot" ng-repeat="slide in slides">
-                            <a href="" ng-class="{'active':isCurrentSlideIndex($index)}"
-                               ng-click="setCurrentSlideIndex($index);">{{slide.description}}</a></li>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
     </div>
     <br/>
 </div>
