@@ -1,12 +1,11 @@
 <div id="art">
     <h1>{{ message }}</h1>
-    <div style="text-align: center;">
         <nav class="nav">
             <div class="wrapper">
-                <ul class="dots">
+                <ul class="dots" style="text-align: center;">
                     <a href="" ng-click="nextSlide()"><i class="fa fa-angle-left fa-4x"></i></a>
                     <li class="dot" ng-repeat="slide in slides" style="display: inline-block;">
-                        <a href="" style="font-family: 'Source Sans Pro', sans-serif; font-size: 30px;" ng-class="{'active':isCurrentSlideIndex($index)}"
+                        <a href="" style="font-family: 'Source Sans Pro', sans-serif; font-size: 30px; color: #00C0FF;" ng-class="{'active':isCurrentSlideIndex($index)}"
                            ng-click="setCurrentSlideIndex($index);">{{slide.description}}</a>
                         <br>
                     </li>
@@ -15,7 +14,6 @@
                 </ul>
             </div>
         </nav>
-    </div>
     <div class="container slider">
         <img ng-repeat="slide in slides" class="slide"
              ng-hide="!isCurrentSlideIndex($index)" ng-src="{{slide.image}}">
