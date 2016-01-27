@@ -22,12 +22,6 @@ var CosmosApp = angular.module('CosmosApp', ['ngRoute', 'ngAnimate'])
                 controller  : 'projectsController'
             })
 
-            // route for the writing page
-            .when('/writing', {
-                templateUrl : 'pages/writing.html',
-                controller  : 'writingController'
-            })
-
             // route for the art page
             .when('/art', {
                 templateUrl : 'pages/art.html',
@@ -53,10 +47,6 @@ var CosmosApp = angular.module('CosmosApp', ['ngRoute', 'ngAnimate'])
 
     CosmosApp.controller('projectsController', function($scope) {
         $scope.pageClass = 'page-projects';
-    });
-
-    CosmosApp.controller('writingController', function($scope) {
-        $scope.pageClass = 'page-writing';
     });
 
     CosmosApp.controller('artController', function($scope) {
