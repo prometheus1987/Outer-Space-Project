@@ -15661,7 +15661,7 @@ function $SceProvider() {
    *
    * Inheritance happens to capture this in a natural way.  In some future, we
    * may not use inheritance anymore.  That is OK because no code outside of
-   * sce.js and sceSpecs.js would need to be aware of this detail.
+   * quotes.js and sceSpecs.js would need to be aware of this detail.
    */
 
   this.$get = ['$parse', '$sceDelegate', function(
