@@ -1,3 +1,5 @@
 .idea\
 Assets/css/custom.css.map
 Assets/css/custom.css
+karma.conf.js
+.gitignore
