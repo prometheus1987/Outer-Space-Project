@@ -5,7 +5,7 @@
                 <ul class="dots" style="text-align: center;">
                     <a href="" ng-click="nextSlide()"><i class="fa fa-angle-left fa-4x" style="float:left; margin-top: 100px; margin-left: 25px;"></i></a>
                     <li class="dot" ng-repeat="slide in slides" style="display: inline-block;">
-                        <a href="" style="font-family: 'Source Sans Pro', sans-serif; font-size: 48px; font-weight: 100; color: #00C0FF; display: inline; padding-right: 10px;" ng-class="{'active':isCurrentSlideIndex($index)}"
+                        <a href="" style="font-family: 'Source Sans Pro', sans-serif; font-size: 22px; font-weight: 100; color: #00C0FF; display: inline; padding-right: 10px;" ng-class="{'active':isCurrentSlideIndex($index)}"
                            ng-click="setCurrentSlideIndex($index);">{{slide.description}}</a>
                         <br>
                     </li>
