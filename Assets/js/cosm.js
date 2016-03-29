@@ -72,7 +72,7 @@ function Agent(position) {
 }
 
 function keyTyped() {
-    //if (key === 's') save("pics/image-" + floor(random(9999)) + ".png");
+    if (key === 's') save("pics/image-" + floor(random(9999)) + ".png");
     if (key == 'r') init();
 }
 
