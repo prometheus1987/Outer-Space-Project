@@ -1,35 +1,44 @@
-var CosmosApp = angular.module('CosmosApp', ['ngRoute', 'ngAnimate'])
+var CosmosApp = angular.module('CosmosApp', [
+    'ui.router',
+    'ngAnimate'])
 
     // configure our routes
-    CosmosApp.config(function($routeProvider) {
-        $routeProvider
+    CosmosApp.config(function($stateProvider, $urlRouterProvider) {
 
+        $urlRouterProvider.otherwise('/');
+
+        $stateProvider
             // route for the home page
-            .when('/', {
+            .state('/', {
+                url: '/',
                 templateUrl : 'pages/home.html',
                 controller  : 'mainController'
             })
 
             // route for the about page
-            .when('/about', {
+            .state('/about', {
+                url: '/about',
                 templateUrl : 'pages/about.html',
                 controller  : 'aboutController'
             })
 
             // route for the projects page
-            .when('/projects', {
+            .state('/projects', {
+                url: '/projects',
                 templateUrl : 'pages/projects.html',
                 controller  : 'projectsController'
             })
 
             // route for the art page
-            .when('/art', {
+            .state('/art', {
+                url: '/art',
                 templateUrl : 'pages/art.html',
                 controller  : 'artController'
             })
 
             // route for the contact page
-            .when('/contact', {
+            .state('/contact', {
+                url: '/contact',
                 templateUrl : 'pages/contact.html',
                 controller  : 'contactController'
             });
