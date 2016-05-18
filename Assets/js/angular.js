@@ -21138,7 +21138,7 @@ var ngCloakDirective = ngDirective({
  * Two different declaration styles are included below:
  *
  * * one binds methods and properties directly onto the controller using `this`:
- * `ng-controller="SettingsController1 as settings"`
+ * `ng-controller="SettingsController1 as password"`
  * * one injects `$scope` into the controller:
  * `ng-controller="SettingsController2"`
  *
@@ -21157,21 +21157,21 @@ var ngCloakDirective = ngDirective({
  *
  * <example name="ngControllerAs" module="controllerAsExample">
  *   <file name="index.html">
- *    <div id="ctrl-as-exmpl" ng-controller="SettingsController1 as settings">
- *      Name: <input type="text" ng-model="settings.name"/>
- *      [ <a href="" ng-click="settings.greet()">greet</a> ]<br/>
+ *    <div id="ctrl-as-exmpl" ng-controller="SettingsController1 as password">
+ *      Name: <input type="text" ng-model="password.name"/>
+ *      [ <a href="" ng-click="password.greet()">greet</a> ]<br/>
  *      Contact:
  *      <ul>
- *        <li ng-repeat="contact in settings.contacts">
+ *        <li ng-repeat="contact in password.contacts">
  *          <select ng-model="contact.type">
  *             <option>phone</option>
  *             <option>email</option>
  *          </select>
  *          <input type="text" ng-model="contact.value"/>
- *          [ <a href="" ng-click="settings.clearContact(contact)">clear</a>
- *          | <a href="" ng-click="settings.removeContact(contact)">X</a> ]
+ *          [ <a href="" ng-click="password.clearContact(contact)">clear</a>
+ *          | <a href="" ng-click="password.removeContact(contact)">X</a> ]
  *        </li>
- *        <li>[ <a href="" ng-click="settings.addContact()">add</a> ]</li>
+ *        <li>[ <a href="" ng-click="password.addContact()">add</a> ]</li>
  *     </ul>
  *    </div>
  *   </file>
@@ -21207,13 +21207,13 @@ var ngCloakDirective = ngDirective({
  *   <file name="protractor.js" type="protractor">
  *     it('should check controller as', function() {
  *       var container = element(by.id('ctrl-as-exmpl'));
- *         expect(container.element(by.model('settings.name'))
+ *         expect(container.element(by.model('password.name'))
  *           .getAttribute('value')).toBe('John Smith');
  *
  *       var firstRepeat =
- *           container.element(by.repeater('contact in settings.contacts').row(0));
+ *           container.element(by.repeater('contact in password.contacts').row(0));
  *       var secondRepeat =
- *           container.element(by.repeater('contact in settings.contacts').row(1));
+ *           container.element(by.repeater('contact in password.contacts').row(1));
  *
  *       expect(firstRepeat.element(by.model('contact.value')).getAttribute('value'))
  *           .toBe('408 555 1212');
@@ -21228,7 +21228,7 @@ var ngCloakDirective = ngDirective({
  *
  *       container.element(by.linkText('add')).click();
  *
- *       expect(container.element(by.repeater('contact in settings.contacts').row(2))
+ *       expect(container.element(by.repeater('contact in password.contacts').row(2))
  *           .element(by.model('contact.value'))
  *           .getAttribute('value'))
  *           .toBe('yourname@example.org');
@@ -25157,7 +25157,7 @@ var ngStyleDirective = ngDirective(function(scope, element, attr) {
         <hr/>
         <div class="animate-switch-container"
           ng-switch on="selection">
-            <div class="animate-switch" ng-switch-when="settings">Settings Div</div>
+            <div class="animate-switch" ng-switch-when="password">Settings Div</div>
             <div class="animate-switch" ng-switch-when="home">Home Span</div>
             <div class="animate-switch" ng-switch-default>default</div>
         </div>
@@ -25166,7 +25166,7 @@ var ngStyleDirective = ngDirective(function(scope, element, attr) {
     <file name="script.js">
       angular.module('switchExample', ['ngAnimate'])
         .controller('ExampleController', ['$scope', function($scope) {
-          $scope.items = ['settings', 'home', 'other'];
+          $scope.items = ['password', 'home', 'other'];
           $scope.selection = $scope.items[0];
         }]);
     </file>
@@ -25207,7 +25207,7 @@ var ngStyleDirective = ngDirective(function(scope, element, attr) {
       var switchElem = element(by.css('[ng-switch]'));
       var select = element(by.model('selection'));
 
-      it('should start in settings', function() {
+      it('should start in password', function() {
         expect(switchElem.getText()).toMatch(/Settings Div/);
       });
       it('should change to home', function() {
