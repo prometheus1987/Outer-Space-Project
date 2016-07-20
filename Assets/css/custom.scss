@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700);
+@import url(http://fonts.googleapis.com/css?family=Titillium+Web:300,400,700);
 
 body {
     background: url("../images/background.jpg") no-repeat center center fixed;
@@ -9,7 +9,7 @@ body {
 }
 
 h1 {
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Titillium Web';
     color: #00C0FF;
     font-weight: 300;
     text-align: center;
@@ -19,12 +19,12 @@ h1 {
 /* Banner */
 .banner {
     background: #263645;
-    padding-bottom: 1%;
+    padding-bottom: 10%;
     opacity: 0.6;
 }
 div p {
     display: inline-block;
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Titillium Web';
     font-size: 60px;
     font-weight: 400;
     color: #00C0FF;
@@ -105,11 +105,13 @@ div:hover p {
 }
 .menu a {
     color: #263645;
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Titillium Web';
     font-size: 22px;
     font-weight: 300;
     padding-left: 10px;
     padding-right: 10px;
+    outline: none;
+    text-decoration: none;
 }
 
 /* Landing page div */
@@ -119,14 +121,14 @@ div:hover p {
 }
 
 .mothership h3 {
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Titillium Web';
     font-weight: 300;
     font-size: 18px;
     color: #00C0FF;
     text-align: center;
 }
 .mothership h3 a {
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Titillium Web';
     font-weight: 300;
     color: #00C0FF;
     text-align: center;
@@ -134,19 +136,19 @@ div:hover p {
 
 /* Apod */
 #explaination  {
-  font-family: 'Source Sans Pro', sans-serif;
+
   font-weight: 300;
   color: #00C0FF;
   text-align: center;
 }
 #title  {
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Titillium Web';
   font-weight: 300;
   color: #00C0FF;
   text-align: center;
 }
 #apod {
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Titillium Web';
   color: #00C0FF;
   text-align: center;
 }
@@ -161,6 +163,66 @@ div:hover p {
   margin-left: 20%;
 }
 
+
+.ufo {
+    display: inline-block;
+}
+
+.big-bubble, .little-bubble {
+    position: absolute;
+    border-radius: 50%;
+    background-color: #CBCED3;
+}
+
+.big-bubble {
+    height: 20px;
+    width: 20px;
+    margin-top: 10px;
+    margin-left: 100px;
+}
+
+.little-bubble {
+    height: 10px;
+    width: 10px;
+    margin-top: 30px;
+    margin-left: 120px;
+}
+
+.top {
+    position: absolute;
+    width: 60px;
+    height: 20px;
+    border-radius: 50% / 100% 100% 0 0;
+    border: 12px solid #00C0FF;
+    border-bottom-color: transparent;
+    margin-top: 10px;
+    margin-left: 18px;
+}
+
+.bottom {
+    width: 100px;
+    height: 15px;
+    background-color: transparent;
+    border: 12px solid #00C0FF;
+    border-radius: 50px;
+    margin-top: 55px;
+}
+
+.A {
+    width: 0;
+    height: 0;
+    border-left: 48px solid transparent;
+    border-right: 48px solid transparent;
+    border-bottom: 100px solid #00C0FF;
+    margin-top: 40px;
+}
+
+animate-enter {
+  -webkit-transition: 5s linear all; /* Chrome */
+  -moz-transition: 5s linear all; /* Firefox */
+  transition: 5s linear all;
+  opacity: 0;
+}
 
 
 
