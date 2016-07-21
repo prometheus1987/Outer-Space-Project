@@ -23,11 +23,12 @@ h1 a {
 .banner {
     background: url('../images/space.jpg') center;
     padding-bottom: 10%;
-    opacity: 1.0;
+
 }
 div p {
     display: inline-block;
     font-family: 'Titillium Web';
+    text-shadow: 4px 4px 4px #00C0FF;
     font-size: 60px;
     font-weight: 400;
     color: #00C0FF;
@@ -217,6 +218,11 @@ div:hover p {
   height: 0;
   border-left: 48px solid transparent;
   border-right: 48px solid transparent;
-  border-bottom: 100px solid lightyellow;
+  border-bottom: 100px solid #00C0FF;
   margin-top: 40px;
+}
+
+.parallax-window {
+  min-height: 400px;
+  //background: transparent;
 }
