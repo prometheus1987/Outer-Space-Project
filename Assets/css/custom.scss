@@ -15,12 +15,15 @@ h1 {
     text-align: center;
     padding-bottom: 10%;
 }
+h1 a {
+  text-decoration: none !important;
+}
 
 /* Banner */
 .banner {
-    background: #263645;
+    background: url('../images/space.jpg') center;
     padding-bottom: 10%;
-    opacity: 0.6;
+    opacity: 1.0;
 }
 div p {
     display: inline-block;
@@ -132,6 +135,7 @@ div:hover p {
     font-weight: 300;
     color: #00C0FF;
     text-align: center;
+    text-decoration: none;
 }
 
 /* Apod */
@@ -208,17 +212,11 @@ div:hover p {
     margin-top: 55px;
 }
 
-#A {
-    width: 0;
-    height: 0;
-    border-left: 48px solid transparent;
-    border-right: 48px solid transparent;
-    border-bottom: 100px solid lightyellow;
-    margin-top: 40px;
-  -moz-animation-duration: 3s;
-  -moz-animation-delay: 2s;
-  -moz-animation-iteration-count: infinite;
+.pulse {
+  width: 0;
+  height: 0;
+  border-left: 48px solid transparent;
+  border-right: 48px solid transparent;
+  border-bottom: 100px solid lightyellow;
+  margin-top: 40px;
 }
-
-
-
