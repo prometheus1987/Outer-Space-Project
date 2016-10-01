@@ -16,35 +16,35 @@ var CosmosApp = angular.module('CosmosApp', [
             })
 
             // route for the about page
-            .state('/about', {
+            .state('about', {
                 url: '/about',
                 templateUrl : 'pages/about.html',
                 controller  : 'aboutController'
             })
 
             // route for the projects page
-            .state('/projects', {
-                url: '/projects',
+            .state('projects', {
+                url: '/explore',
                 templateUrl : 'pages/projects.html',
                 controller  : 'projectsController'
             })
 
             // route for the art page
-            .state('/art', {
+            .state('art', {
                 url: '/art',
                 templateUrl : 'pages/art.html',
                 controller  : 'artController'
             })
 
             // route for the contact page
-            .state('/contact', {
+            .state('contact', {
                 url: '/contact',
                 templateUrl : 'pages/contact.html',
                 controller  : 'contactController'
             });
         });
 
-        // create the controller and inject Angular's $scope
+    // create the controller and inject Angular's $scope
     CosmosApp.controller('mainController', function($scope) {
         $scope.pageClass = 'page-home';
         $scope.message = 'You are transmitting... We are receiving you...';
