@@ -15,13 +15,6 @@ var CosmosApp = angular.module('CosmosApp', [
                 controller  : 'mainController'
             })
 
-            // route for the about page
-            .state('about', {
-                url: '/about',
-                templateUrl : 'pages/about.html',
-                controller  : 'aboutController'
-            })
-
             // route for the projects page
             .state('explore', {
                 url: '/explore',
@@ -39,8 +32,7 @@ var CosmosApp = angular.module('CosmosApp', [
             // route for the contact page
             .state('contact', {
                 url: '/contact',
-                templateUrl : 'pages/contact.html',
-                controller  : 'contactController'
+                templateUrl : 'pages/contact.html'
             });
         });
 
