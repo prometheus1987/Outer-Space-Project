@@ -44,18 +44,43 @@ var CosmosApp = angular.module('CosmosApp', [
             });
         });
 
-        // create the controller and inject Angular's $scope
+    // create the controller and inject Angular's $scope
     CosmosApp.controller('mainController', function($scope) {
-        $scope.pageClass = 'page-home';
-        $scope.message = 'You are transmitting... We are receiving you...';
-    });
 
-    CosmosApp.controller('aboutController', function($scope) {
-        $scope.pageClass = 'page-about';
+        $scope.message = 'You are transmitting... We are receiving you...';
     });
 
     CosmosApp.controller('projectsController', function($scope) {
         $scope.pageClass = 'page-projects';
+
+        // api call
+        var url = "https://api.nasa.gov/planetary/apod?api_key=NeHYhGtJMXT1kJ9jSP8bnRF2t1IpYShALfGkSKoz";
+
+        $.ajax({
+            url: url,
+            success: handleResult
+        });
+        function handleResult(result){
+            if("copyright" in result) {
+                $("#copyright").text("Image Credits: " + result.copyright);
+            }
+            else {
+                $("#copyright").text("Image Credits: " + "Public Domain");
+            }
+
+            if(result.media_type == "video") {
+                $("#apod_img_id").css("display", "none");
+                $("#apod_vid_id").attr("src", result.url);
+            }
+            else {
+                $("#apod_vid_id").css("display", "none");
+                $("#apod_img_id").attr("src", result.url);
+            }
+            $("#reqObject").text(url);
+            $("#returnObject").text(JSON.stringify(result, null, 4));
+            $("#explaination").text(result.explanation);
+            $("#title").text(result.title);
+        }
     });
 
     CosmosApp.controller('artController', function($scope) {
