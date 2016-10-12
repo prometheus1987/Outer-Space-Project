@@ -16,42 +16,41 @@ var CosmosApp = angular.module('CosmosApp', [
             })
 
             // route for the about page
-            .state('/about', {
+            .state('about', {
                 url: '/about',
                 templateUrl : 'pages/about.html',
                 controller  : 'aboutController'
             })
 
             // route for the projects page
-            .state('/projects', {
-                url: '/projects',
-                templateUrl : 'pages/projects.html',
-                controller  : 'projectsController'
+            .state('explore', {
+                url: '/explore',
+                templateUrl : 'pages/explore.html',
+                controller  : 'ExploreController'
             })
 
             // route for the art page
-            .state('/art', {
+            .state('art', {
                 url: '/art',
                 templateUrl : 'pages/art.html',
                 controller  : 'artController'
             })
 
             // route for the contact page
-            .state('/contact', {
+            .state('contact', {
                 url: '/contact',
                 templateUrl : 'pages/contact.html',
                 controller  : 'contactController'
             });
         });
 
-    // create the controller and inject Angular's $scope
+    // home page controller
     CosmosApp.controller('mainController', function($scope) {
-
         $scope.message = 'You are transmitting... We are receiving you...';
     });
 
-    CosmosApp.controller('projectsController', function($scope) {
-        $scope.pageClass = 'page-projects';
+    // explore controller
+    CosmosApp.controller('ExploreController', function($scope) {
 
         // api call
         var url = "https://api.nasa.gov/planetary/apod?api_key=NeHYhGtJMXT1kJ9jSP8bnRF2t1IpYShALfGkSKoz";
@@ -83,6 +82,7 @@ var CosmosApp = angular.module('CosmosApp', [
         }
     });
 
+    // art controller
     CosmosApp.controller('artController', function($scope) {
         $scope.pageClass = 'page-art';
         $scope.message = 'Original Artwork';
@@ -109,8 +109,4 @@ var CosmosApp = angular.module('CosmosApp', [
         $scope.nextSlide = function () {
             $scope.currentIndex = ($scope.currentIndex > 0) ? --$scope.currentIndex : $scope.slides.length - 1;
         };
-    });
-
-    CosmosApp.controller('contactController', function($scope) {
-        $scope.pageClass = 'page-contact';
     });

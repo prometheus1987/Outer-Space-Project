@@ -35,7 +35,7 @@ div p {
     text-transform: uppercase;
     position: relative;
     margin: 10px 20px;
-    padding-top: 22px;
+    padding-top: 150px;
     padding-left: 10px;
     padding-right: 10px;
     opacity: 0.0;
@@ -117,13 +117,9 @@ div:hover p {
     outline: none;
     text-decoration: none;
 }
-.menu a:hover {
-    color:white;
-}
 
 /* Landing page div */
-
-.mothership h3 {
+h3 {
     font-family: 'Titillium Web';
     font-weight: 300;
     font-size: 18px;
@@ -170,8 +166,6 @@ div:hover p {
 // UFO STYLING
 .ufoWrap{
     display: table;
-    height:100%;
-    width:100%;
     position:relative;
 }
 .center{
