@@ -1,6 +1,6 @@
 var CosmosApp = angular.module('CosmosApp', [
     'ui.router',
-    'ngAnimate'])
+    'ngAnimate']);
 
     // configure our routes
     CosmosApp.config(function($stateProvider, $urlRouterProvider) {
@@ -15,11 +15,21 @@ var CosmosApp = angular.module('CosmosApp', [
                 controller  : 'mainController'
             })
 
-            // route for the projects page
+            // route for the explore page
             .state('explore', {
                 url: '/explore',
                 templateUrl : 'pages/explore.html',
                 controller  : 'ExploreController'
+            })
+            // apod state
+            .state('explore.apod', {
+                templateUrl : 'pages/explore.apod.html',
+                controller : 'ExploreController'
+            })
+            // particle state
+            .state('explore.particles', {
+                templateUrl : 'pages/explore.particles.html',
+                controller : 'ExploreController'
             })
 
             // route for the art page
@@ -42,9 +52,14 @@ var CosmosApp = angular.module('CosmosApp', [
     });
 
     // explore controller
-    CosmosApp.controller('ExploreController', function($scope) {
+    CosmosApp.controller('ExploreController', function($scope, $http) {
 
-        // api call
+        // load particles JSON
+        particlesJS.load('particles-js', 'assets/particles.json', function() {
+            console.log('callback - particles.js config loaded');
+        });
+
+        // api call for nasa apod
         var url = "https://api.nasa.gov/planetary/apod?api_key=NeHYhGtJMXT1kJ9jSP8bnRF2t1IpYShALfGkSKoz";
 
         $.ajax({

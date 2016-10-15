@@ -59,7 +59,7 @@ $(function(){
                   wavelength: 200,
                   segmentLength: 1,
                   type: 'Sine'
-                },
+                }
               ],
               initialize: function (){
               },
