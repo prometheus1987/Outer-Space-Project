@@ -21,6 +21,11 @@ var CosmosApp = angular.module('CosmosApp', [
                 templateUrl : 'pages/explore.html',
                 controller  : 'ExploreController'
             })
+            // sine wave state
+            .state('explore.sine', {
+                templateUrl : 'pages/explore.sine.html',
+                controller : 'ExploreController'
+            })
             // apod state
             .state('explore.apod', {
                 templateUrl : 'pages/explore.apod.html',
