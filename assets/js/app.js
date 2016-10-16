@@ -11,59 +11,61 @@ var CosmosApp = angular.module('CosmosApp', [
             // route for the home page
             .state('home', {
                 url: '/mothership',
-                templateUrl : 'app/pages/home.html',
-                controller  : 'mainController'
+                templateUrl : 'pages/home.html',
+                controller  : 'MothershipController'
             })
 
             // route for the explore page
             .state('explore', {
                 url: '/mothership&explore',
-                templateUrl : 'app/pages/explore.html',
+                templateUrl : 'pages/explore.html',
                 controller  : 'ExploreController'
             })
             // sine wave state
             .state('explore.sine', {
                 url: '&sine',
-                templateUrl : 'app/pages/explore.sine.html',
+                templateUrl : 'pages/explore.sine.html',
                 controller : 'ExploreController'
             })
             // apod state
             .state('explore.apod', {
                 url: '&apod',
-                templateUrl : 'app/pages/explore.apod.html',
+                templateUrl : 'pages/explore.apod.html',
                 controller : 'ExploreController'
             })
             // particle state
             .state('explore.particles', {
                 url: '&particles',
-                templateUrl : 'app/pages/explore.particles.html',
+                templateUrl : 'pages/explore.particles.html',
                 controller : 'ExploreController'
             })
 
             // route for the art page
             .state('art', {
                 url: '/mothership&art',
-                templateUrl : 'app/pages/art.html',
+                templateUrl : 'pages/art.html',
                 controller  : 'artController'
             })
 
             // route for the contact page
             .state('contact', {
                 url: '/mothership&contact',
-                templateUrl : 'app/pages/contact.html'
+                templateUrl : 'pages/contact.html'
             });
         });
 
     // home page controller
-    CosmosApp.controller('mainController', function($scope) {
+    CosmosApp.controller('MothershipController', function($scope) {
         $scope.message = 'You are transmitting... We are receiving you...';
+
+
     });
 
     // explore controller
     CosmosApp.controller('ExploreController', function($scope, $http) {
 
         // load particles JSON
-        particlesJS.load('particles-js', 'app/assets/particles.json', function() {
+        particlesJS.load('particles-js', 'assets/particles.json', function() {
             console.log('callback - particles.js config loaded');
         });
 
@@ -102,9 +104,9 @@ var CosmosApp = angular.module('CosmosApp', [
         $scope.pageClass = 'page-art';
         $scope.message = 'Original Artwork';
         $scope.slides = [
-            {image: 'app/assets/images/Om.jpg', description: 'Om'},
-            {image: 'app/assets/images/atalanta.jpg', description: 'Atalanta'},
-            {image: 'app/assets/images/founders.jpg', description: 'Founders'}
+            {image: 'assets/images/Om.jpg', description: 'Om'},
+            {image: 'assets/images/atalanta.jpg', description: 'Atalanta'},
+            {image: 'assets/images/founders.jpg', description: 'Founders'}
         ];
 
         $scope.currentIndex = 0;

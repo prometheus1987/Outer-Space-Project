@@ -8,6 +8,11 @@ body {
     background-size: cover !important;
 }
 
+#c {
+    margin-left: 50%;
+    top: 5%;
+}
+
 h1 {
     font-family: 'Titillium Web';
     color: #00C0FF;
@@ -21,7 +26,7 @@ h1 a {
 
 /* Banner */
 .banner {
-    background: url('../images/space.jpg') center;
+    background: url('../images/multiverse.jpg') center;
     padding-bottom: 10%;
 
 }
@@ -102,15 +107,28 @@ div:hover p {
 
 /* Menu */
 .menu {
-    text-align: center;
-    padding: 5px 5px;
     background-color: #263645;
-    opacity: 0.4;
+    opacity: 0.6;
 }
 .menu a {
-    color: #00C0FF;
+    color: #bbb;
     font-family: 'Titillium Web';
     font-size: 22px;
+    font-weight: 400;
+    padding-left: 10px;
+    padding-right: 10px;
+    outline: none;
+    text-decoration: none;
+}
+
+#explorecontainer {
+    background-color: #263645;
+    opacity: 0.6;
+}
+#explorecontainer a {
+    color: #00C0FF;
+    font-family: 'Titillium Web';
+    font-size: 18px;
     font-weight: 400;
     padding-left: 10px;
     padding-right: 10px;
@@ -125,6 +143,10 @@ h3 {
     font-size: 18px;
     color: #00C0FF;
     text-align: center;
+}
+.mothership h1 {
+    padding-top: 5%;
+
 }
 .mothership h3 a {
     font-family: 'Titillium Web';
@@ -163,10 +185,15 @@ h3 {
 }
 
 
+#c {
+    position: absolute;
+    margin-top: 30%;
+    margin-left: 40%;
+    z-index: 0;
+}
 // UFO STYLING
 .ufoWrap{
     display: table;
-    position:relative;
 }
 .center{
     background: transparent;

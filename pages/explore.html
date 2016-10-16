@@ -1,0 +1,14 @@
+<div id="explore">
+    <div id="exploreContainer" class="container-fluid text-center">
+        <a ui-sref="explore.sine">Sine Waves</a>
+        <a ui-sref="explore.particles">Particles</a>
+        <a ui-sref="explore.apod">APOD</a>
+    </div>
+    <canvas id="c" ng-hide="$state ==!explore"></canvas>
+    <div ui-view></div>
+</div>
+
+<script src="assets/js/circles.js"></script>
+
+
+
