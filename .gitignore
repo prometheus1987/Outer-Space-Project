@@ -1,3 +1,9 @@
-\.idea\
-/.idea/
+.idea/
 .gitignore
+bower.json
+package.json
+/node_modules
+gulpfile.js
+karma.conf.js
+server.js
+

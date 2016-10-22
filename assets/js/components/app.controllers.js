@@ -37,22 +37,39 @@ CosmosApp.controller('ExploreController', function($scope, $http) {
     }
 });
 
-CosmosApp.controller('MarsController', function($scope, $http) {
+CosmosApp.controller('MarsController', function($scope) {
 
-    // mars rover camera
-    var baseUrl = "https://api.nasa.gov/mars-photos/api/v1/rovers/Curiosity/photos?earth_date=2016-10-19";
-    var key = "&api_key=NeHYhGtJMXT1kJ9jSP8bnRF2t1IpYShALfGkSKoz";
-    $.ajax({
-        url: baseUrl + key,
-        success: handleResult
-    });
-    function handleResult(result) {
-        console.log(result.photos);
-        $("#img").attr("src", result.photos[0].img_src);
-        $("#camera_full_name").text(result.photos[0].camera.full_name)
-        $("#earth_date").text(result.photos[0].earth_date);
-        $("#rover_name").text(result.photos[0].rover.name);
+    // get date
+    var today = new Date();
+    var dd = today.getDate()-1;
+    var mm = today.getMonth()+1;
+    var yyyy = today.getFullYear();
+
+    if(dd<10) {
+        dd='0'+dd
     }
+    if(mm<10) {
+        mm='0'+mm
+    }
+    today = yyyy+'-'+mm+'-'+dd;
+
+    $scope.baseUrl = "https://api.nasa.gov/mars-photos/api/v1/rovers/Curiosity/photos?earth_date=" + today;
+    $scope.key = "&api_key=NeHYhGtJMXT1kJ9jSP8bnRF2t1IpYShALfGkSKoz";
+
+        $.ajax({
+            url: $scope.baseUrl + $scope.key
+        })
+        .then(function handleResult(result) {
+
+            console.log(result.photos[0]);
+
+            $scope.data = result.photos;
+
+            $scope.image = $("#img").attr("src", result.photos[0].img_src);
+            $scope.cameraFullName = $("#camera_full_name").text(result.photos[0].camera.full_name);
+            $scope.earth_date = $("#earth_date").text(result.photos[0].earth_date);
+            $scope.rover_name = $("#rover_name").text(result.photos[0].rover.name);
+        })
 });
 // art controller
 CosmosApp.controller('artController', function($scope) {
