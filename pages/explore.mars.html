@@ -1,9 +1,9 @@
 <div class="marsContainer" ng-controller="MarsController" style="padding-top: 2%;">
     <div class="row" style="width: 40%; background:black;">
-        <div class="col-md-12 text-center">
-            <img style="width: 323%;" id="img"/>
+        <div class="col-lg-6 text-center">
+            <img id="img"/>
             <em><h2 style="color: #00C0FF; display: inline">Rover Name:</h2></em>
-            <h3 id="rover_name"></h3>
+            <h3 id="rover_name">{{$scope.rover}}</h3>
             <em><h2 style="color: #00C0FF">Camera:</h2></em>
             <h3 id="camera_full_name"></h3>
             <em><h2 style="color: #00C0FF">Earth Date:</h2></em>

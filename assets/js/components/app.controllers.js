@@ -50,24 +50,25 @@ CosmosApp.controller('MarsController', function($scope, $http) {
     }
     today = yyyy+'-'+mm+'-'+dd;
 
-    $scope.baseUrl = "https://api.nasa.gov/mars-photos/api/v1/rovers/Curiosity/photos?earth_date=" + today;
+    $scope.baseUrl = "https://api.nasa.gov/mars-photos/api/v1/rovers/";
+    $scope.searchParams = "Curiosity/photos?earth_date=" + today;
     $scope.key = "&api_key=NeHYhGtJMXT1kJ9jSP8bnRF2t1IpYShALfGkSKoz";
 
-        $.ajax({
-            url: $scope.baseUrl + $scope.key
-        })
-        .then(function handleResult(result) {
+    $http.get($scope.baseUrl + $scope.searchParams +  $scope.key)
+        .success(function(result) {
+            $scope.date = result.photos;
+            console.log($scope.date);
 
-            console.log(result.photos[0]);
-
-            $scope.data = result.photos;
-
+            $scope.rover = $("#rover_name").text(result.photos[0].rover.name);
             $scope.image = $("#img").attr("src", result.photos[0].img_src);
             $scope.cameraFullName = $("#camera_full_name").text(result.photos[0].camera.full_name);
             $scope.earth_date = $("#earth_date").text(result.photos[0].earth_date);
-            $scope.rover_name = $("#rover_name").text(result.photos[0].rover.name);
         })
+        .error(function(error){
+            console.log(error);
+        });
 });
+
 // art controller
 CosmosApp.controller('artController', function($scope) {
     $scope.message = 'Original Artwork';
