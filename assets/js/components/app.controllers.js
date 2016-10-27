@@ -7,8 +7,8 @@ CosmosApp.controller('ExploreController', function($scope, $http) {
     });
 
     // api call for nasa apod
-    var url = "https://api.nasa.gov/planetary/apod?";
-    var key = "api_key=NeHYhGtJMXT1kJ9jSP8bnRF2t1IpYShALfGkSKoz";
+    let url = "https://api.nasa.gov/planetary/apod?";
+    let key = "api_key=NeHYhGtJMXT1kJ9jSP8bnRF2t1IpYShALfGkSKoz";
 
     $.ajax({
         url: url + key,
@@ -17,16 +17,13 @@ CosmosApp.controller('ExploreController', function($scope, $http) {
     function handleResult(result){
         if("copyright" in result) {
             $("#copyright").text("Image Credits: " + result.copyright);
-        }
-        else {
+        } else {
             $("#copyright").text("Image Credits: " + "Public Domain");
         }
-
         if(result.media_type == "video") {
             $("#apod_img_id").css("display", "none");
             $("#apod_vid_id").attr("src", result.url);
-        }
-        else {
+        } else {
             $("#apod_vid_id").css("display", "none");
             $("#apod_img_id").attr("src", result.url);
         }
@@ -37,13 +34,13 @@ CosmosApp.controller('ExploreController', function($scope, $http) {
     }
 });
 
-CosmosApp.controller('MarsController', function($scope) {
+CosmosApp.controller('MarsController', function($scope, $http) {
 
     // get date
-    var today = new Date();
-    var dd = today.getDate()-1;
-    var mm = today.getMonth()+1;
-    var yyyy = today.getFullYear();
+    let today = new Date();
+    let dd = today.getDate()-1;
+    let mm = today.getMonth()+1;
+    let yyyy = today.getFullYear();
 
     if(dd<10) {
         dd='0'+dd

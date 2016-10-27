@@ -183,11 +183,11 @@ h3 {
   text-align: center;
 }
 #apod_img_id {
-  width: 40%;
+  width: 65%;
   height: auto;
-  margin: auto;
+  //margin: auto;
+  //margin-left: 6%;
   padding-left: 30%;
-  opacity: 0.7;
 }
 #apod_vid_id {
   margin-left: 20%;
@@ -471,4 +471,8 @@ a.button:hover {
     font-family: 'Factor';
     font-size: 12px;
     color: #00C0FF;
+}
+
+.ApodContainer h3 {
+    font-family: 'Titillium Web' !important;
 }
