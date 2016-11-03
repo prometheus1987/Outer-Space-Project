@@ -48,20 +48,25 @@ CosmosApp.controller('MarsController', function($scope, $http) {
     if(mm<10) {
         mm='0'+mm
     }
-    today = yyyy+'-'+mm+'-'+dd;
+    today = yyyy+ '-' +mm+ '-' +dd;
 
+    // set variables
     $scope.baseUrl = "https://api.nasa.gov/mars-photos/api/v1/rovers/";
-    $scope.searchParams = "Curiosity/photos?earth_date=" + today;
+    $scope.rover = "Curiosity";
+    $scope.searchParams = $scope.rover + "/photos?earth_date=" + today;
     $scope.key = "&api_key=NeHYhGtJMXT1kJ9jSP8bnRF2t1IpYShALfGkSKoz";
 
+    // request
     $http.get($scope.baseUrl + $scope.searchParams +  $scope.key)
         .success(function(result) {
 
-            $scope.data = result.photos[0];
+            $scope.photos = result.photos;
             console.log($scope.data);
 
-            $scope.rover = $("#rover_name").text(result.photos[0].rover.name);
-            $scope.image = $("#img").attr("src", result.photos[0].img_src);
+            $scope.rover = $scope.data.rover.name;
+            console.log('Rover:', $scope.rover);
+
+            $scope.image = $("#camera_img").attr("src", result.photos[0].img_src);
             $scope.cameraFullName = $("#camera_full_name").text(result.photos[0].camera.full_name);
             $scope.earth_date = $("#earth_date").text(result.photos[0].earth_date);
             $scope.martian_sol = $("#martian_sol").text(result.photos[0].sol);

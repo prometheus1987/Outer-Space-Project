@@ -9,7 +9,16 @@ body {
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    background-size: cover !important;
+    background-size: cover;
+}
+
+.footer h3 {
+    font-family: 'Factor';
+}
+
+#particles-js {
+    background: url("../images/space.jpg");
+    background-size: cover;
 }
 
 #c {
@@ -30,9 +39,9 @@ h1 a {
 
 /* Banner */
 .banner {
-    background: url('../images/multicell.jpg');
+    background: url('../images/seam.gif');
     background-size: 25%;
-    padding-bottom: 10%;
+    padding-bottom: 5%;
 
 }
 div p {
@@ -462,15 +471,26 @@ a.button:hover {
     box-shadow: rgba(30, 22, 54, 0.7) 0 0px 0px 40px inset;
 }
 
-.marsContainer h2    {
+#marsContainer {
+    width: 50%;
+    margin: auto;
+    background:black;
+    margin-top: 2% !important;
+    text-align: center;
+}
+#marsContainer h2    {
     font-family: 'Factor';
     font-size: 28px;
     color: #00C0FF;
 }
-.marsContainer h3 {
+#marsContainer h3 {
     font-family: 'Factor';
     font-size: 12px;
     color: #00C0FF;
+}
+#marsContainer #camera_img {
+    margin-top: 5%;
+    width: 100%;
 }
 
 .ApodContainer h3 {
