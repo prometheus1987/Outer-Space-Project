@@ -63,7 +63,7 @@ CosmosApp.controller('MarsController', function($scope, $http) {
             $scope.photos = result.photos;
             console.log($scope.data);
 
-            $scope.rover = $scope.data.rover.name;
+            $scope.rover = $("#rover_name").text(result.photos[0].rover.name);
             console.log('Rover:', $scope.rover);
 
             $scope.image = $("#camera_img").attr("src", result.photos[0].img_src);

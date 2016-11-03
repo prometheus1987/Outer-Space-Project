@@ -1,7 +1,7 @@
 <div class="row" id="marsContainer">
     <div class="col-md-12">
         <div uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
-            <div uib-slide ng-repeat="photo in photos track by photo.id" index="photo.id">
+            <div uib-slide ng-repeat="photo in photos track by photo.id" index="$index">
                 <img ng-src="{{photo.img_src}}" style="margin:auto;">
                 <div class="carousel-caption">
                     <em><h2>Rover Name:</h2></em>
