@@ -1,0 +1,19 @@
+<div class="row" id="marsContainer">
+    <div class="col-md-12">
+        <div uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
+            <div uib-slide ng-repeat="photo in photos track by photo.id" index="$index">
+                <img ng-src="{{photo.img_src}}" style="margin:auto;">
+                <div class="carousel-caption" style="padding-top:500px;">
+                    <em><h2>Rover Name:</h2></em>
+                    <h3> {{photo.rover.name}}</h3>
+                    <em><h2>Camera:</h2></em>
+                    <h3>{{photo.camera.full_name}}</h3>
+                    <em><h2>Martian Sol:</h2></em>
+                    <h3>{{photo.sol}}</h3>
+                    <em><h2>Earth Date:</h2></em>
+                    <h3>{{photo.earth_date}}</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
