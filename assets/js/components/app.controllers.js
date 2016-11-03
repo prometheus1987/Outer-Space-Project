@@ -61,15 +61,8 @@ CosmosApp.controller('MarsController', function($scope, $http) {
         .success(function(result) {
 
             $scope.photos = result.photos;
-            console.log($scope.data);
+            console.log($scope.photos);
 
-            $scope.rover = $("#rover_name").text(result.photos[0].rover.name);
-            console.log('Rover:', $scope.rover);
-
-            $scope.image = $("#camera_img").attr("src", result.photos[0].img_src);
-            $scope.cameraFullName = $("#camera_full_name").text(result.photos[0].camera.full_name);
-            $scope.earth_date = $("#earth_date").text(result.photos[0].earth_date);
-            $scope.martian_sol = $("#martian_sol").text(result.photos[0].sol);
         })
         .error(function(error){
             console.log(error);

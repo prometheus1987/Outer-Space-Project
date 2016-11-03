@@ -18,31 +18,31 @@ CosmosApp.config(function($stateProvider, $urlRouterProvider) {
         })
         // sine wave state
         .state('explore.sine', {
-            url: '/sine',
+            url: '/mothership&explore&sine',
             templateUrl : 'pages/explore.sine.html',
             controller : 'ExploreController'
         })
         // apod state
         .state('explore.apod', {
-            url: '/apod',
+            url: '/mothership&explore&apod',
             templateUrl : 'pages/explore.apod.html',
             controller : 'ExploreController'
         })
         // mars rover state
         .state('explore.rover', {
-            url: '/rover',
+            url: '/mothership&explore&rover',
             templateUrl : 'pages/explore.mars.html',
             controller : 'MarsController'
         })
         // particle state
         .state('explore.particles', {
-            url: '/particles',
+            url: '/mothership&explore&particles',
             templateUrl : 'pages/explore.particles.html',
             controller : 'ExploreController'
         })
         // circle state
         .state('explore.circles', {
-            url: '/circles',
+            url: '/mothership&explore&circles',
             templateUrl: 'pages/explore.circles.html',
             controller: 'ExploreController'
         })
@@ -58,6 +58,5 @@ CosmosApp.config(function($stateProvider, $urlRouterProvider) {
         .state('contact', {
             url: '/mothership&contact',
             templateUrl : 'pages/contact.html'
-        });
-
+        })
 });
