@@ -62,7 +62,6 @@ CosmosApp.controller('MarsController', function($scope, $http) {
 
             $scope.photos = result.photos;
             console.log($scope.photos);
-
         })
         .error(function(error){
             console.log(error);
