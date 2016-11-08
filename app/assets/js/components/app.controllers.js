@@ -2,7 +2,7 @@
 CosmosApp.controller('ExploreController', function($scope, $http) {
 
     // load particles JSON
-    particlesJS.load('particles-js', 'assets/particles.json', function() {
+    particlesJS.load('particles-js', 'app/assets/particles.json', function() {
         console.log('callback - particles.js config loaded');
     });
 
@@ -32,6 +32,27 @@ CosmosApp.controller('ExploreController', function($scope, $http) {
         $("#explaination").text(result.explanation);
         $("#title").text(result.title);
     }
+});
+
+CosmosApp.controller('SpaceController', function($scope, $http) {
+
+    // space sounds api
+    $scope.baseUrl = "https://api.nasa.gov/planetary/sounds?";
+    $scope.key = "api_key=NeHYhGtJMXT1kJ9jSP8bnRF2t1IpYShALfGkSKoz";
+
+    $.ajax({
+        url: $scope.baseUrl + $scope.key,
+        type: "GET",
+        dataType : 'json',
+        jsonpCallback: 'callback',
+        crossDomain:true,
+        success: function handleResult(result){
+            $scope.data = result.description;
+            console.log(data);
+
+            $("#sound_title").text(result.description.title);
+        }
+    })
 });
 
 CosmosApp.controller('MarsController', function($scope, $http) {

@@ -7,62 +7,61 @@ CosmosApp.config(function($stateProvider, $urlRouterProvider) {
     // route for the home page
         .state('home', {
             url: '/mothership',
-            templateUrl : 'pages/home.html',
+            templateUrl : 'app/views/home.html',
         })
 
         // route for the explore page
         .state('explore', {
             url: '/explore',
-            templateUrl : 'pages/explore.html',
+            templateUrl : 'app/views/explore.html',
             controller  : 'ExploreController'
         })
         // sine wave state
         .state('explore.sine', {
             url: '&sine',
-            templateUrl : 'pages/explore.sine.html',
+            templateUrl : 'app/views/explore.sine.html',
             controller : 'ExploreController'
         })
         // apod state
         .state('explore.apod', {
             url: '&apod',
-            templateUrl : 'pages/explore.apod.html',
+            templateUrl : 'app/views/explore.apod.html',
             controller : 'ExploreController'
         })
         // mars rover state
         .state('explore.mars', {
             url: '&rover',
-            templateUrl : 'pages/explore.mars.html',
+            templateUrl : 'app/views/explore.mars.html',
             controller : 'MarsController'
         })
-        // mars rover "Curiosity" state
-        .state('explore.mars.curiosity', {
-            url: '&curiosity',
-            templateUrl : 'pages/rover.curiosity.html',
-            controller : 'MarsController'
-        })
+
         // particle state
         .state('explore.particles', {
             url: '&particles',
-            templateUrl : 'pages/explore.particles.html',
+            templateUrl : 'app/views/explore.particles.html',
             controller : 'ExploreController'
         })
         // circle state
         .state('explore.circles', {
             url: '&circles',
-            templateUrl: 'pages/explore.circles.html',
+            templateUrl: 'app/views/explore.circles.html',
             controller: 'ExploreController'
         })
-
+        // explore sounds state
+        .state('explore.sounds', {
+            url: '&sounds',
+            templateUrl: 'app/views/explore.sounds.html',
+            controller: 'SpaceController'
+        })
         // route for the art page
         .state('art', {
             url: '/art',
-            templateUrl : 'pages/art.html',
+            templateUrl : 'app/views/art.html',
             controller  : 'artController'
         })
-
         // route for the contact page
         .state('contact', {
             url: '/contact',
-            templateUrl : 'pages/contact.html'
+            templateUrl : 'app/views/contact.html'
         })
 });
