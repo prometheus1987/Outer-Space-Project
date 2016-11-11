@@ -28,11 +28,17 @@ CosmosApp.config(function($stateProvider, $urlRouterProvider) {
             templateUrl : 'app/views/explore.apod.html',
             controller : 'ExploreController'
         })
-        // mars rover state
+        // mars "curiosity" rover state
         .state('explore.mars', {
             url: '&rover',
             templateUrl : 'app/views/explore.mars.html',
             controller : 'MarsController'
+        })
+        // mars "opportunity" rover state
+        .state('explore.opportunity', {
+            url: '&rover&opportunity',
+            templateUrl : 'app/views/mars.opportunity.html',
+            controller : 'RoverController'
         })
 
         // particle state
