@@ -34,7 +34,7 @@ CosmosApp.controller('ExploreController', function($scope, $http) {
     }
 });
 
-CosmosApp.controller('SpaceController', function($scope, $http) {
+CosmosApp.controller('SoundsController', function($scope, $http) {
 
     // space sounds api
     $scope.baseUrl = "https://api.nasa.gov/planetary/sounds?";
@@ -127,9 +127,9 @@ CosmosApp.controller('RoverController', function($scope, $http) {
 CosmosApp.controller('artController', function($scope) {
     $scope.message = 'Original Artwork';
     $scope.slides = [
-        {image: 'assets/images/Om.jpg', description: 'Om'},
-        {image: 'assets/images/atalanta.jpg', description: 'Atalanta'},
-        {image: 'assets/images/founders.jpg', description: 'Founders'}
+        {image: 'app/assets/images/Om.jpg', description: 'Om'},
+        {image: 'app/assets/images/atalanta.jpg', description: 'Atalanta'},
+        {image: 'app/assets/images/founders.jpg', description: 'Founders'}
     ];
 
     $scope.currentIndex = 0;
