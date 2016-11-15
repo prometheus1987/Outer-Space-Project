@@ -34,27 +34,6 @@ CosmosApp.controller('ExploreController', function($scope, $http) {
     }
 });
 
-CosmosApp.controller('SoundsController', function($scope, $http) {
-
-    // space sounds api
-    $scope.baseUrl = "https://api.nasa.gov/planetary/sounds?";
-    $scope.key = "api_key=NeHYhGtJMXT1kJ9jSP8bnRF2t1IpYShALfGkSKoz";
-
-    $.ajax({
-        url: $scope.baseUrl + $scope.key,
-        type: "GET",
-        dataType : 'json',
-        jsonpCallback: 'callback',
-        crossDomain:true,
-        success: function handleResult(result){
-            $scope.data = result.description;
-            console.log(data);
-
-            $("#sound_title").text(result.description.title);
-        }
-    })
-});
-
 CosmosApp.controller('MarsController', function($scope, $http) {
 
     // get date

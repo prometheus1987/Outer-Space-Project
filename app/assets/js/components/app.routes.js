@@ -57,7 +57,7 @@ CosmosApp.config(function($stateProvider, $urlRouterProvider) {
         .state('explore.sounds', {
             url: '&sounds',
             templateUrl: 'app/views/explore.sounds.html',
-            controller: 'SpaceController'
+            controller: 'ExploreController'
         })
         // route for the art page
         .state('art', {
