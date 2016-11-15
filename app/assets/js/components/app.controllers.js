@@ -34,7 +34,7 @@ CosmosApp.controller('ExploreController', function($scope, $http) {
     }
 });
 
-CosmosApp.controller('SpaceController', function($scope, $http) {
+CosmosApp.controller('SoundsController', function($scope, $http) {
 
     // space sounds api
     $scope.baseUrl = "https://api.nasa.gov/planetary/sounds?";
@@ -89,13 +89,47 @@ CosmosApp.controller('MarsController', function($scope, $http) {
         });
 });
 
+CosmosApp.controller('RoverController', function($scope, $http) {
+
+    // get date
+    let today = new Date();
+    let dd = today.getDate()-1;
+    let mm = today.getMonth()+1;
+    let yyyy = today.getFullYear();
+
+    if(dd<10) {
+        dd='0'+dd
+    }
+    if(mm<10) {
+        mm='0'+mm
+    }
+    today = yyyy+ '-' +mm+ '-' +dd;
+
+    // set variables
+    $scope.baseUrl = "https://api.nasa.gov/mars-photos/api/v1/rovers/";
+    $scope.rover = "Opportunity";
+    $scope.searchParams = $scope.rover + "/photos?earth_date=" + today;
+    $scope.key = "&api_key=NeHYhGtJMXT1kJ9jSP8bnRF2t1IpYShALfGkSKoz";
+
+    // request
+    $http.get($scope.baseUrl + $scope.searchParams +  $scope.key)
+        .success(function(result) {
+
+            $scope.photos = result.photos;
+            console.log($scope.photos);
+        })
+        .error(function(error){
+            console.log(error);
+        });
+});
+
 // art controller
 CosmosApp.controller('artController', function($scope) {
     $scope.message = 'Original Artwork';
     $scope.slides = [
-        {image: 'assets/images/Om.jpg', description: 'Om'},
-        {image: 'assets/images/atalanta.jpg', description: 'Atalanta'},
-        {image: 'assets/images/founders.jpg', description: 'Founders'}
+        {image: 'app/assets/images/Om.jpg', description: 'Om'},
+        {image: 'app/assets/images/atalanta.jpg', description: 'Atalanta'},
+        {image: 'app/assets/images/founders.jpg', description: 'Founders'}
     ];
 
     $scope.currentIndex = 0;
