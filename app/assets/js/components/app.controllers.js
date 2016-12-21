@@ -53,13 +53,14 @@ CosmosApp.controller('MarsController', function($scope, $http) {
     // set variables
     $scope.baseUrl = "https://api.nasa.gov/mars-photos/api/v1/rovers/";
     $scope.rover = "Curiosity";
-    $scope.searchParams = $scope.rover + "/photos?earth_date=" + today;
+    $scope.date_params = "/photos?earth_date=" + today;
+    $scope.searchParams = $scope.rover + $scope.date_params;
     $scope.key = "&api_key=NeHYhGtJMXT1kJ9jSP8bnRF2t1IpYShALfGkSKoz";
 
     // request
     $http.get($scope.baseUrl + $scope.searchParams +  $scope.key)
         .success(function(result) {
-
+        console.log(result.length);
             $scope.photos = result.photos;
             console.log($scope.photos);
         })
