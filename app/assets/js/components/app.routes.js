@@ -7,7 +7,7 @@ CosmosApp.config(function($stateProvider, $urlRouterProvider) {
   // route for the home page
       .state('home', {
           url: '/mothership',
-          templateUrl : 'app/views/home.html',
+          templateUrl : 'app/views/home.html'
       })
       // route for the explore page
       .state('explore', {
@@ -29,7 +29,7 @@ CosmosApp.config(function($stateProvider, $urlRouterProvider) {
       })
       // mars "curiosity" rover state
       .state('explore.mars', {
-          url: '&rover',
+          url: '&rover&curiosity',
           templateUrl : 'app/views/explore.mars.html',
           controller : 'MarsController'
       })
