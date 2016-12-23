@@ -53,12 +53,13 @@ CosmosApp.controller('MarsController', function($scope, $http) {
 
     // set variables
     $scope.baseUrl = "https://api.nasa.gov/mars-photos/api/v1/rovers/";
-    $scope.rover = ["Curiosity"];
+    $scope.curiosity_rover = ["Curiosity"];
+    $scope.opportunity_rover = ["Opportunity"];
     $scope.date_params = "/photos?earth_date=" + today;
     $scope.searchParams = $scope.rover + $scope.date_params;
     $scope.key = "&api_key=NeHYhGtJMXT1kJ9jSP8bnRF2t1IpYShALfGkSKoz";
 
-    // request
+    // request for curiosity
     $http.get($scope.baseUrl + $scope.searchParams +  $scope.key)
         .success(function(result) {
             $scope.photos = result.photos;
@@ -67,40 +68,6 @@ CosmosApp.controller('MarsController', function($scope, $http) {
         .error(function(error){
             console.log(error);
         });
-});
-
-CosmosApp.controller('RoverController', function($scope, $http) {
-
-  // get date
-  let today = new Date();
-  let dd = today.getDate() - 5;
-  let mm = today.getMonth() + 1;
-  let yyyy = today.getFullYear();
-
-  if (dd < 10) {
-      dd = '0' + dd
-  }
-  if (mm < 10) {
-      mm = '0' + mm
-  }
-  today = yyyy + '-' + mm + '-' + dd;
-
-  // set variables
-  $scope.baseUrl = "https://api.nasa.gov/mars-photos/api/v1/rovers/";
-  $scope.rover = ["Opportunity"];
-  $scope.date_params = "/photos?earth_date=" + today;
-  $scope.searchParams = $scope.rover + $scope.date_params;
-  $scope.key = "&api_key=NeHYhGtJMXT1kJ9jSP8bnRF2t1IpYShALfGkSKoz";
-
-  // request
-  $http.get($scope.baseUrl + $scope.searchParams + $scope.key)
-      .success(function(result) {
-          $scope.photos = result.photos;
-          console.log($scope.photos);
-      })
-      .error(function(error) {
-          console.log(error);
-      });
 });
 
 // art controller
