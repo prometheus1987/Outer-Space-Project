@@ -35,7 +35,7 @@ CosmosApp.controller('ExploreController', function($scope, $http) {
   }
 });
 
-CosmosApp.controller('MarsController', function($scope, $http) {
+CosmosApp.controller('RoverController', function($scope, $http) {
 
     // get date
     let today = new Date();
@@ -56,14 +56,22 @@ CosmosApp.controller('MarsController', function($scope, $http) {
     $scope.curiosity_rover = ["Curiosity"];
     $scope.opportunity_rover = ["Opportunity"];
     $scope.date_params = "/photos?earth_date=" + today;
-    $scope.searchParams = $scope.rover + $scope.date_params;
     $scope.key = "&api_key=NeHYhGtJMXT1kJ9jSP8bnRF2t1IpYShALfGkSKoz";
 
     // request for curiosity
-    $http.get($scope.baseUrl + $scope.searchParams +  $scope.key)
+    $http.get($scope.baseUrl + $scope.curiosity_rover +  $scope.date_params + $scope.key)
         .success(function(result) {
             $scope.photos = result.photos;
-            console.log($scope.photos);
+        })
+        .error(function(error){
+            console.log(error);
+        });
+
+    // request for opportunity
+    $http.get($scope.baseUrl + $scope.opportunity_rover + $scope.date_params + $scope.key)
+        .success(function(result) {
+            $scope.opportunity_photos = result.photos;
+
         })
         .error(function(error){
             console.log(error);

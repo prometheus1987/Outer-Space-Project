@@ -31,7 +31,7 @@ CosmosApp.config(function($stateProvider, $urlRouterProvider) {
       .state('explore.mars', {
           url: '&rover&curiosity',
           templateUrl : 'app/views/explore.mars.html',
-          controller : 'MarsController'
+          controller : 'RoverController'
       })
       // mars "opportunity" rover state
       .state('explore.opportunity', {
