@@ -71,7 +71,7 @@ CosmosApp.controller('RoverController', function($scope, $http) {
     $http.get($scope.baseUrl + $scope.opportunity_rover + $scope.date_params + $scope.key)
         .success(function(result) {
             $scope.opportunity_photos = result.photos;
-
+            console.log($scope.opportunity_photos.length)
         })
         .error(function(error){
             console.log(error);
