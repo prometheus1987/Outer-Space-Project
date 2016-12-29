@@ -1,98 +1,101 @@
-// explore controller
-CosmosApp.controller('ExploreController', function($scope, $http) {
+(function() {
+    "use strict";
 
-  // load particles JSON
-  particlesJS.load('particles-js', 'app/assets/particles.json', function() {
-      console.log('callback - particles.js config loaded');
-  });
+    // explore controller
+    CosmosApp.controller('ExploreController', function($scope, $http) {
 
-  // api call for nasa apod
-  $scope.url = "https://api.nasa.gov/planetary/apod?";
-  $scope.key = "api_key=NeHYhGtJMXT1kJ9jSP8bnRF2t1IpYShALfGkSKoz";
-
-  $http.get($scope.url + $scope.key)
-      .success(function(data) {
-          $scope.apod = data;
-          $scope.title = $scope.apod.title;
-          $scope.hdurl = $scope.apod.hdurl;
-          $scope.explanation = $scope.apod.explanation;
-      })
-      .error(function(error){
-          console.log(error);
+      // load particles JSON
+      particlesJS.load('particles-js', 'app/assets/particles.json', function() {
+          console.log('callback - particles.js config loaded');
       });
-});
 
-CosmosApp.controller('RoverController', function($scope, $http) {
+      $scope.url = "https://api.nasa.gov/planetary/apod?";
+      $scope.key = "api_key=NeHYhGtJMXT1kJ9jSP8bnRF2t1IpYShALfGkSKoz";
 
-    // get date
-    let today = new Date();
-    let dd = today.getDate()-1;
-    let mm = today.getMonth()+1;
-    let yyyy = today.getFullYear();
+      // api call for nasa apod
+      $http.get($scope.url + $scope.key)
+          .success(function(data) {
+              $scope.title = data.title;
+              $scope.hdurl = data.hdurl;
+              $scope.explanation = data.explanation;
+          })
+          .error(function(error){
+              console.log(error);
+          });
+    });
 
-    if(dd<10) {
-        dd='0'+dd
-    }
-    if(mm<10) {
-        mm='0'+mm
-    }
-    today = yyyy+ '-' +mm+ '-' +dd;
+    CosmosApp.controller('RoverController', function($scope, $http) {
 
-    // set variables
-    $scope.baseUrl = "https://api.nasa.gov/mars-photos/api/v1/rovers/";
-    $scope.curiosity_rover = ["Curiosity"];
-    $scope.opportunity_rover = ["Opportunity"];
-    $scope.date_params = "/photos?earth_date=" + today;
-    $scope.key = "&api_key=NeHYhGtJMXT1kJ9jSP8bnRF2t1IpYShALfGkSKoz";
+        // calculate date
+        let today = new Date();
+        let dd = today.getDate()-2;
+        let mm = today.getMonth()+1;
+        let yyyy = today.getFullYear();
 
-    // request for curiosity
-    $http.get($scope.baseUrl + $scope.curiosity_rover +  $scope.date_params + $scope.key)
-        .success(function(result) {
-            $scope.curiosity_photos = result.photos;
-        })
-        .error(function(error){
-            console.log(error);
-        });
+        if(dd<10) {
+            dd='0'+dd
+        }
+        if(mm<10) {
+            mm='0'+mm
+        }
+        today = yyyy+ '-' +mm+ '-' +dd;
 
-    // request for opportunity
-    $http.get($scope.baseUrl + $scope.opportunity_rover + $scope.date_params + $scope.key)
-        .success(function(result) {
-            $scope.opportunity_photos = result.photos;
-            console.log($scope.opportunity_photos.length)
-        })
-        .error(function(error){
-            console.log(error);
-        });
-});
+        // set variables
+        $scope.baseUrl = "https://api.nasa.gov/mars-photos/api/v1/rovers/";
+        $scope.curiosity_rover = ["Curiosity"];
+        $scope.opportunity_rover = ["Opportunity"];
+        $scope.date_params = "/photos?earth_date=" + today;
+        $scope.key = "&api_key=NeHYhGtJMXT1kJ9jSP8bnRF2t1IpYShALfGkSKoz";
 
-// art controller
-CosmosApp.controller('artController', function($scope) {
-  $scope.message = 'Original Artwork';
-  $scope.slides = [{
-      image: 'app/assets/images/Om.jpg',
-      description: 'Om'
-  }, {
-      image: 'app/assets/images/atalanta.jpg',
-      description: 'Atalanta'
-  }, {
-      image: 'app/assets/images/founders.jpg',
-      description: 'Founders'
-  }];
+        // request for curiosity
+        $http.get($scope.baseUrl + $scope.curiosity_rover +  $scope.date_params + $scope.key)
+            .success(function(result) {
+                $scope.curiosity_photos = result.photos;
+            })
+            .error(function(error){
+                console.log(error);
+            });
 
-  $scope.currentIndex = 0;
-  $scope.setCurrentSlideIndex = function(index) {
-      $scope.currentIndex = index;
-  };
+        // request for opportunity
+        $http.get($scope.baseUrl + $scope.opportunity_rover + $scope.date_params + $scope.key)
+            .success(function(result) {
+                $scope.opportunity_photos = result.photos;
+                console.log($scope.opportunity_photos.length)
+            })
+            .error(function(error){
+                console.log(error);
+            });
+    });
 
-  $scope.isCurrentSlideIndex = function(index) {
-      return $scope.currentIndex === index;
-  };
+    // art controller
+    CosmosApp.controller('artController', function($scope) {
+      $scope.message = 'Original Artwork';
+      $scope.slides = [{
+          image: 'app/assets/images/Om.jpg',
+          description: 'Om'
+      }, {
+          image: 'app/assets/images/atalanta.jpg',
+          description: 'Atalanta'
+      }, {
+          image: 'app/assets/images/founders.jpg',
+          description: 'Founders'
+      }];
 
-  $scope.prevSlide = function() {
-      $scope.currentIndex = ($scope.currentIndex < $scope.slides.length - 1) ? ++$scope.currentIndex : 0;
-  };
+      $scope.currentIndex = 0;
+      $scope.setCurrentSlideIndex = function(index) {
+          $scope.currentIndex = index;
+      };
 
-  $scope.nextSlide = function() {
-      $scope.currentIndex = ($scope.currentIndex > 0) ? --$scope.currentIndex : $scope.slides.length - 1;
-  };
-});
+      $scope.isCurrentSlideIndex = function(index) {
+          return $scope.currentIndex === index;
+      };
+
+      $scope.prevSlide = function() {
+          $scope.currentIndex = ($scope.currentIndex < $scope.slides.length - 1) ? ++$scope.currentIndex : 0;
+      };
+
+      $scope.nextSlide = function() {
+          $scope.currentIndex = ($scope.currentIndex > 0) ? --$scope.currentIndex : $scope.slides.length - 1;
+      };
+    });
+})();
