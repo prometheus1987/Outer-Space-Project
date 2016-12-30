@@ -1,1 +1,7 @@
 .idea/
+bower.json
+.babelrc
+gulpfile.js
+karma.conf.js
+package.json
+server.js
