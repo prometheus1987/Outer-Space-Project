@@ -1,30 +1,26 @@
 (function() {
     "use strict";
 
-    // explore controller
     CosmosApp.controller('ExploreController', function($scope, $http) {
 
-      // load particles JSON
-      particlesJS.load('particles-js', 'app/assets/particles.json', function() {
-          console.log('callback - particles.js config loaded');
-      });
+        // load particles JSON
+        particlesJS.load('particles-js', 'app/assets/particles.json', function() {
+            console.log('callback - particles.js config loaded');
+        });
 
-      $scope.url = "https://api.nasa.gov/planetary/apod?";
-      $scope.key = "api_key=NeHYhGtJMXT1kJ9jSP8bnRF2t1IpYShALfGkSKoz";
+        $scope.url = "https://api.nasa.gov/planetary/apod?";
+        $scope.key = "api_key=NeHYhGtJMXT1kJ9jSP8bnRF2t1IpYShALfGkSKoz";
 
-      // api call for nasa apod
-      $http.get($scope.url + $scope.key)
-          .success(function(data) {
-              $scope.title = data.title;
-              $scope.hdurl = data.hdurl;
-              $scope.explanation = data.explanation;
-          })
-          .error(function(error){
-              console.log(error);
-          });
-    });
-
-    CosmosApp.controller('RoverController', function($scope, $http) {
+        // api call for nasa apod
+        $http.get($scope.url + $scope.key)
+            .success(function(data) {
+                $scope.title = data.title;
+                $scope.hdurl = data.hdurl;
+                $scope.explanation = data.explanation;
+            })
+            .error(function(error){
+                console.log(error);
+            });
 
         // calculate date
         let today = new Date();
