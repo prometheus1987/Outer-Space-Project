@@ -10,6 +10,7 @@
 
         $scope.url = "https://api.nasa.gov/planetary/apod?";
         $scope.key = "api_key=NeHYhGtJMXT1kJ9jSP8bnRF2t1IpYShALfGkSKoz";
+        $scope.sounds_url = "https://api.nasa.gov/planetary/sounds?";
 
         // api call for nasa apod
         $http.get($scope.url + $scope.key)
@@ -19,12 +20,12 @@
                 $scope.explanation = data.explanation;
             })
             .error(function(error){
-                console.log(error);
+                // console.log(error);
             });
 
-        // calculate date
+        // calculate date for rover requests
         let today = new Date();
-        let dd = today.getDate()-2;
+        let dd = today.getDate()-4;
         let mm = today.getMonth()+1;
         let yyyy = today.getFullYear();
 
@@ -47,19 +48,20 @@
         $http.get($scope.baseUrl + $scope.curiosity_rover +  $scope.date_params + $scope.key)
             .success(function(result) {
                 $scope.curiosity_photos = result.photos;
+                console.log(result.photos);
             })
             .error(function(error){
-                console.log(error);
+
             });
 
         // request for opportunity
         $http.get($scope.baseUrl + $scope.opportunity_rover + $scope.date_params + $scope.key)
             .success(function(result) {
                 $scope.opportunity_photos = result.photos;
-                console.log($scope.opportunity_photos.length)
+                console.log(result.photos);
             })
             .error(function(error){
-                console.log(error);
+
             });
     });
 
