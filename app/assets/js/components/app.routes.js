@@ -39,19 +39,6 @@ CosmosApp.config(function($stateProvider, $urlRouterProvider) {
           templateUrl : 'app/views/mars.opportunity.html',
           controller : 'ExploreController'
       })
-
-      // particle state
-      .state('explore.particles', {
-          url: '&particles',
-          templateUrl : 'app/views/explore.particles.html',
-          controller : 'ExploreController'
-      })
-      // circle state
-      .state('explore.circles', {
-          url: '&circles',
-          templateUrl: 'app/views/explore.circles.html',
-          controller: 'ExploreController'
-      })
       // explore sounds state
       .state('explore.sounds', {
           url: '&sounds',
@@ -68,5 +55,5 @@ CosmosApp.config(function($stateProvider, $urlRouterProvider) {
       .state('contact', {
           url: '/contact',
           templateUrl : 'app/views/contact.html'
-      })
+      });
 });
