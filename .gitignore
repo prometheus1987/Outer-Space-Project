@@ -1,1 +1,7 @@
 .idea/
+node_modules
+public
+app/assets/js/components/app.controllers-compiled.js
+app/assets/js/components/app.controllers-compiled.js.map
+app/assets/js/components/app.routes-compiled.js
+app/assets/js/components/app.routes-compiled.js.map

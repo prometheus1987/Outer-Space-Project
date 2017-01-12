@@ -2,7 +2,7 @@
     "use strict";
 
     CosmosApp.controller('ExploreController', function($scope, $http) {
-        
+
         $scope.url = "https://api.nasa.gov/planetary/apod?";
         $scope.key = "api_key=NeHYhGtJMXT1kJ9jSP8bnRF2t1IpYShALfGkSKoz";
         $scope.soundsUrl = "https://api.nasa.gov/planetary/sounds?";
@@ -15,7 +15,7 @@
                 $scope.explanation = data.explanation;
             })
             .error(function(error){
-                // console.log(error);
+                console.log(error);
             });
 
         // calculate date for rover requests
