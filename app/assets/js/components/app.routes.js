@@ -1,6 +1,6 @@
 (function() {
     "use strict";
-    
+
     CosmosApp.config(function($stateProvider, $urlRouterProvider) {
 
       $urlRouterProvider.otherwise('/mothership');
@@ -16,12 +16,6 @@
               url: '/explore',
               templateUrl : 'app/views/explore.html',
               controller  : 'ExploreController'
-          })
-          // sine wave state
-          .state('explore.sine', {
-              url: '&sine',
-              templateUrl : 'app/views/explore.sine.html',
-              controller : 'ExploreController'
           })
           // apod state
           .state('explore.apod', {
