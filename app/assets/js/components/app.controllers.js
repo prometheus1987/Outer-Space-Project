@@ -3,14 +3,9 @@
 
     CosmosApp.controller('ExploreController', function($scope, $http) {
 
-        // load particles JSON
-        particlesJS.load('particles-js', 'app/assets/particles.json', function() {
-            console.log('callback - particles.js config loaded');
-        });
-
         $scope.url = "https://api.nasa.gov/planetary/apod?";
         $scope.key = "api_key=NeHYhGtJMXT1kJ9jSP8bnRF2t1IpYShALfGkSKoz";
-        $scope.sounds_url = "https://api.nasa.gov/planetary/sounds?";
+        $scope.soundsUrl = "https://api.nasa.gov/planetary/sounds?";
 
         // api call for nasa apod
         $http.get($scope.url + $scope.key)
@@ -20,32 +15,33 @@
                 $scope.explanation = data.explanation;
             })
             .error(function(error){
-                // console.log(error);
+                console.log(error);
             });
 
         // calculate date for rover requests
-        let today = new Date();
-        let dd = today.getDate()-1;
-        let mm = today.getMonth()+1;
-        let yyyy = today.getFullYear();
+
+        var today = new Date();
+        var dd = today.getDate()-4;
+        var mm = today.getMonth()+1;
+        var yyyy = today.getFullYear();
 
         if(dd<10) {
-            dd='0'+dd
+            dd='0'+dd;
         }
         if(mm<10) {
-            mm='0'+mm
+            mm='0'+mm;
         }
         today = yyyy+ '-' +mm+ '-' +dd;
 
         // set variables
         $scope.baseUrl = "https://api.nasa.gov/mars-photos/api/v1/rovers/";
-        $scope.curiosity_rover = ["Curiosity"];
-        $scope.opportunity_rover = ["Opportunity"];
-        $scope.date_params = "/photos?earth_date=" + today;
+        $scope.curiosityRover = ["Curiosity"];
+        $scope.opportunityRover = ["Opportunity"];
+        $scope.dateParams = "/photos?earth_date=" + today;
         $scope.key = "&api_key=NeHYhGtJMXT1kJ9jSP8bnRF2t1IpYShALfGkSKoz";
 
         // request for curiosity
-        $http.get($scope.baseUrl + $scope.curiosity_rover +  $scope.date_params + $scope.key)
+        $http.get($scope.baseUrl + $scope.curiosityRover +  $scope.dateParams + $scope.key)
             .success(function(result) {
                 $scope.curiosity_photos = result.photos;
                 console.log(result.photos);
@@ -55,7 +51,7 @@
             });
 
         // request for opportunity
-        $http.get($scope.baseUrl + $scope.opportunity_rover + $scope.date_params + $scope.key)
+        $http.get($scope.baseUrl + $scope.opportunityRover + $scope.dateParams + $scope.key)
             .success(function(result) {
                 $scope.opportunity_photos = result.photos;
                 console.log(result.photos);
