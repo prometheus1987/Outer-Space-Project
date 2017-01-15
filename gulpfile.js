@@ -1,5 +1,6 @@
 // Include gulp
 var gulp = require('gulp');
+var karma = require('karma').Server;
 
 // Include Our Plugins
 var jshint = require('gulp-jshint');
@@ -61,5 +62,14 @@ gulp.task("babel", function () {
         .pipe(gulp.dest("public"));
 });
 
+gulp.task('karma', function(done) {
+    karma.start({
+        configFile: __dirname + '/karma.conf.js',
+        singleRun: true
+    }, function() {
+        done();
+    });
+});
+
 // Default Task
-gulp.task('default', ['lint', 'sass', 'scripts', 'watch', 'babel']);
+gulp.task('default', ['lint', 'sass', 'scripts', 'watch', 'babel', 'karma']);
