@@ -19,17 +19,11 @@
             });
 
         // calculate date for rover requests
-<<<<<<< HEAD
-        let today = new Date();
-        let dd = today.getDate()-1;
-        let mm = today.getMonth()+1;
-        let yyyy = today.getFullYear();
-=======
+
         var today = new Date();
         var dd = today.getDate()-4;
         var mm = today.getMonth()+1;
         var yyyy = today.getFullYear();
->>>>>>> 143ca7d6a53bede7607b2b5fc88669e9650c128c
 
         if(dd<10) {
             dd='0'+dd;
