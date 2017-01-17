@@ -22,6 +22,7 @@
             });
 
         // calculate date for rover requests
+
         var today = new Date();
         var dd = today.getDate()-4;
         var mm = today.getMonth()+1;
