@@ -4,6 +4,8 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta charset="utf-8">
+
+    <base href="/">
 </head>
 <body ng-app="CosmosApp">
     <div class="banner text-center">
@@ -19,12 +21,10 @@
     <div class="menu text-center">
         <a ui-sref="home">Home</a>
         <a ui-sref="explore">Explore</a>
-        <a ui-sref="art">Art</a>
         <a ui-sref="contact">Contact</a>
     </div>
     <div ui-view></div>
 </body>
-
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="app/assets/css/custom.scss">
@@ -36,6 +36,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.2.0/ui-bootstrap-tpls.min.js"></script>
     <script src="app/assets/js/components/app.module.js"></script>
     <script src="app/assets/js/components/app.routes.js"></script>
-    <script src="app/assets/js/components/app.controllers.js"></script>
-
+    <script src="app/assets/js/components/explore.controllers.js"></script>
 </html>

@@ -1,8 +1,8 @@
 .idea/
 node_modules/
 public/
-app/assets/js/components/app.controllers-compiled.js
-app/assets/js/components/app.controllers-compiled.js.map
+app/assets/js/components/explore.controllers-compiled.js
+app/assets/js/components/explore.controllers-compiled.js.map.map
 app/assets/js/components/app.routes-compiled.js
 app/assets/js/components/app.routes-compiled.js.map
 app/assets/js/components/app.module-compiled.js
@@ -10,3 +10,11 @@ app/assets/js/components/app.module-compiled.js.map
 gulpfile-compiled.js
 gulpfile-compiled.js.map
 npm-debug.log
+server-compiled.js
+server-compiled.js.map
+.DS_Store
+app/.DS_Store
+app/assets/.DS_Store
+app/assets/images/.DS_Store
+karma.conf-compiled.js
+karma.conf-compiled.js.map
