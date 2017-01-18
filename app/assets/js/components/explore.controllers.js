@@ -19,40 +19,42 @@
 
         // calculate date for rover requests
         var today = new Date();
-        var dd = today.getDate()-1;
-        var mm = today.getMonth()+1;
-        var yyyy = today.getFullYear();
+        var opportunityLatest = new Date();
 
-        if(dd<10) {
-            dd='0'+dd;
+        var day = today.getDate()-1;
+        var delayedDay = today.getDate()-6;
+        var month = today.getMonth()+1;
+        var year = today.getFullYear();
+
+        if(day<10) {
+            day='0'+day;
         }
-        if(mm<10) {
-            mm='0'+mm;
+        if(month<10) {
+            month='0'+month;
         }
-        today = yyyy+ '-' +mm+ '-' +dd;
+        today = year+ '-' +month+ '-' +day;
+        opportunityLatest = year+ '-' +month+ '-' +delayedDay;
 
         // set variables
         $scope.baseUrl = "https://api.nasa.gov/mars-photos/api/v1/rovers/";
         $scope.curiosityRover = ["Curiosity"];
         $scope.opportunityRover = ["Opportunity"];
-        $scope.dateParams = "/photos?earth_date=" + today;
+        $scope.dateParams = "/photos?earth_date=";
         $scope.key = "&api_key=NeHYhGtJMXT1kJ9jSP8bnRF2t1IpYShALfGkSKoz";
 
         // request for curiosity
-        $http.get($scope.baseUrl + $scope.curiosityRover +  $scope.dateParams + $scope.key)
+        $http.get($scope.baseUrl + $scope.curiosityRover +  $scope.dateParams + today + $scope.key)
             .success(function(result) {
                 $scope.curiosity_photos = result.photos;
-                console.log(result.photos);
             })
             .error(function(error){
 
             });
 
         // request for opportunity
-        $http.get($scope.baseUrl + $scope.opportunityRover + $scope.dateParams + $scope.key)
+        $http.get($scope.baseUrl + $scope.opportunityRover + $scope.dateParams + opportunityLatest + $scope.key)
             .success(function(result) {
                 $scope.opportunity_photos = result.photos;
-                console.log(result.photos);
             })
             .error(function(error){
 
