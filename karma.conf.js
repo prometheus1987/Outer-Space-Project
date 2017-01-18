@@ -8,7 +8,7 @@ module.exports = function(config) {
       'node_modules/angular-ui-router/release/angular-ui-router.js',
       'node_modules/angular-mocks/angular-mocks.js',
       'app/assets/js/components/app.module.js',
-      'app/assets/js/components/app.controllers.js',
+      'app/assets/js/components/explore.controllers.js',
       'app/assets/js/components/app.routes.js'
     ],
     exclude: [

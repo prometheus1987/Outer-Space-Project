@@ -41,12 +41,6 @@
               templateUrl: 'app/views/explore.sounds.html',
               controller: 'ExploreController'
           })
-          // route for the art page
-          .state('art', {
-              url: '/art',
-              templateUrl : 'app/views/art.html',
-              controller  : 'artController'
-          })
           // route for the contact page
           .state('contact', {
               url: '/contact',
