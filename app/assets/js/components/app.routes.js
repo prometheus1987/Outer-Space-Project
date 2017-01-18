@@ -1,7 +1,9 @@
 (function() {
     "use strict";
 
-    CosmosApp.config(function($stateProvider) {
+    CosmosApp.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
+
+      $urlRouterProvider.otherwise('/');
 
       $stateProvider
       // route for the home page
@@ -50,5 +52,7 @@
               url: '/contact',
               templateUrl : 'app/views/contact.html'
           });
+
+        $locationProvider.html5Mode(true);
     });
 })();
