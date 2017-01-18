@@ -20,8 +20,8 @@ app.use(morgan('dev'));
 app.use(express.static(__dirname + '/'));
 
 app.get('*', function(req, res) {
-    res.sendFile(path.join(__dirname + './app/index.html'));
+    res.sendFile(path.join(__dirname + '/index.html'));
 });
 
 app.listen(8080);
-console.log('mothership is running on 8080');
+console.log('app is running on 8080');

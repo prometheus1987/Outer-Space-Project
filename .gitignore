@@ -10,3 +10,5 @@ app/assets/js/components/app.module-compiled.js.map
 gulpfile-compiled.js
 gulpfile-compiled.js.map
 npm-debug.log
+server-compiled.js
+server-compiled.js.map

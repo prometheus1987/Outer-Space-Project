@@ -1,14 +1,12 @@
 (function() {
     "use strict";
 
-    CosmosApp.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
-
-      $urlRouterProvider.otherwise('/');
+    CosmosApp.config(function($stateProvider) {
 
       $stateProvider
       // route for the home page
           .state('home', {
-              url: '/mothership',
+              url: '/',
               templateUrl : 'app/views/home.html'
           })
           // route for the explore page
@@ -52,7 +50,5 @@
               url: '/contact',
               templateUrl : 'app/views/contact.html'
           });
-
-        $locationProvider.html5Mode(true);
     });
 })();

@@ -5,10 +5,6 @@
 
         $scope.url = "https://api.nasa.gov/planetary/apod?";
         $scope.key = "api_key=NeHYhGtJMXT1kJ9jSP8bnRF2t1IpYShALfGkSKoz";
-        $scope.soundsUrl = "https://api.nasa.gov/planetary/sounds?";
-
-        // api call for Space Sounds
-        
 
         // api call for nasa apod
         $http.get($scope.url + $scope.key)
@@ -22,9 +18,8 @@
             });
 
         // calculate date for rover requests
-
         var today = new Date();
-        var dd = today.getDate()-4;
+        var dd = today.getDate()-1;
         var mm = today.getMonth()+1;
         var yyyy = today.getFullYear();
 
