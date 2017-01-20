@@ -21,7 +21,8 @@
           .state('explore.apod', {
               url: '&apod',
               templateUrl : 'app/views/explore.apod.html',
-              controller : 'ExploreController'
+              controller : 'ExploreController',
+              controllerAs: 'ApodController'
           })
           // mars "curiosity" rover state
           .state('explore.curiosity', {
