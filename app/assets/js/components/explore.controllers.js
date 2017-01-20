@@ -30,33 +30,38 @@
         opportunityLatest = year+ '-' +month+ '-' +delayedDay+ '&';
 
         // api call for nasa apod
-        $http.get($scope.apodURL + $scope.key)
-            .success(function(data) {
-                $scope.title = data.title;
-                $scope.hdurl = data.hdurl;
-                $scope.explanation = data.explanation;
-            })
-            .error(function(error){
-                console.log(error);
-            });
+        $scope.retrieveApodData = function() {
+            $http.get($scope.apodURL + $scope.key)
+                .success(function(data) {
+                    $scope.title = data.title;
+                    $scope.hdurl = data.hdurl;
+                    $scope.explanation = data.explanation;
+                })
+                .error(function(error){
+                    console.log(error);
+                });
+        };
 
         // request for curiosity
-        $http.get($scope.baseUrl + $scope.curiosityRover +  $scope.dateParams + today + $scope.key)
-            .success(function(result) {
-                $scope.curiosity_photos = result.photos;
-            })
-            .error(function(error){
-
-            });
-
+        $scope.retrieveCuriosityData = function() {
+            $http.get($scope.baseUrl + $scope.curiosityRover +  $scope.dateParams + today + $scope.key)
+                .success(function(result) {
+                    $scope.curiosity_photos = result.photos;
+                })
+                .error(function(error){
+                    console.log(error);
+                });
+        };
 
         // request for opportunity
-        $http.get($scope.baseUrl + $scope.opportunityRover + $scope.dateParams + opportunityLatest + $scope.key)
-            .success(function(result) {
-                $scope.opportunity_photos = result.photos;
-            })
-            .error(function(error){
-
-            });
+        $scope.retrieveOpportunityData = function() {
+            $http.get($scope.baseUrl + $scope.opportunityRover + $scope.dateParams + opportunityLatest + $scope.key)
+                .success(function(result) {
+                    $scope.opportunity_photos = result.photos;
+                })
+                .error(function(error){
+                    console.log(error);
+                });
+        };
     });
 })();
