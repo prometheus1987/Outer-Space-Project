@@ -1,4 +1,4 @@
-<div class="row" id="marsContainer"  ng-init="retrieveCuriosityData()">
+<div class="row" id="marsContainer"  ng-init="curiosity.retrieveCuriosityData()">
     <div class="col-md-12">
         <h2>Select a Rover:</h2>
         <a ui-sref="explore.curiosity">Curiosity</a>
@@ -29,7 +29,7 @@
                         <h3>{{photo.earth_date}}</h3>
                         <em><h2>Total Photos:</h2></em>
                         <h3>{{photo.rover.total_photos}}</h3>
-                    <img ng-src="{{photo.img_src}}" style="margin:auto;">
+                        <img ng-src="{{photo.img_src}}" style="margin:auto;">
                     </div>
                 </div>
             </div>

@@ -33,7 +33,7 @@
         date = year+ '-' +month+ '-' +day+ '&';
 
         // api call for nasa APOD data
-        $scope.retrieveApodData = function() {
+        vm.retrieveApodData = function() {
             $http.get(vm.apodUrl + vm.key)
                 .success(function(data) {
                     vm.title = data.title;
@@ -46,14 +46,13 @@
         };
 
         // request for curiosity data
-        $scope.retrieveCuriosityData = function() {
+        vm.retrieveCuriosityData = function() {
 
             vm.rover = "Curiosity";
 
             $http.get(vm.baseUrl + vm.rover +  vm.dateParams + date + vm.key)
                 .success(function(result) {
                     vm.data = result.photos;
-                    console.log(vm.data);
                 })
                 .error(function(error){
                     console.log(error);
@@ -61,7 +60,7 @@
         };
 
         // request for opportunity data
-        $scope.retrieveOpportunityData = function() {
+        vm.retrieveOpportunityData = function() {
 
             vm.rover = "Opportunity";
 
@@ -76,7 +75,7 @@
         };
 
         // request for asteroid data
-        $scope.retrieveAsteroidData = function() {
+        vm.retrieveAsteroidData = function() {
             $http.get(vm.asteroidUrl + vm.key)
               .success(function(result) {
                   vm.data = result.near_earth_objects;
