@@ -26,13 +26,13 @@
           })
           // mars "curiosity" rover state
           .state('explore.curiosity', {
-              url: '&rover&curiosity',
+              url: '&rover=curiosity',
               templateUrl : 'app/views/mars.curiosity.html',
               controller : 'ExploreController'
           })
           // mars "opportunity" rover state
           .state('explore.opportunity', {
-              url: '&rover&opportunity',
+              url: '&rover=opportunity',
               templateUrl : 'app/views/mars.opportunity.html',
               controller : 'ExploreController'
           })
@@ -40,6 +40,11 @@
           .state('explore.sounds', {
               url: '&sounds',
               templateUrl: 'app/views/explore.sounds.html',
+              controller: 'ExploreController'
+          })
+          .state('explore.asteroids', {
+              url: '&asteroids',
+              templateUrl: 'app/views/explore.asteroids.html',
               controller: 'ExploreController'
           })
           // route for the contact page
