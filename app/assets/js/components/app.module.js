@@ -1,7 +1,10 @@
-var CosmosApp =
+(function() {
+  "use strict";
+
   angular
-      .module('CosmosApp', [
-              'ngAnimate',
-              'ui.router',
-              'ui.bootstrap'
-  ]);
+    .module('app', [
+      'ngAnimate',
+      'ui.router',
+      'ui.bootstrap'
+    ])
+})();

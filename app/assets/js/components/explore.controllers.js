@@ -1,16 +1,22 @@
 (function() {
     "use strict";
 
-    CosmosApp.controller('ExploreController', function($scope, $http) {
+    angular
+        .module('app')
+        .controller('ExploreController',
+
+    function($scope, $http) {
 
         // set variables
-        $scope.baseUrl = "https://api.nasa.gov/mars-photos/api/v1/rovers/";
-        $scope.apodUrl = "https://api.nasa.gov/planetary/apod?";
+        var vm = this;
+
+        vm.baseUrl = "https://api.nasa.gov/mars-photos/api/v1/rovers/";
+        vm.apodUrl = "https://api.nasa.gov/planetary/apod?";
         $scope.asteroidUrl = "https://api.nasa.gov/neo/rest/v1/neo/browse?";
-        $scope.curiosityRover = ["Curiosity"];
-        $scope.opportunityRover = ["Opportunity"];
-        $scope.dateParams = "/photos?earth_date=";
-        $scope.key = "api_key=NeHYhGtJMXT1kJ9jSP8bnRF2t1IpYShALfGkSKoz";
+        vm.curiosityRover = ["Curiosity"];
+        vm.opportunityRover = ["Opportunity"];
+        vm.dateParams = "/photos?earth_date=";
+        vm.key = "api_key=NeHYhGtJMXT1kJ9jSP8bnRF2t1IpYShALfGkSKoz";
 
         // calculate date for rover requests
         let date = new Date();
@@ -29,11 +35,11 @@
 
         // api call for nasa APOD data
         $scope.retrieveApodData = function() {
-            $http.get($scope.apodUrl + $scope.key)
+            $http.get(vm.apodUrl + vm.key)
                 .success(function(data) {
-                    $scope.title = data.title;
-                    $scope.hdurl = data.hdurl;
-                    $scope.explanation = data.explanation;
+                    vm.title = data.title;
+                    vm.hdurl = data.hdurl;
+                    vm.explanation = data.explanation;
                 })
                 .error(function(error){
                     console.log(error);
@@ -42,10 +48,10 @@
 
         // request for curiosity data
         $scope.retrieveCuriosityData = function() {
-            $http.get($scope.baseUrl + $scope.curiosityRover +  $scope.dateParams + date + $scope.key)
+            $http.get(vm.baseUrl + vm.curiosityRover +  vm.dateParams + date + vm.key)
                 .success(function(result) {
-                    $scope.photos = result.photos;
-                    console.log($scope.photos.length);
+                    vm.photos = result.photos;
+                    console.log(vm.photos.length);
                 })
                 .error(function(error){
                     console.log(error);
@@ -54,10 +60,10 @@
 
         // request for opportunity data
         $scope.retrieveOpportunityData = function() {
-            $http.get($scope.baseUrl + $scope.opportunityRover + $scope.dateParams + date + $scope.key)
+            $http.get(vm.baseUrl + vm.opportunityRover + vm.dateParams + date + vm.key)
                 .success(function(result) {
-                    $scope.photos = result.photos;
-                    console.log($scope.photos.length);
+                    vm.photos = result.photos;
+                    console.log(vm.photos.length);
                 })
                 .error(function(error){
                     console.log(error);

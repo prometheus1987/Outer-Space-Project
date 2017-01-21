@@ -20,7 +20,7 @@
             <div uib-carousel active="active"
                  interval="myInterval"
                  no-wrap="noWrapSlides">
-                <div uib-slide ng-repeat="photo in photos track by photo.id" index="$index">
+                <div uib-slide ng-repeat="photo in curiosity.photos track by photo.id" index="$index">
                         <em><h2>Camera:</h2></em>
                         <h3>{{photo.camera.full_name}}</h3>
                         <em><h2>Martian Sol:</h2></em>
