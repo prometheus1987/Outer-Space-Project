@@ -12,9 +12,8 @@
 
         vm.baseUrl = "https://api.nasa.gov/mars-photos/api/v1/rovers/";
         vm.apodUrl = "https://api.nasa.gov/planetary/apod?";
-        $scope.asteroidUrl = "https://api.nasa.gov/neo/rest/v1/neo/browse?";
-        vm.curiosityRover = ["Curiosity"];
-        vm.opportunityRover = ["Opportunity"];
+        vm.asteroidUrl = "https://api.nasa.gov/neo/rest/v1/neo/browse?";
+        vm.rover = "";
         vm.dateParams = "/photos?earth_date=";
         vm.key = "api_key=NeHYhGtJMXT1kJ9jSP8bnRF2t1IpYShALfGkSKoz";
 
@@ -48,10 +47,13 @@
 
         // request for curiosity data
         $scope.retrieveCuriosityData = function() {
-            $http.get(vm.baseUrl + vm.curiosityRover +  vm.dateParams + date + vm.key)
+
+            vm.rover = "Curiosity";
+
+            $http.get(vm.baseUrl + vm.rover +  vm.dateParams + date + vm.key)
                 .success(function(result) {
-                    vm.photos = result.photos;
-                    console.log(vm.photos.length);
+                    vm.data = result.photos;
+                    console.log(vm.data);
                 })
                 .error(function(error){
                     console.log(error);
@@ -60,10 +62,13 @@
 
         // request for opportunity data
         $scope.retrieveOpportunityData = function() {
-            $http.get(vm.baseUrl + vm.opportunityRover + vm.dateParams + date + vm.key)
+
+            vm.rover = "Opportunity";
+
+            $http.get(vm.baseUrl + vm.rover + vm.dateParams + date + vm.key)
                 .success(function(result) {
                     vm.photos = result.photos;
-                    console.log(vm.photos.length);
+                    console.log(vm.photos);
                 })
                 .error(function(error){
                     console.log(error);
@@ -72,9 +77,9 @@
 
         // request for asteroid data
         $scope.retrieveAsteroidData = function() {
-            $http.get($scope.asteroidUrl + $scope.key)
+            $http.get(vm.asteroidUrl + vm.key)
               .success(function(result) {
-                  $scope.data = result.near_earth_objects;
+                  vm.data = result.near_earth_objects;
                   console.log(result.near_earth_objects);
               })
         }
