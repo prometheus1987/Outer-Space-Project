@@ -8,6 +8,8 @@ app/assets/js/components/app.routes-compiled.js.map
 app/assets/js/components/app.module-compiled.js
 app/assets/js/components/app.module-compiled.js.map
 app/assets/js/components/explore.controllers-compiled.js.map
+spec/explore.spec-compiled.js
+spec/explore.spec-compiled.js.map
 gulpfile-compiled.js
 gulpfile-compiled.js.map
 npm-debug.log
@@ -19,3 +21,4 @@ app/assets/.DS_Store
 app/assets/images/.DS_Store
 karma.conf-compiled.js
 karma.conf-compiled.js.map
+.env
