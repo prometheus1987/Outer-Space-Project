@@ -14,6 +14,8 @@ var concat = require("gulp-concat");
 var plugins = require('gulp-load-plugins')();
 var nodemon = require('gulp-nodemon');
 var env = require('gulp-env');
+var gulpNgConfig = require('gulp-ng-config');
+var fs = require('fs');
 var pipes = {};
 
 var paths = {
@@ -80,6 +82,7 @@ gulp.task('karma', function(done) {
     });
 });
 
+// Nodemon Task
 gulp.task('nodemon', function() {
     env({
         file: '.env'
@@ -91,5 +94,9 @@ gulp.task('nodemon', function() {
     });
 });
 
+gulp.task('development', function() {
+    return process.env.NODE_ENV = 'development';
+});
+
 // Default Task
-gulp.task('default', ['lint', 'sass', 'scripts', 'watch', 'babel', 'karma', 'nodemon']);
+gulp.task('default', ['nodemon', 'lint', 'sass', 'scripts', 'watch', 'babel', 'karma']);
