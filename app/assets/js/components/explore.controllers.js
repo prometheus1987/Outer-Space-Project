@@ -1,24 +1,28 @@
 (function() {
     "use strict";
 
-    CosmosApp.controller('ExploreController', function($scope, $http) {
+    angular
+        .module('app')
+        .controller('ExploreController',
+
+    function($scope, $http) {
 
         // set variables
-        $scope.baseUrl = "https://api.nasa.gov/mars-photos/api/v1/rovers/";
-        $scope.curiosityRover = ["Curiosity"];
-        $scope.opportunityRover = ["Opportunity"];
-        $scope.dateParams = "/photos?earth_date=";
-        $scope.apodURL = "https://api.nasa.gov/planetary/apod?";
-        $scope.key = "api_key=NeHYhGtJMXT1kJ9jSP8bnRF2t1IpYShALfGkSKoz";
+        var vm = this;
+
+        vm.baseUrl = "https://api.nasa.gov/mars-photos/api/v1/rovers/";
+        vm.apodUrl = "https://api.nasa.gov/planetary/apod?";
+        vm.asteroidUrl = "https://api.nasa.gov/neo/rest/v1/neo/browse?";
+        vm.rover = [];
+        vm.dateParams = "/photos?earth_date=";
+        vm.key = "api_key=NeHYhGtJMXT1kJ9jSP8bnRF2t1IpYShALfGkSKoz";
 
         // calculate date for rover requests
-        var today = new Date();
-        var opportunityLatest = new Date();
+        let date = new Date();
 
-        var day = today.getDate()-1;
-        var delayedDay = today.getDate()-6;
-        var month = today.getMonth()+1;
-        var year = today.getFullYear();
+        let day = date.getDate()-1;
+        let month = date.getMonth()+1;
+        let year = date.getFullYear();
 
         if(day<10) {
             day='0'+day;
@@ -26,42 +30,57 @@
         if(month<10) {
             month='0'+month;
         }
-        today = year+ '-' +month+ '-' +day+ '&';
-        opportunityLatest = year+ '-' +month+ '-' +delayedDay+ '&';
+        date = year+ '-' +month+ '-' +day+ '&';
 
-        // api call for nasa apod
-        $scope.retrieveApodData = function() {
-            $http.get($scope.apodURL + $scope.key)
+        // api call for nasa APOD data
+        vm.retrieveApodData = function() {
+            $http.get(vm.apodUrl + vm.key)
                 .success(function(data) {
-                    $scope.title = data.title;
-                    $scope.hdurl = data.hdurl;
-                    $scope.explanation = data.explanation;
+                    vm.title = data.title;
+                    vm.hdurl = data.hdurl;
+                    vm.explanation = data.explanation;
                 })
                 .error(function(error){
                     console.log(error);
                 });
         };
 
-        // request for curiosity
-        $scope.retrieveCuriosityData = function() {
-            $http.get($scope.baseUrl + $scope.curiosityRover +  $scope.dateParams + today + $scope.key)
+        // request for curiosity data
+        vm.retrieveCuriosityData = function() {
+
+            vm.rover = "Curiosity";
+
+            $http.get(vm.baseUrl + vm.rover +  vm.dateParams + date + vm.key)
                 .success(function(result) {
-                    $scope.curiosity_photos = result.photos;
+                    vm.data = result.photos;
                 })
                 .error(function(error){
                     console.log(error);
                 });
         };
 
-        // request for opportunity
-        $scope.retrieveOpportunityData = function() {
-            $http.get($scope.baseUrl + $scope.opportunityRover + $scope.dateParams + opportunityLatest + $scope.key)
+        // request for opportunity data
+        vm.retrieveOpportunityData = function() {
+
+            vm.rover = "Opportunity";
+
+            $http.get(vm.baseUrl + vm.rover + vm.dateParams + date + vm.key)
                 .success(function(result) {
-                    $scope.opportunity_photos = result.photos;
+                    vm.photos = result.photos;
+                    console.log(vm.photos);
                 })
                 .error(function(error){
                     console.log(error);
                 });
+        };
+
+        // request for asteroid data
+        vm.retrieveAsteroidData = function() {
+            $http.get(vm.asteroidUrl + vm.key)
+              .success(function(result) {
+                  vm.data = result.near_earth_objects;
+                  console.log(result.near_earth_objects);
+              });
         };
     });
 })();

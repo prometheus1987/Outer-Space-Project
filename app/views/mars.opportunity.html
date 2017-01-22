@@ -4,6 +4,9 @@
         <a ui-sref="explore.curiosity">Curiosity</a>
         <a ui-sref="explore.opportunity">Opportunity</a>
         <div class="rovers">
+            <img src="app/assets/images/opportunity_rover.jpg"
+                 style="width: 50%; margin-bottom: 100px; margin-top: 50px;"
+            />
             <em><h2>Rover Name:</h2></em>
             <h3>Opportunity</h3>
             <em><h2>Status:</h2></em>
@@ -12,21 +15,20 @@
             <h3>2004-01-25</h3>
             <em><h2>Launch Date:</h2></em>
             <h3>2003-07-07</h3>
-            <img src="app/assets/images/opportunity_rover.jpg"
-                 style="width: 25%; margin-bottom: 100px; margin-top: 50px;"
-            />
         </div>
-        <div class="col-md-12" style="margin-bottom: 50px;" ng-init="retrieveOpportunityData()">
+        <div class="col-md-12" style="margin-bottom: 50px;" ng-init="opportunity.retrieveOpportunityData()">
             <div uib-carousel active="active"
                  interval="myInterval"
                  no-wrap="noWrapSlides">
-                <div uib-slide ng-repeat="photo in opportunity_photos track by photo.id" index="$index">
+                <div uib-slide ng-repeat="photo in opportunity.photos track by photo.id" index="$index">
                     <em><h2>Camera:</h2></em>
                     <h3>{{photo.camera.full_name}}</h3>
                     <em><h2>Martian Sol:</h2></em>
                     <h3>{{photo.sol}}</h3>
                     <em><h2>Earth Date:</h2></em>
                     <h3>{{photo.earth_date}}</h3>
+                    <em><h2>Total Photos:</h2></em>
+                    <h3>{{photo.rover.total_photos}}</h3>
                     <img ng-src="{{photo.img_src}}" style="margin:auto;">
                 </div>
             </div>
