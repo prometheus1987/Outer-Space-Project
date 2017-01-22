@@ -1,6 +1,7 @@
 .idea/
 node_modules/
 public/
+spec/
 karma.conf.js
 gulpfile.js
 package.json
