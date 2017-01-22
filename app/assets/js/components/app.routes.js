@@ -46,11 +46,6 @@
           templateUrl: 'app/views/explore.sounds.html',
           controller: 'ExploreController'
       })
-      .state('explore.asteroids', {
-          url: '&asteroids',
-          templateUrl: 'app/views/explore.asteroids.html',
-          controller: 'ExploreController'
-      })
       // route for the contact page
       .state('contact', {
           url: '/contact',
