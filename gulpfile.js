@@ -15,7 +15,8 @@ var plugins = require('gulp-load-plugins')();
 var nodemon = require('gulp-nodemon');
 var env = require('gulp-env');
 var gulpNgConfig = require('gulp-ng-config');
-var fs = require('fs');
+var plumber = require('gulp-plumber');
+var notify = require('gulp-notify');
 var pipes = {};
 
 var paths = {
@@ -35,6 +36,12 @@ var paths = {
 // Lint Task
 gulp.task('lint', function() {
     return gulp.src(paths.scripts)
+        .pipe(plumber({ errorHandler: function(err) {
+            notify.onError({
+                title: "Gulp error in " + err.plugin,
+                message:  err.toString()
+            })(err);
+        }}))
         .pipe(jshint())
         .pipe(jshint.reporter('default'));
 });
@@ -42,6 +49,12 @@ gulp.task('lint', function() {
 // Compile Our Sass
 gulp.task('sass', function() {
     return gulp.src(paths.styles)
+        .pipe(plumber({ errorHandler: function(err) {
+            notify.onError({
+                title: "Gulp error in " + err.plugin,
+                message:  err.toString()
+            })(err);
+        }}))
         .pipe(sass())
         .pipe(gulp.dest('public/css'));
 });
@@ -49,6 +62,12 @@ gulp.task('sass', function() {
 // Concatenate & Minify JS
 gulp.task('scripts', function() {
     return gulp.src(paths.scripts)
+        .pipe(plumber({ errorHandler: function(err) {
+            notify.onError({
+                title: "Gulp error in " + err.plugin,
+                message:  err.toString()
+            })(err);
+        }}))
         .pipe(concat('all.js'))
         .pipe(gulp.dest('public'))
         .pipe(rename('all.min.js'))
@@ -65,6 +84,12 @@ gulp.task('watch', function() {
 // Babel Task
 gulp.task("babel", function () {
     return gulp.src(paths.scripts)
+        .pipe(plumber({ errorHandler: function(err) {
+            notify.onError({
+                title: "Gulp error in " + err.plugin,
+                message:  err.toString()
+            })(err);
+        }}))
         .pipe(sourcemaps.init())
         .pipe(babel())
         .pipe(concat("all.js"))
@@ -92,10 +117,6 @@ gulp.task('nodemon', function() {
         script: 'server.js',
         ext: 'js html'
     });
-});
-
-gulp.task('development', function() {
-    return process.env.NODE_ENV = 'development';
 });
 
 // Default Task

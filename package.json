@@ -32,6 +32,8 @@
     "gulp-load-plugins": "^1.4.0",
     "gulp-ng-config": "^1.4.0",
     "gulp-nodemon": "^2.2.1",
+    "gulp-notify": "^2.2.0",
+    "gulp-plumber": "^1.1.0",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.3.2",
     "gulp-sourcemaps": "^2.1.1",
@@ -48,6 +50,7 @@
   },
   "dependencies": {
     "body-parser": "^1.15.2",
+    "chalk": "^1.1.3",
     "express": "^4.14.0",
     "morgan": "^1.7.0",
     "path": "^0.12.7"

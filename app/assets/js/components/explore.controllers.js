@@ -73,14 +73,5 @@
                     console.log(error);
                 });
         };
-
-        // request for asteroid data
-        vm.retrieveAsteroidData = function() {
-            $http.get(vm.asteroidUrl + vm.key)
-              .success(function(result) {
-                  vm.data = result.near_earth_objects;
-                  console.log(result.near_earth_objects);
-              });
-        };
     });
 })();
