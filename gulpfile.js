@@ -19,7 +19,10 @@ var pipes = {};
 var paths = {
     scripts: ['./app/assets/js/components/app.module.js',
               './app/assets/js/components/app.routes.js',
-              './app/assets/js/components/app.controller.js'
+              './app/assets/js/components/app.controller.js',
+               '!karma.conf.js',
+               '!server.js',
+               '!gulpfile.js'
     ],
     styles: ['./app/assets/css/*.css', './app/assets/*.scss'],
     index: './app/index.html',
@@ -29,14 +32,14 @@ var paths = {
 
 // Lint Task
 gulp.task('lint', function() {
-    return gulp.src('./app/assets/js/**/*.js')
+    return gulp.src(paths.scripts)
         .pipe(jshint())
         .pipe(jshint.reporter('default'));
 });
 
 // Compile Our Sass
 gulp.task('sass', function() {
-    return gulp.src('./app/assets/css/*.scss')
+    return gulp.src(paths.styles)
         .pipe(sass())
         .pipe(gulp.dest('public/css'));
 });
@@ -53,13 +56,13 @@ gulp.task('scripts', function() {
 
 // Watch Files For Changes
 gulp.task('watch', function() {
-    gulp.watch('./app/assets/js/components/*.js', ['lint', 'scripts']);
-    gulp.watch('./app/assets/css/*.scss', ['sass']);
+    gulp.watch(paths.scripts, ['lint', 'scripts']);
+    gulp.watch(paths.styles, ['sass']);
 });
 
 // Babel Task
 gulp.task("babel", function () {
-    return gulp.src("./app/assets/js/**/*.js")
+    return gulp.src(paths.scripts)
         .pipe(sourcemaps.init())
         .pipe(babel())
         .pipe(concat("all.js"))
@@ -79,16 +82,12 @@ gulp.task('karma', function(done) {
 
 gulp.task('nodemon', function() {
     env({
-        file: '.env.json',
-        vars: {
-            // any variables you want to overwrite
-        }
+        file: '.env'
     });
 
     nodemon({
         script: 'server.js',
         ext: 'js html'
-        // other config ...
     });
 });
 
