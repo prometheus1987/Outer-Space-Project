@@ -67,11 +67,13 @@
             $http.get(vm.baseUrl + vm.rover + vm.dateParams + date + vm.key)
                 .success(function(result) {
                     vm.photos = result.photos;
-                    console.log(vm.photos);
                 })
                 .error(function(error){
                     console.log(error);
                 });
+                angular.forEach(vm.photos, function() {
+                    console.log(vm.photos);
+                })
         };
     });
 })();
