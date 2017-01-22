@@ -80,7 +80,7 @@
               .success(function(result) {
                   vm.data = result.near_earth_objects;
                   console.log(result.near_earth_objects);
-              })
-        }
+              });
+        };
     });
 })();

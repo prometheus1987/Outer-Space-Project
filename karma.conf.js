@@ -9,7 +9,8 @@ module.exports = function(config) {
       'node_modules/angular-mocks/angular-mocks.js',
       'app/assets/js/components/app.module.js',
       'app/assets/js/components/explore.controllers.js',
-      'app/assets/js/components/app.routes.js'
+      'app/assets/js/components/app.routes.js',
+      'spec/explore.spec.js'
     ],
     exclude: [
     ],

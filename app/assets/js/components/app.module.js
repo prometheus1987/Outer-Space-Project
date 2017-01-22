@@ -6,5 +6,5 @@
       'ngAnimate',
       'ui.router',
       'ui.bootstrap'
-    ])
+    ]);
 })();
