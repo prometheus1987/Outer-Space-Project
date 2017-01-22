@@ -39,7 +39,7 @@ gulp.task('lint', function() {
 
 // Compile Our Sass
 gulp.task('sass', function() {
-    return gulp.src(path.styles)
+    return gulp.src(paths.styles)
         .pipe(sass())
         .pipe(gulp.dest('public/css'));
 });
@@ -82,7 +82,7 @@ gulp.task('karma', function(done) {
 
 gulp.task('nodemon', function() {
     env({
-        file: '.env',
+        file: '.env'
     });
 
     nodemon({
@@ -92,4 +92,4 @@ gulp.task('nodemon', function() {
 });
 
 // Default Task
-gulp.task('default', ['lint', 'sass', 'scripts', 'watch', 'babel', 'karma']);
+gulp.task('default', ['lint', 'sass', 'scripts', 'watch', 'babel', 'karma', 'nodemon']);

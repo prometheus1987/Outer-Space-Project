@@ -3,7 +3,7 @@ module.exports = function(config) {
     basePath: 'C:/Users/HackerOne/src/Digital-Cosmos',
     frameworks: ['jasmine'],
     files: [
-      './node_modules/jquery/public/jquery.js',
+      '/node_modules/jquery/public/jquery.js',
       'node_modules/angular/angular.js',
       'node_modules/angular-ui-router/release/angular-ui-router.js',
       'node_modules/angular-mocks/angular-mocks.js',
