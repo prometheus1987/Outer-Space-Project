@@ -10,11 +10,9 @@ var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
 var sourcemaps = require("gulp-sourcemaps");
 var babel = require("gulp-babel");
-var concat = require("gulp-concat");
 var plugins = require('gulp-load-plugins')();
 var nodemon = require('gulp-nodemon');
 var env = require('gulp-env');
-var gulpNgConfig = require('gulp-ng-config');
 var plumber = require('gulp-plumber');
 var notify = require('gulp-notify');
 var pipes = {};
@@ -57,22 +55,6 @@ gulp.task('sass', function() {
         }}))
         .pipe(sass())
         .pipe(gulp.dest('public/css'));
-});
-
-// Concatenate & Minify JS
-gulp.task('scripts', function() {
-    return gulp.src(paths.scripts)
-        .pipe(plumber({ errorHandler: function(err) {
-            notify.onError({
-                title: "Gulp error in " + err.plugin,
-                message:  err.toString()
-            })(err);
-        }}))
-        .pipe(concat('all.js'))
-        .pipe(gulp.dest('public'))
-        .pipe(rename('all.min.js'))
-        .pipe(uglify())
-        .pipe(gulp.dest('public/js'));
 });
 
 // Watch Files For Changes
