@@ -15,6 +15,7 @@ var nodemon = require('gulp-nodemon');
 var env = require('gulp-env');
 var plumber = require('gulp-plumber');
 var notify = require('gulp-notify');
+var minify = require('gulp-minify');
 var pipes = {};
 
 var paths = {
@@ -79,7 +80,7 @@ gulp.task("babel", function () {
         .pipe(gulp.dest("public"));
 });
 
-// Concatenate & Minify JS
+// Concatenate & Uglify
 gulp.task('scripts', function() {
   return gulp.src(paths.scripts)
     .pipe(plumber({ errorHandler: function(err) {
@@ -93,6 +94,26 @@ gulp.task('scripts', function() {
     .pipe(rename('all.min.js'))
     .pipe(uglify())
     .pipe(gulp.dest('public/js'));
+});
+
+// Minify
+gulp.task('compress', function() {
+  gulp.src('lib/*.js')
+    .pipe(plumber({ errorHandler: function(err) {
+      notify.onError({
+        title: "Gulp error in " + err.plugin,
+        message:  err.toString()
+      })(err);
+    }}))
+    .pipe(minify({
+      ext:{
+        src:'-debug.js',
+        min:'.js'
+      },
+      exclude: ['tasks'],
+      ignoreFiles: ['.combo.js', '-min.js']
+    }))
+    .pipe(gulp.dest('dist'))
 });
 
 // Karma Task

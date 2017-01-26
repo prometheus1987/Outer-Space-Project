@@ -7,8 +7,11 @@
 
     function($http) {
 
-        // set variables
         var vm = this;
+
+        vm.retrieveApodData = retrieveApodData;
+        vm.retrieveCuriosityData = retrieveCuriosityData;
+        vm.retrieveOpportunityData = retrieveOpportunityData;
 
         vm.baseUrl = "https://api.nasa.gov/mars-photos/api/v1/rovers/";
         vm.apodUrl = "https://api.nasa.gov/planetary/apod?";
@@ -17,7 +20,6 @@
         vm.dateParams = "/photos?earth_date=";
         vm.key = "api_key=NeHYhGtJMXT1kJ9jSP8bnRF2t1IpYShALfGkSKoz";
 
-        // calculate date for rover requests
         let date = new Date();
 
         let day = date.getDate()-1;
@@ -32,8 +34,7 @@
         }
         date = year+ '-' +month+ '-' +day+ '&';
 
-        // api call for nasa APOD data
-        vm.retrieveApodData = function() {
+        function retrieveApodData() {
             $http.get(vm.apodUrl + vm.key)
                 .success(function(data) {
                     vm.title = data.title;
@@ -45,8 +46,7 @@
                 });
         };
 
-        // request for curiosity data
-        vm.retrieveCuriosityData = function() {
+        function retrieveCuriosityData() {
 
             vm.rover = "Curiosity";
 
@@ -67,14 +67,21 @@
                 });
         };
 
-        // request for opportunity data
-        vm.retrieveOpportunityData = function() {
+        function retrieveOpportunityData() {
 
             vm.rover = "Opportunity";
 
             $http.get(vm.baseUrl + vm.rover + vm.dateParams + date + vm.key)
                 .success(function(result) {
-                    vm.photos = result.photos;
+                    vm.opportunityData =_.map(result.photos, function(photo){
+                        return {
+                            name: photo.camera.full_name,
+                            martianSol: photo.sol,
+                            earthDate: photo.earth_date,
+                            totalPhotos: photo.rover.total_photos,
+                            img: photo.img_src
+                        }
+                    });
                 })
                 .error(function(error){
                     console.log(error);
