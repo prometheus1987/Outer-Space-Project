@@ -5,7 +5,7 @@
         .module('app')
         .controller('ExploreController',
 
-    function($scope, $http) {
+    function($http) {
 
         // set variables
         var vm = this;
@@ -52,7 +52,15 @@
 
             $http.get(vm.baseUrl + vm.rover +  vm.dateParams + date + vm.key)
                 .success(function(result) {
-                    vm.data = result.photos;
+                    vm.curiosityData =_.map(result.photos, function(photo){
+                        return {
+                            name: photo.camera.full_name,
+                            martianSol: photo.sol,
+                            earthDate: photo.earth_date,
+                            totalPhotos: photo.rover.total_photos,
+                            img: photo.img_src
+                        }
+                    });
                 })
                 .error(function(error){
                     console.log(error);
