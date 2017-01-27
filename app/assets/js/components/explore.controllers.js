@@ -19,19 +19,40 @@
         vm.dateParams = "/photos?earth_date=";
         vm.key = "api_key=NeHYhGtJMXT1kJ9jSP8bnRF2t1IpYShALfGkSKoz";
 
-        let date = new Date();
+        function getCurrentDayMonthYear() {
+            let date = new Date();
 
-        let day = date.getDate()-1;
-        let month = date.getMonth()+1;
-        let year = date.getFullYear();
+            let day = date.getDate() - 1;
+            let month = date.getMonth() + 1;
+            let year = date.getFullYear();
 
-        if(day<10) {
-            day='0'+day;
+            if (day < 10) {
+                day = '0' + day;
+            }
+            if (month < 10) {
+                month = '0' + month;
+            }
+            date = year + '-' + month + '-' + day + '&';
+            return date;
         }
-        if(month<10) {
-            month='0'+month;
+
+        function getDelayedDayMonthYear() {
+            let date = new Date();
+
+            let day = date.getDate() - 2;
+            let month = date.getMonth() + 1;
+            let year = date.getFullYear();
+
+            if (day < 10) {
+                day = '0' + day;
+            }
+            if (month < 10) {
+                month = '0' + month;
+            }
+            date = year + '-' + month + '-' + day + '&';
+            return date;
         }
-        date = year+ '-' +month+ '-' +day+ '&';
+
 
         function retrieveApodData() {
             $http.get(vm.apodUrl + vm.key)
@@ -45,7 +66,10 @@
                 });
         };
 
-        function retrieveCuriosityData() {
+        function retrieveCuriosityData(latestDate, pastDate) {
+
+            let date = latestDate || getCurrentDayMonthYear();
+            let previousDate = pastDate || getDelayedDayMonthYear();
 
             vm.rover = "Curiosity";
 
@@ -62,11 +86,14 @@
                     });
                 })
                 .error(function(error){
-                    console.log(error);
+                    retrieveCuriosityData(previousDate);
                 });
         };
 
-        function retrieveOpportunityData() {
+        function retrieveOpportunityData(latestDate, pastDate) {
+
+            var date = latestDate || getCurrentDayMonthYear();
+            let previousDate = pastDate || getDelayedDayMonthYear();
 
             vm.rover = "Opportunity";
 
@@ -83,11 +110,9 @@
                     });
                 })
                 .error(function(error){
-                    console.log(error);
+                    retrieveOpportunityData(previousDate);
                 });
-                angular.forEach(vm.photos, function() {
-                    console.log(vm.photos);
-                })
+
         };
     });
 })();
