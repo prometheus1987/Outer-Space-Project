@@ -26,7 +26,7 @@ var paths = {
                '!server.js',
                '!gulpfile.js'
     ],
-    styles: ['./app/assets/css/*.css', './app/assets/*.scss'],
+    styles: ['./app/assets/css/custom.scss'],
     index: './app/index.html',
     partials: ['./app/views/*.html', '!index.html'],
     dist: './public'
