@@ -15,7 +15,6 @@
 
         vm.baseUrl = "https://api.nasa.gov/mars-photos/api/v1/rovers/";
         vm.apodUrl = "https://api.nasa.gov/planetary/apod?";
-        vm.asteroidUrl = "https://api.nasa.gov/neo/rest/v1/neo/browse?";
         vm.rover = [];
         vm.dateParams = "/photos?earth_date=";
         vm.key = "api_key=NeHYhGtJMXT1kJ9jSP8bnRF2t1IpYShALfGkSKoz";
