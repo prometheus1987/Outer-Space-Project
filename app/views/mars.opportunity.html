@@ -17,20 +17,16 @@
             <h3>2003-07-07</h3>
         </div>
         <div class="col-md-12" style="margin-bottom: 50px;" ng-init="opportunity.retrieveOpportunityData()">
-            <div uib-carousel active="active"
-                 interval="myInterval"
-                 no-wrap="noWrapSlides">
-                <div uib-slide ng-repeat="photo in opportunity.photos track by photo.id" index="$index">
-                    <em><h2>Camera:</h2></em>
-                    <h3>{{photo.camera.full_name}}</h3>
-                    <em><h2>Martian Sol:</h2></em>
-                    <h3>{{photo.sol}}</h3>
-                    <em><h2>Earth Date:</h2></em>
-                    <h3>{{photo.earth_date}}</h3>
-                    <em><h2>Total Photos:</h2></em>
-                    <h3>{{photo.rover.total_photos}}</h3>
-                    <img ng-src="{{photo.img_src}}" style="margin:auto;">
-                </div>
+            <div ng-repeat="photo in opportunity.opportunityData">
+                <em><h2>Camera:</h2></em>
+                <h3>{{photo.name}}</h3>
+                <em><h2>Martian Sol:</h2></em>
+                <h3>{{photo.martianSol}}</h3>
+                <em><h2>Earth Date:</h2></em>
+                <h3>{{photo.earthDate}}</h3>
+                <em><h2>Total Photos:</h2></em>
+                <h3>{{photo.totalPhotos}}</h3>
+                <img ng-src="{{photo.img}}" style="margin:auto;">
             </div>
         </div>
     </div>

@@ -1,10 +1,10 @@
-<div class="row" id="marsContainer"  ng-init="curiosity.retrieveCuriosityData()">
+<div class="row" id="marsContainer" ng-init="curiosity.retrieveCuriosityData()">
     <div class="col-md-12">
         <h2>Select a Rover:</h2>
         <a ui-sref="explore.curiosity">Curiosity</a>
         <a ui-sref="explore.opportunity">Opportunity</a>
         <div class="rovers">
-            <img src="app/assets/images/curiosity_rover.jpg"
+            <img src="./app/assets/images/curiosity_rover.jpg"
                  style="width: 50%; margin-bottom: 100px; margin-top: 50px;"
             />
             <em><h2>Rover Name:</h2></em>
@@ -17,21 +17,16 @@
             <em><h3>2011-11-26</h3></em>
         </div>
         <div class="col-md-12" style="margin-bottom: 50px;">
-            <div uib-carousel active="active"
-                 interval="myInterval"
-                 no-wrap="noWrapSlides">
-                <div uib-slide ng-repeat="photo in curiosity.data track by photo.id" index="$index">
-                        <em><h2>Camera:</h2></em>
-                        <h3>{{photo.camera.full_name}}</h3>
-                        <em><h2>Martian Sol:</h2></em>
-                        <h3>{{photo.sol}}</h3>
-                        <em><h2>Earth Date:</h2></em>
-                        <h3>{{photo.earth_date}}</h3>
-                        <em><h2>Total Photos:</h2></em>
-                        <h3>{{photo.rover.total_photos}}</h3>
-                        <img ng-src="{{photo.img_src}}" style="margin:auto;">
-                    </div>
-                </div>
+            <div ng-repeat="photo in curiosity.curiosityData">
+                <em><h2>Camera:</h2></em>
+                <h3>{{photo.name}}</h3>
+                <em><h2>Martian Sol:</h2></em>
+                <h3>{{photo.martianSol}}</h3>
+                <em><h2>Earth Date:</h2></em>
+                <h3>{{photo.earthDate}}</h3>
+                <em><h2>Total Photos:</h2></em>
+                <h3>{{photo.totalPhotos}}</h3>
+                <img ng-src="{{photo.img}}" style="margin:auto; width: 75%">
             </div>
         </div>
     </div>

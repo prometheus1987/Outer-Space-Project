@@ -5,35 +5,56 @@
         .module('app')
         .controller('ExploreController',
 
-    function($scope, $http) {
+    function($http) {
 
-        // set variables
         var vm = this;
+
+        vm.retrieveApodData = retrieveApodData;
+        vm.retrieveCuriosityData = retrieveCuriosityData;
+        vm.retrieveOpportunityData = retrieveOpportunityData;
 
         vm.baseUrl = "https://api.nasa.gov/mars-photos/api/v1/rovers/";
         vm.apodUrl = "https://api.nasa.gov/planetary/apod?";
-        vm.asteroidUrl = "https://api.nasa.gov/neo/rest/v1/neo/browse?";
         vm.rover = [];
         vm.dateParams = "/photos?earth_date=";
         vm.key = "api_key=NeHYhGtJMXT1kJ9jSP8bnRF2t1IpYShALfGkSKoz";
 
-        // calculate date for rover requests
-        let date = new Date();
+        function getCurrentDayMonthYear() {
+            let date = new Date();
 
-        let day = date.getDate()-1;
-        let month = date.getMonth()+1;
-        let year = date.getFullYear();
+            let day = date.getDate() - 1;
+            let month = date.getMonth() + 1;
+            let year = date.getFullYear();
 
-        if(day<10) {
-            day='0'+day;
+            if (day < 10) {
+                day = '0' + day;
+            }
+            if (month < 10) {
+                month = '0' + month;
+            }
+            date = year + '-' + month + '-' + day + '&';
+            return date;
         }
-        if(month<10) {
-            month='0'+month;
-        }
-        date = year+ '-' +month+ '-' +day+ '&';
 
-        // api call for nasa APOD data
-        vm.retrieveApodData = function() {
+        function getDelayedDayMonthYear() {
+            let date = new Date();
+
+            let day = date.getDate() - 2;
+            let month = date.getMonth() + 1;
+            let year = date.getFullYear();
+
+            if (day < 10) {
+                day = '0' + day;
+            }
+            if (month < 10) {
+                month = '0' + month;
+            }
+            date = year + '-' + month + '-' + day + '&';
+            return date;
+        }
+
+
+        function retrieveApodData() {
             $http.get(vm.apodUrl + vm.key)
                 .success(function(data) {
                     vm.title = data.title;
@@ -45,33 +66,53 @@
                 });
         };
 
-        // request for curiosity data
-        vm.retrieveCuriosityData = function() {
+        function retrieveCuriosityData(latestDate, pastDate) {
+
+            let date = latestDate || getCurrentDayMonthYear();
+            let previousDate = pastDate || getDelayedDayMonthYear();
 
             vm.rover = "Curiosity";
 
             $http.get(vm.baseUrl + vm.rover +  vm.dateParams + date + vm.key)
                 .success(function(result) {
-                    vm.data = result.photos;
+                    vm.curiosityData =_.map(result.photos, function(photo){
+                        return {
+                            name: photo.camera.full_name,
+                            img: photo.img_src,
+                            martianSol: photo.sol,
+                            earthDate: photo.earth_date,
+                            totalPhotos: photo.rover.total_photos
+                        }
+                    });
                 })
                 .error(function(error){
-                    console.log(error);
+                    retrieveCuriosityData(previousDate);
                 });
         };
 
-        // request for opportunity data
-        vm.retrieveOpportunityData = function() {
+        function retrieveOpportunityData(latestDate, pastDate) {
+
+            var date = latestDate || getCurrentDayMonthYear();
+            let previousDate = pastDate || getDelayedDayMonthYear();
 
             vm.rover = "Opportunity";
 
             $http.get(vm.baseUrl + vm.rover + vm.dateParams + date + vm.key)
                 .success(function(result) {
-                    vm.photos = result.photos;
-                    console.log(vm.photos);
+                    vm.opportunityData =_.map(result.photos, function(photo){
+                        return {
+                            name: photo.camera.full_name,
+                            martianSol: photo.sol,
+                            earthDate: photo.earth_date,
+                            totalPhotos: photo.rover.total_photos,
+                            img: photo.img_src
+                        }
+                    });
                 })
                 .error(function(error){
-                    console.log(error);
+                    retrieveOpportunityData(previousDate);
                 });
+
         };
     });
 })();
