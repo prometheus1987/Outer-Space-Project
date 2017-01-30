@@ -78,10 +78,10 @@
                     vm.curiosityData =_.map(result.photos, function(photo){
                         return {
                             name: photo.camera.full_name,
+                            img: photo.img_src,
                             martianSol: photo.sol,
                             earthDate: photo.earth_date,
-                            totalPhotos: photo.rover.total_photos,
-                            img: photo.img_src
+                            totalPhotos: photo.rover.total_photos
                         }
                     });
                 })

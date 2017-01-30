@@ -26,19 +26,9 @@
                 <h3>{{photo.earthDate}}</h3>
                 <em><h2>Total Photos:</h2></em>
                 <h3>{{photo.totalPhotos}}</h3>
-                <img ng-src="{{photo.img}}" style="margin:auto;">
+                <img ng-src="{{photo.img}}" style="margin:auto; width: 75%">
             </div>
         </div>
-
-
-        <div>
-            //do date-picker stuff here
-            <input ui-date ui-date-format="DD, d MM, yy" ng-model="curiosity.date">
-            //Assigns ng-model value of curiostity.date
-            <button ng-click="curiosity.getPhotosForDate(curiosity.date)"></button>
-        </div>
-
     </div>
-</div>
 </div>
 
