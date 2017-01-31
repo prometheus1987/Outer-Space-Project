@@ -39,7 +39,7 @@
         function getDelayedDayMonthYear() {
             let date = new Date();
 
-            let day = date.getDate() - 2;
+            let day = date.getDate() - 3;
             let month = date.getMonth() + 1;
             let year = date.getFullYear();
 
