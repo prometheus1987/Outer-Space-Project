@@ -39,7 +39,7 @@
         function getDelayedDayMonthYear() {
             let date = new Date();
 
-            let day = date.getDate() - 3;
+            let day = date.getDate() - 2;
             let month = date.getMonth() + 1;
             let year = date.getFullYear();
 
@@ -52,7 +52,6 @@
             date = year + '-' + month + '-' + day + '&';
             return date;
         }
-
 
         function retrieveApodData() {
             $http.get(vm.apodUrl + vm.key)
@@ -78,17 +77,17 @@
                     vm.curiosityData =_.map(result.photos, function(photo){
                         return {
                             name: photo.camera.full_name,
-                            img: photo.img_src,
                             martianSol: photo.sol,
                             earthDate: photo.earth_date,
-                            totalPhotos: photo.rover.total_photos
+                            totalPhotos: photo.rover.total_photos,
+                            img: photo.img_src
                         }
                     });
                 })
                 .error(function(error){
-                    retrieveCuriosityData(previousDate);
+                    // retrieveCuriosityData(previousDate);
                 });
-        };
+        }
 
         function retrieveOpportunityData(latestDate, pastDate) {
 
@@ -110,9 +109,9 @@
                     });
                 })
                 .error(function(error){
-                    retrieveOpportunityData(previousDate);
+                    // retrieveOpportunityData(previousDate);
                 });
 
-        };
+        }
     });
 })();
