@@ -20,11 +20,11 @@
         vm.key = "api_key=NeHYhGtJMXT1kJ9jSP8bnRF2t1IpYShALfGkSKoz";
 
         function getCurrentDayMonthYear() {
-            let date = new Date();
+            var date = new Date();
 
-            let day = date.getDate() - 1;
-            let month = date.getMonth() + 1;
-            let year = date.getFullYear();
+            var day = date.getDate() - 1;
+            var month = date.getMonth() + 1;
+            var year = date.getFullYear();
 
             if (day < 10) {
                 day = '0' + day;
@@ -37,11 +37,11 @@
         }
 
         function getDelayedDayMonthYear() {
-            let date = new Date();
+            var date = new Date();
 
-            let day = date.getDate() - 2;
-            let month = date.getMonth() + 1;
-            let year = date.getFullYear();
+            var day = date.getDate() - 2;
+            var month = date.getMonth() + 1;
+            var year = date.getFullYear();
 
             if (day < 10) {
                 day = '0' + day;
@@ -67,8 +67,8 @@
 
         function retrieveCuriosityData(latestDate, pastDate) {
 
-            let date = latestDate || getCurrentDayMonthYear();
-            let previousDate = pastDate || getDelayedDayMonthYear();
+            var date = latestDate || getCurrentDayMonthYear();
+            var previousDate = pastDate || getDelayedDayMonthYear();
 
             vm.rover = "Curiosity";
 
@@ -91,7 +91,7 @@
         function retrieveOpportunityData(latestDate, pastDate) {
 
             var date = latestDate || getCurrentDayMonthYear();
-            let previousDate = pastDate || getDelayedDayMonthYear();
+            var  previousDate = pastDate || getDelayedDayMonthYear();
 
             vm.rover = "Opportunity";
 

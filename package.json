@@ -49,6 +49,7 @@
     "karma-chrome-launcher": "^2.0.0",
     "karma-firefox-launcher": "^1.0.0",
     "karma-jasmine": "^1.0.2",
+    "karma-phantomjs-launcher": "^1.0.2",
     "method-override": "^2.3.6",
     "phantomjs": "^2.1.7",
     "rx-angular": "^1.1.3",
