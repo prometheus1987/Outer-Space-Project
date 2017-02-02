@@ -16,44 +16,46 @@ describe('ExploreController', function() {
 });
 
 describe('APOD Request', function() {
-
-  var $httpBackend;
-  var url = "https://api.nasa.gov/planetary/apod?";
-
-  var responseSuccess =
-  {
-    "date": "Today's Date",
-    "explanation": "A super awesome explanation of the picture.",
-    "hdurl": "An awesome image",
-    "title": "Dark Side of the Moon",
-  };
+  var ExploreController, $scope;
 
   beforeEach(module('app'));
-
-  beforeEach(inject(function(_$q_, _$httpBackend_) {
+  beforeEach(inject(function(_$q_, _$controller_) {
     $q = _$q_;
-    $httpBackend = _$httpBackend_;
+    // $httpBackend = _$httpBackend_;
+    $controller = _$controller_;
+    ExploreController = $controller('ExploreController', {$scope});
   }));
+
+  var vm = this;
+  // var $httpBackend;
+  vm.url = "https://api.nasa.gov/planetary/apod?api_key=NeHYhGtJMXT1kJ9jSP8bnRF2t1IpYShALfGkSKoz";
+  vm.responseSuccess =
+    {
+      "date": "Today's Date",
+      "explanation": "A super awesome explanation of the picture.",
+      "hdurl": "An awesome image",
+      "title": "Dark Side of the Moon",
+    };
 
   it('should demonstrate using when (200 status)', inject(function($http) {
 
     $http.get(url)
-      .success(function(data) {
-        $scope.valid = true;
-        $scope.response = data;
+      .success(function(response) {
+        valid = true;
+        response = responseSuccess;
       })
-      .error(function(data, status, headers, config) {
-        $scope.valid = false;
+      .error(function(err) {
+        vm.valid = false;
       });
 
-    $httpBackend
-      .when('GET', 'http://localhost/foo')
-      .respond(200, { foo: 'bar' });
+    // $httpBackend
+    //   .when('GET', vm.url)
+    //   .respond(200);
 
-    $httpBackend.flush();
+    // $httpBackend.flush();
 
-    expect($scope.valid).toBe(true);
-    expect($scope.response).toEqual({ foo: 'bar' });
+    expect(ExploreController.valid).toBe(true);
+    expect(ExploreController.response).toEqual(200);
 
   }));
 });
