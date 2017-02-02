@@ -32,7 +32,7 @@
             if (month < 10) {
                 month = '0' + month;
             }
-            date = year + '-' + month + '-' + day + '&';
+            date = year + '-' + month + '-' + day;
             return date;
         }
 
@@ -49,7 +49,7 @@
             if (month < 10) {
                 month = '0' + month;
             }
-            date = year + '-' + month + '-' + day + '&';
+            date = year + '-' + month + '-' + day;
             return date;
         }
 
@@ -63,7 +63,7 @@
                 .error(function(error){
                     console.log(error);
                 });
-        };
+        }
 
         function retrieveCuriosityData(latestDate, pastDate) {
 
@@ -72,20 +72,19 @@
 
             vm.rover = "Curiosity";
 
-            $http.get(vm.baseUrl + vm.rover +  vm.dateParams + date + vm.key)
+            $http.get(vm.baseUrl + vm.rover +  vm.dateParams + date + "&" + vm.key)
                 .success(function(result) {
                     vm.curiosityData =_.map(result.photos, function(photo){
                         return {
                             name: photo.camera.full_name,
-                            martianSol: photo.sol,
+                            img: photo.img_src,
+                            martianSol:  photo.sol,
                             earthDate: photo.earth_date,
-                            totalPhotos: photo.rover.total_photos,
-                            img: photo.img_src
+                            totalPhotos: photo.rover.total_photos
                         }
                     });
                 })
                 .error(function(error){
-                    // retrieveCuriosityData(previousDate);
                 });
         }
 
@@ -96,15 +95,15 @@
 
             vm.rover = "Opportunity";
 
-            $http.get(vm.baseUrl + vm.rover + vm.dateParams + date + vm.key)
+            $http.get(vm.baseUrl + vm.rover + vm.dateParams + date + "&" + vm.key)
                 .success(function(result) {
                     vm.opportunityData =_.map(result.photos, function(photo){
                         return {
                             name: photo.camera.full_name,
-                            martianSol: photo.sol,
+                            img: photo.img_src,
+                            martianSol:  photo.sol,
                             earthDate: photo.earth_date,
-                            totalPhotos: photo.rover.total_photos,
-                            img: photo.img_src
+                            totalPhotos: photo.rover.total_photos
                         }
                     });
                 })

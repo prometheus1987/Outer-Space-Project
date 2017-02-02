@@ -15,17 +15,17 @@
             <h3>2012-08-06</h3>
             <em><h2>Launch Date:</h2></em>
             <em><h3>2011-11-26</h3></em>
+            <em><h2>Martian Sol:</h2></em>
+            <h3>{{vm.martianSol}}</h3>
+            <em><h2>Earth Date:</h2></em>
+            <h3>{{photo.earthDate}}</h3>
+            <em><h2>Total Photos:</h2></em>
+            <h3>{{photo.totalPhotos}}</h3>
         </div>
         <div class="col-md-12" style="margin-bottom: 50px;">
             <div ng-repeat="photo in curiosity.curiosityData">
                 <em><h2>Camera:</h2></em>
                 <h3>{{photo.name}}</h3>
-                <em><h2>Martian Sol:</h2></em>
-                <h3>{{photo.martianSol}}</h3>
-                <em><h2>Earth Date:</h2></em>
-                <h3>{{photo.earthDate}}</h3>
-                <em><h2>Total Photos:</h2></em>
-                <h3>{{photo.totalPhotos}}</h3>
                 <img ng-src="{{photo.img}}" style="margin:auto; width: 75%">
             </div>
         </div>
