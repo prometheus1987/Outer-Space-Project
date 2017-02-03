@@ -12,11 +12,12 @@
         vm.retrieveApodData = retrieveApodData;
         vm.retrieveCuriosityData = retrieveCuriosityData;
         vm.retrieveOpportunityData = retrieveOpportunityData;
+        vm.retrieveSpiritData = retrieveSpiritData;
 
         vm.baseUrl = "https://api.nasa.gov/mars-photos/api/v1/rovers/";
         vm.apodUrl = "https://api.nasa.gov/planetary/apod?";
         vm.rover = [];
-        vm.dateParams = "/photos?earth_date=";
+        vm.queryParams = "";
         vm.key = "api_key=NeHYhGtJMXT1kJ9jSP8bnRF2t1IpYShALfGkSKoz";
 
         function getCurrentDayMonthYear() {
@@ -65,14 +66,39 @@
                 });
         }
 
+        function retrieveSpiritData() {
+            
+            vm.rover = "Spirit";
+            vm.queryParams = '/photos?sol=';
+            vm.query = "1";
+
+            $http.get(vm.baseUrl + vm.rover +  vm.queryParams + vm.query + "&" + vm.key)
+              .success(function(result) {
+                  vm.spiritData =_.map(result.photos, function(photo){
+                      return {
+                          name: photo.camera.full_name,
+                          img: photo.img_src,
+                          martianSol:  photo.sol,
+                          earthDate: photo.earth_date,
+                          totalPhotos: photo.rover.total_photos
+                      }
+                  });
+              })
+              .error(function(error){
+                  console.log(error);
+              });
+            
+        }
+
         function retrieveCuriosityData(latestDate, pastDate) {
 
             var date = latestDate || getCurrentDayMonthYear();
             var previousDate = pastDate || getDelayedDayMonthYear();
 
             vm.rover = "Curiosity";
+            vm.queryParams = "/photos?earth_date=";
 
-            $http.get(vm.baseUrl + vm.rover +  vm.dateParams + date + "&" + vm.key)
+            $http.get(vm.baseUrl + vm.rover +  vm.queryParams + date + "&" + vm.key)
                 .success(function(result) {
                     vm.curiosityData =_.map(result.photos, function(photo){
                         return {
@@ -94,8 +120,9 @@
             var  previousDate = pastDate || getDelayedDayMonthYear();
 
             vm.rover = "Opportunity";
+            vm.queryParams = "/photos?earth_date=";
 
-            $http.get(vm.baseUrl + vm.rover + vm.dateParams + date + "&" + vm.key)
+            $http.get(vm.baseUrl + vm.rover + vm.queryParams + date + "&" + vm.key)
                 .success(function(result) {
                     vm.opportunityData =_.map(result.photos, function(photo){
                         return {
