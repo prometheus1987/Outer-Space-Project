@@ -40,6 +40,13 @@
           controller: 'ExploreController',
           controllerAs: 'opportunity'
       })
+      // mars "spirit" rover state
+      .state('explore.spirit', {
+        url: '&rover=spirit',
+        templateUrl: 'app/views/mars.spirit.html',
+        controller: 'ExploreController',
+        controllerAs: 'spirit'
+      })
       // explore sounds state
       .state('explore.sounds', {
           url: '&sounds',
