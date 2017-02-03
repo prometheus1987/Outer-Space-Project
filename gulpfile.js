@@ -29,7 +29,13 @@ var paths = {
     styles: ['./app/assets/css/custom.scss'],
     index: './app/index.html',
     partials: ['./app/views/*.html', '!index.html'],
-    dist: './public'
+    dist: './public',
+    libraries: ['./node_modules/angular/angular.js',
+                './node_modules/angular-ui-router/release/angular-ui-router.js',
+                './node_modules/jquery/dist/jquery.js',
+                './node_modules/lodash/lodash.js',
+                './node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js'
+    ]
 };
 
 // Lint Task
@@ -98,7 +104,7 @@ gulp.task('scripts', function() {
 
 // Minify
 gulp.task('compress', function() {
-  gulp.src('lib/*.js')
+  gulp.src(paths.libraries)
     .pipe(plumber({ errorHandler: function(err) {
       notify.onError({
         title: "Gulp error in " + err.plugin,
@@ -107,13 +113,12 @@ gulp.task('compress', function() {
     }}))
     .pipe(minify({
       ext:{
-        src:'-debug.js',
-        min:'.js'
+        min:'.min.js'
       },
       exclude: ['tasks'],
       ignoreFiles: ['.combo.js', '-min.js']
     }))
-    .pipe(gulp.dest('dist'))
+    .pipe(gulp.dest('dist/libs'))
 });
 
 // Karma Task

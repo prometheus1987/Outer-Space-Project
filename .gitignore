@@ -27,3 +27,4 @@ app/assets/images/.DS_Store
 karma.conf-compiled.js
 karma.conf-compiled.js.map
 .env
+app/assets/images/Thumbs.db

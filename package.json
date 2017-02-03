@@ -1,6 +1,6 @@
 {
   "name": "mothership",
-  "version": "1.0.0",
+  "version": "1.6.0",
   "description": "",
   "main": "server.js",
   "scripts": {
@@ -18,7 +18,6 @@
   "homepage": "https://github.com/sabsowitz/Digital-Cosmos#readme",
   "devDependencies": {
     "angular": "1.5.9",
-    "angular-animate": "^1.6.1",
     "angular-mocks": "^1.5.8",
     "angular-ui-bootstrap": "^2.4.0",
     "angular-ui-router": "^0.3.2",
@@ -49,6 +48,8 @@
     "karma-chrome-launcher": "^2.0.0",
     "karma-firefox-launcher": "^1.0.0",
     "karma-jasmine": "^1.0.2",
+    "karma-phantomjs-launcher": "^1.0.2",
+    "lodash": "^4.17.4",
     "method-override": "^2.3.6",
     "phantomjs": "^2.1.7",
     "rx-angular": "^1.1.3",
