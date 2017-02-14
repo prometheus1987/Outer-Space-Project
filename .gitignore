@@ -1,6 +1,7 @@
 .idea/
 node_modules/
 public/
+/dist
 app/assets/js/components/explore.controllers-compiled.js
 app/assets/js/components/explore.controllers-compiled.js.map.map
 app/assets/js/components/app.routes-compiled.js
