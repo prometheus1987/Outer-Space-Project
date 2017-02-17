@@ -7,7 +7,7 @@
 
     function($http) {
 
-        var vm = this;
+        let vm = this;
 
         vm.retrieveApodData = retrieveApodData;
         vm.retrieveCuriosityData = retrieveCuriosityData;
@@ -21,11 +21,11 @@
         vm.key = "api_key=NeHYhGtJMXT1kJ9jSP8bnRF2t1IpYShALfGkSKoz";
 
         function getCurrentDayMonthYear() {
-            var date = new Date();
+            let date = new Date();
 
-            var day = date.getDate() - 1;
-            var month = date.getMonth() + 1;
-            var year = date.getFullYear();
+            let day = date.getDate() - 1;
+            let month = date.getMonth() + 1;
+            let year = date.getFullYear();
 
             if (day < 10) {
                 day = '0' + day;
@@ -38,11 +38,11 @@
         }
 
         function getDelayedDayMonthYear() {
-            var date = new Date();
+            let date = new Date();
 
-            var day = date.getDate() - 2;
-            var month = date.getMonth() + 1;
-            var year = date.getFullYear();
+            let day = date.getDate() - 2;
+            let month = date.getMonth() + 1;
+            let year = date.getFullYear();
 
             if (day < 10) {
                 day = '0' + day;
@@ -92,8 +92,8 @@
 
         function retrieveCuriosityData(latestDate, pastDate) {
 
-            var date = latestDate || getCurrentDayMonthYear();
-            var previousDate = pastDate || getDelayedDayMonthYear();
+            let date = latestDate || getCurrentDayMonthYear();
+            let previousDate = pastDate || getDelayedDayMonthYear();
 
             vm.rover = "Curiosity";
             vm.queryParams = "/photos?earth_date=";
@@ -116,8 +116,8 @@
 
         function retrieveOpportunityData(latestDate, pastDate) {
 
-            var date = latestDate || getCurrentDayMonthYear();
-            var  previousDate = pastDate || getDelayedDayMonthYear();
+            let date = latestDate || getCurrentDayMonthYear();
+            let  previousDate = pastDate || getDelayedDayMonthYear();
 
             vm.rover = "Opportunity";
             vm.queryParams = "/photos?earth_date=";
