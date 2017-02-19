@@ -38,8 +38,7 @@
       './node_modules/angular-ui-router/release/angular-ui-router.js',
       './node_modules/jquery/dist/jquery.js',
       './node_modules/lodash/lodash.js',
-      './node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js',
-      './node_modules/moment/moment.js'
+      './node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js'
     ]
   };
 
