@@ -26,26 +26,15 @@
           controller: 'ExploreController',
           controllerAs: 'apod'
       })
-      // mars "curiosity" rover state
-      .state('explore.curiosity', {
-          url: '&rover=curiosity',
-          templateUrl: 'app/views/mars.curiosity.html',
+      // mars rover state
+      .state('explore.rover', {
+          url: '/rover/:rover',
+          templateUrl: 'app/views/mars.rover.html',
           controller: 'ExploreController',
-          controllerAs: 'curiosity'
-      })
-      // mars "opportunity" rover state
-      .state('explore.opportunity', {
-          url: '&rover=opportunity',
-          templateUrl: 'app/views/mars.opportunity.html',
-          controller: 'ExploreController',
-          controllerAs: 'opportunity'
-      })
-      // mars "spirit" rover state
-      .state('explore.spirit', {
-        url: '&rover=spirit',
-        templateUrl: 'app/views/mars.spirit.html',
-        controller: 'ExploreController',
-        controllerAs: 'spirit'
+          controllerAs: 'rover',
+          params: {
+            rover: 'curiosity'
+          }
       })
       // explore sounds state
       .state('explore.sounds', {
