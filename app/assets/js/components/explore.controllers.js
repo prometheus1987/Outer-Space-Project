@@ -59,16 +59,6 @@
               case "spirit":
                 query = "1";
                 queryParams = "/photos?sol=";
-                vm.launchDate = "2003-06-10";
-                vm.landingDate = "2004-01-04";
-                break;
-              case "curiosity":
-                vm.launchDate = "2011-11-26";
-                vm.landingDate = "2012-08-06";
-                break;
-              case "opportunity":
-                vm.launchDate = "2003-07-07";
-                vm.landingDate = "2004-01-25";
                 break;
             }
 
@@ -78,6 +68,8 @@
                     vm.martianSol = result.photos[0].sol;
                     vm.earthDate = result.photos[0].earth_date;
                     vm.totalPhotos = result.photos[0].rover.total_photos;
+                    vm.landingDate = result.photos[0].rover.landing_date;
+                    vm.launchDate = result.photos[0].rover.launch_date;
                 })
                 .error(function(error){
                   daysSinceToday += 1;
