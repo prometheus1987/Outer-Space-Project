@@ -50,14 +50,13 @@
 
             let daysSinceToday = 1;
             let date = getDate(daysSinceToday);
-
-            // Defaults for Curiosity and Opportunity
+            
             let query = date;
             let queryParams = "/photos?earth_date=";
 
             switch(vm.name) {
               case "spirit":
-                query = "1";
+                query = Math.floor(Math.random() * 2208) + 1 ;
                 queryParams = "/photos?sol=";
                 break;
             }
@@ -85,6 +84,7 @@
           return _.map(photos, function(photo){
             return {
               name: photo.camera.full_name,
+              abbreviation: photo.camera.name,  
               img: photo.img_src
             }
           });
