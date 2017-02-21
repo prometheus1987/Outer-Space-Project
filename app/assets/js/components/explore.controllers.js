@@ -46,9 +46,8 @@
                 });
         }
 
-        function retrieveRoverData() {
+        function retrieveRoverData(daySinceToday) {
 
-            let daysSinceToday = 1;
             let date = getDate(daysSinceToday);
             
             let query = date;
