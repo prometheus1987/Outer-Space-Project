@@ -46,29 +46,17 @@
                 });
         }
 
-        function retrieveRoverData() {
+        function retrieveRoverData(daysSinceToday) {
 
-            let daysSinceToday = 1;
             let date = getDate(daysSinceToday);
-
-            // Defaults for Curiosity and Opportunity
+            
             let query = date;
             let queryParams = "/photos?earth_date=";
 
             switch(vm.name) {
               case "spirit":
-                query = "1";
+                query = Math.floor(Math.random() * 2208) + 1 ;
                 queryParams = "/photos?sol=";
-                vm.launchDate = "2003-06-10";
-                vm.landingDate = "2004-01-04";
-                break;
-              case "curiosity":
-                vm.launchDate = "2011-11-26";
-                vm.landingDate = "2012-08-06";
-                break;
-              case "opportunity":
-                vm.launchDate = "2003-07-07";
-                vm.landingDate = "2004-01-25";
                 break;
             }
 
@@ -78,6 +66,8 @@
                     vm.martianSol = result.photos[0].sol;
                     vm.earthDate = result.photos[0].earth_date;
                     vm.totalPhotos = result.photos[0].rover.total_photos;
+                    vm.landingDate = result.photos[0].rover.landing_date;
+                    vm.launchDate = result.photos[0].rover.launch_date;
                 })
                 .error(function(error){
                   daysSinceToday += 1;
@@ -93,6 +83,7 @@
           return _.map(photos, function(photo){
             return {
               name: photo.camera.full_name,
+              abbreviation: photo.camera.name,  
               img: photo.img_src
             }
           });

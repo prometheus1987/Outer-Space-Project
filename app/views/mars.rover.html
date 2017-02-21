@@ -1,4 +1,4 @@
-<div class="row" id="marsContainer" ng-init="rover.retrieveRoverData()">
+<div class="row" id="marsContainer" ng-init="rover.retrieveRoverData(1)">
     <div class="col-md-12">
         <h2>Select a Rover:</h2>
         <a ui-sref="explore.rover({ rover: 'curiosity' })">Curiosity</a>
@@ -28,7 +28,7 @@
                 <div ng-repeat="photo in rover.data">
                     <div class="col-md-4 text-center" style="height: 400px;">
                         <em><h2>Camera:</h2></em>
-                        <h3>{{photo.name}}</h3>
+                        <h3>{{photo.name}} ({{photo.abbreviation}})</h3>
                         <img ng-src="{{photo.img}}" class="img-responsive" style="max-height: 300px; margin: 0 auto;">
                     </div>
                 </div>
