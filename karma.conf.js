@@ -9,13 +9,15 @@ module.exports = function(config) {
       'node_modules/angular-mocks/angular-mocks.js',
       'node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js',
       'app/assets/js/components/app.module.js',
-      'app/assets/js/components/explore.controllers.js',
+      'app/assets/js/components/rover.controller.js',
       'app/assets/js/components/app.routes.js',
-      'app/assets/js/components/explore.spec.js'
+      'spec/rover.spec.js'
     ],
     exclude: [
     ],
     preprocessors: {
+      "app/assets/js/components/*.js": ["babel"],
+      "spec/*.js": ["babel"]
     },
     reporters: ['progress'],
     port: 9876,
