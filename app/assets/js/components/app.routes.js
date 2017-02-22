@@ -13,22 +13,16 @@
           templateUrl: 'app/views/home.html'
       })
 
-      .state('explore', {
-          url: '/explore',
-          templateUrl: 'app/views/explore.html',
-          controller: 'RoverController'
-      })
-
-      .state('explore.apod', {
-          url: '&apod',
-          templateUrl: 'app/views/explore.apod.html',
+      .state('apod', {
+          url: '/apod',
+          templateUrl: 'app/views/apod.html',
           controller: 'ApodController',
           controllerAs: 'apod'
       })
 
-      .state('explore.rover', {
+      .state('rover', {
           url: '/rover/:rover',
-          templateUrl: 'app/views/explore.rover.html',
+          templateUrl: 'app/views/rover.html',
           controller: 'RoverController',
           controllerAs: 'rover',
           params: {
@@ -36,10 +30,9 @@
           }
       })
       
-      .state('explore.sounds', {
-          url: '&sounds',
-          templateUrl: 'app/views/explore.sounds.html',
-          controller: 'RoverController'
+      .state('sounds', {
+          url: '/sounds',
+          templateUrl: 'app/views/sounds.html',
       })
 
       .state('contact', {
