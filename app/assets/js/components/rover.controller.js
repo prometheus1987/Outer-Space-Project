@@ -3,18 +3,16 @@
 
     angular
         .module('app')
-        .controller('ExploreController',
+        .controller('RoverController',
 
     function($http, $stateParams) {
 
         const key = "api_key=NeHYhGtJMXT1kJ9jSP8bnRF2t1IpYShALfGkSKoz";
         const baseUrl = "https://api.nasa.gov/mars-photos/api/v1/rovers/";
-        const apodUrl = "https://api.nasa.gov/planetary/apod?";
 
         let vm = this;
 
         vm.name = $stateParams.rover;
-        vm.retrieveApodData = retrieveApodData;
         vm.retrieveRoverData = retrieveRoverData;
 
         function getDate(daysSinceToday) {
@@ -34,22 +32,10 @@
             return date;
         }
 
-        function retrieveApodData() {
-            $http.get(apodUrl + key)
-                .success(function(data) {
-                    vm.title = data.title;
-                    vm.hdurl = data.hdurl;
-                    vm.explanation = data.explanation;
-                })
-                .error(function(error){
-                    console.log(error);
-                });
-        }
-
         function retrieveRoverData(daysSinceToday) {
 
             let date = getDate(daysSinceToday);
-            
+
             let query = date;
             let queryParams = "/photos?earth_date=";
 
@@ -57,6 +43,10 @@
               case "spirit":
                 query = Math.floor(Math.random() * 2208) + 1 ;
                 queryParams = "/photos?sol=";
+                break;
+              case "curiosity" || "opportunity":
+                query = date;
+                queryParams = "/photos?earth_date=";
                 break;
             }
 
