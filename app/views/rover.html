@@ -1,9 +1,9 @@
 <div class="row" id="marsContainer" ng-init="rover.retrieveRoverData(1)">
     <div class="col-md-12">
         <h2>Select a Rover:</h2>
-        <a ui-sref="explore.rover({ rover: 'curiosity' })">Curiosity</a>
-        <a ui-sref="explore.rover({ rover: 'opportunity' })">Opportunity</a>
-        <a ui-sref="explore.rover({ rover: 'spirit' })">Spirit</a>
+        <a ui-sref="rover({ rover: 'curiosity' })">Curiosity</a>
+        <a ui-sref="rover({ rover: 'opportunity' })">Opportunity</a>
+        <a ui-sref="rover({ rover: 'spirit' })">Spirit</a>
         <div class="rovers">
             <img ng-src="app/assets/images/{{rover.name.toLowerCase()}}_rover.jpg"
                  style="width: 25%; margin-bottom: 100px; margin-top: 50px;"
