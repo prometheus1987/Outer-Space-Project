@@ -1,7 +1,6 @@
 .idea/
 node_modules/
 public/
-/dist
 package.json
 
 app/assets/js/components/explore.controllers-compiled.js
