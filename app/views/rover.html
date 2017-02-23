@@ -1,5 +1,5 @@
 <div class="row" id="marsContainer" ng-init="rover.retrieveRoverData(1)">
-    <div class="col-md-12">
+    <div class="mdl-cell--12-col">
         <h2>Select a Rover:</h2>
         <a ui-sref="rover({ rover: 'curiosity' })">Curiosity</a>
         <a ui-sref="rover({ rover: 'opportunity' })">Opportunity</a>
@@ -23,16 +23,20 @@
             <em><h2>Total Photos:</h2></em>
             <h3>{{rover.totalPhotos}}</h3>
         </div>
-        <div class="col-md-12" style="margin-bottom: 50px;">
-            <div class="row">
+        <!--<div class="mdl-grid">-->
+            <!--<div class="mdl-cell mdl-cell&#45;&#45;4-col">4</div>-->
+            <!--<div class="mdl-cell mdl-cell&#45;&#45;4-col">4</div>-->
+            <!--<div class="mdl-cell mdl-cell&#45;&#45;4-col">4</div>-->
+        <!--</div>-->
+        <div class="mdl-grid">
+
                 <div ng-repeat="photo in rover.data">
-                    <div class="col-md-4 text-center" style="height: 400px;">
+                    <div class="mdl-cell--8-col mdl-cell--4-offset">
                         <em><h2>Camera:</h2></em>
                         <h3>{{photo.name}} ({{photo.abbreviation}})</h3>
-                        <img ng-src="{{photo.img}}" class="img-responsive" style="max-height: 300px; margin: 0 auto;">
+                        <img ng-src="{{photo.img}}" class="img-responsive" style="max-height: 400px; margin: 0 auto;">
                     </div>
                 </div>
-            </div>
         </div>
     </div>
 </div>

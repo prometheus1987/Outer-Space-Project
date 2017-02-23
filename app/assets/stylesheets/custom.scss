@@ -5,41 +5,34 @@
     }
 
     body {
-        background: url("../images/background.jpg");
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;
+        background: #ffffff;
     }
 
     h1 {
         font-family: 'Factor';
         font-size: 32px;
-        color: #00C0FF;
+        color: #000000;
         text-align: center;
         padding-bottom: 10%;
     }
 
     /* Banner */
     .banner {
-        background: url('../images/seam.gif');
-        background-size: 25%;
-        padding-bottom: 4%;
+        background: url('../images/Valles_Marineris.jpg');
+        background-size: 100%;
+        padding-bottom: 15%;
 
     }
     div p {
         display: inline-block;
         font-family: 'Factor';
-        text-shadow: 2px 2px 2px #00C0FF;
+        text-shadow: 2px 2px 2px white;
         font-size: 50px;
         font-weight: 700;
         color: #bbb;
         text-transform: uppercase;
         position: relative;
         margin: 10px 20px;
-        padding-top: 150px;
-        padding-left: 10px;
-        padding-right: 10px;
         opacity: 0.0;
         animation: port 3s 1 forwards;
         -webkit-animation: port 3s 1 forwards;
@@ -109,7 +102,7 @@
         opacity: 0.6;
     }
     .menu a {
-        color: #00C0FF;
+        color: #ffffff;
         font-family: 'Factor';
         font-size: 18px;
         font-weight: 500;
@@ -127,7 +120,7 @@
         opacity: 0.6;
     }
     #explorecontainer a {
-        color: #00C0FF;
+        color: #000000;
         font-family: 'Titillium Web';
         font-size: 18px;
         font-weight: 400;
@@ -142,7 +135,7 @@
         font-family: 'Titillium Web';
         font-weight: 300;
         font-size: 18px;
-        color: #00C0FF;
+        color: #000000;
         text-align: center;
     }
     .mothership h1 {
@@ -152,7 +145,7 @@
     .mothership h3 a {
         font-family: 'Titillium Web';
         font-weight: 300;
-        color: #00C0FF;
+        color: #000000;
         text-align: center;
         text-decoration: none;
     }
@@ -186,23 +179,22 @@
         width: 75%;
         margin: auto;
         margin-bottom: 50px;
-        background:black;
         margin-top: 2% !important;
         text-align: center;
     }
     #marsContainer h2    {
         font-family: 'Factor';
         font-size: 28px;
-        color: #00C0FF;
+        color: #000000;
     }
     #marsContainer h3 {
         font-family: 'Titillium Web';
         font-size: 18px;
-        color: #00C0FF;
+        color: #000000;
     }
     #marsContainer a {
         font-family: 'Titillium Web';
-        color: #00C0FF;
+        color: #000000;
         font-size: 18px;
     }
     #marsContainer #camera_img {
@@ -216,5 +208,5 @@
 
     #explanation {
         font-family: 'Titillium Web';
-        color: #00C0FF;
+        color: #000000;
     }

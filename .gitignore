@@ -1,7 +1,6 @@
 .idea/
 node_modules/
 public/
-package.json
 
 app/assets/js/components/explore.controllers-compiled.js
 app/assets/js/components/explore.controllers-compiled.js.map.map

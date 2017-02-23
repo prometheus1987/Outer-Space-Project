@@ -16,7 +16,6 @@
   "devDependencies": {
     "angular": "1.5.9",
     "angular-mocks": "^1.5.8",
-    "angular-ui-bootstrap": "^2.5.0",
     "angular-ui-router": "^0.3.2",
     "babel-cli": "^6.16.0",
     "babel-polyfill": "^6.23.0",
