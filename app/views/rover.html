@@ -1,29 +1,42 @@
 <div id="marsContainer" ng-init="rover.retrieveRoverData(1)">
     <div class="mdl-grid">
-        <div class="mdl-cell mdl-cell--8-col mdl-cell--3-offset">
-            <div class="card" style="width: 700px;">
-                <img ng-src="app/assets/images/{{rover.name.toLowerCase()}}_rover.jpg"
-                     style="width: 100%;"
-                />
+        <div class="mdl-cell mdl-cell--8-col mdl-cell--3-offset" style="width: 40%;">
+            <div class="card">
+                <div class="card image">
+                    <img ng-src="app/assets/images/{{rover.name.toLowerCase()}}_rover.jpg"
+                         style="width:100%;"
+                    />
+                </div>
+
                 <h3>Select a Rover:</h3>
                 <a ui-sref="rover({ rover: 'curiosity' })">Curiosity</a>
                 <a ui-sref="rover({ rover: 'opportunity' })">Opportunity</a>
                 <a ui-sref="rover({ rover: 'spirit' })">Spirit</a>
 
-                <em><h3>Rover Name:</h3></em>
-                <h3>{{rover.name.toUpperCase()}}</h3>
-                <em><h3>Status:</h3></em>
-                <h3>Active</h3>
-                <em><h3>Launch Date:</h3></em>
-                <em><h3>{{rover.launchDate}}</h3></em>
-                <em><h3>Landing Date:</h3></em>
-                <h3>{{rover.landingDate}}</h3>
-                <em><h3>Martian Sol:</h3></em>
-                <h3>{{rover.martianSol}}</h3>
-                <em><h3>Earth Date:</h3></em>
-                <h3>{{rover.earthDate}}</h3>
-                <em><h3>Total Photos:</h3></em>
-                <h3>{{rover.totalPhotos}}</h3>
+                <table class="mdl-data-table mdl-shadow--2dp" style="width: 100%;">
+                    <thead>
+                    <tr>
+                        <th class="mdl-data-table__cell--non-numeric"><em>Rover Name:</em></th>
+                        <th><em>Status</em></th>
+                        <th><em>Launch Date</em></th>
+                        <th><em>Landing Date</em></th>
+                        <th><em>Martian Sol</em></th>
+                        <th><em>Earth Date</em></th>
+                        <th><em>Total Photos</em></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="mdl-data-table__cell--non-numeric">{{rover.name.toUpperCase()}}</td>
+                            <td><em>{{rover.status}}</em></td>
+                            <td><em>{{rover.launchDate}}</em></td>
+                            <td><em>{{rover.landingDate}}</em></td>
+                            <td><em>{{rover.martianSol}}</em></td>
+                            <td><em>{{rover.earthDate}}</em></td>
+                            <td><em>{{rover.totalPhotos}}</em></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
