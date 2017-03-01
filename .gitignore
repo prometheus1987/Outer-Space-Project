@@ -1,6 +1,7 @@
 .idea/
 node_modules/
 public/
+bourbon/
 
 app/assets/js/components/explore.controllers-compiled.js
 app/assets/js/components/explore.controllers-compiled.js.map.map
