@@ -7,22 +7,21 @@
 </head>
 <body ng-app="app">
     <div class="banner">
-        <div class="center-align" style="vertical-align: middle;">
-            <p>D</p>
-            <p>I</p>
-            <p>G</p>
-            <p>I</p>
-            <p>C</p>
-            <p>O</p>
-            <p>S</p>
-            <p>M</p>
-        </div>
+        <p>D</p>
+        <p>I</p>
+        <p>G</p>
+        <p>I</p>
+        <p>C</p>
+        <p>O</p>
+        <p>S</p>
+        <p>M</p>
     </div>
-    <div class="menu center-align">
-        <a ui-sref="home">Home</a>
-        <a ui-sref="apod">APOD</a>
-        <a ui-sref="rover({ rover: 'curiosity' })">Rovers</a>
-        <a ui-sref="sounds">Sounds</a>
+    <div class="mdl-grid">
+        <div class="mdl-cell mdl-cell--12-col menu">
+            <a ui-sref="home">Home</a>
+            <a ui-sref="apod">APOD</a>
+            <a ui-sref="rover({ rover: 'curiosity' })">Rovers</a>
+        </div>
     </div>
     <div ui-view></div>
 </body>

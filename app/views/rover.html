@@ -1,19 +1,18 @@
 <div id="marsContainer" ng-init="rover.retrieveRoverData(1)">
     <div class="mdl-grid">
-        <div class="mdl-cell mdl-cell--8-col mdl-cell--3-offset" style="width: 40%;">
+        <div class="mdl-cell mdl-cell--12-col">
             <div class="card">
                 <div class="card image">
                     <img ng-src="app/assets/images/{{rover.name.toLowerCase()}}_rover.jpg"
                          style="width:100%;"
                     />
                 </div>
-
-                <h3>Select a Rover:</h3>
+                
                 <a ui-sref="rover({ rover: 'curiosity' })">Curiosity</a>
                 <a ui-sref="rover({ rover: 'opportunity' })">Opportunity</a>
                 <a ui-sref="rover({ rover: 'spirit' })">Spirit</a>
 
-                <table class="mdl-data-table mdl-shadow--2dp" style="width: 100%;">
+                <table class="mdl-data-table mdl-shadow--2dp" style="width:100%;">
                     <thead>
                     <tr>
                         <th class="mdl-data-table__cell--non-numeric"><em>Rover Name:</em></th>
@@ -42,7 +41,7 @@
     </div>
     <div class="mdl-grid center-align">
         <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--4-col-tablet mdl-cell--4-col-desktop" ng-repeat="photo in rover.data">
-            <img ng-src="{{photo.img}}" class="img-responsive" style="max-height: 300px; margin: 0 auto;">
+            <img ng-src="{{photo.img}}" class="img-responsive" style="max-height: 300px; max-width: 300px; margin: 0 auto;">
             <h3>{{photo.name}} ({{photo.abbreviation}})</h3>
         </div>
     </div>

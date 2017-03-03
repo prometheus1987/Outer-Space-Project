@@ -7,7 +7,6 @@ module.exports = function(config) {
       'node_modules/angular/angular.js',
       'node_modules/angular-ui-router/release/angular-ui-router.js',
       'node_modules/angular-mocks/angular-mocks.js',
-      'node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js',
       'app/assets/js/components/app.module.js',
       'app/assets/js/components/rover.controller.js',
       'app/assets/js/components/app.routes.js',
