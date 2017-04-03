@@ -34,10 +34,5 @@
           url: '/sounds',
           templateUrl: 'app/views/sounds.html',
       })
-
-      .state('contact', {
-          url: '/contact',
-          templateUrl : 'app/views/contact.html'
-      });
     });
 })();

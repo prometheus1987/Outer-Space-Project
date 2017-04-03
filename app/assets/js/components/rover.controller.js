@@ -21,7 +21,7 @@
             let day = date.getDate() - daysSinceToday;
             let month = date.getMonth() + 1;
             let year = date.getFullYear();
-
+// debugger;
             if (day < 10) {
                 day = '0' + day;
             }
@@ -58,6 +58,7 @@
                     vm.totalPhotos = result.photos[0].rover.total_photos;
                     vm.landingDate = result.photos[0].rover.landing_date;
                     vm.launchDate = result.photos[0].rover.launch_date;
+                    vm.status = result.photos[0].rover.status;
                 })
                 .error(function(error){
                   daysSinceToday += 1;
