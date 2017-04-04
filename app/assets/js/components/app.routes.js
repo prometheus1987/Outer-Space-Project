@@ -30,6 +30,11 @@
           }
       })
       
+      .state('lunar', {
+          url: '/lunar',
+          templateUrl: 'app/views/lunar.html'
+      })
+      
       .state('sounds', {
           url: '/sounds',
           templateUrl: 'app/views/sounds.html',
