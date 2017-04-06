@@ -17,7 +17,9 @@
         function retrieveOrbitalData() {
           $http.get(url + key)
             .success(function (data) {
-              console.log(data["near_earth_objects"]["2017-03-09"][0]);
+              vm.count = data["element_count"];
+              console.log(vm.count);
+              console.log(data["near_earth_objects"]["2017-03-09"]);
             })
             .error(function (error) {
               console.log(error);
