@@ -7,10 +7,15 @@ module.exports = function(config) {
       'node_modules/angular/angular.js',
       'node_modules/angular-ui-router/release/angular-ui-router.js',
       'node_modules/angular-mocks/angular-mocks.js',
+
       'app/assets/js/components/app.module.js',
-      'app/assets/js/components/rover.controller.js',
       'app/assets/js/components/app.routes.js',
-      'spec/rover.spec.js'
+      'app/assets/js/components/rover.controller.js',
+      'app/assets/js/components/apod.controller.js',
+      'app/assets/js/components/orbital.controller.js',
+      'spec/rover.spec.js',
+      'spec/apod.spec.js',
+      'spec/orbital.spec.js'
     ],
     exclude: [
     ],

@@ -8,7 +8,7 @@
     function($http, $stateParams) {
 
         const key = "api_key=NeHYhGtJMXT1kJ9jSP8bnRF2t1IpYShALfGkSKoz";
-        const baseUrl = "https://api.nasa.gov/mars-photos/api/v1/rovers/";
+        const url = "https://api.nasa.gov/mars-photos/api/v1/rovers/";
 
         let vm = this;
 
@@ -21,7 +21,7 @@
             let day = date.getDate() - daysSinceToday;
             let month = date.getMonth() + 1;
             let year = date.getFullYear();
-// debugger;
+
             if (day < 10) {
                 day = '0' + day;
             }
@@ -50,7 +50,7 @@
                 break;
             }
 
-            $http.get(baseUrl + vm.name +  queryParams + query + "&" + key)
+            $http.get(url + vm.name +  queryParams + query + "&" + key)
                 .success(function(result) {
                     vm.data = mapRoverPhotos(result.photos);
                     vm.martianSol = result.photos[0].sol;

@@ -29,6 +29,13 @@
             rover: 'curiosity'
           }
       })
+
+      .state('orbital', {
+        url: '/orbitals',
+        templateUrl: 'app/views/orbital.html',
+        controller: 'OrbitalController',
+        controllerAs: 'orbital'
+      })
       
       .state('sounds', {
           url: '/sounds',
