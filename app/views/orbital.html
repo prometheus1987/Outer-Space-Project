@@ -2,6 +2,15 @@
     <div class="mdl-cell mdl-cell--12-col">
         <div class="card">
             <h2>Near Earth Orbitals</h2>
+            <h3>Count: {{orbital.count}} objects</h3>
+            <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--4-col-tablet mdl-cell--4-col-desktop" ng-repeat="orbital in orbital.data">
+                <h2>Name:</h2>
+                <h3>{{orbital.name}}</h3>
+                <h2>Absolute Magnitude</h2>
+                <h3>{{orbital.magnitude}}</h3>
+                <h2>Diameter:</h2>
+                <h3>Min: {{orbital.diameterMin}} / Max: {{orbital.diameterMax}} kilometers</h3>
+            </div>
         </div>
     </div>
 </div>
