@@ -1,4 +1,5 @@
     @import url(http://fonts.googleapis.com/css?family=Titillium+Web:300,400,700);
+    @import url(http://fonts.googleapis.com/css?family=Orbitron);
     @font-face {
         font-family: 'Factor';
         src: url('FACTOR2.TTF');
@@ -28,14 +29,15 @@
     .banner {
         background: url('../images/clouds_of_creation.jpg');
         background-size: 100vw;
-        padding-bottom: 25%;
+        height: 300px;
         text-align: center;
 
     }
 
     .banner p {
+        margin-top: 100px;
         display: inline-block;
-        font-family: 'Factor';
+        font-family: 'Orbitron';
         text-shadow: 2px 2px 2px white;
         font-size: 50px;
         font-weight: 700;
@@ -180,9 +182,13 @@
         font-family: 'Titillium Web' !important;
     }
 
-    //#map {
-    //    height: 100%;
-    //}
+   #lunarMap {
+       margin: 0 auto;
+   }
+   #map {
+       height: 400px;
+       margin-bottom: 100px;
+   }
 
     #explanation {
         font-family: 'Titillium Web';
