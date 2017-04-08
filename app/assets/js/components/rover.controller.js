@@ -15,21 +15,8 @@
         vm.name = $stateParams.rover;
         vm.retrieveRoverData = retrieveRoverData;
 
-        function getDate(daysSinceToday) {
-            let date = new Date();
-
-            let day = date.getDate() - daysSinceToday;
-            let month = date.getMonth() + 1;
-            let year = date.getFullYear();
-
-            if (day < 10) {
-                day = '0' + day;
-            }
-            if (month < 10) {
-                month = '0' + month;
-            }
-            date = year + '-' + month + '-' + day;
-            return date;
+        function getDate() {
+            return moment().format();
         }
 
         function retrieveRoverData(daysSinceToday) {
@@ -52,6 +39,7 @@
 
             $http.get(url + vm.name +  queryParams + query + "&" + key)
                 .success(function(result) {
+                    console.log(url + vm.name + queryParams + query + "&" + key);
                     vm.data = mapRoverPhotos(result.photos);
                     vm.martianSol = result.photos[0].sol;
                     vm.earthDate = result.photos[0].earth_date;
@@ -61,12 +49,10 @@
                     vm.status = result.photos[0].rover.status;
                 })
                 .error(function(error){
-                  daysSinceToday += 1;
-                  if (daysSinceToday > 7 || vm.name === "Spirit") {
-                    console.error('NO ROVER IMAGES FOUND');
-                  } else {
-                    retrieveRoverData(daysSinceToday);
-                  }
+                    retrieveRoverData(
+                        moment()
+                        .subtract(1, 'days')
+                    );
                 });
         }
 
