@@ -33,8 +33,10 @@
                 name: orbital.name,
                 magnitude: orbital.absolute_magnitude_h,
                 diameterMin: orbital.estimated_diameter.kilometers.estimated_diameter_min,
-                diameterMax: orbital.estimated_diameter.kilometers.estimated_diameter_max
-
+                diameterMax: orbital.estimated_diameter.kilometers.estimated_diameter_max,
+                hazardous: orbital.is_potentially_hazardous_asteroid,
+                orbitingBody: orbital.close_approach_data[0].orbiting_body,
+                approachDate: orbital.close_approach_data[0].close_approach_date
             }
         });
     }
