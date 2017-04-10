@@ -45,6 +45,8 @@
       .state('sounds', {
           url: '/sounds',
           templateUrl: 'app/views/sounds.html',
+          controller: 'SoundsController',
+          controllerAs: 'sounds'
       })
     });
 })();

@@ -1,6 +1,11 @@
-<div class="row" id="marsContainer">
-    <div class="col-md-12" style="margin-top: 50px;">
-        <img src="app/assets/images/experiment.jpg"/>
-        <h2>This section is experimental. Please check back later...</h2>
+<div id="marsContainer" ng-init="sounds.retrieveSoundsData()">
+    <div class="mdl-grid">
+        <div class="mdl-cell mdl-cell--12-col">
+            <div class="card">
+                <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--4-col-tablet mdl-cell--4-col-desktop" ng-repeat="sounds in sounds.data">
+                    <h3>{{sounds.description}}</h3>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
