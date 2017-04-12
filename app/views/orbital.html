@@ -3,31 +3,31 @@
         <div class="card">
             <h2>Near Earth Orbitals</h2>
             <h3>Count: {{orbital.count}} objects</h3>
-            <div class="mdl-cell mdl-cell--12-col" ng-repeat="orbital in orbital.data">
-                <table class="mdl-data-table mdl-shadow--2dp" style="width:100%;">
+            <div class="mdl-cell mdl-cell--12-col">
+                <table class="mdl-data-table mdl-shadow--2dp" style="width:100%;"  ng-repeat="orbital in orbital.data">
                     <thead>
-                    <tr>
-                        <th><em>Name</em></th>
-                        <th><em>Magnitude</em></th>
-                        <th><em>Hazardous?</em></th>
-                        <th><em>Miss Distance (km)</em></th>
-                        <th><em>Diameter Min. (km)</em></th>
-                        <th><em>Diamater Max. (km)</em></th>
-                        <th><em>Orbiting Body</em></th>
-                        <th><em>Approach Date:</em></th>
-                    </tr>
+                        <tr>
+                            <th><em>Name</em></th>
+                            <th><em>Magnitude</em></th>
+                            <th><em>Hazardous?</em></th>
+                            <th><em>Miss Distance (km)</em></th>
+                            <th><em>Diameter Min. (km)</em></th>
+                            <th><em>Diamater Max. (km)</em></th>
+                            <th><em>Orbiting Body</em></th>
+                            <th><em>Approach Date:</em></th>
+                        </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td><em>{{orbital.name}}</em></td>
-                        <td><em>{{orbital.magnitude}}</em></td>
-                        <td><em>{{orbital.hazardous}}</em></td>
-                        <td><em>{{orbital.distance}}</em></td>
-                        <td><em>{{orbital.diameterMin}}</em></td>
-                        <td><em>{{orbital.diameterMax}}</em></td>
-                        <td><em>{{orbital.orbitingBody}}</em></td>
-                        <td><em>{{orbital.approachDate}}</em></td>
-                    </tr>
+                        <tr>
+                            <td><em>{{orbital.name}}</em></td>
+                            <td><em>{{orbital.magnitude}}</em></td>
+                            <td><em>{{orbital.hazardous}}</em></td>
+                            <td><em>{{orbital.distance}}</em></td>
+                            <td><em>{{orbital.diameterMin}}</em></td>
+                            <td><em>{{orbital.diameterMax}}</em></td>
+                            <td><em>{{orbital.orbitingBody}}</em></td>
+                            <td><em>{{orbital.approachDate}}</em></td>
+                        </tr>
                     </tbody>
                 </table>
             </div>

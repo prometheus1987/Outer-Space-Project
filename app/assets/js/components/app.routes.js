@@ -37,9 +37,11 @@
         controllerAs: 'orbital'
       })
       
-      .state('lunar', {
-          url: '/lunar',
-          templateUrl: 'app/views/lunar.html'
+      .state('maps', {
+          url: '/maps',
+          templateUrl: 'app/views/lunar.html',
+          controller: 'MapController',
+          controllerAs: 'maps'
       })
       
       .state('sounds', {

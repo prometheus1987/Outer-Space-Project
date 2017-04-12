@@ -19,8 +19,7 @@
                         .success(function (data) {
                             vm.data = mapSounds(data.results);
                             vm.count = data["count"];
-                            console.log(data.results);
-                            debugger;
+                            console.log(vm.data);
                         })
                         .error(function (error) {
                             console.log(error);
@@ -28,10 +27,10 @@
                 }
             });
 
-    function mapSounds(data) {
-        return _.map(data, function(sounds) {
+    function mapSounds(sounds) {
+        return _.map(sounds, function(sound) {
             return {
-                name: sounds["results"].description
+                name: sound.results.description
             }
         });
     }

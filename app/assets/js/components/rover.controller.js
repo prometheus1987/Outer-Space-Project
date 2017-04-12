@@ -53,7 +53,6 @@
 
             $http.get(url + vm.name +  queryParams + query + "&" + key)
                 .success(function(result) {
-                    console.log(url + vm.name + queryParams + query + "&" + key);
                     vm.data = mapRoverPhotos(result.photos);
                     vm.martianSol = result.photos[0].sol;
                     vm.earthDate = result.photos[0].earth_date;
