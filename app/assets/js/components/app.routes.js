@@ -36,6 +36,13 @@
         controller: 'OrbitalController',
         controllerAs: 'orbital'
       })
+
+      .state('images', {
+          url: '/   images',
+          templateUrl: 'app/views/images.html',
+          controller: 'ImagesController',
+          controllerAs: 'images'
+      })
       
       .state('maps', {
           url: '/maps',

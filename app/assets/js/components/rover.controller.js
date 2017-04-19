@@ -60,6 +60,9 @@
                     vm.landingDate = result.photos[0].rover.landing_date;
                     vm.launchDate = result.photos[0].rover.launch_date;
                     vm.status = result.photos[0].rover.status;
+
+                    console.log(url + vm.name +  queryParams + query);
+                    console.log(result);
                 })
                 .error(function(error){
                   daysSinceToday += 1;
