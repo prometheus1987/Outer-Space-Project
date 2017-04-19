@@ -10,22 +10,3 @@
         </div>
     </div>
 </div>
-
-<script>
-    const url = "https://images-api.nasa.gov/search";
-    const queryParams = "?q=mars";
-
-    let vm = this;
-//    vm.retrieveImages = retrieveImages;
-
-    $.ajax
-    ({
-        type: "GET",
-        url: url + queryParams ,
-        callback: '?',
-        success: function(result)
-        {
-            console.log(result);
-        }
-    });
-</script>
