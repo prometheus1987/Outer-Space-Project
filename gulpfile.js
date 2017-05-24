@@ -39,6 +39,9 @@
       './node_modules/jquery/dist/jquery.js',
       './node_modules/lodash/lodash.js',
       './node_modules/moment/moment.js',
+      './node_modules/angular-material/angular-material.js',
+      './node_modules/angular-animate/angular-animate.js',
+      './node_modules/angular-aria/angular-aria.js',
       './node_modules/material-design-lite/material.js'
     ]
   };
