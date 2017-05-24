@@ -38,7 +38,7 @@
       })
 
       .state('images', {
-          url: '/   images',
+          url: '/images',
           templateUrl: 'app/views/images.html',
           controller: 'ImagesController',
           controllerAs: 'images'
