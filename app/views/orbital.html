@@ -4,7 +4,7 @@
             <h2>Near Earth Orbitals</h2>
             <h3>Count: {{orbital.count}} objects</h3>
             <div class="mdl-cell mdl-cell--12-col">
-                <table class="mdl-data-table mdl-shadow--2dp" style="width:100%;"  ng-repeat="orbital in orbital.data">
+                <table class="mdl-data-table mdl-shadow--2dp" style="width:100%;">
                     <thead>
                         <tr>
                             <th><em>Name</em></th>
@@ -17,7 +17,7 @@
                             <th><em>Approach Date:</em></th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody ng-repeat="orbital in orbital.data">
                         <tr>
                             <td><em>{{orbital.name}}</em></td>
                             <td><em>{{orbital.magnitude}}</em></td>

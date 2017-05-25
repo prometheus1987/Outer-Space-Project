@@ -52,19 +52,21 @@
             }
 
             $http.get(url + vm.name +  queryParams + query + "&" + key)
-                .success(function(result) {
-                    vm.data = mapRoverPhotos(result.photos);
-                    vm.martianSol = result.photos[0].sol;
-                    vm.earthDate = result.photos[0].earth_date;
-                    vm.totalPhotos = result.photos[0].rover.total_photos;
-                    vm.landingDate = result.photos[0].rover.landing_date;
-                    vm.launchDate = result.photos[0].rover.launch_date;
-                    vm.status = result.photos[0].rover.status;
+                .then(function(result) {
+                    let response = result.data.photos;
+
+                    vm.data = mapRoverPhotos(response);
+                    vm.martianSol = response[0].sol;
+                    vm.earthDate = response[0].earth_date;
+                    vm.totalPhotos = response[0].rover.total_photos;
+                    vm.landingDate = response[0].rover.landing_date;
+                    vm.launchDate = response[0].rover.launch_date;
+                    vm.status = response[0].rover.status;
 
                     console.log(url + vm.name +  queryParams + query);
                     console.log(result);
                 })
-                .error(function(error){
+                .catch(function(error){
                   daysSinceToday += 1;
                   if (daysSinceToday > 7 || vm.name === "Spirit") {
                     console.error('NO ROVER IMAGES FOUND');

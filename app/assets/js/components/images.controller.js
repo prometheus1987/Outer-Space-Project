@@ -8,13 +8,16 @@
             function get($http) {
 
                 const url = "https://images-api.nasa.gov/";
-                const queryParams = "search";
+                const queryParams = "search?q=mars";
 
                 let vm = this;
+
                 $.ajax({
                     url: url + queryParams,
-                    dataType: "jsonp",
-                    jsonpCallback: "logResults"
+                    dataType: "jsonp"
+                })
+                .done(function() {
+                    console.log(results);
                 });
 
 
