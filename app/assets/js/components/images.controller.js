@@ -5,22 +5,20 @@
         .module('app')
         .controller('ImagesController',
 
-            function get($http) {
+            function($http) {
 
                 const url = "https://images-api.nasa.gov/";
                 const queryParams = "search?q=mars";
 
                 let vm = this;
 
-                $.ajax({
-                    url: url + queryParams,
-                    dataType: "jsonp"
+                $http({
+                    method: 'GET',
+                    url: url,
+                    contentType: "application/json;odata=verbose",
+                    headers: {"Accept": "application/json;odata=verbose"}
+                }).then(function(data) {
+                    debugger;
                 })
-                .done(function() {
-                    console.log(results);
-                });
-
-
-                debugger;
             })
 })();

@@ -36,6 +36,8 @@
         function retrieveRoverData(daysSinceToday) {
 
             let date = getDate(daysSinceToday);
+            let dateWrapper = moment(date);
+            debugger;
 
             let query = date;
             let queryParams = "/photos?earth_date=";
@@ -62,9 +64,6 @@
                     vm.landingDate = response[0].rover.landing_date;
                     vm.launchDate = response[0].rover.launch_date;
                     vm.status = response[0].rover.status;
-
-                    console.log(url + vm.name +  queryParams + query);
-                    console.log(result);
                 })
                 .catch(function(error){
                   daysSinceToday += 1;
