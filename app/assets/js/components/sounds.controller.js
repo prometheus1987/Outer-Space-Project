@@ -7,19 +7,16 @@
 
             function($http) {
 
-                const key = "api_key=NeHYhGtJMXT1kJ9jSP8bnRF2t1IpYShALfGkSKoz";
-                const url = "https://api.nasa.gov/planetary/sounds?limit=64&";
-
                 let vm = this;
 
                 vm.retrieveSoundsData = retrieveSoundsData;
 
                 function retrieveSoundsData() {
-                    $http.get(url + key)
+                    $http.get("app/assets/js/sounds.json")
                         .then(function (data) {
-                            vm.data = mapSounds(data.results);
-                            vm.count = data["count"];
-                            console.log(vm.data);
+                            let response = data.data;
+                            vm.sounds = mapSounds(response.results);
+                            debugger;
                         })
                         .catch(function (error) {
                             console.log(error);
@@ -27,11 +24,16 @@
                 }
             });
 
-    function mapSounds(sounds) {
-        return _.map(sounds, function(sound) {
-            return {
-                name: sound.results.description
+            function mapSounds(data) {
+                return _.map(data, function(sound) {
+                    return {
+                        title: sound.title,
+                        description: sound.description,
+                        tag: sound.tag_list,
+                        stream: sound.stream_url,
+                        download: sound.download_url
+                    }
+                })
             }
-        });
-    }
+
 })();
