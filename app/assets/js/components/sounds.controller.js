@@ -16,12 +16,12 @@
 
                 function retrieveSoundsData() {
                     $http.get(url + key)
-                        .success(function (data) {
+                        .then(function (data) {
                             vm.data = mapSounds(data.results);
                             vm.count = data["count"];
                             console.log(vm.data);
                         })
-                        .error(function (error) {
+                        .catch(function (error) {
                             console.log(error);
                         });
                 }

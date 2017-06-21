@@ -20,7 +20,6 @@
               vm.title = data.data.title;
               vm.hdurl = data.data.hdurl;
               vm.explanation = data.data.explanation;
-              debugger;
             })
             .catch(function (error) {
               console.log(error);

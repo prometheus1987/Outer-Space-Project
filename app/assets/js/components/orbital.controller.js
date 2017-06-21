@@ -14,10 +14,10 @@
 
                 vm.retrieveOrbitalData = retrieveOrbitalData;
 
-                function getDate() {
+                function getDate(daysSinceToday) {
 
                     let date = new Date();
-                    let day = date.getDate();
+                    let day = date.getDate() - daysSinceToday;
                     let month = date.getMonth() + 1;
                     let year = date.getFullYear();
 
@@ -32,22 +32,24 @@
                     return date;
                 }
 
-                function retrieveOrbitalData() {
+                function retrieveOrbitalData(daysSinceToday) {
 
-                    let date = getDate();
+                    let date = getDate(daysSinceToday);
                     let query = "feed?start_date=";
 
                     $http.get(url + query + date + "&" + key)
                         .then(function(data) {
-
-                            let response = data["near_earth_objects"][date];
-                            debugger;
+                            let response = data.data["near_earth_objects"][date];
                             vm.data = mapOrbitals(response);
-                            vm.count = data["element_count"];
-
+                            vm.count = data.data["element_count"];
                         })
                         .catch(function (error) {
-                            console.log(error);
+                            daysSinceToday += 1;
+                            if (daysSinceToday > 7) {
+                                console.error(error);
+                            } else {
+                                retrieveOrbitalData(daysSinceToday);
+                            }
                         });
                 }
             });
