@@ -12,6 +12,8 @@
 
         let vm = this;
 
+        vm.noImages = false;
+
         vm.name = $stateParams.rover;
         vm.retrieveRoverData = retrieveRoverData;
 
@@ -55,6 +57,7 @@
             $http.get(url + vm.name +  queryParams + query + "&" + key)
                 .then(function(result) {
                     let response = result.data.photos;
+                    vm.noImages = false;
 
                     vm.data = mapRoverPhotos(response);
                     vm.martianSol = response[0].sol;
@@ -68,6 +71,7 @@
                   daysSinceToday += 1;
                   if (daysSinceToday > 7 || vm.name === "Spirit") {
                     console.error('NO ROVER IMAGES FOUND');
+                    vm.noImages = true;
                   } else {
                     retrieveRoverData(daysSinceToday);
                   }
