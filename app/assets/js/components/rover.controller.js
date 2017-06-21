@@ -38,9 +38,9 @@
         function retrieveRoverData(daysSinceToday) {
 
             let date = getDate(daysSinceToday);
-            let dateWrapper = moment(date);
+            let dateWrapper = moment(date)._i;
 
-            let query = date;
+            let query = dateWrapper;
             let queryParams = "/photos?earth_date=";
 
             switch(vm.name) {
@@ -49,7 +49,7 @@
                 queryParams = "/photos?sol=";
                 break;
               case "curiosity" || "opportunity":
-                query = date;
+                query = dateWrapper;
                 queryParams = "/photos?earth_date=";
                 break;
             }
@@ -70,7 +70,6 @@
                 .catch(function(error){
                   daysSinceToday += 1;
                   if (daysSinceToday > 7 || vm.name === "Spirit") {
-                    console.error('NO ROVER IMAGES FOUND');
                     vm.noImages = true;
                   } else {
                     retrieveRoverData(daysSinceToday);
