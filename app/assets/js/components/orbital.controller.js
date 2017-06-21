@@ -38,11 +38,15 @@
                     let query = "feed?start_date=";
 
                     $http.get(url + query + date + "&" + key)
-                        .success(function (data) {
-                            vm.data = mapOrbitals(data["near_earth_objects"][date]);
+                        .then(function(data) {
+
+                            let response = data["near_earth_objects"][date];
+                            debugger;
+                            vm.data = mapOrbitals(response);
                             vm.count = data["element_count"];
+
                         })
-                        .error(function (error) {
+                        .catch(function (error) {
                             console.log(error);
                         });
                 }

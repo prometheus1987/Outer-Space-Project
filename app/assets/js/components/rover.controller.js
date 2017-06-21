@@ -37,7 +37,6 @@
 
             let date = getDate(daysSinceToday);
             let dateWrapper = moment(date);
-            debugger;
 
             let query = date;
             let queryParams = "/photos?earth_date=";

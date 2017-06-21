@@ -16,12 +16,13 @@
 
         function retrieveApodData() {
           $http.get(url + key)
-            .success(function (data) {
-              vm.title = data.title;
-              vm.hdurl = data.hdurl;
-              vm.explanation = data.explanation;
+            .then(function (data) {
+              vm.title = data.data.title;
+              vm.hdurl = data.data.hdurl;
+              vm.explanation = data.data.explanation;
+              debugger;
             })
-            .error(function (error) {
+            .catch(function (error) {
               console.log(error);
             });
         }
