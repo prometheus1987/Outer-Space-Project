@@ -16,7 +16,6 @@
                         .then(function (data) {
                             let response = data.data;
                             vm.sounds = mapSounds(response.results);
-                            debugger;
                         })
                         .catch(function (error) {
                             console.log(error);
