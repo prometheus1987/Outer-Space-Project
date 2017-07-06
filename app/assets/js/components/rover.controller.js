@@ -8,26 +8,29 @@
     function($http, $stateParams) {
 
         const key = "api_key=NeHYhGtJMXT1kJ9jSP8bnRF2t1IpYShALfGkSKoz";
-        const baseUrl = "https://api.nasa.gov/mars-photos/api/v1/rovers/";
+        const url = "https://api.nasa.gov/mars-photos/api/v1/rovers/";
 
         let vm = this;
+
+        vm.noImages = false;
 
         vm.name = $stateParams.rover;
         vm.retrieveRoverData = retrieveRoverData;
 
         function getDate(daysSinceToday) {
-            let date = new Date();
 
+            let date = new Date();
             let day = date.getDate() - daysSinceToday;
             let month = date.getMonth() + 1;
             let year = date.getFullYear();
-// debugger;
+
             if (day < 10) {
                 day = '0' + day;
             }
             if (month < 10) {
                 month = '0' + month;
             }
+
             date = year + '-' + month + '-' + day;
             return date;
         }
@@ -35,8 +38,9 @@
         function retrieveRoverData(daysSinceToday) {
 
             let date = getDate(daysSinceToday);
+            let dateWrapper = moment(date)._i;
 
-            let query = date;
+            let query = dateWrapper;
             let queryParams = "/photos?earth_date=";
 
             switch(vm.name) {
@@ -45,25 +49,28 @@
                 queryParams = "/photos?sol=";
                 break;
               case "curiosity" || "opportunity":
-                query = date;
+                query = dateWrapper;
                 queryParams = "/photos?earth_date=";
                 break;
             }
 
-            $http.get(baseUrl + vm.name +  queryParams + query + "&" + key)
-                .success(function(result) {
-                    vm.data = mapRoverPhotos(result.photos);
-                    vm.martianSol = result.photos[0].sol;
-                    vm.earthDate = result.photos[0].earth_date;
-                    vm.totalPhotos = result.photos[0].rover.total_photos;
-                    vm.landingDate = result.photos[0].rover.landing_date;
-                    vm.launchDate = result.photos[0].rover.launch_date;
-                    vm.status = result.photos[0].rover.status;
+            $http.get(url + vm.name +  queryParams + query + "&" + key)
+                .then(function(result) {
+                    let response = result.data.photos;
+                    vm.noImages = false;
+
+                    vm.data = mapRoverPhotos(response);
+                    vm.martianSol = response[0].sol;
+                    vm.earthDate = response[0].earth_date;
+                    vm.totalPhotos = response[0].rover.total_photos;
+                    vm.landingDate = response[0].rover.landing_date;
+                    vm.launchDate = response[0].rover.launch_date;
+                    vm.status = response[0].rover.status;
                 })
-                .error(function(error){
+                .catch(function(error){
                   daysSinceToday += 1;
                   if (daysSinceToday > 7 || vm.name === "Spirit") {
-                    console.error('NO ROVER IMAGES FOUND');
+                    vm.noImages = true;
                   } else {
                     retrieveRoverData(daysSinceToday);
                   }

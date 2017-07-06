@@ -8,20 +8,20 @@
       function($http) {
 
         const key = "api_key=NeHYhGtJMXT1kJ9jSP8bnRF2t1IpYShALfGkSKoz";
-        const apodUrl = "https://api.nasa.gov/planetary/apod?";
+        const url = "https://api.nasa.gov/planetary/apod?";
 
         let vm = this;
 
         vm.retrieveApodData = retrieveApodData;
 
         function retrieveApodData() {
-          $http.get(apodUrl + key)
-            .success(function (data) {
-              vm.title = data.title;
-              vm.hdurl = data.hdurl;
-              vm.explanation = data.explanation;
+          $http.get(url + key)
+            .then(function (data) {
+              vm.title = data.data.title;
+              vm.hdurl = data.data.hdurl;
+              vm.explanation = data.data.explanation;
             })
-            .error(function (error) {
+            .catch(function (error) {
               console.log(error);
             });
         }
