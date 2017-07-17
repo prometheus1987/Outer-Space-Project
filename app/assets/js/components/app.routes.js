@@ -3,13 +3,16 @@
 
     angular
         .module('app')
-        .config(function($stateProvider, $urlRouterProvider) {
+        .config(function($stateProvider, $urlRouterProvider, $locationProvider) {
 
-    $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise('/home');
+    $locationProvider.hashPrefix('');
+    $locationProvider.html5Mode(true);
+
 
     $stateProvider
       .state('home', {
-          url: '/',
+          url: '/home',
           templateUrl: 'app/views/home.html'
       })
 

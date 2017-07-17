@@ -3,13 +3,14 @@
 
   angular
     .module('app')
-    .controller('ApodController',
+    .controller('ApodController', ['apodService'],
 
-    function(apodService) {
-        apodService.async().then(function (promise) {
-            console.log(promise);
+        function ApodController(apodService) {
+
+            let vm = this;
+
+            vm.retrieveApodData = function() {
+                apodService.retrieveData();
+            }
         })
-    });
-
-
 })();
