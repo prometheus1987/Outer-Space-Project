@@ -3,14 +3,12 @@
 
   angular
     .module('app')
-    .controller('ApodController', ['apodService'],
+    .controller('ApodController', ['ApodService', apodController]);
 
-        function ApodController(apodService) {
+    function apodController(apodService) {
+        let vm = this;
 
-            let vm = this;
+        vm.picture = apodService.getPhoto();
 
-            vm.retrieveApodData = function() {
-                apodService.retrieveData();
-            }
-        })
+    }
 })();
