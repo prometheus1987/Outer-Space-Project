@@ -17,7 +17,6 @@
                 let results = res.data.collection.items;
                 vm.images = mapImages(results);
                 console.log(results);
-                debugger;
             }
 
             function errorResponse(error) {
@@ -27,7 +26,7 @@
         function mapImages(results) {
             return _.map(results, function (image) {
                 return {
-                    center: image.data[0].center,
+                    title: image.data[0].title,
                     link: image.links[0].href
                 }
             });
