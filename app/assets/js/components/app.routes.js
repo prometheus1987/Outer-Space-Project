@@ -23,6 +23,13 @@
           controllerAs: 'apod'
       })
 
+    .state('images', {
+        url: '/images',
+        templateUrl: 'app/views/images.html',
+        controller: 'ImagesController',
+        controllerAs: 'images'
+    })
+
       .state('rover', {
           url: '/rover/:rover',
           templateUrl: 'app/views/rover.html',
