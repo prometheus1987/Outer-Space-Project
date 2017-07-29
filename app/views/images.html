@@ -1,17 +1,18 @@
 <div class="mdl-grid">
     <div class="mdl-cell mdl-cell--12-col">
-        <form class="search">
-            <input type="text" class="form-control" ng-model="images.query" placeholder="Search"/>
-            <button type="button" class="btn btn-default" ng-click="images.search(images.query)">Search</button>
-        </form>
-    </div>
-    <div class="mdl-cell mdl-cell--12-col">
-        <div class="card">
+        <div class="card" style="width: 75%;margin: auto;">
             <div class="card image">
-                <div ng-repeat="photo in images.images">
-                    <img style="width: 50%; height: 50%; padding-top: 20px; padding-left: 20px;" class="img-responsive" ng-src="{{ photo.link }}"/>
-                    <h3>{{ photo.title }}</h3>
-                </div>
+                <form class="search">
+                    <input type="text" class="form-control" ng-model="images.query" placeholder="Search"/>
+                    <button type="button" class="btn btn-default" ng-click="images.search(images.query)">Search</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="mdl-grid center-align">
+        <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--4-col-tablet mdl-cell--4-col-desktop" ng-repeat="photo in images.images">
+                <img style="width: 50%; height: 50%; padding-left: 25%;" class="img-responsive" ng-src="{{ photo.link }}"/>
+                <h3>{{ photo.title }}</h3>
             </div>
         </div>
     </div>
