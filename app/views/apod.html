@@ -1,11 +1,11 @@
-<div class="mdl-grid" ng-init="apod.retrieveApodData()">
+<div class="mdl-grid">
     <div class="mdl-cell mdl-cell--12-col">
-        <div class="card">
+        <div class="card" style="width: 75%;margin: auto;">
             <div class="card image">
-                <img style="width: 100%;" ng-src="{{ apod.hdurl }}"/>
+                <img style="width: 100%;" ng-src="{{ apod.picture.hdurl }}"/>
             </div>
-            <h3>{{ apod.title }}</h3>
-            <h3>{{ apod.explanation }}</h3>
+            <h3>{{ apod.picture.title }}</h3>
+            <h3>{{ apod.picture.explanation }}</h3>
         </div>
     </div>
 </div>

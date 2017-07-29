@@ -45,12 +45,16 @@
 
             switch(vm.name) {
               case "spirit":
-                query = Math.floor(Math.random() * 2208) + 1 ;
+                query = Math.floor(Math.random() * 2208) + 1;
                 queryParams = "/photos?sol=";
                 break;
-              case "curiosity" || "opportunity":
+              case "curiosity":
                 query = dateWrapper;
                 queryParams = "/photos?earth_date=";
+                break;
+              case "opportunity":
+                query = Math.floor(Math.random() *  4648) + 1;
+                queryParams = "/photos?sol=";
                 break;
             }
 
