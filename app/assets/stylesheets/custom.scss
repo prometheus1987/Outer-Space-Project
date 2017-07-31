@@ -206,6 +206,14 @@
         font-family: 'Orbitron';
     }
 
+    .roverNavigation, .mapNavigation {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+    .roverNavigation a, .mapNavigation a {
+        font-size: 22px !important;
+    }
+
     .search {width: 500px;height: 40px;margin: 150px auto;background: #444;background: rgba(0,0,0,.2);border-radius:  3px;border: 1px solid #fff;}
 
     .search input {width: 370px;padding: 10px 5px;float: left;color: #000000;font-family: 'Titillium Web';text-align:center;font-size:16px;border: 0;background: transparent;border-radius: 3px 0 0 3px;}

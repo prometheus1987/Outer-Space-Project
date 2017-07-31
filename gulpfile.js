@@ -150,7 +150,7 @@
   });
 
 // Nodemon Task
-  gulp.task('nodemon', function () {
+  gulp.task('start', function () {
     env({
       file: '.env'
     });
@@ -162,6 +162,6 @@
   });
 
 // Default Task
-  gulp.task('default', ['nodemon', 'lint', 'sass', 'scripts', 'watch', 'babel', 'karma']);
+  gulp.task('default', ['start', 'lint', 'sass', 'scripts', 'watch', 'babel', 'karma']);
 
 })();
