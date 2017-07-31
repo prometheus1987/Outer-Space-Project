@@ -2,10 +2,6 @@
 node_modules/
 public/
 bourbon/
-spec/
-karma.conf.js
-gulpfile.js
-package.json
 
 app/assets/js/components/explore.controllers-compiled.js
 app/assets/js/components/explore.controllers-compiled.js.map.map
