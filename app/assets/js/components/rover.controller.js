@@ -17,44 +17,20 @@
         vm.name = $stateParams.rover;
         vm.retrieveRoverData = retrieveRoverData;
 
-        function getDate(daysSinceToday) {
+        function retrieveRoverData() {
 
-            let date = new Date();
-            let day = date.getDate() - daysSinceToday;
-            let month = date.getMonth() + 1;
-            let year = date.getFullYear();
-
-            if (day < 10) {
-                day = '0' + day;
-            }
-            if (month < 10) {
-                month = '0' + month;
-            }
-
-            date = year + '-' + month + '-' + day;
-            return date;
-        }
-
-        function retrieveRoverData(daysSinceToday) {
-
-            let date = getDate(daysSinceToday);
-            let dateWrapper = moment(date)._i;
-
-            let query = dateWrapper;
-            let queryParams = "/photos?earth_date=";
+            let queryParams = "/photos?sol=";
+            let query;
 
             switch(vm.name) {
               case "spirit":
                 query = Math.floor(Math.random() * 2208) + 1;
-                queryParams = "/photos?sol=";
                 break;
               case "curiosity":
-                query = dateWrapper;
-                queryParams = "/photos?earth_date=";
+                query = Math.floor(Math.random() *  1746) + 1;
                 break;
               case "opportunity":
                 query = Math.floor(Math.random() *  4648) + 1;
-                queryParams = "/photos?sol=";
                 break;
             }
 
@@ -72,12 +48,7 @@
                     vm.status = response[0].rover.status;
                 })
                 .catch(function(error){
-                  daysSinceToday += 1;
-                  if (daysSinceToday > 7 || vm.name === "Spirit") {
                     vm.noImages = true;
-                  } else {
-                    retrieveRoverData(daysSinceToday);
-                  }
                 });
         }
 
