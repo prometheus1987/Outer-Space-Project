@@ -3,7 +3,7 @@
 
     angular
         .module('app')
-        .controller('RoverController',
+        .controller('RoverCtrl',
 
     function($http, $stateParams) {
 

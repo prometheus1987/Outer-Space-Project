@@ -2,7 +2,7 @@
     "use strict";
 
     angular.module('app')
-        .controller('ImagesController', ['$http', imagesController]);
+        .controller('ImagesCtrl', ['$http', imagesController]);
 
     function imagesController($http) {
 

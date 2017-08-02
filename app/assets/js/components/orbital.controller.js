@@ -3,7 +3,7 @@
 
     angular
         .module('app')
-        .controller('OrbitalController',
+        .controller('OrbitalCtrl',
 
             function($http) {
 

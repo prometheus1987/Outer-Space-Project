@@ -19,21 +19,21 @@
       .state('apod', {
           url: '/apod',
           templateUrl: 'app/views/apod.html',
-          controller: 'ApodController',
+          controller: 'ApodCtrl',
           controllerAs: 'apod'
       })
 
     .state('images', {
         url: '/images',
         templateUrl: 'app/views/images.html',
-        controller: 'ImagesController',
+        controller: 'ImagesCtrl',
         controllerAs: 'images'
     })
 
       .state('rover', {
           url: '/rover/:rover',
           templateUrl: 'app/views/rover.html',
-          controller: 'RoverController',
+          controller: 'RoverCtrl',
           controllerAs: 'rover',
           params: {
             rover: 'curiosity'
@@ -43,7 +43,7 @@
       .state('orbital', {
         url: '/orbitals',
         templateUrl: 'app/views/orbital.html',
-        controller: 'OrbitalController',
+        controller: 'OrbitalCtrl',
         controllerAs: 'orbital'
       })
       

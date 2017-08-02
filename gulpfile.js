@@ -139,18 +139,8 @@
       .pipe(gulp.dest('dist/libs'))
   });
 
-// Karma Task
-  gulp.task('karma', function (done) {
-    karma.start({
-      configFile: __dirname + '/karma.conf.js',
-      singleRun: true
-    }, function () {
-      done();
-    });
-  });
-
 // Nodemon Task
-  gulp.task('nodemon', function () {
+  gulp.task('start', function () {
     env({
       file: '.env'
     });
@@ -162,6 +152,6 @@
   });
 
 // Default Task
-  gulp.task('default', ['nodemon', 'lint', 'sass', 'scripts', 'watch', 'babel', 'karma']);
+  gulp.task('default', ['start', 'lint', 'sass', 'scripts', 'watch', 'babel']);
 
 })();

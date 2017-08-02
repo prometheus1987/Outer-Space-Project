@@ -3,7 +3,7 @@
 
   angular
     .module('app')
-    .controller('ApodController', ['ApodService', apodController]);
+    .controller('ApodCtrl', ['ApodService', apodController]);
 
     function apodController(apodService) {
         let vm = this;
