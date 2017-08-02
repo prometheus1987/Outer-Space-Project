@@ -1,23 +1,21 @@
 module.exports = function(config) {
   config.set({
-    basePath: __dirname,
+    basePath: '',
     frameworks: ['jasmine'],
     files: [
-      'node_modules/jquery/dist/jquery.js',
-      'node_modules/angular/angular.js',
-      'node_modules/angular-ui-router/release/angular-ui-router.js',
-      'node_modules/angular-mocks/angular-mocks.js',
-      'node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js',
-      'app/assets/js/components/app.module.js',
-      'app/assets/js/components/rover.controller.js',
-      'app/assets/js/components/app.routes.js',
-      'spec/rover.spec.js'
+        'dist/libs/angular.js',
+        'node_modules/angular-mocks/angular-mocks.js',
+        'app/assets/js/components/app.module.js',
+        // 'app/assets/js/components/apod.service.js',
+        'app/assets/js/components/orbital.controller.js',
+        'spec/orbital.spec.js',
+        'spec/apodService.spec.js'
     ],
     exclude: [
     ],
     preprocessors: {
-      "app/assets/js/components/*.js": ["babel"],
-      "spec/*.js": ["babel"]
+        'app/assets/js/components/*.js': ['babel'],
+        'spec/*.js': ['babel']
     },
     reporters: ['progress'],
     port: 9876,
@@ -29,4 +27,3 @@ module.exports = function(config) {
     concurrency: Infinity
   })
 };
-    

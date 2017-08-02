@@ -3,27 +3,12 @@
 
   angular
     .module('app')
-    .controller('ApodController',
+    .controller('ApodController', ['ApodService', apodController]);
 
-      function($http) {
-
-        const key = "api_key=NeHYhGtJMXT1kJ9jSP8bnRF2t1IpYShALfGkSKoz";
-        const apodUrl = "https://api.nasa.gov/planetary/apod?";
-
+    function apodController(apodService) {
         let vm = this;
 
-        vm.retrieveApodData = retrieveApodData;
+        vm.picture = apodService.getPhoto();
 
-        function retrieveApodData() {
-          $http.get(apodUrl + key)
-            .success(function (data) {
-              vm.title = data.title;
-              vm.hdurl = data.hdurl;
-              vm.explanation = data.explanation;
-            })
-            .error(function (error) {
-              console.log(error);
-            });
-        }
-      })
+    }
 })();

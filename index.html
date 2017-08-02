@@ -1,40 +1,64 @@
 <html>
 <head>
-    <title>Digital Cosmos</title>
+    <title>Milky Way Project</title>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta charset="utf-8">
 </head>
+<base href="/">
 <body ng-app="app">
-    <div class="banner text-center">
-            <p>D</p>
-            <p>I</p>
-            <p>G</p>
-            <p>I</p>
-            <p>C</p>
-            <p>O</p>
-            <p>S</p>
-            <p>M</p>
+    <div class="banner">
+        <p>O</p>
+        <p>U</p>
+        <p>T</p>
+        <p>E</p>
+        <p>R</p>
+        <p>S</p>
+        <p>P</p>
+        <p>A</p>
+        <p>C</p>
+        <p>E</p>
+
+        <p>P</p>
+        <p>R</p>
+        <p>O</p>
+        <p>J</p>
+        <p>E</p>
+        <p>C</p>
+        <p>T</p>
     </div>
-    <div class="menu text-center">
-        <a ui-sref="home">Home</a>
-        <a ui-sref="apod">APOD</a>
-        <a ui-sref="rover({ rover: 'curiosity' })">Mars Rover</a>
-        <a ui-sref="sounds">Sounds</a>
-        <a ui-sref="contact">Contact</a>
+    <div class="mdl-grid">
+        <div class="mdl-cell mdl-cell--12-col menu">
+            <a ui-sref="home">Home</a>
+            <a ui-sref="apod">APOD</a>
+            <a ui-sref="rover({ rover: 'curiosity' })">Rovers</a>
+            <a ui-sref="orbital">Orbitals</a>
+            <a ui-sref="maps">Maps</a>
+            <a ui-sref="images">Images</a>
+        </div>
     </div>
     <div ui-view></div>
 </body>
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="app/assets/css/custom.scss">
+    <link rel="stylesheet" href="app/assets/stylesheets/material.css">
+    <link href='https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.css' rel='stylesheet' />
+    <link rel="stylesheet" href="app/assets/stylesheets/custom.scss">
     <script src="dist/libs/jquery.min.js"></script>
     <script src="dist/libs/angular.min.js"></script>
     <script src="dist/libs/angular-ui-router.min.js"></script>
+    <script src="dist/libs/angular-animate.min.js"></script>
+    <script src="dist/libs/angular-aria.min.js"></script>
     <script src="dist/libs/lodash.min.js"></script>
-    <script src="dist/libs/ui-bootstrap.min.js"></script>
+    <script src="dist/libs/material.min.js"></script>
+    <script src="dist/libs/angular-material.min.js"></script>
+    <script src="dist/libs/moment.min.js"></script>
+    <script src='https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.js'></script>
+
     <script src="app/assets/js/components/app.module.js"></script>
     <script src="app/assets/js/components/app.routes.js"></script>
     <script src="app/assets/js/components/apod.controller.js"></script>
+    <script src="app/assets/js/components/apod.service.js"></script>
     <script src="app/assets/js/components/rover.controller.js"></script>
+    <script src="app/assets/js/components/orbital.controller.js"></script>
+    <script src="app/assets/js/components/images.controller.js"></script>
+
 </html>

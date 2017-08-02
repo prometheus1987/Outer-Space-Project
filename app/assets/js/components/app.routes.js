@@ -3,13 +3,16 @@
 
     angular
         .module('app')
-        .config(function($stateProvider, $urlRouterProvider) {
+        .config(function($stateProvider, $urlRouterProvider, $locationProvider) {
 
-    $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise('/home');
+    $locationProvider.hashPrefix('');
+    $locationProvider.html5Mode(true);
+
 
     $stateProvider
       .state('home', {
-          url: '/',
+          url: '/home',
           templateUrl: 'app/views/home.html'
       })
 
@@ -20,6 +23,13 @@
           controllerAs: 'apod'
       })
 
+    .state('images', {
+        url: '/images',
+        templateUrl: 'app/views/images.html',
+        controller: 'ImagesController',
+        controllerAs: 'images'
+    })
+
       .state('rover', {
           url: '/rover/:rover',
           templateUrl: 'app/views/rover.html',
@@ -29,15 +39,27 @@
             rover: 'curiosity'
           }
       })
+
+      .state('orbital', {
+        url: '/orbitals',
+        templateUrl: 'app/views/orbital.html',
+        controller: 'OrbitalController',
+        controllerAs: 'orbital'
+      })
       
-      .state('sounds', {
-          url: '/sounds',
-          templateUrl: 'app/views/sounds.html',
+      .state('maps', {
+          url: '/maps',
+          templateUrl: 'app/views/maps.html',
       })
 
-      .state('contact', {
-          url: '/contact',
-          templateUrl : 'app/views/contact.html'
-      });
+      .state('maps.lunar', {
+          url: '/lunar',
+          templateUrl: 'app/views/lunar.html'
+      })
+
+      .state('maps.mars', {
+          url: '/mars',
+          templateUrl: 'app/views/mars-satellite.html'
+      })
     });
 })();
