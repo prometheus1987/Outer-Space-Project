@@ -4,7 +4,6 @@
 
 // Include gulp
   let gulp = require('gulp');
-  let karma = require('karma').Server;
 
 // Include Our Plugins
   let jshint = require('gulp-jshint');
