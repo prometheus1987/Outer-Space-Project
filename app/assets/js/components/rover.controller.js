@@ -3,9 +3,9 @@
 
     angular
         .module('app')
-        .controller('RoverCtrl',
+        .controller('RoverCtrl', ['$http', '$stateParams', roverController]);
 
-    function($http, $stateParams) {
+    function roverController($http, $stateParams) {
 
         const key = "api_key=NeHYhGtJMXT1kJ9jSP8bnRF2t1IpYShALfGkSKoz";
         const url = "https://api.nasa.gov/mars-photos/api/v1/rovers/";
@@ -61,5 +61,5 @@
             }
           });
         }
-    });
+    };
 })();

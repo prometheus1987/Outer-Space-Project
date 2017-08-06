@@ -1,9 +1,12 @@
 <div id="marsContainer">
     <div class="mdl-grid">
         <div class="mdl-cell mdl-cell--12-col">
-            <a ui-sref="maps.lunar">Lunar</a>
-            <a ui-sref="maps.mars">Mars Satellite</a>
-            <div ui-view class="card">
+            <div class="card" style="width: 75%;margin: auto;">
+                <div class="card image">
+                    <a ui-sref="maps.lunar">Lunar</a>
+                    <a ui-sref="maps.mars">Mars Satellite</a>
+                    <div ui-view></div>
+                </div>
             </div>
         </div>
     </div>
