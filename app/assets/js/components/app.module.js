@@ -6,6 +6,7 @@
       'ui.router',
       'ngAnimate',
       'ngAria',
-      'ngMaterial'
+      'ngMaterial',
+      'ui.bootstrap'
     ]);
 })();
