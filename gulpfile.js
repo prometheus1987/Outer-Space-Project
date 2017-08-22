@@ -29,7 +29,9 @@
       '!server.js',
       '!gulpfile.js'
     ],
-    styles: ['./app/assets/stylesheets/custom.scss'],
+    styles: ['./app/assets/stylesheets/custom.scss',
+             './node_modules/aos/dist/aos.css'
+    ],
     index: './app/index.html',
     partials: ['./app/views/*.html', '!index.html'],
     dist: './public',
@@ -43,7 +45,8 @@
       './node_modules/angular-aria/angular-aria.js',
       './node_modules/material-design-lite/material.js',
       './node_modules/angular-ui-bootstrap/ui-bootstrap.js',
-      './node_modules/angular-ui-bootstrap/ui-bootstrap-tpls.js'
+      './node_modules/angular-ui-bootstrap/ui-bootstrap-tpls.js',
+      './node_modules/aos/dist/aos.js'
     ]
   };
 
@@ -74,7 +77,7 @@
         }
       }))
       .pipe(sass())
-      .pipe(gulp.dest('public/stylesheets'));
+      .pipe(gulp.dest('app/assets/stylesheets'));
   });
 
 // Watch Files For Changes

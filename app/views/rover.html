@@ -42,8 +42,11 @@
     </div>
     <div class="mdl-grid center-align">
         <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--4-col-tablet mdl-cell--4-col-desktop" ng-repeat="photo in rover.data">
-            <img ng-src="{{photo.img}}" class="img-responsive" style="max-height: 300px; max-width: 300px; margin: 0 auto;">
+            <img data-aos="fade-up" ng-src="{{photo.img}}" class="img-responsive" style="max-height: 300px; max-width: 300px; margin: 0 auto;">
             <h3>{{photo.name}} ({{photo.abbreviation}})</h3>
         </div>
     </div>
 </div>
+<script>
+    AOS.init();
+</script>
