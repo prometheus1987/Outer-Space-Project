@@ -12,9 +12,10 @@
 
                 let vm = this;
 
+                vm.noData = false;
                 vm.retrieveOrbitalData = retrieveOrbitalData;
 
-                function getDate(daysSinceToday) {
+                function getDate() {
                     let day = moment().format("DD");
                     let month = moment().format("MM");
                     let year = moment().format("YYYY");
@@ -22,9 +23,9 @@
                     return date;
                 }
 
-                function retrieveOrbitalData(daysSinceToday) {
+                function retrieveOrbitalData() {
 
-                    let date = getDate(daysSinceToday);
+                    let date = getDate();
                     let query = "feed?start_date=";
 
                     $http.get(url + query + date + "&" + key)
@@ -34,12 +35,7 @@
                             vm.count = data.data["element_count"];
                         })
                         .catch(function (error) {
-                            daysSinceToday += 1;
-                            if (daysSinceToday > 7) {
-                                console.error(error);
-                            } else {
-                                retrieveOrbitalData(daysSinceToday);
-                            }
+                            vm.noData = true;
                         });
                 }
 

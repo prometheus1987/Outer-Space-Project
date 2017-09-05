@@ -1,4 +1,4 @@
-<div class="mdl-grid" ng-init="orbital.retrieveOrbitalData(0)">
+<div class="mdl-grid" ng-init="orbital.retrieveOrbitalData()">
     <div class="mdl-cell mdl-cell--12-col">
         <div class="card" style="width: 75%;margin: auto;">
             <h2>Near Earth Orbitals</h2>
@@ -27,6 +27,7 @@
                             <td><em>{{orbital.diameterMax}}</em></td>
                             <td><em>{{orbital.orbitingBody}}</em></td>
                             <td><em>{{orbital.approachDate}}</em></td>
+                            <h3 ng-show="orbital.noData">Data Currently Unavailable.</h3>
                         </tr>
                     </tbody>
                 </table>
