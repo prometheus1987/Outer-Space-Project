@@ -16,7 +16,6 @@ app.use(function(req, res, next) {
 });
 
 app.use(morgan('dev'));
-
 app.use(express.static(__dirname + '/'));
 
 app.get('*', function(req, res) {

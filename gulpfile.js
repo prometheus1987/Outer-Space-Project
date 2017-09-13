@@ -35,7 +35,8 @@
     index: './app/index.html',
     partials: ['./app/views/*.html', '!index.html'],
     dist: './public',
-    libraries: ['./node_modules/angular/angular.js',
+    libraries: [
+      './node_modules/angular/angular.js',
       './node_modules/angular-ui-router/release/angular-ui-router.js',
       './node_modules/jquery/dist/jquery.js',
       './node_modules/lodash/lodash.js',
@@ -44,8 +45,6 @@
       './node_modules/angular-animate/angular-animate.js',
       './node_modules/angular-aria/angular-aria.js',
       './node_modules/material-design-lite/material.js',
-      './node_modules/angular-ui-bootstrap/ui-bootstrap.js',
-      './node_modules/angular-ui-bootstrap/ui-bootstrap-tpls.js',
       './node_modules/aos/dist/aos.js'
     ]
   };
@@ -105,7 +104,7 @@
   });
 
 // Concatenate & Uglify
-  gulp.task('scripts', function () {
+  gulp.task('concatenate', function () {
     return gulp.src(paths.scripts)
       .pipe(plumber({
         errorHandler: function (err) {
@@ -156,6 +155,6 @@
   });
 
 // Default Task
-  gulp.task('default', ['start', 'lint', 'sass', 'scripts', 'watch', 'babel']);
+  gulp.task('default', ['start', 'lint', 'sass', 'concatenate', 'watch', 'babel']);
 
 })();
