@@ -6,7 +6,7 @@
 
     function imagesController($http) {
 
-        const url = "http://images-api.nasa.gov/search?q=";
+        const url = "https://images-api.nasa.gov/search?q=";
         let vm = this;
 
         vm.search = function() {
