@@ -3,7 +3,8 @@ var express = require('express'),
   bodyParser = require('body-parser'),
   morgan = require('morgan'),
   path = require('path');
-cors = require('cors');
+  cors = require('cors');
+  firebase = require("firebase");
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
