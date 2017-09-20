@@ -1,5 +1,8 @@
-@import url(http://fonts.googleapis.com/css?family=Titillium+Web:300,400,700);
-@import url(http://fonts.googleapis.com/css?family=Orbitron);
+@import url("https://fonts.googleapis.com/css?family=Oxygen");
+@font-face {
+  font-family: 'Orbitron';
+  src: url("orbitron.woff2"); }
+
 @font-face {
   font-family: 'Factor';
   src: url("FACTOR2.TTF"); }
@@ -15,7 +18,7 @@ h1 {
   padding-bottom: 10%; }
 
 h3 {
-  font-family: 'Titillium Web';
+  font-family: 'Oxygen';
   font-weight: 300;
   font-size: 18px;
   color: #000000;
@@ -148,12 +151,12 @@ a.button:hover {
   color: #000000; }
 
 #marsContainer h3 {
-  font-family: 'Titillium Web';
+  font-family: 'Oxygen';
   font-size: 18px;
   color: #000000; }
 
 #marsContainer a {
-  font-family: 'Titillium Web';
+  font-family: 'Oxygen';
   color: #000000;
   font-size: 18px; }
 
@@ -162,7 +165,7 @@ a.button:hover {
   width: 100%; }
 
 .ApodContainer h3 {
-  font-family: 'Titillium Web' !important; }
+  font-family: 'Oxygen' !important; }
 
 #lunarMap {
   margin: 0 auto; }
@@ -172,7 +175,7 @@ a.button:hover {
   margin: 0 auto; }
 
 #explanation {
-  font-family: 'Titillium Web';
+  font-family: 'Oxygen';
   color: #000000; }
 
 .card {
@@ -198,7 +201,7 @@ a.button:hover {
   padding: 10px 5px;
   float: left;
   color: #000000;
-  font-family: 'Titillium Web';
+  font-family: 'Oxygen';
   text-align: center;
   font-size: 16px;
   border: 0;
@@ -218,7 +221,7 @@ a.button:hover {
   height: 40px;
   width: 120px;
   color: #fff;
-  font-family: 'Titillium Web';
+  font-family: 'Oxygen';
   font-size: 18px;
   background: transparent;
   border-left: 1px solid #fff;

@@ -15,20 +15,19 @@
                 vm.noData = false;
                 vm.retrieveOrbitalData = retrieveOrbitalData;
 
-                function getDate() {
-                    let day = moment().format("DD");
-                    let month = moment().format("MM");
-                    let year = moment().format("YYYY");
-                    let date = year + '-' + month + '-' + day;
-                    return date;
-                }
-
                 function retrieveOrbitalData() {
+                    function getDate() {
+                        let day = moment().format("DD");
+                        let month = moment().format("MM");
+                        let year = moment().format("YYYY");
+                        let date = year + '-' + month + '-' + day;
+                        return date;
+                    }
 
                     let date = getDate();
-                    let query = "feed?start_date=";
-
-                    $http.get(url + query + date + "&" + key)
+                    let query = "feed?start_date=" + date;
+                    debugger;
+                    $http.get(url + query + "&" + key)
                         .then(function(data) {
                             let response = data.data["near_earth_objects"][date];
                             vm.data = mapOrbitals(response);
