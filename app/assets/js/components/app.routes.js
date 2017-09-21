@@ -23,13 +23,6 @@
           controllerAs: 'apod'
       })
 
-    .state('gallery', {
-        url: '/gallery',
-        templateUrl: 'app/views/gallery.html',
-        controller: 'GalleryCtrl',
-        controllerAs: 'gallery'
-    })
-
       .state('images', {
          url: '/images',
          templateUrl: 'app/views/images.html',
