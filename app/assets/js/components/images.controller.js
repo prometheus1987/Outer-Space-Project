@@ -2,15 +2,30 @@
     "use strict";
 
     angular.module('app')
-        .controller('ImagesCtrl', ['$http', imagesController]);
+        .controller('ImagesCtrl', ['$http', '$uibModal', imagesController]);
 
-    function imagesController($http) {
+    function imagesController($http, $uibModal) {
 
         const url = "https://images-api.nasa.gov/search?q=";
         let vm = this;
         let noImages = false;
 
-        vm.search = function() {
+        vm.openModal = function(image) {
+            $uibModal.open({
+                templateUrl: 'app/views/imagesModal.html',
+                controller: function ($scope, $uibModalInstance) {
+                    let modalVm = this;
+
+                    modalVm.image = image;
+                    modalVm.close = function () {
+                        $uibModalInstance.close();
+                    }
+                },
+                controllerAs: 'modalCtrl',
+            });
+        };
+
+        vm.search = () => {
             $http.get(url + vm.query)
                 .then(successfulResponse, errorResponse);
 
@@ -19,6 +34,7 @@
             function successfulResponse(res) {
                 let results = res.data.collection.items;
                 vm.images = mapImages(results);
+                console.log(results);
             }
 
             function errorResponse(error) {

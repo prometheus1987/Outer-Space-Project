@@ -46,6 +46,7 @@
     "angular-ui-router": "^0.3.2",
     "aos": "^2.2.0",
     "body-parser": "^1.15.2",
+    "bootstrap": "3",
     "cors": "^2.8.1",
     "express": "^4.14.0",
     "firebase": "^4.3.1",

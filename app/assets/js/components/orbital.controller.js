@@ -28,12 +28,12 @@
                     let query = "feed?start_date=" + date;
                     debugger;
                     $http.get(url + query + "&" + key)
-                        .then(function(data) {
+                        .then((data) => {
                             let response = data.data["near_earth_objects"][date];
                             vm.data = mapOrbitals(response);
                             vm.count = data.data["element_count"];
                         })
-                        .catch(function (error) {
+                        .catch((error) => {
                             vm.noData = true;
                         });
                 }

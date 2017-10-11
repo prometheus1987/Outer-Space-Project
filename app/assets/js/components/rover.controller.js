@@ -35,7 +35,7 @@
             }
 
             $http.get(url + vm.name +  queryParams + query + "&" + key)
-                .then(function(result) {
+                .then((result) => {
                     let response = result.data.photos;
                     vm.noImages = false;
 
@@ -47,7 +47,7 @@
                     vm.launchDate = response[0].rover.launch_date;
                     vm.status = response[0].rover.status;
                 })
-                .catch(function(error){
+                .catch((error) =>{
                     vm.noImages = true;
                 });
         }

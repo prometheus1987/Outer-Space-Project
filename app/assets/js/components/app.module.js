@@ -7,5 +7,6 @@
       'ngAnimate',
       'ngAria',
       'ngMaterial',
+      'ui.bootstrap'
     ]);
 })();

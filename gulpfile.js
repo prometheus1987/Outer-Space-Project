@@ -30,7 +30,8 @@
       '!gulpfile.js'
     ],
     styles: ['./app/assets/stylesheets/custom.scss',
-             './node_modules/aos/dist/aos.css'
+             './node_modules/aos/dist/aos.css',
+             './node_modules/bootstrap/dist/css/bootstrap.css'
     ],
     index: './app/index.html',
     partials: ['./app/views/*.html', '!index.html'],
@@ -46,6 +47,7 @@
       './node_modules/angular-aria/angular-aria.js',
       './node_modules/material-design-lite/material.js',
       './node_modules/aos/dist/aos.js',
+      './node_modules/bootstrap/dist/js/bootstrap.js'
     ]
   };
 

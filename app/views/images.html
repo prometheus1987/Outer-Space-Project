@@ -4,7 +4,7 @@
             <div class="card image">
                 <h2>Search the NASA Image Database:</h2>
                 <form class="search">
-                    <input type="text" class="form-control" ng-model="images.query" placeholder="Search"/>
+                    <input class="form-control" ng-model="images.query" placeholder="Search"/>
                     <button type="button" class="btn btn-default" ng-click="images.search(images.query)">Search</button>
                 </form>
             </div>
@@ -12,9 +12,9 @@
     </div>
     <div class="mdl-grid center-align">
         <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--4-col-tablet mdl-cell--4-col-desktop" ng-repeat="photo in images.images">
-                <img data-aos="fade-up" data-aos-delay="200" style="width: 50%; height: 50%; padding-left: 25%;" class="img-responsive" ng-src="{{ photo.link }}"/>
-                <h3>{{ photo.title }}</h3>
-            </div>
+            <img data-aos="fade-up" data-aos-delay="200" style="width: 50%; height: 50%; padding-left: 25%;" class="img-responsive" ng-src="{{ photo.link }}"/>
+            <h3>{{ photo.title }}</h3>
+            <h3 ng-click="images.openModal(photo)">More Info</h3>
         </div>
     </div>
 </div>

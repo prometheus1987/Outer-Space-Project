@@ -1,0 +1,10 @@
+<div class="modal-header">
+    <h1>{{ modalCtrl.image.title }}</h1>
+</div>
+<div class="modal-body" id="modal-body">
+    <img style="width: 50%; height: 50%; padding-left: 25%;" class="img-responsive" ng-src="{{ modalCtrl.image.link }}"/>
+    <p>{{ modalCtrl.image.description }}</p>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="modalCtrl.close()">Close</button>
+</div>
