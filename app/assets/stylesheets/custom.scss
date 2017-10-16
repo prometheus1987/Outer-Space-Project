@@ -28,6 +28,10 @@
         text-align: center;
     }
 
+    h3:focus {
+        outline: none !important;
+    }
+
     /* Banner */
     .banner {
         background: url('../images/Valles_Marineris.jpg');
