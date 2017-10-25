@@ -13,7 +13,7 @@
     $stateProvider
       .state('home', {
           url: '/home',
-          templateUrl: 'app/views/home.html'
+          templateUrl: 'app/views/home.html',
       })
 
       .state('apod', {

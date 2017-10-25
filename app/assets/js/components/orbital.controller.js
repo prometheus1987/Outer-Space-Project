@@ -26,7 +26,7 @@
 
                     let date = getDate();
                     let query = "feed?start_date=" + date;
-                    debugger;
+
                     $http.get(url + query + "&" + key)
                         .then((data) => {
                             let response = data.data["near_earth_objects"][date];

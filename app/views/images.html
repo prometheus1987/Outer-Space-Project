@@ -12,7 +12,7 @@
     </div>
     <div class="mdl-grid center-align">
         <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--4-col-tablet mdl-cell--4-col-desktop" ng-repeat="photo in images.images">
-            <img data-aos="fade-up" data-aos-delay="200" style="width: 75%; height: 50%; padding-left: 25%;" class="img-responsive" ng-src="{{ photo.link }}"/>
+            <img data-aos="fade-in" data-aos-delay="200" style="width: 75%; height: 50%; padding-left: 25%;" class="img-responsive" ng-src="{{ photo.link }}"/>
             <h3>{{ photo.title }}</h3>
             <h3 ng-click="images.openModal(photo)">More Info</h3>
         </div>
