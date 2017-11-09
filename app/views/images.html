@@ -11,10 +11,10 @@
         </div>
     </div>
     <div class="mdl-grid center-align">
-        <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--4-col-tablet mdl-cell--4-col-desktop" ng-repeat="photo in images.images">
+        <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--4-col-tablet mdl-cell--4-col-desktop text-center" ng-repeat="photo in images.images">
             <img data-aos="fade-in" data-aos-delay="200" style="width: 75%; height: 50%; padding-left: 25%;" class="img-responsive" ng-src="{{ photo.link }}"/>
             <h3>{{ photo.title }}</h3>
-            <h3 ng-click="images.openModal(photo)">More Info</h3>
+            <span ng-click="images.openModal(photo)"><i class="fa fa-info-circle" aria-hidden="true"></i></span>
         </div>
     </div>
 </div>
