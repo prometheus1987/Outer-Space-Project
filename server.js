@@ -4,7 +4,7 @@ var express = require('express'),
   morgan = require('morgan'),
   path = require('path');
   cors = require('cors');
-  // firebase = require("firebase");
+  firebase = require("firebase");
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
