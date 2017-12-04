@@ -16,6 +16,21 @@
 
         vm.name = $stateParams.rover;
         vm.retrieveRoverData = retrieveRoverData;
+        vm.retrieveLatestDate = retrieveLatestData;
+
+        function retrieveLatestData () {
+            function getDate() {
+                let day = moment().format("DD");
+                let month = moment().format("MM");
+                let year = moment().format("YYYY");
+                let date = year + '-' + month + '-' + day;
+                return date;
+            }
+            let queryParams = "/photos?earth_date=" + date;
+
+
+
+        }
 
         function retrieveRoverData() {
 
