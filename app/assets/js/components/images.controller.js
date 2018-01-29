@@ -35,6 +35,7 @@
                 let results = res.data.collection.items;
                 vm.images = mapImages(results);
                 console.log(results);
+                debugger;
             }
 
             function errorResponse(error) {
