@@ -27,9 +27,6 @@
                 return date;
             }
             let queryParams = "/photos?earth_date=" + date;
-
-
-
         }
 
         function retrieveRoverData() {

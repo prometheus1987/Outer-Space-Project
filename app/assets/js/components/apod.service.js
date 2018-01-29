@@ -5,10 +5,19 @@
         .factory('ApodService', ['$http', apodService]);
 
         function apodService($http) {
+
+            let day = moment().format("DD");
+            let month = moment().format("MM");
+            let year = moment().format("YYYY");
+            let date = year + '-' + month + '-' + day;
+
             function getPhoto() {
-                const key = "api_key=NeHYhGtJMXT1kJ9jSP8bnRF2t1IpYShALfGkSKoz";
-                const url = "https://api.nasa.gov/planetary/apod?";
+
+                const key = "&api_key=NeHYhGtJMXT1kJ9jSP8bnRF2t1IpYShALfGkSKoz";
+                const url = "https://api.nasa.gov/planetary/apod?date=" + date ;
                 const picture = {};
+
+                debugger;
 
                 $http.get(url + key)
                     .then(successfulResponse, errorResponse);

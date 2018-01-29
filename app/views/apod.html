@@ -1,9 +1,10 @@
 <div class="mdl-grid">
     <div class="mdl-cell mdl-cell--12-col">
-        <div class="card" style="width: 75%;margin: auto;">
+        <div class="card" style="width: 50%;margin: auto;">
             <div class="card image text-center">
                 <h2>NASA Astronomy Picture of the Day</h2>
-                <img style="width: 50%;" ng-src="{{ apod.picture.hdurl }}"/>
+                <div uib-datepicker ng-model="apod.query" class="well well-sm" datepicker-options="options" ng-click="apod.sendDate()"></div>
+                <img style="width: 100%;" ng-src="{{ apod.picture.hdurl }}"/>
             </div>
             <h3>{{ apod.picture.title }}</h3>
             <h3>{{ apod.picture.explanation }}</h3>
