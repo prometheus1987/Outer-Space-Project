@@ -6,33 +6,19 @@
 
         function apodService($http) {
 
-            let day = moment().format("DD");
-            let month = moment().format("MM");
-            let year = moment().format("YYYY");
-            let date = year + '-' + month + '-' + day;
+            function getPhoto(dateString) {
 
-            function getPhoto() {
+                let day = moment(dateString).format("DD");
+                let month = moment(dateString).format("MM");
+                let year = moment(dateString).format("YYYY");
+                let date = year + '-' + month + '-' + day;
 
                 const key = "&api_key=NeHYhGtJMXT1kJ9jSP8bnRF2t1IpYShALfGkSKoz";
                 const url = "https://api.nasa.gov/planetary/apod?date=" + date ;
                 const picture = {};
 
-                debugger;
+                return $http.get(url + key);
 
-                $http.get(url + key)
-                    .then(successfulResponse, errorResponse);
-
-                return picture;
-
-                function successfulResponse(res) {
-                    picture.title = res.data.title;
-                    picture.hdurl = res.data.hdurl;
-                    picture.explanation = res.data.explanation;
-                }
-
-                function errorResponse(error) {
-                    console.log(error);
-                }
             }
 
             return {

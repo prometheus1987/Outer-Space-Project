@@ -7,6 +7,7 @@
       'ngAnimate',
       'ngAria',
       'ngMaterial',
-      'ui.bootstrap'
+      'ui.bootstrap',
+      '720kb.datepicker'
     ]);
 })();

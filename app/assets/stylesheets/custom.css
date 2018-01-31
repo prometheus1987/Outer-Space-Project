@@ -11,7 +11,7 @@ body {
   background: #f2f2f2; }
 
 h1 {
-  font-family: 'Factor';
+  font-family: 'Oxygen';
   font-size: 32px;
   color: #000000;
   text-align: center;
@@ -24,11 +24,14 @@ h3 {
   color: #000000;
   text-align: center; }
 
+h3:focus {
+  outline: none !important; }
+
 /* Banner */
 .banner {
-  background: url("../images/clouds_of_creation.jpg");
+  background: url("../images/Valles_Marineris.jpg");
   background-size: 100vw;
-  height: 300px;
+  height: 40vh;
   text-align: center; }
 
 .banner p {
@@ -146,7 +149,7 @@ a.button:hover {
   text-align: center; }
 
 #marsContainer h2 {
-  font-family: 'Factor';
+  font-family: 'Oxygen';
   font-size: 28px;
   color: #000000; }
 

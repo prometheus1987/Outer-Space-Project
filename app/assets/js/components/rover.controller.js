@@ -23,7 +23,7 @@
                 let day = moment().format("DD");
                 let month = moment().format("MM");
                 let year = moment().format("YYYY");
-                let date = year + '-' + month + '-' + day;
+                let currentDate = year + '-' + month + '-' + day;
                 return date;
             }
             let queryParams = "/photos?earth_date=" + date;
