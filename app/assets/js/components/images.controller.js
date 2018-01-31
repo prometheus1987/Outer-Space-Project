@@ -4,8 +4,6 @@
     angular.module('app')
         .controller('ImagesCtrl', ['$http', '$uibModal', imagesController]);
 
-
-
     function imagesController($http, $uibModal) {
 
         const url = "https://images-api.nasa.gov/search?q=";
@@ -13,7 +11,6 @@
 
         vm.noImages = false;
         vm.loading = false;
-
 
         vm.openModal = function(image) {
             $uibModal.open({
@@ -32,9 +29,11 @@
 
         vm.search = () => {
             $http.get(url + vm.query)
-                .then(successfulResponse, errorResponse);
+            .then(successfulResponse, errorResponse);
 
+            let results = res.data.collection.items;
             vm.loading = true;
+            vm.images = mapImages(results);
 
             function successfulResponse(res) {
                 vm.noImages = false;
@@ -44,13 +43,6 @@
                 vm.pageSize = 10;
 
                 vm.numberOfPages = function(){
-                    return Math.ceil(vm.images.length/vm.pageSize);
-                };
-
-                let results = res.data.collection.items;
-                vm.images = mapImages(results);
-
-                vm.numberOfPages=function(){
                     return Math.ceil(vm.images.length/vm.pageSize);
                 };
             }
