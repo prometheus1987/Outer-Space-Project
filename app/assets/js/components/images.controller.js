@@ -10,7 +10,9 @@
 
         const url = "https://images-api.nasa.gov/search?q=";
         let vm = this;
-        let noImages = false;
+
+        vm.noImages = false;
+        vm.loading = false;
 
 
         vm.openModal = function(image) {
@@ -32,9 +34,11 @@
             $http.get(url + vm.query)
                 .then(successfulResponse, errorResponse);
 
-            let noImages = false;
+            vm.loading = true;
 
             function successfulResponse(res) {
+                vm.noImages = false;
+                vm.loading = false;
 
                 vm.currentPage = 0;
                 vm.pageSize = 10;
@@ -50,7 +54,6 @@
                     return Math.ceil(vm.images.length/vm.pageSize);
                 };
             }
-
 
             function errorResponse(error) {
                 vm.noImages = true;

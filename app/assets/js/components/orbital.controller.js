@@ -23,6 +23,7 @@
                         let date = year + '-' + month + '-' + day;
                         return date;
                     }
+                    debugger;
 
                     let date = getDate();
                     let query = "feed?start_date=" + date;
