@@ -46,7 +46,7 @@
                     return Math.ceil(vm.images.length/vm.pageSize);
                 };
 
-                return vm.images.type;
+
             }
 
             function errorResponse(error) {
