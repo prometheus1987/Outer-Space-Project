@@ -6,6 +6,9 @@
         .controller('ApodCtrl', ['ApodService', apodController]);
 
     function apodController(apodService) {
+
+        let today = new Date();
+
         let vm = this;
         vm.loading = true;
         vm.picture = {};
