@@ -10,7 +10,7 @@
         vm.retrieveOrbitalData = retrieveOrbitalData;
 
         function retrieveOrbitalData(dateString) {
-            
+
             let day = moment(dateString).format("DD");
             let month = moment(dateString).format("MM");
             let year = moment(dateString).format("YYYY");
@@ -18,6 +18,7 @@
 
             const key = "&api_key=NeHYhGtJMXT1kJ9jSP8bnRF2t1IpYShALfGkSKoz";
             const url = "https://api.nasa.gov/neo/rest/v1/feed?start_date=" + date;
+            debugger;
 
             return $http.get(url + key);
 

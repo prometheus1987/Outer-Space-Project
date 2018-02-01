@@ -1,10 +1,16 @@
 <div class="mdl-grid" ng-init="orbital.retrieveOrbitalData()">
     <div class="mdl-cell mdl-cell--12-col">
-        <div class="card" style="width: 75%;margin: auto;">
+        <h1 ng-show="orbital.loading">Loading...</h1>
+        <div class="card" style="width: 75%;height:1200px;margin: auto;" ng-hide="orbital.loading">
             <h2>Near Earth Orbitals</h2>
             <h3>Count: {{orbital.count}} objects</h3>
             <div class="mdl-cell mdl-cell--12-col">
+
                 <table class="mdl-data-table mdl-shadow--2dp" style="width:100%;">
+                    <datepicker date-format="longDate"">
+                        <input ng-model="orbital.date" placeholder={{orbital.date}} type="text"/>
+                        <button type="submit" ng-click="orbital.click()">Retrieve Data</button>
+                    </datepicker>
                     <thead>
                         <tr>
                             <th><em>Name</em></th>
