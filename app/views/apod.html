@@ -4,7 +4,7 @@
         <div class="card" style="width: 50%;margin: auto;" ng-hide="apod.loading">
             <div class="card image text-center" >
                 <h2>NASA Astronomy Picture of the Day</h2>
-                <datepicker date-format="longDate" date-max-limit="{{apod.date}}">
+                <datepicker date-format="longDate"">
                     <input ng-model="apod.date" placeholder={{apod.date}} type="text"/>
                     <button type="submit" ng-click="apod.click()">Retrieve Data</button>
                 </datepicker>

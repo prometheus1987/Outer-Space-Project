@@ -3,44 +3,28 @@
 
     angular
         .module('app')
-        .controller('OrbitalCtrl', ['$http', orbitalController]);
+        .controller('OrbitalCtrl', ['OrbitalService', orbitalController]);
 
-            function orbitalController($http) {
-
-                const key = "api_key=NeHYhGtJMXT1kJ9jSP8bnRF2t1IpYShALfGkSKoz";
-                const url = "https://api.nasa.gov/neo/rest/v1/";
+            function orbitalController(orbitalService) {
 
                 let vm = this;
+                vm.orbital = {};
 
-                vm.noData = false;
-                vm.retrieveOrbitalData = retrieveOrbitalData;
+                orbitalService.retrieveOrbitalData().then(successfulResponse);
 
-                function retrieveOrbitalData() {
-                    function getDate() {
-                        let day = moment().format("DD");
-                        let month = moment().format("MM");
-                        let year = moment().format("YYYY");
-                        let date = year + '-' + month + '-' + day;
-                        return date;
-                    }
-                    debugger;
+                let day = moment().format("DD");
+                let month = moment().format("MM");
+                let year = moment().format("YYYY");
+                let date = year + '-' + month + '-' + day;
 
-                    let date = getDate();
-                    let query = "feed?start_date=" + date;
-
-                    $http.get(url + query + "&" + key)
-                        .then((data) => {
-                            let response = data.data["near_earth_objects"][date];
-                            vm.data = mapOrbitals(response);
-                            vm.count = data.data["element_count"];
-                        })
-                        .catch((error) => {
-                            vm.noData = true;
-                        });
+                function successfulResponse(res) {
+                    let response = res.data["near_earth_objects"][date];
+                    vm.data = mapOrbitals(response);
+                    vm.count = res.data["element_count"];
                 }
 
-                function mapOrbitals(data) {
-                    return _.map(data, function(orbital) {
+                function mapOrbitals(res) {
+                    return _.map(res, function(orbital) {
                         return {
                             name: orbital.name,
                             magnitude: orbital.absolute_magnitude_h,
@@ -53,5 +37,6 @@
                         }
                     });
                 }
+
             }
 })();

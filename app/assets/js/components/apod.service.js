@@ -15,7 +15,6 @@
 
                 const key = "&api_key=NeHYhGtJMXT1kJ9jSP8bnRF2t1IpYShALfGkSKoz";
                 const url = "https://api.nasa.gov/planetary/apod?date=" + date ;
-                const picture = {};
 
                 return $http.get(url + key);
 
