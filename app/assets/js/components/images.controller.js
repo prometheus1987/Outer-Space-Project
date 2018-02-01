@@ -29,13 +29,13 @@
 
         vm.search = () => {
             $http.get(url + vm.query)
-            .then(successfulResponse, errorResponse);
-
-            let results = res.data.collection.items;
-            vm.loading = true;
-            vm.images = mapImages(results);
+                .then(successfulResponse, errorResponse);
 
             function successfulResponse(res) {
+
+                let results = res.data.collection.items;
+                vm.images = mapImages(results);
+
                 vm.noImages = false;
                 vm.loading = false;
 
@@ -45,6 +45,8 @@
                 vm.numberOfPages = function(){
                     return Math.ceil(vm.images.length/vm.pageSize);
                 };
+
+                return vm.images.type;
             }
 
             function errorResponse(error) {
