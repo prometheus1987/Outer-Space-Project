@@ -10,7 +10,6 @@
         vm.loading = true;
         vm.picture = {};
         vm.click = clickHandler;
-
         apodService.getPhoto().then(successfulResponse, errorResponse);
 
         function clickHandler() {
