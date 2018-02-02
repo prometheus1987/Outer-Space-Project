@@ -21,7 +21,7 @@
             }
 
             return {
-                getPhoto: getPhoto,
+                getPhoto: getPhoto
             };
 
         }
