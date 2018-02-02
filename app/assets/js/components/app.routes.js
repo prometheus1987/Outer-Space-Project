@@ -49,17 +49,33 @@
       
       .state('maps', {
           url: '/maps',
-          templateUrl: 'app/views/maps.html',
+          templateUrl: 'app/views/maps/maps.html',
       })
 
       .state('maps.lunar', {
           url: '/lunar',
-          templateUrl: 'app/views/lunar.html'
+          templateUrl: 'app/views/maps/lunar.html'
       })
 
       .state('maps.mars', {
           url: '/mars',
-          templateUrl: 'app/views/mars-satellite.html'
+          templateUrl: 'app/views/maps/mars-satellite.html'
+      })
+      .state('maps.mars-terrain', {
+          url: '/mars-terrain',
+          templateUrl: 'app/views/maps/mars-terrain.html'
+      })
+      .state('maps.mars-curiosity', {
+          url: '/mars-curiosity',
+          templateUrl: 'app/views/maps/curiosity.html'
+      })
+      .state('maps.mars-hirise', {
+          url: '/mars-hirise',
+          templateUrl: 'app/views/maps/hirise-ortho.html'
+      })
+      .state('maps.hirise-psp', {
+          url: '/mars-hirise-psp',
+          templateUrl: 'app/views/maps/hirise-psp.html'
       })
     });
 })();
