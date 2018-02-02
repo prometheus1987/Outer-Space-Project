@@ -7,10 +7,8 @@
 
     function apodController(apodService) {
 
-        let today = new Date();
-
         let vm = this;
-        vm.loading = true;
+        vm.loading = false;
         vm.picture = {};
         vm.click = clickHandler;
         apodService.getPhoto().then(successfulResponse, errorResponse);
