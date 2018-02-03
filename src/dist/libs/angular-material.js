@@ -813,7 +813,7 @@ mdMediaFactory.$inject = ["$mdConstant", "$rootScope", "$window"];angular.module
  *
  * @usage
  * <hljs lang="js">
- * app.controller('MyController', function($mdMedia, $scope) {
+ * src.controller('MyController', function($mdMedia, $scope) {
  *   $scope.$watch(function() { return $mdMedia('lg'); }, function(big) {
  *     $scope.bigScreen = big;
  *   });
@@ -1031,8 +1031,8 @@ function MdPrefixer(initialAttributes, buildSelector) {
 
 /*
  * This var has to be outside the angular factory, otherwise when
- * there are multiple material apps on the same page, each app
- * will create its own instance of this array and the app's IDs
+ * there are multiple material apps on the same page, each src
+ * will create its own instance of this array and the src's IDs
  * will not be unique.
  */
 UtilFactory.$inject = ["$document", "$timeout", "$compile", "$rootScope", "$$mdAnimate", "$interpolate", "$log", "$rootElement", "$window", "$$rAF"];
@@ -1864,7 +1864,7 @@ function UtilFactory($document, $timeout, $compile, $rootScope, $$mdAnimate, $in
       }
 
       function ease(currentTime, start, change, duration) {
-        // If the duration has passed (which can occur if our app loses focus due to $$rAF), jump
+        // If the duration has passed (which can occur if our src loses focus due to $$rAF), jump
         // straight to the proper position
         if (currentTime > duration) {
           return start + change;
@@ -1956,7 +1956,7 @@ angular
  * You are able to disable `$mdAria` warnings, by using the following markup.
  *
  * <hljs lang="js">
- *   app.config(function($mdAriaProvider) {
+ *   src.config(function($mdAriaProvider) {
  *     // Globally disables all ARIA warnings.
  *     $mdAriaProvider.disableWarnings();
  *   });
@@ -2749,7 +2749,7 @@ angular
    * You can also change max click distance (6px by default) if you have issues on some touch screens.
    *
    * <hljs lang="js">
-   *   app.config(function($mdGestureProvider) {
+   *   src.config(function($mdGestureProvider) {
    *
    *     // For mobile devices without jQuery loaded, do not
    *     // intercept click events during the capture phase.
@@ -3241,7 +3241,7 @@ function attachToDocument( $mdGesture, $$MdGestureHandler ) {
      *
      * Two exceptions to click events that should be prevented are:
      *  - click events sent by the keyboard (eg form submit)
-     *  - events that originate from an Ionic app
+     *  - events that originate from an Ionic src
      */
     document.addEventListener('click'    , clickHijacker     , true);
     document.addEventListener('mouseup'  , mouseInputHijacker, true);
@@ -3645,7 +3645,7 @@ angular.module('material.core')
  * elements.
  *
  * ```js
- * app.service('$mdToast', function($$interimElement) {
+ * src.service('$mdToast', function($$interimElement) {
  *   var $mdToast = $$interimElement(toastDefaultOptions);
  *   return $mdToast;
  * });
@@ -5029,14 +5029,14 @@ MdLiveAnnouncer.prototype._createLiveElement = function() {
  * will not work since `$$mdMeta` adds the tags after the page has already been loaded.
  *
  * ```js
- * app.config(function($$mdMetaProvider) {
+ * src.config(function($$mdMetaProvider) {
  *   var removeMeta = $$mdMetaProvider.setMeta('meta-name', 'content');
  *   var metaValue  = $$mdMetaProvider.getMeta('meta-name'); // -> 'content'
  *
  *   removeMeta();
  * });
  *
- * app.controller('myController', function($$mdMeta) {
+ * src.controller('myController', function($$mdMeta) {
  *   var removeMeta = $$mdMeta.setMeta('meta-name', 'content');
  *   var metaValue  = $$mdMeta.getMeta('meta-name'); // -> 'content'
  *
@@ -5469,7 +5469,7 @@ function InkRippleDirective ($mdButtonInkRipple, $mdCheckboxInkRipple) {
  *
  * @usage
  * <hljs lang="js">
- * app.factory('$myElementInkRipple', function($mdInkRipple) {
+ * src.factory('$myElementInkRipple', function($mdInkRipple) {
  *   return {
  *     attach: function (scope, element, options) {
  *       return $mdInkRipple.attach(scope, element, angular.extend({
@@ -5480,7 +5480,7 @@ function InkRippleDirective ($mdButtonInkRipple, $mdCheckboxInkRipple) {
  *   };
  * });
  *
- * app.controller('myController', function ($scope, $element, $myElementInkRipple) {
+ * src.controller('myController', function ($scope, $element, $myElementInkRipple) {
  *   $scope.onClick = function (ev) {
  *     $myElementInkRipple.attach($scope, angular.element(ev.target), { center: true });
  *   }
@@ -5489,10 +5489,10 @@ function InkRippleDirective ($mdButtonInkRipple, $mdCheckboxInkRipple) {
  *
  * ### Disabling ripples globally
  * If you want to disable ink ripples globally, for all components, you can call the
- * `disableInkRipple` method in your app's config.
+ * `disableInkRipple` method in your src's config.
  *
  * <hljs lang="js">
- * app.config(function ($mdInkRippleProvider) {
+ * src.config(function ($mdInkRippleProvider) {
  *   $mdInkRippleProvider.disableInkRipple();
  * });
  */
@@ -6805,7 +6805,7 @@ function ThemingProvider($mdColorPalette, $$mdMetaProvider) {
    * Service that makes an element apply theming related <b>classes</b> to itself.
    *
    * <hljs lang="js">
-   * app.directive('myFancyDirective', function($mdTheming) {
+   * src.directive('myFancyDirective', function($mdTheming) {
    *   return {
    *     restrict: 'e',
    *     link: function(scope, el, attrs) {
@@ -8262,7 +8262,7 @@ function MdBottomSheetDirective($mdBottomSheet) {
  * @module material.components.bottomSheet
  *
  * @description
- * `$mdBottomSheet` opens a bottom sheet over the app and provides a simple promise API.
+ * `$mdBottomSheet` opens a bottom sheet over the src and provides a simple promise API.
  *
  * ## Restrictions
  *
@@ -8279,8 +8279,8 @@ function MdBottomSheetDirective($mdBottomSheet) {
  * </div>
  * </hljs>
  * <hljs lang="js">
- * var app = angular.module('app', ['ngMaterial']);
- * app.controller('MyController', function($scope, $mdBottomSheet) {
+ * var src = angular.module('src', ['ngMaterial']);
+ * src.controller('MyController', function($scope, $mdBottomSheet) {
  *   $scope.openBottomSheet = function() {
  *     $mdBottomSheet.show({
  *       template: '<md-bottom-sheet>' +
@@ -9176,7 +9176,7 @@ function MdCheckboxDirective(inputDirective, $mdAria, $mdConstant, $mdTheming, $
      *
      * @usage
      * <hljs lang="js">
-     *   app.directive('myDirective', function($mdColors) {
+     *   src.directive('myDirective', function($mdColors) {
      *     return {
      *       ...
      *       link: function (scope, elem) {
@@ -9715,7 +9715,7 @@ function MdDialogDirective($$rAF, $mdTheming, $mdDialog) {
  * @module material.components.dialog
  *
  * @description
- * `$mdDialog` opens a dialog over the app to inform users about critical information or require
+ * `$mdDialog` opens a dialog over the src to inform users about critical information or require
  *  them to make decisions. There are two approaches for setup: a simple promise API
  *  and regular object syntax.
  *
@@ -9737,7 +9737,7 @@ function MdDialogDirective($$rAF, $mdTheming, $mdDialog) {
  *
  * @usage
  * <hljs lang="html">
- * <div  ng-app="demoApp" ng-controller="EmployeeController">
+ * <div  ng-src="demoApp" ng-controller="EmployeeController">
  *   <div>
  *     <md-button ng-click="showAlert()" class="md-raised md-warn">
  *       Employee Alert!
@@ -14357,7 +14357,7 @@ angular.module('material.components.navBar', ['material.core'])
  *    <md-nav-item md-nav-href="#page2" name="page3">Page Two</md-nav-item>
  *    <md-nav-item md-nav-sref="page3" name="page2">Page Three</md-nav-item>
  *    <md-nav-item
- *      md-nav-sref="app.page4"
+ *      md-nav-sref="src.page4"
  *      sref-opts="{reload: true, notify: true}"
  *      name="page4">
  *      Page Four
@@ -18461,7 +18461,7 @@ angular.module('material.components.progressLinear', [
  *
  * @description
  * The linear progress directive is used to make loading content
- * in your app as delightful and painless as possible by minimizing
+ * in your src as delightful and painless as possible by minimizing
  * the amount of visual change a user sees before they can view
  * and interact with content.
  *
@@ -20809,7 +20809,7 @@ angular
  *
  * @description
  * `$mdSidenav` makes it easy to interact with multiple sidenavs
- * in an app. When looking up a sidenav instance, you can either look
+ * in an src. When looking up a sidenav instance, you can either look
  * it up synchronously or wait for it to be initializied asynchronously.
  * This is done by passing the second argument to `$mdSidenav`.
  *
@@ -21004,8 +21004,8 @@ function SidenavFocusDirective() {
  * </hljs>
  *
  * <hljs lang="js">
- * var app = angular.module('myApp', ['ngMaterial']);
- * app.controller('MyController', function($scope, $mdSidenav) {
+ * var src = angular.module('myApp', ['ngMaterial']);
+ * src.controller('MyController', function($scope, $mdSidenav) {
  *   $scope.openLeftMenu = function() {
  *     $mdSidenav('left').toggle();
  *   };
@@ -22963,8 +22963,8 @@ function MdToastDirective($mdToast) {
   * </hljs>
   *
   * <hljs lang="js">
-  * var app = angular.module('app', ['ngMaterial']);
-  * app.controller('MyController', function($scope, $mdToast) {
+  * var src = angular.module('src', ['ngMaterial']);
+  * src.controller('MyController', function($scope, $mdToast) {
   *   $scope.openToast = function($event) {
   *     $mdToast.show($mdToast.simple().textContent('Hello!'));
   *     // Could also do $mdToast.showSimple('Hello');
@@ -23366,7 +23366,7 @@ angular.module('material.components.toolbar', [
  * @module material.components.toolbar
  * @restrict E
  * @description
- * `md-toolbar` is used to place a toolbar in your app.
+ * `md-toolbar` is used to place a toolbar in your src.
  *
  * Toolbars are usually used above a content area to display the title of the
  * current page, and show relevant action buttons for that page.
@@ -31881,7 +31881,7 @@ angular
  * @restrict E
  *
  * @description
- * The `md-icon` directive makes it easier to use vector-based icons in your app (as opposed to
+ * The `md-icon` directive makes it easier to use vector-based icons in your src (as opposed to
  * raster-based icons types like PNG). The directive supports both icon fonts and SVG icons.
  *
  * Icons should be considered view-only elements that should not be used directly as buttons; instead nest a `<md-icon>`
@@ -32201,7 +32201,7 @@ MdIconService.$inject = ["config", "$templateRequest", "$q", "$log", "$mdUtil", 
  * This means, when loading icons from an external URL, you have to trust the URL in the `$sceDelegateProvider`.
  *
  * <hljs lang="js">
- *   app.config(function($sceDelegateProvider) {
+ *   src.config(function($sceDelegateProvider) {
  *     $sceDelegateProvider.resourceUrlWhitelist([
  *       // Adding 'self' to the whitelist, will allow requests from the current origin.
  *       'self',
@@ -32232,16 +32232,16 @@ MdIconService.$inject = ["config", "$templateRequest", "$q", "$log", "$mdUtil", 
  *
  * @usage
  * <hljs lang="js">
- *   app.config(function($mdIconProvider) {
+ *   src.config(function($mdIconProvider) {
     *
     *     // Configure URLs for icons specified by [set:]id.
     *
     *     $mdIconProvider
     *          .defaultFontSet( 'fa' )                   // This sets our default fontset className.
-    *          .defaultIconSet('my/app/icons.svg')       // Register a default set of SVG icons
-    *          .iconSet('social', 'my/app/social.svg')   // Register a named icon set of SVGs
-    *          .icon('android', 'my/app/android.svg')    // Register a specific icon (by name)
-    *          .icon('work:chair', 'my/app/chair.svg');  // Register icon in a specific set
+    *          .defaultIconSet('my/src/icons.svg')       // Register a default set of SVG icons
+    *          .iconSet('social', 'my/src/social.svg')   // Register a named icon set of SVGs
+    *          .icon('android', 'my/src/android.svg')    // Register a specific icon (by name)
+    *          .icon('work:chair', 'my/src/chair.svg');  // Register icon in a specific set
     *   });
  * </hljs>
  *
@@ -32249,10 +32249,10 @@ MdIconService.$inject = ["config", "$templateRequest", "$q", "$log", "$mdUtil", 
  * **startup** process (shown below):
  *
  * <hljs lang="js">
- *   app.config(function($mdIconProvider) {
+ *   src.config(function($mdIconProvider) {
     *
     *     // Register a default set of SVG icon definitions
-    *     $mdIconProvider.defaultIconSet('my/app/icons.svg')
+    *     $mdIconProvider.defaultIconSet('my/src/icons.svg')
     *
     *   })
  *   .run(function($templateRequest){
@@ -32260,7 +32260,7 @@ MdIconService.$inject = ["config", "$templateRequest", "$q", "$log", "$mdUtil", 
     *     // Pre-fetch icons sources by URL and cache in the $templateCache...
     *     // subsequent $templateRequest calls will look there first.
     *
-    *     var urls = [ 'imy/app/icons.svg', 'img/icons/android.svg'];
+    *     var urls = [ 'imy/src/icons.svg', 'img/icons/android.svg'];
     *
     *     angular.forEach(urls, function(url) {
     *       $templateRequest(url);
@@ -32293,13 +32293,13 @@ MdIconService.$inject = ["config", "$templateRequest", "$q", "$log", "$mdUtil", 
  *
  * @usage
  * <hljs lang="js">
- *   app.config(function($mdIconProvider) {
+ *   src.config(function($mdIconProvider) {
     *
     *     // Configure URLs for icons specified by [set:]id.
     *
     *     $mdIconProvider
-    *          .icon('android', 'my/app/android.svg')    // Register a specific icon (by name)
-    *          .icon('work:chair', 'my/app/chair.svg');  // Register icon in a specific set
+    *          .icon('android', 'my/src/android.svg')    // Register a specific icon (by name)
+    *          .icon('work:chair', 'my/src/chair.svg');  // Register icon in a specific set
     *   });
  * </hljs>
  *
@@ -32326,12 +32326,12 @@ MdIconService.$inject = ["config", "$templateRequest", "$q", "$log", "$mdUtil", 
  *
  * @usage
  * <hljs lang="js">
- *   app.config(function($mdIconProvider) {
+ *   src.config(function($mdIconProvider) {
     *
     *     // Configure URLs for icons specified by [set:]id.
     *
     *     $mdIconProvider
-    *          .iconSet('social', 'my/app/social.svg')   // Register a named icon set
+    *          .iconSet('social', 'my/src/social.svg')   // Register a named icon set
     *   });
  * </hljs>
  *
@@ -32356,12 +32356,12 @@ MdIconService.$inject = ["config", "$templateRequest", "$q", "$log", "$mdUtil", 
  *
  * @usage
  * <hljs lang="js">
- *   app.config(function($mdIconProvider) {
+ *   src.config(function($mdIconProvider) {
     *
     *     // Configure URLs for icons specified by [set:]id.
     *
     *     $mdIconProvider
-    *          .defaultIconSet( 'my/app/social.svg' )   // Register a default icon set
+    *          .defaultIconSet( 'my/src/social.svg' )   // Register a default icon set
     *   });
  * </hljs>
  *
@@ -32391,7 +32391,7 @@ MdIconService.$inject = ["config", "$templateRequest", "$q", "$log", "$mdUtil", 
  *
  * @usage
  * <hljs lang="js">
- *   app.config(function($mdIconProvider) {
+ *   src.config(function($mdIconProvider) {
    *     $mdIconProvider.defaultFontSet( 'fa' );
    *   });
  * </hljs>
@@ -32412,7 +32412,7 @@ MdIconService.$inject = ["config", "$templateRequest", "$q", "$log", "$mdUtil", 
  *
  * @usage
  * <hljs lang="js">
- *   app.config(function($mdIconProvider) {
+ *   src.config(function($mdIconProvider) {
    *     // In this case, we set an alias for the `material-icons` fontset.
    *     $mdIconProvider.fontSet('md', 'material-icons');
    *   });
@@ -32435,7 +32435,7 @@ MdIconService.$inject = ["config", "$templateRequest", "$q", "$log", "$mdUtil", 
  *
  * @usage
  * <hljs lang="js">
- *   app.config(function($mdIconProvider) {
+ *   src.config(function($mdIconProvider) {
     *
     *     // Configure URLs for icons specified by [set:]id.
     *
@@ -34500,7 +34500,7 @@ function MenuItemDirective($mdUtil, $mdConstant, $$mdSvgRegistry) {
  * @restrict E
  *
  * @description
- * The circular progress directive is used to make loading content in your app as delightful and
+ * The circular progress directive is used to make loading content in your src as delightful and
  * painless as possible by minimizing the amount of visual change a user sees before they can view
  * and interact with content.
  *

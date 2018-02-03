@@ -24,4 +24,4 @@ app.get('*', function(req, res) {
 });
 
 app.listen(8080);
-console.log('app is running on 8080');
+console.log('src is running on 8080');

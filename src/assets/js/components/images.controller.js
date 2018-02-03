@@ -15,7 +15,7 @@
 
         vm.openModal = function(image) {
             $uibModal.open({
-                templateUrl: 'app/views/imagesModal.html',
+                templateUrl: 'src/views/imagesModal.html',
                 controller: function ($scope, $uibModalInstance) {
                     let modalVm = this;
 

@@ -22,19 +22,19 @@
   let pipes = {};
 
   let paths = {
-    scripts: ['./app/assets/js/components/app.module.js',
-      './app/assets/js/components/app.routes.js',
-      './app/assets/js/components/app.controller.js',
+    scripts: ['./src/assets/js/components/app.module.js',
+      './src/assets/js/components/app.routes.js',
+      './src/assets/js/components/app.controller.js',
       '!karma.conf.js',
       '!server.js',
       '!gulpfile.js'
     ],
-    styles: ['./app/assets/stylesheets/custom.scss',
+    styles: ['./src/assets/stylesheets/custom.scss',
              './node_modules/aos/dist/aos.css',
              './node_modules/bootstrap/dist/css/bootstrap.css'
     ],
-    index: './app/index.html',
-    partials: ['./app/views/*.html', '!index.html'],
+    index: './src/index.html',
+    partials: ['./src/views/*.html', '!index.html'],
     dist: './public',
     libraries: [
       './node_modules/angular/angular.js',
@@ -78,7 +78,7 @@
         }
       }))
       .pipe(sass())
-      .pipe(gulp.dest('app/assets/stylesheets'));
+      .pipe(gulp.dest('src/assets/stylesheets'));
   });
 
 // Watch Files For Changes

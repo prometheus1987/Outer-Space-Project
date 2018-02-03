@@ -1313,7 +1313,7 @@ var csp = function() {
  * This example shows how to force jqLite using the `ngJq` directive to the `html` tag.
  ```html
  <!doctype html>
- <html ng-app ng-jq>
+ <html ng-src ng-jq>
  ...
  ...
  </html>
@@ -1323,7 +1323,7 @@ var csp = function() {
  * The library name must be available at the top most 'window'.
  ```html
  <!doctype html>
- <html ng-app ng-jq="jQueryLib">
+ <html ng-src ng-jq="jQueryLib">
  ...
  ...
  </html>
@@ -1876,10 +1876,10 @@ function angularInit(element, bootstrap) {
  * </div>
  *
  * <div class="alert alert-warning">
- * **Note:** Do not bootstrap the app on an element with a directive that uses {@link ng.$compile#transclusion transclusion},
+ * **Note:** Do not bootstrap the src on an element with a directive that uses {@link ng.$compile#transclusion transclusion},
  * such as {@link ng.ngIf `ngIf`}, {@link ng.ngInclude `ngInclude`} and {@link ngRoute.ngView `ngView`}.
- * Doing this misplaces the app {@link ng.$rootElement `$rootElement`} and the app's {@link auto.$injector injector},
- * causing animations to stop working and making the injector inaccessible from outside the app.
+ * Doing this misplaces the src {@link ng.$rootElement `$rootElement`} and the src's {@link auto.$injector injector},
+ * causing animations to stop working and making the injector inaccessible from outside the src.
  * </div>
  *
  * ```html
@@ -1892,7 +1892,7 @@ function angularInit(element, bootstrap) {
  *
  * <script src="angular.js"></script>
  * <script>
- *   var app = angular.module('demo', [])
+ *   var src = angular.module('demo', [])
  *   .controller('WelcomeController', function($scope) {
  *       $scope.greeting = 'Welcome!';
  *   });
@@ -1913,7 +1913,7 @@ function angularInit(element, bootstrap) {
  * * `strictDi` - disable automatic function annotation for the application. This is meant to
  *   assist in finding bugs which break minified code. Defaults to `false`.
  *
- * @returns {auto.$injector} Returns the newly created injector for this app.
+ * @returns {auto.$injector} Returns the newly created injector for this src.
  */
 function bootstrap(element, modules, config) {
   if (!isObject(config)) config = {};
@@ -4170,7 +4170,7 @@ var $$MapProvider = [/** @this */function() {
  *   });
  * ```
  *
- * Sometimes you want to get access to the injector of a currently running Angular app
+ * Sometimes you want to get access to the injector of a currently running Angular src
  * from outside Angular. Perhaps, you want to inject and compile some markup after the
  * application has been bootstrapped. You can do this using the extra `injector()` added
  * to JQuery/jqLite elements. See {@link angular.element}.
@@ -7050,7 +7050,7 @@ function $CacheFactoryProvider() {
  *
  * **Note:** the `script` tag containing the template does not need to be included in the `head` of
  * the document, but it must be a descendent of the {@link ng.$rootElement $rootElement} (IE,
- * element with ng-app attribute), otherwise the template will be ignored.
+ * element with ng-src attribute), otherwise the template will be ignored.
  *
  * Adding via the `$templateCache` service:
  *
@@ -14448,7 +14448,7 @@ function $LocationProvider() {
     $browser.onUrlChange(function(newUrl, newState) {
 
       if (!startsWith(newUrl, appBaseNoFile)) {
-        // If we are navigating outside of the app then force a reload
+        // If we are navigating outside of the src then force a reload
         $window.location.href = newUrl;
         return;
       }
@@ -19063,7 +19063,7 @@ function adjustMatchers(matchers) {
  *
  * **Example**:  Consider the following case. <a name="example"></a>
  *
- * - your app is hosted at url `http://myapp.example.com/`
+ * - your src is hosted at url `http://myapp.example.com/`
  * - but some of your templates are hosted on other domains you control such as
  *   `http://srv01.assets.example.com/`, `http://srv02.assets.example.com/`, etc.
  * - and you have an open redirect at `http://myapp.example.com/clickThru?...`.
@@ -19121,7 +19121,7 @@ function $SceDelegateProvider() {
    * same origin resource requests.
    *
    * <div class="alert alert-warning">
-   * **Note:** the default whitelist of 'self' is not recommended if your app shares its origin
+   * **Note:** the default whitelist of 'self' is not recommended if your src shares its origin
    * with other apps! It is a good idea to limit it to only your application's directory.
    * </div>
    */
@@ -20090,7 +20090,7 @@ function $SnifferProvider() {
   this.$get = ['$window', '$document', function($window, $document) {
     var eventSupport = {},
         // Chrome Packaged Apps are not allowed to access `history.pushState`.
-        // If not sandboxed, they can be detected by the presence of `chrome.app.runtime`
+        // If not sandboxed, they can be detected by the presence of `chrome.src.runtime`
         // (see https://developer.chrome.com/apps/api_index). If sandboxed, they can be detected by
         // the presence of an extension runtime ID and the absence of other Chrome runtime APIs
         // (see https://developer.chrome.com/apps/manifest/sandbox).
@@ -27274,7 +27274,7 @@ var ngControllerDirective = [function() {
   */
 
 // `ngCsp` is not implemented as a proper directive any more, because we need it be processed while
-// we bootstrap the app (before `$parse` is instantiated). For this reason, we just have the `csp()`
+// we bootstrap the src (before `$parse` is instantiated). For this reason, we just have the `csp()`
 // fn that looks for the `ng-csp` attribute anywhere in the current doc.
 
 /**
