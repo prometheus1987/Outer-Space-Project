@@ -76,6 +76,6 @@
       .state('maps.hirise-psp', {
           url: '/mars-hirise-psp',
           templateUrl: 'src/views/maps/hirise-psp.html'
-      })
+      });
     });
 })();
