@@ -18,26 +18,19 @@
         vm.retrieveRoverData = retrieveRoverData;
 
 
-        function getDate(daysSinceToday) {
+            moment();
+            let day = moment().format("DD");
+            let month = moment().format("MM");
+            let year = moment().format("YYYY");
 
-            let date = new Date();
-            let day = date.getDate() - daysSinceToday;
-            let month = date.getMonth() + 1;
-            let year = date.getFullYear();
 
-            if (day < 10) {
-                day = '0' + day;
-            }
-            if (month < 10) {
-                month = '0' + month;
-            }
-
-            date = year + '-' + month + '-' + day;
+            let date = year + '-' + month + '-' + day;
             return date;
-        }
+
+
 
         function retrieveRoverData(daysSinceToday) {
-
+debugger;
             let query = getDate(daysSinceToday);
             let queryParams = "/photos?earth_date=";
 
@@ -48,7 +41,6 @@
                 break;
             }
 
-            debugger;
             $http.get(url + vm.name +  queryParams + query + "&" + key)
                 .then((result) => {
                     let response = result.data.photos;
@@ -61,6 +53,10 @@
                     vm.landingDate = response[0].rover.landing_date;
                     vm.launchDate = response[0].rover.launch_date;
                     vm.status = response[0].rover.status;
+
+                    debugger;
+
+
                 })
                 .catch((error) =>{
                     daysSinceToday += 1;
@@ -71,7 +67,6 @@
                         retrieveRoverData(daysSinceToday);
                     }
                 });
-            debugger;
         }
 
         function mapRoverPhotos(photos) {

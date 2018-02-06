@@ -37,7 +37,6 @@
 
                 let results = res.data.collection.items;
                 vm.images = mapImages(results);
-                console.log(vm.images);
 
                 vm.noImages = false;
                 vm.loading = false;
@@ -45,9 +44,6 @@
                 vm.currentPage = 0;
                 vm.pageSize = 10;
 
-                vm.numberOfPages = function(){
-                    return Math.ceil(vm.images.length/vm.pageSize);
-                };
             }
 
             function errorResponse(error) {

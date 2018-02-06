@@ -141,7 +141,7 @@
         exclude: ['tasks'],
         ignoreFiles: ['.combo.js', '-min.js']
       }))
-      .pipe(gulp.dest('dist/libs'))
+      .pipe(gulp.dest('src/dist/libs'))
   });
 
 // Nodemon Task
