@@ -38,21 +38,13 @@
 
         function retrieveRoverData(daysSinceToday) {
 
-            let date = getDate(daysSinceToday);
-            let dateWrapper = moment(date)._i;
-            debugger;
-
-            let query;
-            let queryParams;
+            let query = getDate(daysSinceToday);
+            let queryParams = "/photos?earth_date=";
 
             switch(vm.name) {
               case "spirit":
                 queryParams = "/photos?sol=";
                 query = Math.floor(Math.random() * 2208) + 1;
-                break;
-              case "curiosity" || "opportunity":
-                  query = dateWrapper;
-                  queryParams = "/photos?earth_date=";
                 break;
             }
 
@@ -79,6 +71,7 @@
                         retrieveRoverData(daysSinceToday);
                     }
                 });
+            debugger;
         }
 
         function mapRoverPhotos(photos) {
