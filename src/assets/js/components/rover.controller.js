@@ -18,19 +18,19 @@
         vm.retrieveRoverData = retrieveRoverData;
 
 
-            moment();
-            let day = moment().format("DD");
-            let month = moment().format("MM");
-            let year = moment().format("YYYY");
+        function getDate(daysSinceToday) {
 
+            let date = new Date();
+            let day = moment(date).format("DD") - daysSinceToday;
+            let month = moment(date).format("MM");
+            let year = moment(date).format("YYYY");
 
-            let date = year + '-' + month + '-' + day;
+            date = year + '-' + month + '-' + day;
             return date;
-
-
+        }
 
         function retrieveRoverData(daysSinceToday) {
-debugger;
+
             let query = getDate(daysSinceToday);
             let queryParams = "/photos?earth_date=";
 
