@@ -16,36 +16,47 @@
 
         vm.name = $stateParams.rover;
         vm.retrieveRoverData = retrieveRoverData;
-        vm.retrieveLatestDate = retrieveLatestData;
 
-        function retrieveLatestData () {
-            function getDate() {
-                let day = moment().format("DD");
-                let month = moment().format("MM");
-                let year = moment().format("YYYY");
-                let currentDate = year + '-' + month + '-' + day;
-                return date;
+
+        function getDate(daysSinceToday) {
+
+            let date = new Date();
+            let day = date.getDate() - daysSinceToday;
+            let month = date.getMonth() + 1;
+            let year = date.getFullYear();
+
+            if (day < 10) {
+                day = '0' + day;
             }
-            let queryParams = "/photos?earth_date=" + date;
+            if (month < 10) {
+                month = '0' + month;
+            }
+
+            date = year + '-' + month + '-' + day;
+            return date;
         }
 
-        function retrieveRoverData() {
+        function retrieveRoverData(daysSinceToday) {
 
-            let queryParams = "/photos?sol=";
+            let date = getDate(daysSinceToday);
+            let dateWrapper = moment(date)._i;
+            debugger;
+
             let query;
+            let queryParams;
 
             switch(vm.name) {
               case "spirit":
+                queryParams = "/photos?sol=";
                 query = Math.floor(Math.random() * 2208) + 1;
                 break;
-              case "curiosity":
-                query = Math.floor(Math.random() *  1746) + 1;
-                break;
-              case "opportunity":
-                query = Math.floor(Math.random() *  4648) + 1;
+              case "curiosity" || "opportunity":
+                  query = dateWrapper;
+                  queryParams = "/photos?earth_date=";
                 break;
             }
 
+            debugger;
             $http.get(url + vm.name +  queryParams + query + "&" + key)
                 .then((result) => {
                     let response = result.data.photos;
@@ -60,7 +71,13 @@
                     vm.status = response[0].rover.status;
                 })
                 .catch((error) =>{
-                    vm.noImages = true;
+                    daysSinceToday += 1;
+                    if (daysSinceToday > 7 || vm.name === "Spirit") {
+                        console.error('NO ROVER IMAGES FOUND');
+                        vm.noImages = true;
+                    } else {
+                        retrieveRoverData(daysSinceToday);
+                    }
                 });
         }
 
