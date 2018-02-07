@@ -15,7 +15,7 @@
 
         vm.openModal = function(image) {
             $uibModal.open({
-                templateUrl: 'src/views/imagesModal.html',
+                templateUrl: 'app/views/imagesModal.html',
                 controller: function ($scope, $uibModalInstance) {
                     let modalVm = this;
 
@@ -34,15 +34,16 @@
                 .then(successfulResponse, errorResponse);
 
             function successfulResponse(res) {
-
                 let results = res.data.collection.items;
                 vm.images = mapImages(results);
+
+                debugger;
 
                 vm.noImages = false;
                 vm.loading = false;
 
                 vm.currentPage = 0;
-                vm.pageSize = 10;
+                vm.pageSize = 12;
 
             }
 

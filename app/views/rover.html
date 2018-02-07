@@ -1,18 +1,31 @@
-<div id="marsContainer" ng-init="rover.retrieveRoverData(2)">
+<div id="marsContainer">
     <div class="mdl-grid">
         <div class="mdl-cell mdl-cell--12-col">
             <div class="card">
-                <div class="card image">
-                    <img ng-src="src/assets/images/{{rover.name.toLowerCase()}}_rover.jpg"
-                         style="width:1200px; height: 1200px;"
-                    />
+                <div class="card image" style="display:inline-block;width:1200px;">
+                    <!--<img ng-src="app/assets/images/{{rover.name.toLowerCase()}}_rover.jpg"-->
+                         <!--style="width:1200px; height: 1200px;"-->
+                    <!--/>-->
+                    <div class="roverContainer">
+                        <img style="border-radius:50%;height: 300px;width:300px;" src="app/assets/images/curiosity_rover.jpg">
+                        <a ui-sref="rover({ rover: 'curiosity' })">Curiosity</a>
+                    </div>
+                    <div class="roverContainer">
+                        <img style="border-radius:50%;height: 300px;width:300px;" src="app/assets/images/opportunity_rover.jpg">
+                        <a ui-sref="rover({ rover: 'opportunity' })">Opportunity</a>
+                    </div>
+                    <div class="roverContainer">
+                        <img style="border-radius:50%;height: 300px;width:300px;" src="app/assets/images/spirit_rover.jpg">
+                        <a ui-sref="rover({ rover: 'spirit' })">Spirit</a>
+                    </div>
+                    <datepicker date-format="longDate" date-max-limit="true" style="height:200px;">
+                        <input ng-model="rover.date" placeholder="Select a Date" type="text"/>
+                        <button id="searchButton" type="submit" ng-click="rover.retrieveRoverData(rover.date)">Retrieve Data</button>
+                    </datepicker>
+                    <h2 ng-show="rover.loading">Loading...</h2>
                 </div>
 
-                <a ui-sref="rover({ rover: 'curiosity' })">Curiosity</a>
-                <a ui-sref="rover({ rover: 'opportunity' })">Opportunity</a>
-                <a ui-sref="rover({ rover: 'spirit' })">Spirit</a>
-
-                <table class="mdl-data-table mdl-shadow--2dp" style="width:100%;">
+                <table ng-show="rover.isRendered" class="mdl-data-table mdl-shadow--2dp" style="width:100%;">
                     <thead>
                     <tr>
                         <th class="mdl-data-table__cell--non-numeric"><em>Rover Name:</em></th>

@@ -5,8 +5,8 @@
             <div class="card image text-center" >
                 <h2>NASA Astronomy Picture of the Day</h2>
                 <datepicker date-format="longDate"">
-                <input ng-model="apod.date" placeholder="Select a Date" type="text"/>
-                <button id="searchButton" type="submit" ng-click="apod.click()">Retrieve Data</button>
+                    <input ng-model="apod.date" placeholder="Select a Date" type="text"/>
+                    <button id="searchButton" type="submit" ng-click="apod.click()">Retrieve Data</button>
                 </datepicker>
                 <img style="width: 100%;padding-top: 10px;" ng-src="{{ apod.picture.hdurl }}"/>
             </div>

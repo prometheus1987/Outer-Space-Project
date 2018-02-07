@@ -293,9 +293,9 @@ angular.module('ui.router.state', ['ui.router.router', 'ui.router.util']);
  * <!doctype html>
  * <html ng-app="myApp">
  * <head>
- *   <script src="js/angular.js"></script>
+ *   <script app="js/angular.js"></script>
  *   <!-- Include the ui-router script -->
- *   <script src="js/angular-ui-router.min.js"></script>
+ *   <script app="js/angular-ui-router.min.js"></script>
  *   <script>
  *     // ...and add 'ui.router' as a dependency
  *     var myApp = angular.module('myApp', ['ui.router']);

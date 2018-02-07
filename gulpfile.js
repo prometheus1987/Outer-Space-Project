@@ -19,22 +19,23 @@
   let plumber = require('gulp-plumber');
   let notify = require('gulp-notify');
   let minify = require('gulp-minify');
+  let bourbon = require('node-bourbon');
   let pipes = {};
 
   let paths = {
-    scripts: ['./src/assets/js/components/app.module.js',
-      './src/assets/js/components/app.routes.js',
-      './src/assets/js/components/app.controller.js',
+    scripts: ['./app/assets/js/components/app.module.js',
+      './app/assets/js/components/app.routes.js',
+      './app/assets/js/components/app.controller.js',
       '!karma.conf.js',
       '!server.js',
       '!gulpfile.js'
     ],
-    styles: ['./src/assets/stylesheets/custom.scss',
+    styles: ['./app/assets/stylesheets/custom.scss',
              './node_modules/aos/dist/aos.css',
              './node_modules/bootstrap/dist/css/bootstrap.css'
     ],
-    index: './src/index.html',
-    partials: ['./src/views/*.html', '!index.html'],
+    index: './app/index.html',
+    partials: ['./app/views/*.html', '!index.html'],
     dist: './public',
     libraries: [
       './node_modules/angular/angular.js',
@@ -73,12 +74,13 @@
         errorHandler: function (err) {
           notify.onError({
             title: "Gulp error in " + err.plugin,
-            message: err.toString()
+            message: err.toString(),
+            includePaths: require('node-bourbon').includePaths
           })(err);
         }
       }))
       .pipe(sass())
-      .pipe(gulp.dest('src/assets/stylesheets'));
+      .pipe(gulp.dest('app/assets/stylesheets'));
   });
 
 // Watch Files For Changes
@@ -141,7 +143,7 @@
         exclude: ['tasks'],
         ignoreFiles: ['.combo.js', '-min.js']
       }))
-      .pipe(gulp.dest('src/dist/libs'))
+      .pipe(gulp.dest('app/dist/libs'))
   });
 
 // Nodemon Task

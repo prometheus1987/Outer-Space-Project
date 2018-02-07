@@ -13,39 +13,44 @@
         let vm = this;
 
         vm.noImages = false;
+        vm.loading = false;
+        vm.isRendered = false;
 
         vm.name = $stateParams.rover;
         vm.retrieveRoverData = retrieveRoverData;
+        let dateString;
 
+        function getDate(dateString) {
 
-        function getDate(daysSinceToday) {
-
-            let date = new Date();
-            let day = moment(date).format("DD") - daysSinceToday;
-            let month = moment(date).format("MM");
-            let year = moment(date).format("YYYY");
+            let date = moment();
+            let day = moment(dateString).format("DD");
+            let month = moment(dateString).format("MM");
+            let year = moment(dateString).format("YYYY");
 
             date = year + '-' + month + '-' + day;
             return date;
         }
 
-        function retrieveRoverData(daysSinceToday) {
+        function retrieveRoverData(date) {
 
-            let query = getDate(daysSinceToday);
+            let query = getDate(date);
             let queryParams = "/photos?earth_date=";
+            vm.loading = true;
 
-            switch(vm.name) {
-              case "spirit":
-                queryParams = "/photos?sol=";
-                query = Math.floor(Math.random() * 2208) + 1;
-                break;
-            }
+            // switch(vm.name) {
+            //   case "spirit":
+            //     queryParams = "/photos?sol=";
+            //     query = Math.floor(Math.random() * 2208) + 1;
+            //     break;
+            // }
 
             $http.get(url + vm.name +  queryParams + query + "&" + key)
                 .then((result) => {
+
+                    vm.loading = false;
+                    vm.isRendered = true;
                     let response = result.data.photos;
                     vm.noImages = false;
-
                     vm.data = mapRoverPhotos(response);
                     vm.martianSol = response[0].sol;
                     vm.earthDate = response[0].earth_date;
@@ -54,18 +59,9 @@
                     vm.launchDate = response[0].rover.launch_date;
                     vm.status = response[0].rover.status;
 
-                    debugger;
-
-
                 })
                 .catch((error) =>{
-                    daysSinceToday += 1;
-                    if (daysSinceToday > 7 || vm.name === "Spirit") {
-                        console.error('NO ROVER IMAGES FOUND');
-                        vm.noImages = true;
-                    } else {
-                        retrieveRoverData(daysSinceToday);
-                    }
+                    console.log(error);
                 });
         }
 
