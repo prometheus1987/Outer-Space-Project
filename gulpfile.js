@@ -6,33 +6,30 @@
   let gulp = require('gulp');
 
 // Include Our Plugins
-  let jshint = require('gulp-jshint');
-  let sass = require('gulp-sass');
-  let concat = require('gulp-concat');
-  let uglify = require('gulp-uglify');
-  let rename = require('gulp-rename');
-  let sourcemaps = require("gulp-sourcemaps");
-  let babel = require("gulp-babel");
-  let plugins = require('gulp-load-plugins')();
-  let nodemon = require('gulp-nodemon');
-  let env = require('gulp-env');
-  let plumber = require('gulp-plumber');
-  let notify = require('gulp-notify');
-  let minify = require('gulp-minify');
-  let bourbon = require('node-bourbon');
-  let pipes = {};
+  let jshint = require('gulp-jshint'),
+      sass = require('gulp-sass'),
+      concat = require('gulp-concat'),
+      uglify = require('gulp-uglify'),
+      rename = require('gulp-rename'),
+      sourcemaps = require("gulp-sourcemaps"),
+      babel = require("gulp-babel"),
+      plugins = require('gulp-load-plugins')(),
+      nodemon = require('gulp-nodemon'),
+      env = require('gulp-env'),
+      plumber = require('gulp-plumber'),
+      notify = require('gulp-notify'),
+      minify = require('gulp-minify'),
+      bourbon    = require("bourbon").includePaths,
+      pipes = {};
 
   let paths = {
     scripts: ['./app/assets/js/components/app.module.js',
       './app/assets/js/components/app.routes.js',
       './app/assets/js/components/app.controller.js',
-      '!karma.conf.js',
       '!server.js',
       '!gulpfile.js'
     ],
     styles: ['./app/assets/stylesheets/custom.scss',
-             './node_modules/aos/dist/aos.css',
-             './node_modules/bootstrap/dist/css/bootstrap.css'
     ],
     index: './app/index.html',
     partials: ['./app/views/*.html', '!index.html'],
@@ -75,11 +72,12 @@
           notify.onError({
             title: "Gulp error in " + err.plugin,
             message: err.toString(),
-            includePaths: require('node-bourbon').includePaths
           })(err);
         }
       }))
-      .pipe(sass())
+      .pipe(sass({
+          includePaths: [bourbon]
+      }))
       .pipe(gulp.dest('app/assets/stylesheets'));
   });
 

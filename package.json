@@ -37,7 +37,7 @@
     "gulp-sourcemaps": "^2.1.1",
     "gulp-uglify": "^2.0.0",
     "jshint": "^2.9.4",
-    "method-override": "^2.3.6",
+    "method-override": "^2.3.6"
   },
   "dependencies": {
     "angular": "^1.6.5",
