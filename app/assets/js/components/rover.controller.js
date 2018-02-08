@@ -3,22 +3,14 @@
 
     angular
         .module('app')
-        .controller('RoverCtrl', ['$http', '$stateParams', roverController]);
+        .controller('RoverCtrl', ['RoverService', roverController]);
 
-    function roverController($http, $stateParams) {
-
-        const key = "api_key=NeHYhGtJMXT1kJ9jSP8bnRF2t1IpYShALfGkSKoz";
-        const url = "https://api.nasa.gov/mars-photos/api/v1/rovers/";
+    function roverController(roverService) {
 
         let vm = this;
 
-        vm.noImages = false;
-        vm.loading = false;
-        vm.isRendered = false;
-
-        vm.name = $stateParams.rover;
-        vm.retrieveRoverData = retrieveRoverData;
-        let dateString;
+        vm.rover = {};
+        vm.click = clickHandler;
 
         function getDate(dateString) {
 
@@ -31,48 +23,42 @@
             return date;
         }
 
-        function retrieveRoverData(date) {
+        function clickHandler() {
+            let query = getDate(vm.date);
+            roverService.retrieveRoverData(query).then(successfulResponse, errorResponse);
+        }
 
-            let query = getDate(date);
-            let queryParams = "/photos?earth_date=";
-            vm.loading = true;
+        function successfulResponse(result) {
 
-            // switch(vm.name) {
-            //   case "spirit":
-            //     queryParams = "/photos?sol=";
-            //     query = Math.floor(Math.random() * 2208) + 1;
-            //     break;
-            // }
+            vm.noImages = false;
+            vm.isRendered = true;
 
-            $http.get(url + vm.name +  queryParams + query + "&" + key)
-                .then((result) => {
+            let response = result.data.photos;
+            vm.data = mapRoverPhotos(response);
 
-                    vm.loading = false;
-                    vm.isRendered = true;
-                    let response = result.data.photos;
-                    vm.noImages = false;
-                    vm.data = mapRoverPhotos(response);
-                    vm.martianSol = response[0].sol;
-                    vm.earthDate = response[0].earth_date;
-                    vm.totalPhotos = response[0].rover.total_photos;
-                    vm.landingDate = response[0].rover.landing_date;
-                    vm.launchDate = response[0].rover.launch_date;
-                    vm.status = response[0].rover.status;
+            vm.roverName = response[0].rover.name;
+            vm.martianSol = response[0].sol;
+            vm.earthDate = response[0].earth_date;
+            vm.totalPhotos = response[0].rover.total_photos;
+            vm.landingDate = response[0].rover.landing_date;
+            vm.launchDate = response[0].rover.launch_date;
+            vm.status = response[0].rover.status;
+            debugger;
+        }
 
-                })
-                .catch((error) =>{
-                    console.log(error);
-                });
+        function errorResponse(error) {
+            console.log(error);
         }
 
         function mapRoverPhotos(photos) {
-          return _.map(photos, function(photo){
-            return {
-              name: photo.camera.full_name,
-              abbreviation: photo.camera.name,  
-              img: photo.img_src
-            }
-          });
+            return _.map(photos, function(photo){
+                return {
+                    name: photo.camera.full_name,
+                    abbreviation: photo.camera.name,
+                    img: photo.img_src
+                }
+            });
         }
+
     }
 })();

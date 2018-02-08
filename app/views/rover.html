@@ -2,10 +2,7 @@
     <div class="mdl-grid">
         <div class="mdl-cell mdl-cell--12-col">
             <div class="card">
-                <div class="card image" style="display:inline-block;width:1200px;">
-                    <!--<img ng-src="app/assets/images/{{rover.name.toLowerCase()}}_rover.jpg"-->
-                         <!--style="width:1200px; height: 1200px;"-->
-                    <!--/>-->
+                <div class="card image" style="display:inline-block;width:1200px;padding-top:50px;">
                     <div class="roverContainer">
                         <img style="border-radius:50%;height: 300px;width:300px;" src="app/assets/images/curiosity_rover.jpg">
                         <a ui-sref="rover({ rover: 'curiosity' })">Curiosity</a>
@@ -18,9 +15,9 @@
                         <img style="border-radius:50%;height: 300px;width:300px;" src="app/assets/images/spirit_rover.jpg">
                         <a ui-sref="rover({ rover: 'spirit' })">Spirit</a>
                     </div>
-                    <datepicker date-format="longDate" date-max-limit="true" style="height:200px;">
+                    <datepicker date-format="longDate" date-max-limit={{rover.date}} style="height:500px;">
                         <input ng-model="rover.date" placeholder="Select a Date" type="text"/>
-                        <button id="searchButton" type="submit" ng-click="rover.retrieveRoverData(rover.date)">Retrieve Data</button>
+                        <button id="searchButton" type="submit" ng-click="rover.click(rover.date)">Retrieve Data</button>
                     </datepicker>
                     <h2 ng-show="rover.loading">Loading...</h2>
                 </div>
@@ -39,17 +36,17 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="mdl-data-table__cell--non-numeric">{{rover.name.toUpperCase()}}</td>
+                            <td class="mdl-data-table__cell--non-numeric">{{rover.roverName.toUpperCase()}}</td>
                             <td><em>{{rover.status}}</em></td>
                             <td><em>{{rover.launchDate}}</em></td>
                             <td><em>{{rover.landingDate}}</em></td>
                             <td><em>{{rover.martianSol}}</em></td>
                             <td><em>{{rover.earthDate}}</em></td>
                             <td><em>{{rover.totalPhotos}}</em></td>
-                            <h3 ng-show="rover.noImages">Images Currently Unavailable.</h3>
                         </tr>
                     </tbody>
                 </table>
+                <h3 ng-show="rover.noImages">Images Currently Unavailable.</h3>
             </div>
         </div>
     </div>

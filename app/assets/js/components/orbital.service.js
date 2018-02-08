@@ -20,7 +20,6 @@
             const url = "https://api.nasa.gov/neo/rest/v1/feed?start_date=" + date;
 
             return $http.get(url + key);
-
         }
 
         return {
