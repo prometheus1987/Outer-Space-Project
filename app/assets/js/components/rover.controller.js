@@ -14,7 +14,6 @@
         vm.date = getDate(moment().subtract(1, "day"));
 
         function getDate(dateString) {
-
             let date = moment();
             let day = moment(dateString).format("DD");
             let month = moment(dateString).format("MM");
@@ -44,7 +43,6 @@
             vm.landingDate = response[0].rover.landing_date;
             vm.launchDate = response[0].rover.launch_date;
             vm.status = response[0].rover.status;
-            debugger;
         }
 
         function errorResponse(error) {

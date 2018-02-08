@@ -8,11 +8,23 @@
     function apodController(apodService) {
 
         let vm = this;
+        vm.date = getDate();
         vm.loading = false;
         vm.video = {};
         vm.picture = {};
         vm.click = clickHandler;
         apodService.getPhoto().then(successfulResponse, errorResponse);
+
+        function getDate(dateString) {
+            let date = moment();
+            let day = moment(dateString).format("Do");
+            let month = moment(dateString).format("MMMM");
+            let year = moment(dateString).format("YYYY");
+
+            date = month + " " + day + "," + year;
+            return date;
+        }
+
 
         function clickHandler() {
             vm.loading = true;
