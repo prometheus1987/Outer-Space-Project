@@ -6,15 +6,15 @@ firebase.json
 
 bourbon/
 
-app/assets/js/components/explore.controllers-compiled.js
-app/assets/js/components/explore.controllers-compiled.js.map.map
-app/assets/js/components/app.routes-compiled.js
-app/assets/js/components/app.routes-compiled.js.map
-app/assets/js/components/app.module-compiled.js
-app/assets/js/components/app.module-compiled.js.map
-app/assets/js/components/explore.controllers-compiled.js.map
-app/assets/js/components/explore.spec-compiled.js
-app/assets/js/components/explore.spec-compiled.js.map
+app/assets/components/explore.controllers-compiled.js
+app/assets/components/explore.controllers-compiled.js.map.map
+app/assets/components/app.routes-compiled.js
+app/assets/components/app.routes-compiled.js.map
+app/assets/components/app.module-compiled.js
+app/assets/components/app.module-compiled.js.map
+app/assets/components/explore.controllers-compiled.js.map
+app/assets/components/explore.spec-compiled.js
+app/assets/components/explore.spec-compiled.js.map
 gulpfile-compiled.js
 gulpfile-compiled.js.map
 npm-debug.log

@@ -6,7 +6,7 @@
 
     function roverService($http, $stateParams) {
 
-        function retrieveRoverData(query) {
+        function retrieveRoverData(query, page) {
 
             let vm = this;
             vm.name = $stateParams.rover;
@@ -19,7 +19,7 @@
             const key = "api_key=NeHYhGtJMXT1kJ9jSP8bnRF2t1IpYShALfGkSKoz";
             const url = "https://api.nasa.gov/mars-photos/api/v1/rovers/";
 
-            return $http.get(url + vm.name +  queryParams + query + "&" + key);
+            return $http.get(url + vm.name +  queryParams + query + "&page=" + vm.page + "&" + key);
         }
 
         return {

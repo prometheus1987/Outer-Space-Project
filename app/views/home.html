@@ -1,5 +1,12 @@
 <div id="marsContainer" style="padding-bottom: 20px; padding-left: 20px; padding-right: 20px;">
     <h1 id="alpha"><em>Welcome to the Outer Space Project</em></h1>
-    <img ng-src="app/assets/images/lunar_hi_res.jpg" style="height:800px; width:800px;display: block;margin: 0 auto;" class="img-responsive">
+    <div uib-carousel active="active" interval="home.myInterval" no-wrap="noWrapSlides">
+        <div uib-slide ng-repeat="slide in home.slides track by slide.id" index="$index">
+            <img ng-src="{{slide.image}}" style="margin:auto;">
+            <div class="carousel-caption">
+                <p>{{slide.text}}</p>
+            </div>
+        </div>
+    </div>
     <h2>Made in the Milky Way</h2>
 </div>

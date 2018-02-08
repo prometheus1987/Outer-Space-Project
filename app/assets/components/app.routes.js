@@ -14,6 +14,8 @@
       .state('home', {
           url: '/home',
           templateUrl: 'app/views/home.html',
+          controller: 'HomeCtrl',
+          controllerAs: 'home'
       })
 
       .state('apod', {
