@@ -347,3 +347,6 @@ a.button:hover {
 
 .roverContainer a {
   display: block; }
+
+.vimeoContainer div:first-child {
+  margin-top: 40px; }

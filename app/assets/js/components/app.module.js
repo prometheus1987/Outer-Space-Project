@@ -8,6 +8,8 @@
       'ngAria',
       'ngMaterial',
       'ui.bootstrap',
-      '720kb.datepicker'
+      '720kb.datepicker',
+      'ngVimeo',
+        'ngSanitize'
     ]);
 })();

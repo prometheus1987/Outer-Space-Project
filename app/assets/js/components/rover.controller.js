@@ -11,6 +11,7 @@
 
         vm.rover = {};
         vm.click = clickHandler;
+        vm.date = getDate(moment().subtract(1, "day"));
 
         function getDate(dateString) {
 

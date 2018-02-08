@@ -37,8 +37,6 @@
                 let results = res.data.collection.items;
                 vm.images = mapImages(results);
 
-                debugger;
-
                 vm.noImages = false;
                 vm.loading = false;
 
@@ -55,10 +53,10 @@
             function mapImages(results) {
                 return _.map(results, function (image) {
                     return {
-                        link: image.links[0].href,
                         type: image.data[0].media_type,
                         title: image.data[0].title,
-                        description: image.data[0].description
+                        description: image.data[0].description,
+                        link: image.links && image.links[0].href
                     }
                 });
             }

@@ -16,7 +16,7 @@
                         <a ui-sref="rover({ rover: 'spirit' })">Spirit</a>
                     </div>
                     <datepicker date-format="longDate" date-max-limit={{rover.date}} style="height:500px;">
-                        <input ng-model="rover.date" placeholder="Select a Date" type="text"/>
+                        <input ng-model="rover.date" placeholder="{{rover.date}}" type="text"/>
                         <button id="searchButton" type="submit" ng-click="rover.click(rover.date)">Retrieve Data</button>
                     </datepicker>
                     <h2 ng-show="rover.loading">Loading...</h2>
