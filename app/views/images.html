@@ -13,7 +13,7 @@
         </div>
     </div>
     <div class="mdl-grid center-align" >
-        <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--4-col-tablet mdl-cell--4-col-desktop text-center" ng-repeat="photo in images.images | limitTo:images.pageSize">
+        <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--4-col-tablet mdl-cell--4-col-desktop text-center" ng-repeat="photo in images.images">
             <img data-aos="fade-in" data-aos-delay="200" ng-show="photo.type == 'image'" style="width: 75%; height: 50%; padding-left: 25%;" class="img-responsive" ng-src="{{ photo.link }}"/>
             <h3 ng-show="photo.type == 'image'">{{ photo.title }}</h3>
             <span ng-show="photo.type == 'image'" ng-click="images.openModal(photo)"><i class="fa fa-info-circle" aria-hidden="true"></i></span>
