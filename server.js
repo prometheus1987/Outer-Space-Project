@@ -1,13 +1,14 @@
 var express = require('express'),
-  app = express(),
-  bodyParser = require('body-parser'),
-  morgan = require('morgan'),
-  path = require('path');
-  cors = require('cors');
-  firebase = require("firebase");
+    app = express(),
+    bodyParser = require('body-parser'),
+    morgan = require('morgan'),
+    path = require('path');
+    cors = require('cors');
+    firebase = require("firebase");
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(cors());
 
 app.use(function(req, res, next) {
   res.setHeader('Access-Control-Allow-Origin', '*');

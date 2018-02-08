@@ -46,7 +46,13 @@
         controller: 'OrbitalCtrl',
         controllerAs: 'orbital'
       })
-      
+
+      .state('hubble', {
+          url: '/hubble',
+          templateUrl: 'app/views/hubble.html',
+          controller: 'HubbleCtrl',
+          controllerAs: 'hubble'
+      })
       .state('maps', {
           url: '/maps',
           templateUrl: 'app/views/maps/maps.html',

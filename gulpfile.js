@@ -24,8 +24,8 @@
 
   let paths = {
     scripts: ['./app/assets/js/components/app.module.js',
-      './app/assets/js/components/app.routes.js',
-      './app/assets/js/components/app.controller.js',
+        './app/assets/js/components/*.js',
+        './app/assets/js/components/maps/*.js',
       '!server.js',
       '!gulpfile.js'
     ],
@@ -117,10 +117,10 @@
         }
       }))
       .pipe(concat('all.js'))
-      .pipe(gulp.dest('public'))
+      .pipe(gulp.dest('build'))
       .pipe(rename('all.min.js'))
-      .pipe(uglify())
-      .pipe(gulp.dest('public/js'));
+      // .pipe(uglify())
+      .pipe(gulp.dest('build/js'));
   });
 
 // Minify

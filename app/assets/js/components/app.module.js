@@ -10,6 +10,6 @@
       'ui.bootstrap',
       '720kb.datepicker',
       'ngVimeo',
-        'ngSanitize'
+      'ngSanitize'
     ]);
 })();
