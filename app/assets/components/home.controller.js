@@ -2,10 +2,10 @@
     "use strict";
 
     angular.module('app')
-        .controller('HomeCtrl', ['$scope', homeController])
+        .controller('HomeCtrl', [homeController])
     ;
 
-    function homeController($scope) {
+    function homeController() {
 
         let vm = this;
         vm.slides = [
@@ -15,8 +15,5 @@
         vm.myInterval = 5000;
         vm.noWrapSlides = true;
         vm.active = 0;
-
-
-
     }
 })();

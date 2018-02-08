@@ -15,7 +15,6 @@
       babel = require("gulp-babel"),
       plugins = require('gulp-load-plugins')(),
       nodemon = require('gulp-nodemon'),
-      env = require('gulp-env'),
       plumber = require('gulp-plumber'),
       notify = require('gulp-notify'),
       minify = require('gulp-minify'),
