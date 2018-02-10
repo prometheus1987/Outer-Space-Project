@@ -145,10 +145,6 @@
 
 // Nodemon Task
   gulp.task('start', function () {
-    env({
-      file: '.env'
-    });
-
     nodemon({
       script: 'server.js',
       ext: 'js html'

@@ -11,6 +11,7 @@
         vm.slides = [
             {id: "1", image: 'app/assets/images/charon.jpg',text: 'Charon'},
             {id: "2", image: 'app/assets/images/antennae_galaxy.jpg', text: 'Antennae Galaxy'},
+            {id: "3", image: 'app/assets/images/ghostly_glow.jpg', text: 'Ghostly Glow'},
         ];
         vm.myInterval = 5000;
         vm.noWrapSlides = true;
