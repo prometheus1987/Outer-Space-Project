@@ -6,7 +6,7 @@
 
     function roverService($http, $stateParams) {
 
-        function retrieveRoverData(query, page) {
+        function retrieveRoverData(query) {
 
             let vm = this;
             vm.name = $stateParams.rover;

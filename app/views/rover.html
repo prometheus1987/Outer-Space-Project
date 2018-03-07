@@ -20,6 +20,7 @@
                         <button id="searchButton" type="submit" ng-click="rover.click(rover.date)">Retrieve Data</button>
                     </datepicker>
                     <h2 ng-show="rover.loading">Loading...</h2>
+                    <h3 ng-show="rover.noImages">Images Currently Unavailable.</h3>
                 </div>
 
                 <table ng-show="rover.isRendered" class="mdl-data-table mdl-shadow--2dp" style="width:100%;">
@@ -46,7 +47,6 @@
                         </tr>
                     </tbody>
                 </table>
-                <h3 ng-show="rover.noImages">Images Currently Unavailable.</h3>
             </div>
         </div>
     </div>
