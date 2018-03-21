@@ -20,17 +20,17 @@
       pipes = {};
 
   let paths = {
-      minScripts: ['./app/dist/libs/jquery/dist/jquery.min.js',
-                   './app/dist/libs/angular/angular.min.js',
-                   './app/dist/libs/angular-ui-router/release/angular-ui-router.min.js',
-                   './app/dist/libs/lodash/lodash.min.js',
-                   './app/dist/lib/smoment/moment.min.js',
-                   './app/dist/libs/angular-material/min.angular-material.js',
-                   './app/dist/libs/angular-animate/min.angular-animate.js',
-                   './app/dist/libs/angular-aria/min.angular-aria.js',
-                   './app/dist/libs/material-design-lite/material.min.js',
-                   './app/dist/libs/aos/dist/aos.min.js',
-                   './app/dist/libs/bootstrap/dist/js/bootstrap.min..js',
+      minScripts: ['./app/dist/libs/jquery.min.js',
+                   './app/dist/libs/angular.min.js',
+                   './app/dist/libs/angular-ui-router.min.js',
+                   './app/dist/libs/lodash.min.js',
+                   './app/dist/libs/moment.min.js',
+                   './app/dist/libs/angular-material.min.js',
+                   './app/dist/libs/angular-animate.min.js',
+                   './app/dist/libs/angular-aria.min.js',
+                   './app/dist/libs/material.min.js',
+                   './app/dist/libs/aos.min.js',
+                   './app/dist/libs/bootstrap.min..js',
                    './app/dist/libs/angular-vimeo.min.js',
                    './app/dist/libs/angular-datepicker.min.js',
 
