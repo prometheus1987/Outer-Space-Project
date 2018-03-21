@@ -13,9 +13,9 @@
         vm.noImages = false;
         vm.loading = false;
 
-        vm.openModal = function(image) {
+        vm.openModal = (image) => {
             $uibModal.open({
-                templateUrl: 'app/views/imagesModal.html',
+                templateUrl: '/views/imagesModal.html',
                 controller: function ($scope, $uibModalInstance) {
                     let modalVm = this;
 
