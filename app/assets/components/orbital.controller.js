@@ -19,7 +19,7 @@
 
                 function successfulResponse(res) {
                     let response = res.data["near_earth_objects"][date];
-                    vm.data = mapOrbitals(response);
+                    vm.orbital = mapOrbitals(response);
                     vm.count = res.data["element_count"];
                 }
 

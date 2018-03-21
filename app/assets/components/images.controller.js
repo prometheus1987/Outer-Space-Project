@@ -39,10 +39,6 @@
 
                 vm.noImages = false;
                 vm.loading = false;
-
-                vm.currentPage = 0;
-                vm.pageSize = 12;
-
             }
 
             function errorResponse(error) {
