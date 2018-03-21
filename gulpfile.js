@@ -23,10 +23,10 @@
 
   let paths = {
     scripts: ['./app/assets/js/components/module.js',
-        './app/assets/js/components/*.js',
-        './app/assets/js/components/maps/*.js',
-      '!server.js',
-      '!gulpfile.js'
+              './app/assets/js/components/*.js',
+              './app/assets/js/components/maps/*.js',
+              '!server.js',
+              '!gulpfile.js'
     ],
     styles: ['./app/assets/stylesheets/custom.scss',
     ],
@@ -44,7 +44,9 @@
       './node_modules/angular-aria/angular-aria.js',
       './node_modules/material-design-lite/material.js',
       './node_modules/aos/dist/aos.js',
-      './node_modules/bootstrap/dist/js/bootstrap.js'
+      './node_modules/bootstrap/dist/js/bootstrap.js',
+      './app/dist/libs/angular-vimeo.js',
+      './app/dist/libs/angular-datepicker.js'
     ]
   };
 
@@ -74,9 +76,7 @@
           })(err);
         }
       }))
-      .pipe(sass({
-          includePaths: [bourbon]
-      }))
+      .pipe(sass().on('error', sass.logError))
       .pipe(gulp.dest('app/assets/stylesheets'));
   });
 
@@ -116,7 +116,7 @@
         }
       }))
       .pipe(concat('all.js'))
-      .pipe(gulp.dest('build'))
+      .pipe(gulp.dest('build/js'))
       .pipe(rename('all.min.js'))
       // .pipe(uglify())
       .pipe(gulp.dest('build/js'));
@@ -124,7 +124,7 @@
 
 // Minify
   gulp.task('compress', function () {
-    gulp.src(paths.libraries)
+    gulp.src(paths.scripts)
       .pipe(plumber({
         errorHandler: function (err) {
           notify.onError({
@@ -140,7 +140,7 @@
         exclude: ['tasks'],
         ignoreFiles: ['.combo.js', '-min.js']
       }))
-      .pipe(gulp.dest('app/dist/libs'))
+      .pipe(gulp.dest('build/js'))
   });
 
 // Nodemon Task
