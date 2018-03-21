@@ -13,7 +13,6 @@
       rename = require('gulp-rename'),
       sourcemaps = require("gulp-sourcemaps"),
       babel = require("gulp-babel"),
-      plugins = require('gulp-load-plugins')(),
       nodemon = require('gulp-nodemon'),
       plumber = require('gulp-plumber'),
       notify = require('gulp-notify'),
@@ -21,17 +20,38 @@
       pipes = {};
 
   let paths = {
-      scripts: ['./app/assets/components/*.js'
+      minScripts: ['./app/dist/libs/jquery/dist/jquery.min.js',
+                   './app/dist/libs/angular/angular.min.js',
+                   './app/dist/libs/angular-ui-router/release/angular-ui-router.min.js',
+                   './app/dist/libs/lodash/lodash.min.js',
+                   './app/dist/lib/smoment/moment.min.js',
+                   './app/dist/libs/angular-material/min.angular-material.js',
+                   './app/dist/libs/angular-animate/min.angular-animate.js',
+                   './app/dist/libs/angular-aria/min.angular-aria.js',
+                   './app/dist/libs/material-design-lite/material.min.js',
+                   './app/dist/libs/aos/dist/aos.min.js',
+                   './app/dist/libs/bootstrap/dist/js/bootstrap.min..js',
+                   './app/dist/libs/angular-vimeo.min.js',
+                   './app/dist/libs/angular-datepicker.min.js',
+
+                   './app/assets/components/app.module.min.js',
+                   './app/assets/components/app.routes.min.js',
+                   './app/assets/components/*.min.js',
+                   './app/assets/components/maps/*.min.js',
+      ],
+      scripts: ['./app/assets/components/app.module.js',
+                './app/assets/components/app.routes.js',
+                './app/assets/components/*.js',
+                './app/assets/components/maps/*.js',
       ],
       styles: ['./app/assets/stylesheets/custom.scss',
       ],
       index: './app/index.html',
       partials: ['./app/views/*.html', '!/app/index.html'],
-      dist: './build',
       libraries: [
+        './node_modules/jquery/dist/jquery.js',
         './node_modules/angular/angular.js',
         './node_modules/angular-ui-router/release/angular-ui-router.js',
-        './node_modules/jquery/dist/jquery.js',
         './node_modules/lodash/lodash.js',
         './node_modules/moment/moment.js',
         './node_modules/angular-material/angular-material.js',
@@ -40,9 +60,8 @@
         './node_modules/material-design-lite/material.js',
         './node_modules/aos/dist/aos.js',
         './node_modules/bootstrap/dist/js/bootstrap.js',
-        './app/dist/libs/angular-vimeo.js',
-        './app/dist/libs/angular-datepicker.js',
-        './app/assets/js/components/app.module.js'
+        './node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js',
+        './node_modules/angular-sanitize/angular-sanitize.js'
       ]
   };
 
@@ -73,7 +92,7 @@
         }
       }))
       .pipe(sass().on('error', sass.logError))
-      .pipe(gulp.dest('build/stylesheets'));
+      .pipe(gulp.dest('app/assets/stylesheets'));
   });
 
 // Watch Files For Changes
@@ -102,7 +121,7 @@
 
 // Concatenate & Uglify
   gulp.task('concatenate', function () {
-    return gulp.src(paths.scripts)
+    return gulp.src(paths.minScripts)
       .pipe(plumber({
         errorHandler: function (err) {
           notify.onError({
@@ -112,18 +131,18 @@
         }
       }))
       .pipe(concat('all.js'))
-      .pipe(gulp.dest('build/js'))
+      // .pipe(gulp.dest('build/js'))
       .pipe(rename('all.min.js'))
       .pipe(babel({
           presets: ['es2015']
       }))
-      // .pipe(uglify())
-      .pipe(gulp.dest('build/js'));
+      .pipe(uglify())
+      .pipe(gulp.dest('app/assets/components'));
   });
 
 // Minify
   gulp.task('compress', function () {
-    gulp.src(paths.scripts, paths.libraries)
+    gulp.src(paths.scripts)
       .pipe(plumber({
         errorHandler: function (err) {
           notify.onError({
@@ -142,7 +161,7 @@
         exclude: ['tasks'],
         ignoreFiles: ['.combo.js', '-min.js']
       }))
-      .pipe(gulp.dest('build/js'))
+      .pipe(gulp.dest('app/dist/libs'))
   });
 
 // Nodemon Task
