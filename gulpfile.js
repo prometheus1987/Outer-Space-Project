@@ -22,7 +22,7 @@
       pipes = {};
 
   let paths = {
-    scripts: ['./app/assets/js/components/app.module.js',
+    scripts: ['./app/assets/js/components/module.js',
         './app/assets/js/components/*.js',
         './app/assets/js/components/maps/*.js',
       '!server.js',
@@ -31,7 +31,7 @@
     styles: ['./app/assets/stylesheets/custom.scss',
     ],
     index: './app/index.html',
-    partials: ['./app/views/*.html', '!index.html'],
+    partials: ['./app/views/*.html', '!/app/index.html'],
     dist: './public',
     libraries: [
       './node_modules/angular/angular.js',

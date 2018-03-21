@@ -18,10 +18,10 @@ app.use(function(req, res, next) {
 });
 
 app.use(morgan('dev'));
-app.use(express.static(__dirname + '/'));
+app.use(express.static(__dirname + '/app'));
 
 app.get('*', function(req, res) {
-  res.sendFile(path.join(__dirname + '/index.html'));
+  res.sendFile(path.join(__dirname + '/app/index.html'));
 });
 
 app.listen(8080);

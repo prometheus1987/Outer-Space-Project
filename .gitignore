@@ -1,3 +1,4 @@
+
 yarn-error.log
 .idea/
 node_modules/
@@ -5,7 +6,6 @@ public/
 .firebaserc
 firebase.json
 
-bourbon/
 
 app/assets/components/explore.controllers-compiled.js
 app/assets/components/explore.controllers-compiled.js.map.map
