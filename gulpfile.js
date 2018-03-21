@@ -18,36 +18,32 @@
       plumber = require('gulp-plumber'),
       notify = require('gulp-notify'),
       minify = require('gulp-minify'),
-      bourbon    = require("bourbon").includePaths,
       pipes = {};
 
   let paths = {
-    scripts: ['./app/assets/js/components/module.js',
-              './app/assets/js/components/*.js',
-              './app/assets/js/components/maps/*.js',
-              '!server.js',
-              '!gulpfile.js'
-    ],
-    styles: ['./app/assets/stylesheets/custom.scss',
-    ],
-    index: './app/index.html',
-    partials: ['./app/views/*.html', '!/app/index.html'],
-    dist: './public',
-    libraries: [
-      './node_modules/angular/angular.js',
-      './node_modules/angular-ui-router/release/angular-ui-router.js',
-      './node_modules/jquery/dist/jquery.js',
-      './node_modules/lodash/lodash.js',
-      './node_modules/moment/moment.js',
-      './node_modules/angular-material/angular-material.js',
-      './node_modules/angular-animate/angular-animate.js',
-      './node_modules/angular-aria/angular-aria.js',
-      './node_modules/material-design-lite/material.js',
-      './node_modules/aos/dist/aos.js',
-      './node_modules/bootstrap/dist/js/bootstrap.js',
-      './app/dist/libs/angular-vimeo.js',
-      './app/dist/libs/angular-datepicker.js'
-    ]
+      scripts: ['./app/assets/components/*.js'
+      ],
+      styles: ['./app/assets/stylesheets/custom.scss',
+      ],
+      index: './app/index.html',
+      partials: ['./app/views/*.html', '!/app/index.html'],
+      dist: './build',
+      libraries: [
+        './node_modules/angular/angular.js',
+        './node_modules/angular-ui-router/release/angular-ui-router.js',
+        './node_modules/jquery/dist/jquery.js',
+        './node_modules/lodash/lodash.js',
+        './node_modules/moment/moment.js',
+        './node_modules/angular-material/angular-material.js',
+        './node_modules/angular-animate/angular-animate.js',
+        './node_modules/angular-aria/angular-aria.js',
+        './node_modules/material-design-lite/material.js',
+        './node_modules/aos/dist/aos.js',
+        './node_modules/bootstrap/dist/js/bootstrap.js',
+        './app/dist/libs/angular-vimeo.js',
+        './app/dist/libs/angular-datepicker.js',
+        './app/assets/js/components/app.module.js'
+      ]
   };
 
 // Lint Task
@@ -77,7 +73,7 @@
         }
       }))
       .pipe(sass().on('error', sass.logError))
-      .pipe(gulp.dest('app/assets/stylesheets'));
+      .pipe(gulp.dest('build/stylesheets'));
   });
 
 // Watch Files For Changes
@@ -101,7 +97,7 @@
       .pipe(babel())
       .pipe(concat("all.js"))
       .pipe(sourcemaps.write("."))
-      .pipe(gulp.dest("public"));
+      .pipe(gulp.dest("build"));
   });
 
 // Concatenate & Uglify
@@ -118,13 +114,16 @@
       .pipe(concat('all.js'))
       .pipe(gulp.dest('build/js'))
       .pipe(rename('all.min.js'))
+      .pipe(babel({
+          presets: ['es2015']
+      }))
       // .pipe(uglify())
       .pipe(gulp.dest('build/js'));
   });
 
 // Minify
   gulp.task('compress', function () {
-    gulp.src(paths.scripts)
+    gulp.src(paths.scripts, paths.libraries)
       .pipe(plumber({
         errorHandler: function (err) {
           notify.onError({
@@ -132,6 +131,9 @@
             message: err.toString()
           })(err);
         }
+      }))
+      .pipe(babel({
+          presets: ['es2015']
       }))
       .pipe(minify({
         ext: {
