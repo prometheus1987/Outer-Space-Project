@@ -20,24 +20,34 @@
       pipes = {};
 
   let paths = {
-      minScripts: ['./app/dist/libs/jquery.min.js',
-                   './app/dist/libs/angular.min.js',
-                   './app/dist/libs/angular-ui-router.min.js',
-                   './app/dist/libs/lodash.min.js',
-                   './app/dist/libs/moment.min.js',
-                   './app/dist/libs/angular-material.min.js',
-                   './app/dist/libs/angular-animate.min.js',
-                   './app/dist/libs/angular-aria.min.js',
-                   './app/dist/libs/material.min.js',
-                   './app/dist/libs/aos.min.js',
-                   './app/dist/libs/bootstrap.min..js',
-                   './app/dist/libs/angular-vimeo.min.js',
-                   './app/dist/libs/angular-datepicker.min.js',
+      minScripts: ['./app/dist/libs/jquery.js',
+                   './app/dist/libs/moment.js',
+                   './app/dist/libs/angular.js',
+                   './app/dist/libs/angular-ui-router.js',
+                   './app/dist/libs/lodash.js',
+                   './app/dist/libs/angular-material.js',
+                   './app/dist/libs/angular-animate.js',
+                   './app/dist/libs/angular-aria.js',
+          './app/dist/libs/angular-sanitize.js',
+                   './app/dist/libs/material.js',
+                   './app/dist/libs/aos.js',
+                   './app/dist/libs/bootstrap.js',
+                   './app/dist/libs/angular-vimeo.js',
+                   './app/dist/libs/angular-datepicker.js',
+                    './app/dist/libs/ui-bootstrap-tpls.js',
 
-                   './app/assets/components/app.module.min.js',
-                   './app/assets/components/app.routes.min.js',
-                   './app/assets/components/*.min.js',
-                   './app/assets/components/maps/*.min.js',
+                   './app/assets/components/app.module.js',
+                   './app/assets/components/app.routes.js',
+                   './app/assets/components/apod.controller.js',
+                  './app/assets/components/apod.service.js',
+                  './app/assets/components/home.controller.js,',
+                  './app/assets/components/hubble.controller.js',
+                  './app/assets/components/images.controller.js',
+                  './app/assets/components/orbital.controller.js',
+                  './app/assets/components/orbital.service.js',
+                  './app/assets/components/rover.controller.js',
+                  './app/assets/components/rover.service.js',
+                   './app/assets/components/maps/*.js',
       ],
       scripts: ['./app/assets/components/app.module.js',
                 './app/assets/components/app.routes.js',
@@ -120,7 +130,7 @@
   });
 
 // Concatenate & Uglify
-  gulp.task('concatenate', function () {
+  gulp.task('concat', function () {
     return gulp.src(paths.minScripts)
       .pipe(plumber({
         errorHandler: function (err) {
@@ -131,18 +141,18 @@
         }
       }))
       .pipe(concat('all.js'))
-      // .pipe(gulp.dest('build/js'))
-      .pipe(rename('all.min.js'))
+      .pipe(gulp.dest('build/js'))
+      // .pipe(rename('all.min.js'))
       .pipe(babel({
           presets: ['es2015']
       }))
-      .pipe(uglify())
+      // .pipe(uglify())
       .pipe(gulp.dest('app/assets/components'));
   });
 
 // Minify
   gulp.task('compress', function () {
-    gulp.src(paths.scripts)
+    gulp.src(paths.libraries)
       .pipe(plumber({
         errorHandler: function (err) {
           notify.onError({
@@ -173,6 +183,6 @@
   });
 
 // Default Task
-  gulp.task('default', ['start', 'lint', 'sass', 'concatenate', 'watch', 'babel']);
+  gulp.task('default', ['start', 'lint', 'sass', 'concat', 'watch', 'babel']);
 
 })();
