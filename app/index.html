@@ -1,0 +1,73 @@
+<html>
+<head>
+    <title>Milky Way Project</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta charset="utf-8">
+</head>
+<base href="/app">
+<body ng-app="app">
+    <div class="banner">
+        <p>O</p>
+        <p>U</p>
+        <p>T</p>
+        <p>E</p>
+        <p>R</p>
+        <p>S</p>
+        <p>P</p>
+        <p>A</p>
+        <p>C</p>
+        <p>E</p>
+
+        <p>P</p>
+        <p>R</p>
+        <p>O</p>
+        <p>J</p>
+        <p>E</p>
+        <p>C</p>
+        <p>T</p>
+    </div>
+    <div class="mdl-grid">
+        <div class="mdl-cell mdl-cell--12-col menu">
+            <a ui-sref="home">Home</a>
+            <a ui-sref="apod">APOD</a>
+            <a ui-sref="rover({ rover: 'curiosity' })">Rovers</a>
+            <a ui-sref="orbital">Orbitals</a>
+            <a ui-sref="maps">Maps</a>
+            <a ui-sref="images">Images</a>
+        </div>
+    </div>
+    <div ui-view></div>
+</body>
+    <link rel="stylesheet" href="assets/stylesheets/material.css">
+    <link rel="stylesheet" href="assets/stylesheets/bootstrap.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/stylesheets/aos.css">
+    <link rel="stylesheet" href="assets/stylesheets/angular-datepicker.css">
+    <link href='https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.css' rel='stylesheet' />
+    <link rel="stylesheet" href="assets/stylesheets/custom.scss">
+
+    <script src="dist/libs/jquery.min.js"></script>
+    <script src="dist/libs/angular.min.js"></script>
+    <script src="dist/libs/angular-ui-router.min.js"></script>
+    <script src="dist/libs/angular-animate.min.js"></script>
+    <script src="dist/libs/angular-aria.min.js"></script>
+    <script src="dist/libs/lodash.min.js"></script>
+    <script src="dist/libs/material.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.js"></script>
+    <script src="dist/libs/angular-material.min.js"></script>
+    <script src="dist/libs/moment.min.js"></script>
+    <script src="dist/libs/aos.min.js"></script>
+    <script src="dist/libs/angular-datepicker.js"></script>
+    <script src='https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.js'></script>
+    <script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
+
+    <script src="assets/js/app.module.js"></script>
+    <script src="assets/js/app.routes.js"></script>
+    <script src="assets/js/apod.controller.js"></script>
+    <script src="assets/js/apod.service.js"></script>
+    <script src="assets/js/rover.controller.js"></script>
+    <script src="assets/js/orbital.controller.js"></script>
+    <script src="assets/js/orbital.service.js"></script>
+    <script src="assets/js/images.controller.js"></script>
+</html>

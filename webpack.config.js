@@ -1,7 +1,7 @@
 module.exports = {
-    entry: './app/assets/js/components/app.module',
+    entry: './app/assets/js/app.module',
     output: {
-        filename: './app/dist/bundle.js'
+        filename: 'bundle.js'
     },
     module: {
         rules: [
@@ -18,6 +18,7 @@ module.exports = {
     },
     devServer: {
         port: 3000, // configuring port for localserver
-        contentBase: './' // configuring from where content needs to be served
+        publicPath: "/",
+        contentBase: "./app",
     }
 };
