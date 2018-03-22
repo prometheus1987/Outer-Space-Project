@@ -524,15 +524,15 @@ function baseExtend(dst, objs, deep) {
  * @kind function
  *
  * @description
- * Extends the destination object `dst` by copying own enumerable properties from the `src` object(s)
- * to `dst`. You can specify multiple `src` objects. If you want to preserve original objects, you can do so
+ * Extends the destination object `dst` by copying own enumerable properties from the `app` object(s)
+ * to `dst`. You can specify multiple `app` objects. If you want to preserve original objects, you can do so
  * by passing an empty object as the target: `var object = angular.extend({}, object1, object2)`.
  *
  * **Note:** Keep in mind that `angular.extend` does not support recursive merge (deep copy). Use
  * {@link angular.merge} for this.
  *
  * @param {Object} dst Destination object.
- * @param {...Object} src Source object(s).
+ * @param {...Object} app Source object(s).
  * @returns {Object} Reference to `dst`.
  */
 function extend(dst) {
@@ -547,8 +547,8 @@ function extend(dst) {
 * @kind function
 *
 * @description
-* Deeply extends the destination object `dst` by copying own enumerable properties from the `src` object(s)
-* to `dst`. You can specify multiple `src` objects. If you want to preserve original objects, you can do so
+* Deeply extends the destination object `dst` by copying own enumerable properties from the `app` object(s)
+* to `dst`. You can specify multiple `app` objects. If you want to preserve original objects, you can do so
 * by passing an empty object as the target: `var object = angular.merge({}, object1, object2)`.
 *
 * Unlike {@link angular.extend extend()}, `merge()` recursively descends into object properties of source
@@ -569,7 +569,7 @@ function extend(dst) {
 * - AngularJS {@link $rootScope.Scope scopes};
 *
 * @param {Object} dst Destination object.
-* @param {...Object} src Source object(s).
+* @param {...Object} app Source object(s).
 * @returns {Object} Reference to `dst`.
 */
 function merge(dst) {
@@ -1313,7 +1313,7 @@ var csp = function() {
  * This example shows how to force jqLite using the `ngJq` directive to the `html` tag.
  ```html
  <!doctype html>
- <html ng-src ng-jq>
+ <html ng-app ng-jq>
  ...
  ...
  </html>
@@ -1323,7 +1323,7 @@ var csp = function() {
  * The library name must be available at the top most 'window'.
  ```html
  <!doctype html>
- <html ng-src ng-jq="jQueryLib">
+ <html ng-app ng-jq="jQueryLib">
  ...
  ...
  </html>
@@ -1876,10 +1876,10 @@ function angularInit(element, bootstrap) {
  * </div>
  *
  * <div class="alert alert-warning">
- * **Note:** Do not bootstrap the src on an element with a directive that uses {@link ng.$compile#transclusion transclusion},
+ * **Note:** Do not bootstrap the app on an element with a directive that uses {@link ng.$compile#transclusion transclusion},
  * such as {@link ng.ngIf `ngIf`}, {@link ng.ngInclude `ngInclude`} and {@link ngRoute.ngView `ngView`}.
- * Doing this misplaces the src {@link ng.$rootElement `$rootElement`} and the src's {@link auto.$injector injector},
- * causing animations to stop working and making the injector inaccessible from outside the src.
+ * Doing this misplaces the app {@link ng.$rootElement `$rootElement`} and the app's {@link auto.$injector injector},
+ * causing animations to stop working and making the injector inaccessible from outside the app.
  * </div>
  *
  * ```html
@@ -1890,9 +1890,9 @@ function angularInit(element, bootstrap) {
  *   {{greeting}}
  * </div>
  *
- * <script src="angular.js"></script>
+ * <script app="angular.js"></script>
  * <script>
- *   var src = angular.module('demo', [])
+ *   var app = angular.module('demo', [])
  *   .controller('WelcomeController', function($scope) {
  *       $scope.greeting = 'Welcome!';
  *   });
@@ -1913,7 +1913,7 @@ function angularInit(element, bootstrap) {
  * * `strictDi` - disable automatic function annotation for the application. This is meant to
  *   assist in finding bugs which break minified code. Defaults to `false`.
  *
- * @returns {auto.$injector} Returns the newly created injector for this src.
+ * @returns {auto.$injector} Returns the newly created injector for this app.
  */
 function bootstrap(element, modules, config) {
   if (!isObject(config)) config = {};
@@ -4170,7 +4170,7 @@ var $$MapProvider = [/** @this */function() {
  *   });
  * ```
  *
- * Sometimes you want to get access to the injector of a currently running Angular src
+ * Sometimes you want to get access to the injector of a currently running Angular app
  * from outside Angular. Perhaps, you want to inject and compile some markup after the
  * application has been bootstrapped. You can do this using the extra `injector()` added
  * to JQuery/jqLite elements. See {@link angular.element}.
@@ -5518,7 +5518,7 @@ var $$CoreAnimateQueueProvider = /** @this */ function() {
  *
  * In order to enable animations the `ngAnimate` module has to be loaded.
  *
- * To see the functional implementation check out `src/ngAnimate/animate.js`.
+ * To see the functional implementation check out `app/ngAnimate/animate.js`.
  */
 var $AnimateProvider = ['$provide', /** @this */ function($provide) {
   var provider = this;
@@ -7050,7 +7050,7 @@ function $CacheFactoryProvider() {
  *
  * **Note:** the `script` tag containing the template does not need to be included in the `head` of
  * the document, but it must be a descendent of the {@link ng.$rootElement $rootElement} (IE,
- * element with ng-src attribute), otherwise the template will be ignored.
+ * element with ng-app attribute), otherwise the template will be ignored.
  *
  * Adding via the `$templateCache` service:
  *
@@ -8058,7 +8058,7 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
       Suffix = 'Directive',
       COMMENT_DIRECTIVE_REGEXP = /^\s*directive:\s*([\w-]+)\s+(.*)$/,
       CLASS_DIRECTIVE_REGEXP = /(([\w-]+)(?::([^;]+))?;?)/,
-      ALL_OR_NOTHING_ATTRS = makeMap('ngSrc,ngSrcset,src,srcset'),
+      ALL_OR_NOTHING_ATTRS = makeMap('ngSrc,ngSrcset,app,srcset'),
       REQUIRE_PREFIX_REGEXP = /^(?:(\^\^?)?(\?)?(\^\^?)?)?/;
 
   // Ref: http://developers.whatwg.org/webappapis.html#event-handler-idl-attributes
@@ -8407,11 +8407,11 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
    *
    * @description
    * Retrieves or overrides the default regular expression that is used for whitelisting of safe
-   * urls during img[src] sanitization.
+   * urls during img[app] sanitization.
    *
    * The sanitization is a security measure aimed at prevent XSS attacks via html links.
    *
-   * Any url about to be assigned to img[src] via data-binding is first normalized and turned into
+   * Any url about to be assigned to img[app] via data-binding is first normalized and turned into
    * an absolute url. Afterwards, the url is matched against the `imgSrcSanitizationWhitelist`
    * regular expression. If a match is found, the original url is written into the dom. Otherwise,
    * the absolute url is prefixed with `'unsafe:'` string and only then is it written into the DOM.
@@ -8794,7 +8794,7 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
 
         if ((nodeName === 'a' && (key === 'href' || key === 'xlinkHref')) ||
             (nodeName === 'img' && key === 'src')) {
-          // sanitize a[href] and img[src] values
+          // sanitize a[href] and img[app] values
           this[key] = value = $$sanitizeUri(value, key === 'src');
         } else if (nodeName === 'img' && key === 'srcset' && isDefined(value)) {
           // sanitize img[srcset] values
@@ -10370,7 +10370,7 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
         return $sce.HTML;
       }
       var tag = nodeName_(node);
-      // All tags with src attributes require a RESOURCE_URL value, except for
+      // All tags with app attributes require a RESOURCE_URL value, except for
       // img and various html5 media tags.
       if (attrNormalizedName === 'src' || attrNormalizedName === 'ngSrc') {
         if (['img', 'video', 'audio', 'source', 'track'].indexOf(tag) === -1) {
@@ -13111,7 +13111,7 @@ function $InterpolateProvider() {
 
       // Concatenating expressions makes it hard to reason about whether some combination of
       // concatenated values are unsafe to use and could easily lead to XSS.  By requiring that a
-      // single expression be used for iframe[src], object[src], etc., we ensure that the value
+      // single expression be used for iframe[app], object[app], etc., we ensure that the value
       // that's used is assigned or constructed by some JS code somewhere that is more testable or
       // make it obvious that you bound the value to some user controlled value.  This helps reduce
       // the load when auditing for XSS issues.
@@ -14448,7 +14448,7 @@ function $LocationProvider() {
     $browser.onUrlChange(function(newUrl, newState) {
 
       if (!startsWith(newUrl, appBaseNoFile)) {
-        // If we are navigating outside of the src then force a reload
+        // If we are navigating outside of the app then force a reload
         $window.location.href = newUrl;
         return;
       }
@@ -18888,11 +18888,11 @@ function $$SanitizeUriProvider() {
   /**
    * @description
    * Retrieves or overrides the default regular expression that is used for whitelisting of safe
-   * urls during img[src] sanitization.
+   * urls during img[app] sanitization.
    *
    * The sanitization is a security measure aimed at prevent XSS attacks via html links.
    *
-   * Any url about to be assigned to img[src] via data-binding is first normalized and turned into
+   * Any url about to be assigned to img[app] via data-binding is first normalized and turned into
    * an absolute url. Afterwards, the url is matched against the `imgSrcSanitizationWhitelist`
    * regular expression. If a match is found, the original url is written into the dom. Otherwise,
    * the absolute url is prefixed with `'unsafe:'` string and only then is it written into the DOM.
@@ -18949,7 +18949,7 @@ var SCE_CONTEXTS = {
   URL: 'url',
 
   // RESOURCE_URL is a subtype of URL used where the referred-to resource could be interpreted as
-  // code. (e.g. ng-include, script src binding, templateUrl)
+  // code. (e.g. ng-include, script app binding, templateUrl)
   RESOURCE_URL: 'resourceUrl',
 
   // Script. Currently unused in AngularJS.
@@ -19063,7 +19063,7 @@ function adjustMatchers(matchers) {
  *
  * **Example**:  Consider the following case. <a name="example"></a>
  *
- * - your src is hosted at url `http://myapp.example.com/`
+ * - your app is hosted at url `http://myapp.example.com/`
  * - but some of your templates are hosted on other domains you control such as
  *   `http://srv01.assets.example.com/`, `http://srv02.assets.example.com/`, etc.
  * - and you have an open redirect at `http://myapp.example.com/clickThru?...`.
@@ -19121,7 +19121,7 @@ function $SceDelegateProvider() {
    * same origin resource requests.
    *
    * <div class="alert alert-warning">
-   * **Note:** the default whitelist of 'self' is not recommended if your src shares its origin
+   * **Note:** the default whitelist of 'self' is not recommended if your app shares its origin
    * with other apps! It is a good idea to limit it to only your application's directory.
    * </div>
    */
@@ -19803,7 +19803,7 @@ function $SceProvider() {
      * Delegates to {@link ng.$sceDelegate#trustAs `$sceDelegate.trustAs`}. As such, returns a
      * wrapped object that represents your value, and the trust you have in its safety for the given
      * context. AngularJS can then use that value as-is in bindings of the specified secure context.
-     * This is used in bindings for `ng-bind-html`, `ng-include`, and most `src` attribute
+     * This is used in bindings for `ng-bind-html`, `ng-include`, and most `app` attribute
      * interpolations. See {@link ng.$sce $sce} for strict contextual escaping.
      *
      * @param {string} type The context in which this value is safe for use, e.g. `$sce.URL`,
@@ -19865,7 +19865,7 @@ function $SceProvider() {
      *
      * @param {*} value The value to mark as trusted for `$sce.RESOURCE_URL` context.
      * @return {*} A wrapped version of value that can be used as a trusted variant of your `value`
-     *     in `$sce.RESOURCE_URL` context (template URLs in `ng-include`, most `src` attribute
+     *     in `$sce.RESOURCE_URL` context (template URLs in `ng-include`, most `app` attribute
      *     bindings, ...)
      */
 
@@ -20090,7 +20090,7 @@ function $SnifferProvider() {
   this.$get = ['$window', '$document', function($window, $document) {
     var eventSupport = {},
         // Chrome Packaged Apps are not allowed to access `history.pushState`.
-        // If not sandboxed, they can be detected by the presence of `chrome.src.runtime`
+        // If not sandboxed, they can be detected by the presence of `chrome.app.runtime`
         // (see https://developer.chrome.com/apps/api_index). If sandboxed, they can be detected by
         // the presence of an extension runtime ID and the absence of other Chrome runtime APIs
         // (see https://developer.chrome.com/apps/manifest/sandbox).
@@ -22836,19 +22836,19 @@ var htmlAnchorDirective = valueFn({
  * @priority 99
  *
  * @description
- * Using Angular markup like `{{hash}}` in a `src` attribute doesn't
+ * Using Angular markup like `{{hash}}` in a `app` attribute doesn't
  * work right: The browser will fetch from the URL with the literal
  * text `{{hash}}` until Angular replaces the expression inside
  * `{{hash}}`. The `ngSrc` directive solves this problem.
  *
  * The buggy way to write it:
  * ```html
- * <img src="http://www.gravatar.com/avatar/{{hash}}" alt="Description"/>
+ * <img app="http://www.gravatar.com/avatar/{{hash}}" alt="Description"/>
  * ```
  *
  * The correct way to write it:
  * ```html
- * <img ng-src="http://www.gravatar.com/avatar/{{hash}}" alt="Description" />
+ * <img ng-app="http://www.gravatar.com/avatar/{{hash}}" alt="Description" />
  * ```
  *
  * @element IMG
@@ -23135,7 +23135,7 @@ forEach(ALIASED_ATTR, function(htmlAttr, ngAttr) {
   };
 });
 
-// ng-src, ng-srcset, ng-href are interpolated
+// ng-app, ng-srcset, ng-href are interpolated
 forEach(['src', 'srcset', 'href'], function(attrName) {
   var normalized = directiveNormalize('ng-' + attrName);
   ngAttributeAliasDirectives[normalized] = function() {
@@ -23163,8 +23163,8 @@ forEach(['src', 'srcset', 'href'], function(attrName) {
           attr.$set(name, value);
 
           // Support: IE 9-11 only
-          // On IE, if "ng:src" directive declaration is used and "src" attribute doesn't exist
-          // then calling element.setAttribute('src', 'foo') doesn't do anything, so we need
+          // On IE, if "ng:app" directive declaration is used and "app" attribute doesn't exist
+          // then calling element.setAttribute('app', 'foo') doesn't do anything, so we need
           // to set the property as well to achieve the desired effect.
           // We use attr[attrName] value since $set can sanitize the url.
           if (msie && propName) element.prop(propName, attr[name]);
@@ -27274,7 +27274,7 @@ var ngControllerDirective = [function() {
   */
 
 // `ngCsp` is not implemented as a proper directive any more, because we need it be processed while
-// we bootstrap the src (before `$parse` is instantiated). For this reason, we just have the `csp()`
+// we bootstrap the app (before `$parse` is instantiated). For this reason, we just have the `csp()`
 // fn that looks for the `ng-csp` attribute anywhere in the current doc.
 
 /**
@@ -29955,7 +29955,7 @@ var ngModelOptionsDirective = function() {
 };
 
 
-// shallow copy over values from `src` that are not already specified on `dst`
+// shallow copy over values from `app` that are not already specified on `dst`
 function defaults(dst, src) {
   forEach(src, function(value, key) {
     if (!isDefined(dst[key])) {

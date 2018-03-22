@@ -281,21 +281,21 @@ angular.module('ui.router.state', ['ui.router.router', 'ui.router.util']);
  * 
  * ## The main module for ui.router 
  * There are several sub-modules included with the ui.router module, however only this module is needed
- * as a dependency within your angular src. The other modules are for organization purposes.
+ * as a dependency within your angular app. The other modules are for organization purposes.
  *
  * The modules are:
  * * ui.router - the main "umbrella" module
  * * ui.router.router - 
  * 
- * *You'll need to include **only** this module as the dependency within your angular src.*
+ * *You'll need to include **only** this module as the dependency within your angular app.*
  * 
  * <pre>
  * <!doctype html>
- * <html ng-src="myApp">
+ * <html ng-app="myApp">
  * <head>
- *   <script src="js/angular.js"></script>
+ *   <script app="js/angular.js"></script>
  *   <!-- Include the ui-router script -->
- *   <script src="js/angular-ui-router.min.js"></script>
+ *   <script app="js/angular-ui-router.min.js"></script>
  *   <script>
  *     // ...and add 'ui.router' as a dependency
  *     var myApp = angular.module('myApp', ['ui.router']);
@@ -1800,9 +1800,9 @@ function $UrlRouterProvider(   $locationProvider,   $urlMatcherFactory) {
    *
    * @example
    * <pre>
-   * var src = angular.module('src', ['ui.router.router']);
+   * var app = angular.module('app', ['ui.router.router']);
    *
-   * src.config(function ($urlRouterProvider) {
+   * app.config(function ($urlRouterProvider) {
    *   // Here's an example of how you might allow case insensitive urls
    *   $urlRouterProvider.rule(function ($injector, $location) {
    *     var path = $location.path(),
@@ -1836,9 +1836,9 @@ function $UrlRouterProvider(   $locationProvider,   $urlMatcherFactory) {
    *
    * @example
    * <pre>
-   * var src = angular.module('src', ['ui.router.router']);
+   * var app = angular.module('app', ['ui.router.router']);
    *
-   * src.config(function ($urlRouterProvider) {
+   * app.config(function ($urlRouterProvider) {
    *   // if the path doesn't match any of the urls you configured
    *   // otherwise will take care of routing the user to the
    *   // specified url
@@ -1898,9 +1898,9 @@ function $UrlRouterProvider(   $locationProvider,   $urlMatcherFactory) {
    *
    * @example
    * <pre>
-   * var src = angular.module('src', ['ui.router.router']);
+   * var app = angular.module('app', ['ui.router.router']);
    *
-   * src.config(function ($urlRouterProvider) {
+   * app.config(function ($urlRouterProvider) {
    *   $urlRouterProvider.when($state.url, function ($match, $stateParams) {
    *     if ($state.$current.navigable !== state ||
    *         !equalForKeys($match, $stateParams) {
@@ -1971,9 +1971,9 @@ function $UrlRouterProvider(   $locationProvider,   $urlMatcherFactory) {
    *
    * @example
    * <pre>
-   * var src = angular.module('src', ['ui.router.router']);
+   * var app = angular.module('app', ['ui.router.router']);
    *
-   * src.config(function ($urlRouterProvider) {
+   * app.config(function ($urlRouterProvider) {
    *
    *   // Prevent $urlRouter from automatically intercepting URL changes;
    *   // this allows you to configure custom behavior in between
@@ -3001,9 +3001,9 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
      *
      * @example
      * <pre>
-     * var src angular.module('src', ['ui.router']);
+     * var app angular.module('app', ['ui.router']);
      *
-     * src.controller('ctrl', function ($scope, $state) {
+     * app.controller('ctrl', function ($scope, $state) {
      *   $scope.reload = function(){
      *     $state.reload();
      *   }
@@ -3020,11 +3020,11 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
      * @param {string=|object=} state - A state name or a state object, which is the root of the resolves to be re-resolved.
      * @example
      * <pre>
-     * //assuming src application consists of 3 states: 'contacts', 'contacts.detail', 'contacts.detail.item'
+     * //assuming app application consists of 3 states: 'contacts', 'contacts.detail', 'contacts.detail.item'
      * //and current state is 'contacts.detail.item'
-     * var src angular.module('src', ['ui.router']);
+     * var app angular.module('app', ['ui.router']);
      *
-     * src.controller('ctrl', function ($scope, $state) {
+     * app.controller('ctrl', function ($scope, $state) {
      *   $scope.reload = function(){
      *     //will reload 'contact.detail' and 'contact.detail.item' states
      *     $state.reload('contact.detail');
@@ -3061,15 +3061,15 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
      *
      * @example
      * <pre>
-     * var src = angular.module('src', ['ui.router']);
+     * var app = angular.module('app', ['ui.router']);
      *
-     * src.controller('ctrl', function ($scope, $state) {
+     * app.controller('ctrl', function ($scope, $state) {
      *   $scope.changeState = function () {
      *     $state.go('contact.detail');
      *   };
      * });
      * </pre>
-     * <img src='../ngdoc_assets/StateGoExamples.png'/>
+     * <img app='../ngdoc_assets/StateGoExamples.png'/>
      *
      * @param {string} to Absolute state name or relative state path. Some examples:
      *
@@ -3129,9 +3129,9 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
      *
      * @example
      * <pre>
-     * var src = angular.module('src', ['ui.router']);
+     * var app = angular.module('app', ['ui.router']);
      *
-     * src.controller('ctrl', function ($scope, $state) {
+     * app.controller('ctrl', function ($scope, $state) {
      *   $scope.changeState = function () {
      *     $state.transitionTo('contact.detail');
      *   };
@@ -4392,18 +4392,18 @@ function $StateRefDynamicDirective($state, $timeout) {
  * <pre>
  * <ul>
  *   <li ui-sref-active="active" class="item">
- *     <a href ui-sref="src.user({user: 'bilbobaggins'})">@bilbobaggins</a>
+ *     <a href ui-sref="app.user({user: 'bilbobaggins'})">@bilbobaggins</a>
  *   </li>
  * </ul>
  * </pre>
  *
  *
- * When the src state is "src.user" (or any children states), and contains the state parameter "user" with value "bilbobaggins",
+ * When the app state is "app.user" (or any children states), and contains the state parameter "user" with value "bilbobaggins",
  * the resulting HTML will appear as (note the 'active' class):
  * <pre>
  * <ul>
  *   <li ui-sref-active="active" class="item active">
- *     <a ui-sref="src.user({user: 'bilbobaggins'})" href="/users/bilbobaggins">@bilbobaggins</a>
+ *     <a ui-sref="app.user({user: 'bilbobaggins'})" href="/users/bilbobaggins">@bilbobaggins</a>
  *   </li>
  * </ul>
  * </pre>
@@ -4415,7 +4415,7 @@ function $StateRefDynamicDirective($state, $timeout) {
  * <pre>
  * <ul>
  *   <li ui-sref-active='class1 class2 class3'>
- *     <a ui-sref="src.user">link</a>
+ *     <a ui-sref="app.user">link</a>
  *   </li>
  * </ul>
  * </pre>

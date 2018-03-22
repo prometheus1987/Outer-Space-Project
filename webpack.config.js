@@ -1,7 +1,7 @@
 module.exports = {
-    entry: './src/assets/js/components/app.module',
+    entry: './app/assets/js/components/app.module',
     output: {
-        filename: './src/dist/bundle.js'
+        filename: './app/dist/bundle.js'
     },
     module: {
         rules: [
@@ -9,6 +9,10 @@ module.exports = {
                 test: /\.js$/, // which file needs to be read
                 exclude: /node_modules/, // which folder needs not to be read
                 loader: ['babel-loader'] // which transplier/compiler/plugin to compile files
+            },
+            {
+                test: /\.(png|svg|jpg|gif)$/,
+                use: ['file-loader']
             }
         ]
     },
