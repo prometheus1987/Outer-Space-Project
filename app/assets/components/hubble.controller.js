@@ -13,42 +13,34 @@
         vm.noImages = false;
         vm.loading = false;
 
-        vm.name = null;
-        vm.description = null;
-        vm.imageURL = null;
+       vm.retrieveId = () => {
+            $.ajax
+            ({
+                type: "GET",
+                url: url,
+                dataType: 'jsonp',
+                success: function (res) {
+                    vm.data = res;
+                    console.log(vm.data);
+                    vm.getPhotos();
+                }
+            });
+        }
 
-       // function retrieveID() {
-       //      $.ajax
-       //      ({
-       //          type: "GET",
-       //          url: url,
-       //          dataType: 'jsonp',
-       //          success: function (results) {
-       //              vm.id = mapID(results);
-       //              function mapID(results) {
-       //                  return _.map(results, function (id) {
-       //                      return {
-       //                          id: id.id
-       //                      }
-       //                  });
-       //              }
-       //          }
-       //      });
-       //  }
-
-        vm.id = 4112;
-        $.ajax
-        ({
-            type: "GET",
-            url: "http://webbtelescope.org/api/v3/image/" + vm.id,
-            dataType: 'jsonp',
-            success: function (results) {
-                vm.name = results.name;
-                vm.description = results.description;
-                vm.imageURL = results.image_files[0].file_url;
-                debugger;
-            }
-        });
+        vm.getPhotos = () => {
+        
+            vm.photoId = vm.data.find(photoId => data.id === id);
+            $.ajax
+            ({
+                type: "GET",
+                url: "http://webbtelescope.org/api/v3/image/" + id,
+                dataType: 'jsonp',
+                success: function (res) {
+                    let results = res;
+                    vm.photos = results;
+                    debugger;
+                }
+            });
+        }
     }
-
 })();
