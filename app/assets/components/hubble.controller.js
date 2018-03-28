@@ -22,7 +22,7 @@
                 success: function (res) {
                     vm.data = res;
                     console.log(vm.data);
-                    vm.getPhotos();
+                
                 }
             });
         }
