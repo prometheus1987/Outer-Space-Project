@@ -8,7 +8,6 @@
             function orbitalController(orbitalService) {
 
                 let vm = this;
-                vm.orbital = {};
 
                 orbitalService.retrieveOrbitalData().then(successfulResponse);
 
