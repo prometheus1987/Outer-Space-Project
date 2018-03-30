@@ -18,7 +18,6 @@
       plumber = require('gulp-plumber'),
       notify = require('gulp-notify'),
       minify = require('gulp-minify'),
-      bourbon    = require("bourbon").includePaths,
       pipes = {};
 
   let paths = {
