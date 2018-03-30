@@ -10,10 +10,7 @@
 
         const url = "http://webbtelescope.org/api/v3/images/all?page=1";
 
-        vm.noImages = false;
-        vm.loading = false;
-
-       vm.retrieveId = () => {
+        vm.retrieveId = () => {
             $.ajax
             ({
                 type: "GET",
@@ -22,23 +19,22 @@
                 success: function (res) {
                     vm.data = res;
                     console.log(vm.data);
-                
                 }
             });
         }
 
-        vm.getPhotos = () => {
-        
-            vm.photoId = vm.data.find(photoId => data.id === id);
+        vm.getPhotos = (id) => {
+            
+            vm.photoId = vm.data.find(photoId => photoId.id === id);
+            debugger;
             $.ajax
             ({
                 type: "GET",
-                url: "http://webbtelescope.org/api/v3/image/" + id,
+                url: "http://webbtelescope.org/api/v3/image/" + vm.photoId,
                 dataType: 'jsonp',
                 success: function (res) {
                     let results = res;
                     vm.photos = results;
-                    debugger;
                 }
             });
         }

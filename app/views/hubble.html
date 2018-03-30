@@ -1,10 +1,12 @@
 <div class="mdl-grid" ng-init="hubble.retrieveId()">
     <div class="mdl-cell mdl-cell--12-col">
         <div class="card" style="width: 50%;margin: auto;">
-            <div class="card image text-center" ng-repeat="item in hubble.photos" >
+            <h1 ng-click="hubble.getPhotos()">Hubble Images</h1>
+            <div class="card image text-center" ng-repeat="item in hubble.data" >
                 <h1>{{ item.name }}</h1>
                 <img style="width: 100%;padding-top: 10px;" ng-src="{{ item.imageURL }}"/>
                 <p>{{ item.description }}</p>
+
             </div>
         </div>
     </div>
