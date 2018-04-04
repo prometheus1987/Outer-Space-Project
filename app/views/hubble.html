@@ -1,12 +1,19 @@
 <div class="mdl-grid" ng-init="hubble.retrieveId()">
     <div class="mdl-cell mdl-cell--12-col">
-        <div class="card" style="width: 50%;margin: auto;">
-            <h1 ng-click="hubble.getPhotos()">Hubble Images</h1>
-            <div class="card image text-center" ng-repeat="item in hubble.data" >
-                <h1>{{ item.name }}</h1>
-                <img style="width: 100%;padding-top: 10px;" ng-src="{{ item.imageURL }}"/>
-                <p>{{ item.description }}</p>
-
+        <div class="card" style="width: 100%;margin: auto;">
+            <h1 ng-click="hubble.queryPhotos()">Hubble Images</h1>
+            <div class="btn-group" uib-dropdown keyboard-nav style="margin-left: 50%; margin-bottom: 25%;">
+                <button id="simple-btn-keyboard-nav" type="button" class="btn btn-primary" uib-dropdown-toggle>
+                    Select an Image<span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="simple-btn-keyboard-nav" style="width:800px;">
+                    <li role="menuitem" ng-repeat="item in hubble.items" ng-click="hubble.queryPhotos(item.id)">{{item.name}}</li>
+                </ul>
+            </div>
+            <div class="card image text-center">
+                <h1>{{ images.name }}</h1>
+                <img style="width: 100%;padding-top: 10px;" ng-src="{{ images.imageURL }}"/>
+                <p>{{ images.description }}</p>
             </div>
         </div>
     </div>
