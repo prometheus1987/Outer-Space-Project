@@ -16,7 +16,6 @@
                 dataType: 'jsonp',
                 success: function (res) {
                     vm.items = mapID(res);
-                    console.log(vm.data);
                 }
             });
         };
@@ -30,9 +29,9 @@
                 dataType: 'jsonp',
                 success: function (res) {
                     debugger;
-                    let images = res;
-                    console.log(images);
-                    return images;
+                    vm.images = res;
+                    vm.imageUrl = vm.images.image_files[0].file_url;
+                    console.log(vm.images);
                 }
             });
         };
