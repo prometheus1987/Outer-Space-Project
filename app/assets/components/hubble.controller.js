@@ -28,7 +28,6 @@
                 url: "http://webbtelescope.org/api/v3/image/" + id,
                 dataType: 'jsonp',
                 success: function (res) {
-                    debugger;
                     vm.images = res;
                     vm.imageUrl = vm.images.image_files[0].file_url;
                     console.log(vm.images);
