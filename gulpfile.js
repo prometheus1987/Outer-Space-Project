@@ -21,13 +21,11 @@
       pipes = {};
 
   let paths = {
-    scripts: ['./app/assets/js/components/module.js',
-        './app/assets/js/components/*.js',
-        './app/assets/js/components/maps/*.js',
-      '!server.js',
-      '!gulpfile.js'
+    scripts: ['./app/components/module.js',
+              './app/components/*.js',
+              './app/components/maps/*.js',
     ],
-    styles: ['./app/assets/stylesheets/custom.scss',
+    styles: ['./app/assets/stylesheets/styles.scss',
     ],
     index: './app/index.html',
     partials: ['./app/views/*.html', '!/app/index.html'],
@@ -35,15 +33,15 @@
     libraries: [
       './node_modules/angular/angular.js',
       './node_modules/angular-ui-router/release/angular-ui-router.js',
-      './node_modules/jquery/dist/jquery.js',
+      './node_modules/jquery/js/jquery.js',
       './node_modules/lodash/lodash.js',
       './node_modules/moment/moment.js',
       './node_modules/angular-material/angular-material.js',
       './node_modules/angular-animate/angular-animate.js',
       './node_modules/angular-aria/angular-aria.js',
       './node_modules/material-design-lite/material.js',
-      './node_modules/aos/dist/aos.js',
-      './node_modules/bootstrap/dist/js/bootstrap.js'
+      './node_modules/aos/js/aos.js',
+      './node_modules/bootstrap/js/js/bootstrap.js'
     ]
   };
 
@@ -72,9 +70,6 @@
             message: err.toString(),
           })(err);
         }
-      }))
-      .pipe(sass({
-          includePaths: [bourbon]
       }))
       .pipe(gulp.dest('app/assets/stylesheets'));
   });
@@ -139,7 +134,7 @@
         exclude: ['tasks'],
         ignoreFiles: ['.combo.js', '-min.js']
       }))
-      .pipe(gulp.dest('app/dist/libs'))
+      .pipe(gulp.dest('app/js/libs'))
   });
 
 // Nodemon Task

@@ -29,7 +29,7 @@
                 dataType: 'jsonp',
                 success: function (res) {
                     vm.images = res;
-                    vm.imageUrl = vm.images.image_files[0].file_url;
+                    vm.imageUrl = vm.images.image_files[1].file_url;
                     console.log(vm.images);
                 }
             });
