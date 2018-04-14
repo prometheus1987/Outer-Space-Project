@@ -6,24 +6,29 @@
 
     function roverService($http, $stateParams) {
 
-        function retrieveRoverData(query) {
+        function queryCameras() {
+            return $http.get(__dirname + "/cameras.json");
+        }
+
+        function queryRoverData(date, camera) {
 
             let vm = this;
             vm.name = $stateParams.rover;
-            vm.retrieveRoverData = retrieveRoverData;
+            vm.queryRoverData = queryRoverData;
 
-            let queryParams = "/photos?earth_date=";
+            let query = "/photos?earth_date=" + date;
 
             vm.loading = true;
 
             const key = "api_key=NeHYhGtJMXT1kJ9jSP8bnRF2t1IpYShALfGkSKoz";
             const url = "https://api.nasa.gov/mars-photos/api/v1/rovers/";
 
-            return $http.get(url + vm.name +  queryParams + query + "&" + key);
+            return $http.get(url + vm.name +  query + "&" + key);
         }
 
         return {
-            retrieveRoverData: retrieveRoverData
+            queryCameras: queryCameras,
+            queryRoverData: queryRoverData
         };
 
     }

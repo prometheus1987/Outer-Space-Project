@@ -19,23 +19,26 @@
                         <input ng-model="rover.date" placeholder="{{rover.date}}" type="text"/>
                         <button id="searchButton" type="submit" ng-click="rover.click(rover.date)">Retrieve Data</button>
                     </datepicker>
+                    <div class="btn-group" uib-dropdown keyboard-nav>
+                        <button id="simple-btn-keyboard-nav" type="button" class="btn btn-primary" uib-dropdown-toggle ng-click="rover.loadCameras()">
+                            Select an Camera<span class="caret"></span>
+                        </button>
+                    </div>
                     <h2 ng-show="rover.loading">Loading...</h2>
                     <h3 ng-show="rover.noImages">Images Currently Unavailable.</h3>
-                </div>
-
-                <table ng-show="rover.isRendered" class="mdl-data-table mdl-shadow--2dp" style="width:100%;">
-                    <thead>
-                    <tr>
-                        <th class="mdl-data-table__cell--non-numeric"><em>Rover Name:</em></th>
-                        <th><em>Status</em></th>
-                        <th><em>Launch Date</em></th>
-                        <th><em>Landing Date</em></th>
-                        <th><em>Martian Sol</em></th>
-                        <th><em>Earth Date</em></th>
-                        <th><em>Total Photos</em></th>
-                    </tr>
-                    </thead>
-                    <tbody>
+                    <table class="mdl-data-table mdl-shadow--2dp" style="width:100%;">
+                        <thead>
+                        <tr>
+                            <th class="mdl-data-table__cell--non-numeric"><em>Rover Name:</em></th>
+                            <th><em>Status</em></th>
+                            <th><em>Launch Date</em></th>
+                            <th><em>Landing Date</em></th>
+                            <th><em>Martian Sol</em></th>
+                            <th><em>Earth Date</em></th>
+                            <th><em>Total Photos</em></th>
+                        </tr>
+                        </thead>
+                        <tbody>
                         <tr>
                             <td class="mdl-data-table__cell--non-numeric">{{rover.roverName.toUpperCase()}}</td>
                             <td><em>{{rover.status}}</em></td>
@@ -45,8 +48,9 @@
                             <td><em>{{rover.earthDate}}</em></td>
                             <td><em>{{rover.totalPhotos}}</em></td>
                         </tr>
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>

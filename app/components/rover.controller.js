@@ -11,9 +11,11 @@
 
             vm.rover = {};
             vm.click = clickHandler;
+            vm.loadCameras = populateCameraList;
             vm.date = getDate(moment().subtract(1, "day"));
             vm.noImages = false;
             vm.loading = false;
+
 
             function getDate(dateString) {
                 let date = moment();
@@ -25,14 +27,24 @@
                 return date;
             }
 
+            function populateCameraList() {
+                roverService.queryCameras().then(cameraResponse, errorHandler);
+            }
+
+            function cameraResponse(result) {
+                debugger;
+            }
+
+
+
             function clickHandler() {
                 vm.loading = true;
-                let query = getDate(vm.date);
-                roverService.retrieveRoverData(query).then(successfulResponse, errorHandler);
+                roverService.queryRoverData(vm.date, vm.camera).then(successfulResponse, errorHandler);
             }
 
             function successfulResponse(result) {
                 vm.loading = false;
+                vm.noImages = false;
 
                 let response = result.data.photos;
                 vm.data = mapRoverPhotos(response);
@@ -60,6 +72,5 @@
                     }
                 });
             }
-
         }
     })();
